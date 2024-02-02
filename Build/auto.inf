@@ -2728,6 +2728,7 @@ Constant line_ref_U168 = 561;
 Constant line_ref_U169 = 561;
 Constant line_ref_U170 = 561;
 Constant line_ref_U171 = 561;
+Constant line_ref_U172 = 561;
 Constant KIT_CONFIGURATION_BITMAP = 256;
 Constant KIT_CONFIGURATION_LOOKMODE = 2;
 Constant MAX_FRAME_SIZE_NEEDED = 6;
@@ -57901,6 +57902,17 @@ Global max_z_object;
                 (say__p = 1);
                 ParaContent();
                 Banner();
+                ParaContent();
+                print " ";
+                ParaContent();
+                DivideParagraphPoint();
+                print "^";
+                (say__p = 1);
+                ParaContent();
+                print "Explain cd and entering rooms problem";
+                ParaContent();
+                DivideParagraphPoint();
+                print "^";
                 MoveObject(player, real_location, 0, 0);
                 RulebookFails();
                 rtrue;
@@ -81453,6 +81465,8 @@ Verb 'notify'
 	* 'off' -> NotifyOff;
 Verb 'cd' 
 	* noun -> Enter;
+Verb 'git' 
+	* 'branch' noun -> Enter;
 Verb meta 'glklist' 
 	* -> GlkList;
 Verb meta 'abstract' 

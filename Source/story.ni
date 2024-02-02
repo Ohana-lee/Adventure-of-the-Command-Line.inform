@@ -6,6 +6,7 @@ The player's name is a text that varies.
 [GIT CMD SETUP]
 [cd, moving through rooms/directories]
 Understand "cd [something]" as entering.
+Understand "git branch [something]" as entering.
 
 [git config, get player's name]
 When play begins:
@@ -23,7 +24,8 @@ After reading a command when collecting names:
 			now the player's name is word number 4 in the player's command;
 			now the command prompt is ">";
 			say "Hi, [player's name], welcome! Let's begin. [paragraph break]";
-			say "[banner text]";
+			say "[banner text] [paragraph break]";
+			say "Explain cd and entering rooms problem[paragraph break]";
 			move the player to the location;
 			reject the player's command;
 	say "[paragraph break]That's not the format I want. Now TRY AGAIN!! ಠ_ಠ";

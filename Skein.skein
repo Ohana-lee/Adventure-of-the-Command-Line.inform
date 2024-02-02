@@ -195,7 +195,7 @@
   </item>
   <item nodeId="node-258">
     <command xml:space="preserve">git config --global Ohana</command>
-    <result xml:space="preserve">Hi, Ohana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;Ohana's Bedroom&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Hi, Ohana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -215,8 +215,24 @@
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
+      <child nodeId="node-296"/>
       <child nodeId="node-290"/>
     </children>
+  </item>
+  <item nodeId="node-296">
+    <command xml:space="preserve">cd Office</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-297"/>
+    </children>
+  </item>
+  <item nodeId="node-297">
+    <command xml:space="preserve">cd Bedroom</command>
+    <result xml:space="preserve">(first opening the bedroom door)&#x000A;&#x000A;Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
   </item>
   <item nodeId="node-290">
     <command xml:space="preserve">cd bedroom</command>
