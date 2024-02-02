@@ -3,8 +3,16 @@
 [GLOBAL VARIABLES AREA]
 The player's name is a text that varies.
 
+Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
+
 [GIT CMD SETUP]
-[cd, moving through rooms/directories]
+[ls, listing out all possible rooms to access from current room]
+After reading a command:
+	if player's command matches "ls":
+		say "ls command received.";
+		say "You can go [list of viable directions] from here.".
+
+[cd & git branch, moving through rooms/directories]
 Understand "cd [something]" as entering.
 Understand "git branch [something]" as entering.
 
@@ -12,10 +20,10 @@ Understand "git branch [something]" as entering.
 When play begins:
 	say "Some pretext about the story...";
 	say "[paragraph break]Explanation of git config... Please only use ONE word for your name (No spaces in between!)";
-	now the command prompt is "Now use the format 'git config --global NAME' to tell me your name. >[paragraph break]> ".
+	now the command prompt is "Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ".
 
 To decide whether collecting names:
-	if the command prompt is "Now use the format 'git config --global NAME' to tell me your name. >[paragraph break]> ", yes;
+	if the command prompt is "Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ", yes;
 	no.
 
 After reading a command when collecting names:
@@ -25,7 +33,7 @@ After reading a command when collecting names:
 			now the command prompt is ">";
 			say "Hi, [player's name], welcome! Let's begin. [paragraph break]";
 			say "[banner text] [paragraph break]";
-			say "Explain cd and entering rooms problem[paragraph break]";
+			say "Explain entering rooms problem[paragraph break]";
 			move the player to the location;
 			reject the player's command;
 	say "[paragraph break]That's not the format I want. Now TRY AGAIN!! ಠ_ಠ";
@@ -39,13 +47,11 @@ Rule for printing the banner text when collecting names: do nothing.
 
 Rule for constructing the status line when collecting names: do nothing.
 
-Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s Bedroom".
+Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s Bedroom". The description is "You are now in your bedroom. *inserts description about the bedroom*".
 
-Your Office is a room. The printed name of Your Office is "[player's name]'s Office". Your Office is west of your Bedroom.
+Your Office is a room. The printed name of Your Office is "[player's name]'s Office". Your Office is west of your Bedroom. The description is "You are now in your office. *inserts description about your office*".
 
 The bedroom door is east of your Bedroom and west of your Office. It is a door and openable.
-
-The player carries a letter. The description of the letter is "Dear [player's name], [paragraph break]You have won the Norwegian Daily Lottery! ...".
 
 
 [testing??]

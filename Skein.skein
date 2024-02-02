@@ -3,17 +3,19 @@
   <generator>Windows Inform 10.1.2</generator>
   <item nodeId="node-245">
     <command xml:space="preserve">Adventure-of-the-Command-Line</command>
-    <result xml:space="preserve">Some pretext about the story...&#x000A;&#x000A;&#x000A;Explanation of git config... Please only use ONE word for your name (No spaces in between!)&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Some pretext about the story...&#x000A;&#x000A;&#x000A;Explanation of git config... Please only use ONE word for your name (No spaces in between!)&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
       <child nodeId="node-262"/>
+      <child nodeId="node-309"/>
       <child nodeId="node-255"/>
       <child nodeId="node-250"/>
       <child nodeId="node-265"/>
       <child nodeId="node-260"/>
       <child nodeId="node-273"/>
       <child nodeId="node-283"/>
+      <child nodeId="node-310"/>
       <child nodeId="node-258"/>
       <child nodeId="node-279"/>
       <child nodeId="node-278"/>
@@ -21,9 +23,11 @@
       <child nodeId="node-282"/>
       <child nodeId="node-246"/>
       <child nodeId="node-269"/>
+      <child nodeId="node-320"/>
       <child nodeId="node-280"/>
       <child nodeId="node-264"/>
       <child nodeId="node-286"/>
+      <child nodeId="node-306"/>
       <child nodeId="node-254"/>
     </children>
   </item>
@@ -39,6 +43,12 @@
   <item nodeId="node-263">
     <command xml:space="preserve">name</command>
     <result xml:space="preserve">Please use the required format.&#x000A;&#x000A;Now use the format "git config --global NAME" to input your name.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-309">
+    <command xml:space="preserve">"git config --global RAM"</command>
+    <result xml:space="preserve">Hi, RAM, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A; &#x000A;&#x000A;Explain entering rooms problem&#x000A;&#x000A;RAM's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
@@ -193,9 +203,96 @@
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
+  <item nodeId="node-310">
+    <command xml:space="preserve">git config  --global RAM</command>
+    <result xml:space="preserve">Hi, RAM, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A; &#x000A;&#x000A;Explain entering rooms problem&#x000A;&#x000A;RAM's Bedroom&#x000A;You are now in your bedroom. *inserts description about the bedroom*&#x000A;&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-311"/>
+    </children>
+  </item>
+  <item nodeId="node-311">
+    <command xml:space="preserve">hello</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-312"/>
+    </children>
+  </item>
+  <item nodeId="node-312">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-313"/>
+    </children>
+  </item>
+  <item nodeId="node-313">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;(first opening the bedroom door)&#x000A;&#x000A;RAM's Office&#x000A;You are now in your office. *inserts description about your office*&#x000A;&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-314"/>
+    </children>
+  </item>
+  <item nodeId="node-314">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-315"/>
+    </children>
+  </item>
+  <item nodeId="node-315">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;RAM's Bedroom&#x000A;You are now in your bedroom. *inserts description about the bedroom*&#x000A;&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-316"/>
+    </children>
+  </item>
+  <item nodeId="node-316">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-317"/>
+    </children>
+  </item>
+  <item nodeId="node-317">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-318"/>
+    </children>
+  </item>
+  <item nodeId="node-318">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-319"/>
+    </children>
+  </item>
+  <item nodeId="node-319">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;RAM's Office&#x000A;You are now in your office. *inserts description about your office*&#x000A;&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
   <item nodeId="node-258">
     <command xml:space="preserve">git config --global Ohana</command>
-    <result xml:space="preserve">Hi, Ohana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Hi, Ohana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A; &#x000A;&#x000A;Explain entering rooms problem&#x000A;&#x000A;Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -211,7 +308,7 @@
   </item>
   <item nodeId="node-289">
     <command xml:space="preserve">cd</command>
-    <result xml:space="preserve">(the letter)&#x000A;That's not something you can enter.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">(the bedroom door)&#x000A;(first opening the bedroom door)&#x000A;&#x000A;Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -230,7 +327,79 @@
   </item>
   <item nodeId="node-297">
     <command xml:space="preserve">cd Bedroom</command>
-    <result xml:space="preserve">(first opening the bedroom door)&#x000A;&#x000A;Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-298"/>
+    </children>
+  </item>
+  <item nodeId="node-298">
+    <command xml:space="preserve">git branch</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-299"/>
+    </children>
+  </item>
+  <item nodeId="node-299">
+    <command xml:space="preserve">git branch bedroom</command>
+    <result xml:space="preserve">Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-300"/>
+    </children>
+  </item>
+  <item nodeId="node-300">
+    <command xml:space="preserve">git branch office</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-301"/>
+    </children>
+  </item>
+  <item nodeId="node-301">
+    <command xml:space="preserve">git branch bedroom</command>
+    <result xml:space="preserve">Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-302"/>
+    </children>
+  </item>
+  <item nodeId="node-302">
+    <command xml:space="preserve">git branch</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-303"/>
+    </children>
+  </item>
+  <item nodeId="node-303">
+    <command xml:space="preserve">git branch</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-304"/>
+    </children>
+  </item>
+  <item nodeId="node-304">
+    <command xml:space="preserve">git branch</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;Ohana's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-305"/>
+    </children>
+  </item>
+  <item nodeId="node-305">
+    <command xml:space="preserve">git branch</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;Ohana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
@@ -384,6 +553,39 @@
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
+  <item nodeId="node-320">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">That's not the format I want. Now TRY AGAIN!! &#x0CA0;_&#x0CA0;&#x000A;Now use the format "git config --global NAME" to tell me your name. &#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-321"/>
+    </children>
+  </item>
+  <item nodeId="node-321">
+    <command xml:space="preserve">git config --global Hana</command>
+    <result xml:space="preserve">Hi, Hana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A; &#x000A;&#x000A;Explain entering rooms problem&#x000A;&#x000A;Hana's Bedroom&#x000A;You are now in your bedroom. *inserts description about the bedroom*&#x000A;&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-322"/>
+    </children>
+  </item>
+  <item nodeId="node-322">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-323"/>
+    </children>
+  </item>
+  <item nodeId="node-323">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
   <item nodeId="node-280">
     <command xml:space="preserve">meow</command>
     <result xml:space="preserve">Please use the required format.&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;&#x000A;&#x000A;&gt;</result>
@@ -426,6 +628,30 @@
   <item nodeId="node-288">
     <command xml:space="preserve">git config --global &#x0CA0;_&#x0CA0;</command>
     <result xml:space="preserve">Hi, _, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;_'s Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-306">
+    <command xml:space="preserve">wrong</command>
+    <result xml:space="preserve">That's not the format I want. Now TRY AGAIN!! &#x0CA0;_&#x0CA0;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-307"/>
+    </children>
+  </item>
+  <item nodeId="node-307">
+    <command xml:space="preserve">git config --global Ram</command>
+    <result xml:space="preserve">Hi, Ram, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A; &#x000A;&#x000A;Explain entering rooms problem&#x000A;&#x000A;Ram's Bedroom&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-308"/>
+    </children>
+  </item>
+  <item nodeId="node-308">
+    <command xml:space="preserve">back</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
