@@ -314,20 +314,20 @@ Global match_length = 0;
 Global match_from = 0;
 Global parsetoken_nesting = 0;
 Array Global_Vars --> 0
-  (0) ! -->1 = V58_number_understood (V58_number_understood)
-  (0) ! -->2 = V59_real_number_understood (V59_real_number_understood)
-  (0) ! -->3 = V60_truth_state_understood (V60_truth_state_understood)
-  (0) ! -->4 = V61_external_file_understood (V61_external_file_understood)
-  (540) ! -->5 = V62_time_understood (V62_time_understood)
-  (I_entire_game_U1) ! -->6 = V63_scene_understood (V63_scene_understood)
-  (I_figure_of_cover_U1) ! -->7 = V64_figure_name_understood (V64_figure_name_understood)
-  (0) ! -->8 = V65_sound_name_understood (V65_sound_name_understood)
-  (I_english_language_U1) ! -->9 = V66_natural_language_understo (V66_natural_language_understo)
-  (I_present_tense_U1) ! -->10 = V67_grammatical_tense_underst (V67_grammatical_tense_underst)
-  (I_first_person_singular_U1) ! -->11 = V68_narrative_viewpoint_under (V68_narrative_viewpoint_under)
-  (I_nominative_U1) ! -->12 = V69_grammatical_case_understo (V69_grammatical_case_understo)
-  (I_neuter_gender_U1) ! -->13 = V70_grammatical_gender_unders (V70_grammatical_gender_unders)
-  (I_didn_t_understand_error_U1) ! -->14 = V71_command_parser_error_unde (V71_command_parser_error_unde)
+  (0) ! -->1 = V57_number_understood (V57_number_understood)
+  (0) ! -->2 = V58_real_number_understood (V58_real_number_understood)
+  (0) ! -->3 = V59_truth_state_understood (V59_truth_state_understood)
+  (0) ! -->4 = V60_external_file_understood (V60_external_file_understood)
+  (540) ! -->5 = V61_time_understood (V61_time_understood)
+  (I_entire_game_U1) ! -->6 = V62_scene_understood (V62_scene_understood)
+  (I_figure_of_cover_U1) ! -->7 = V63_figure_name_understood (V63_figure_name_understood)
+  (0) ! -->8 = V64_sound_name_understood (V64_sound_name_understood)
+  (I_english_language_U1) ! -->9 = V65_natural_language_understo (V65_natural_language_understo)
+  (I_present_tense_U1) ! -->10 = V66_grammatical_tense_underst (V66_grammatical_tense_underst)
+  (I_first_person_singular_U1) ! -->11 = V67_narrative_viewpoint_under (V67_narrative_viewpoint_under)
+  (I_nominative_U1) ! -->12 = V68_grammatical_case_understo (V68_grammatical_case_understo)
+  (I_neuter_gender_U1) ! -->13 = V69_grammatical_gender_unders (V69_grammatical_gender_unders)
+  (I_didn_t_understand_error_U1) ! -->14 = V70_command_parser_error_unde (V70_command_parser_error_unde)
   (I_english_language_U1) ! -->15 = V1_language_of_play (V1_language_of_play)
   (0) ! -->16 = V12_darkness_witnessed (V12_darkness_witnessed)
   (bc_U152) ! -->17 = V26_command_prompt (V26_command_prompt)
@@ -349,15 +349,14 @@ Array Global_Vars --> 0
   (0) ! -->33 = V52_visibility_level_count (V52_visibility_level_count)
   (0) ! -->34 = V53_visibility_ceiling (V53_visibility_ceiling)
   (0) ! -->35 = V54_examine_text_printed (V54_examine_text_printed)
-  (selfobj) ! -->36 = V72_actor (V72_actor)
-  (0) ! -->37 = V73_action_in_world (V73_action_in_world)
-  (0) ! -->38 = V74_action_keeping_silent (V74_action_keeping_silent)
-  (0) ! -->39 = V75_specific_check_rulebook (V75_specific_check_rulebook)
-  (0) ! -->40 = V76_specific_carry_out_rulebo (V76_specific_carry_out_rulebo)
-  (0) ! -->41 = V77_specific_report_rulebook (V77_specific_report_rulebook)
-  (0) ! -->42 = V78_within_the_player_s_sight (V78_within_the_player_s_sight)
-  (bc_U173) ! -->43 = V56_player_s_forename (V56_player_s_forename)
-  (bc_U174) ! -->44 = V57_player_s_full_name (V57_player_s_full_name)
+  (selfobj) ! -->36 = V71_actor (V71_actor)
+  (0) ! -->37 = V72_action_in_world (V72_action_in_world)
+  (0) ! -->38 = V73_action_keeping_silent (V73_action_keeping_silent)
+  (0) ! -->39 = V74_specific_check_rulebook (V74_specific_check_rulebook)
+  (0) ! -->40 = V75_specific_carry_out_rulebo (V75_specific_carry_out_rulebo)
+  (0) ! -->41 = V76_specific_report_rulebook (V76_specific_report_rulebook)
+  (0) ! -->42 = V77_within_the_player_s_sight (V77_within_the_player_s_sight)
+  (bc_U173) ! -->43 = V56_player_s_name (V56_player_s_name)
 ;
 Constant subterfuge_1 = absent;
 Constant subterfuge_2 = animate;
@@ -3746,25 +3745,25 @@ Constant alphabetised_text_1 = "Adventure of the Command Line";
 Constant alphabetised_text_2 = "An Interactive Fiction";
 Constant alphabetised_text_3 = "As good-looking as ever.";
 Constant alphabetised_text_4 = "Fiction";
-Constant alphabetised_text_5 = "Now use the format ~git config --global NAME~ to tell me your name. >";
-Constant alphabetised_text_6 = "Ohana";
-Constant alphabetised_text_7 = "QUIT";
-Constant alphabetised_text_8 = "RESTART";
-Constant alphabetised_text_9 = "RESTORE a saved game";
-Constant alphabetised_text_10 = "UNDO the last command";
-Constant alphabetised_text_11 = "Yourself";
+Constant alphabetised_text_5 = "Ohana";
+Constant alphabetised_text_6 = "QUIT";
+Constant alphabetised_text_7 = "RESTART";
+Constant alphabetised_text_8 = "RESTORE a saved game";
+Constant alphabetised_text_9 = "UNDO the last command";
+Constant alphabetised_text_10 = "Yourself";
 Constant outcome_allow_access_U1 = "allow access";
 Constant outcome_allow_startup_U1 = "allow startup";
-Constant alphabetised_text_12 = "animals";
-Constant alphabetised_text_13 = "backdrops";
-Constant alphabetised_text_14 = "containers";
+Constant alphabetised_text_11 = "animals";
+Constant alphabetised_text_12 = "backdrops";
+Constant alphabetised_text_13 = "containers";
 Constant outcome_deny_access_U1 = "deny access";
 Constant outcome_deny_startup_U1 = "deny startup";
-Constant alphabetised_text_15 = "devices";
-Constant alphabetised_text_16 = "directions";
-Constant alphabetised_text_17 = "doors";
-Constant alphabetised_text_18 = "down";
-Constant alphabetised_text_19 = "east";
+Constant alphabetised_text_14 = "devices";
+Constant alphabetised_text_15 = "directions";
+Constant alphabetised_text_16 = "doors";
+Constant alphabetised_text_17 = "down";
+Constant alphabetised_text_18 = "east";
+Constant alphabetised_text_19 = "git";
 Constant alphabetised_text_20 = "inside";
 Constant outcome_it_does_U1 = "it does";
 Constant outcome_it_does_not_U1 = "it does not";
@@ -3806,43 +3805,43 @@ Constant V2_printing_the_name = activity_id_U2;
 Constant V3_printing_the_plural_name = activity_id_U3;
 Constant text_U1 = alphabetised_text_23;
 Constant text_U2 = alphabetised_text_35;
-Constant text_U3 = alphabetised_text_16;
+Constant text_U3 = alphabetised_text_15;
 Constant text_U4 = alphabetised_text_24;
 Constant text_U5 = alphabetised_text_35;
-Constant text_U6 = alphabetised_text_16;
+Constant text_U6 = alphabetised_text_15;
 Constant text_U7 = alphabetised_text_25;
 Constant text_U8 = alphabetised_text_35;
-Constant text_U9 = alphabetised_text_16;
+Constant text_U9 = alphabetised_text_15;
 Constant text_U10 = alphabetised_text_31;
 Constant text_U11 = alphabetised_text_35;
-Constant text_U12 = alphabetised_text_16;
+Constant text_U12 = alphabetised_text_15;
 Constant text_U13 = alphabetised_text_32;
 Constant text_U14 = alphabetised_text_35;
-Constant text_U15 = alphabetised_text_16;
+Constant text_U15 = alphabetised_text_15;
 Constant text_U16 = alphabetised_text_33;
 Constant text_U17 = alphabetised_text_35;
-Constant text_U18 = alphabetised_text_16;
-Constant text_U19 = alphabetised_text_19;
+Constant text_U18 = alphabetised_text_15;
+Constant text_U19 = alphabetised_text_18;
 Constant text_U20 = alphabetised_text_35;
-Constant text_U21 = alphabetised_text_16;
+Constant text_U21 = alphabetised_text_15;
 Constant text_U22 = alphabetised_text_38;
 Constant text_U23 = alphabetised_text_35;
-Constant text_U24 = alphabetised_text_16;
+Constant text_U24 = alphabetised_text_15;
 Constant text_U25 = alphabetised_text_36;
 Constant text_U26 = alphabetised_text_35;
-Constant text_U27 = alphabetised_text_16;
-Constant text_U28 = alphabetised_text_18;
+Constant text_U27 = alphabetised_text_15;
+Constant text_U28 = alphabetised_text_17;
 Constant text_U29 = alphabetised_text_35;
-Constant text_U30 = alphabetised_text_16;
+Constant text_U30 = alphabetised_text_15;
 Constant text_U31 = alphabetised_text_20;
 Constant text_U32 = alphabetised_text_35;
-Constant text_U33 = alphabetised_text_16;
+Constant text_U33 = alphabetised_text_15;
 Constant text_U34 = alphabetised_text_26;
 Constant text_U35 = alphabetised_text_35;
-Constant text_U36 = alphabetised_text_16;
+Constant text_U36 = alphabetised_text_15;
 Constant text_U37 = alphabetised_text_40;
 Constant text_U38 = alphabetised_text_3;
-Constant text_U39 = alphabetised_text_11;
+Constant text_U39 = alphabetised_text_10;
 Constant text_U40 = alphabetised_text_40;
 Constant text_U41 = alphabetised_text_27;
 Constant RBNO0_OUTCOME_U1 = outcome_it_is_very_unlikely_U1;
@@ -3881,15 +3880,15 @@ Constant V31_handling_the_final_questi = activity_id_U31;
 Constant V32_printing_the_locale_descr = activity_id_U32;
 Constant V33_choosing_notable_locale_o = activity_id_U33;
 Constant V34_printing_a_locale_paragra = activity_id_U34;
-Constant text_U42 = alphabetised_text_16;
+Constant text_U42 = alphabetised_text_15;
 Constant K4_door_First = nothing;
-Constant text_U43 = alphabetised_text_17;
+Constant text_U43 = alphabetised_text_16;
 Constant K5_container_First = nothing;
-Constant text_U44 = alphabetised_text_14;
+Constant text_U44 = alphabetised_text_13;
 Constant K6_supporter_First = nothing;
 Constant text_U45 = alphabetised_text_34;
 Constant K7_backdrop_First = nothing;
-Constant text_U46 = alphabetised_text_13;
+Constant text_U46 = alphabetised_text_12;
 Constant text_U47 = alphabetised_text_27;
 Constant K9_region_First = nothing;
 Constant text_U48 = alphabetised_text_29;
@@ -3898,23 +3897,23 @@ Constant text_U49 = alphabetised_text_22;
 Constant K11_woman_First = nothing;
 Constant text_U50 = alphabetised_text_39;
 Constant K12_animal_First = nothing;
-Constant text_U51 = alphabetised_text_12;
+Constant text_U51 = alphabetised_text_11;
 Constant K13_device_First = nothing;
-Constant text_U52 = alphabetised_text_15;
+Constant text_U52 = alphabetised_text_14;
 Constant K14_vehicle_First = nothing;
 Constant text_U53 = alphabetised_text_37;
 Constant K15_player_s_holdall_First = nothing;
 Constant text_U54 = alphabetised_text_28;
 Constant text_U55 = alphabetised_text_0;
-Constant text_U56 = alphabetised_text_6;
+Constant text_U56 = alphabetised_text_5;
 Constant text_U57 = alphabetised_text_2;
 Constant text_U58 = alphabetised_text_4;
 Constant column_identity_U1 = table_column_id_U1;
-Constant text_U59 = alphabetised_text_8;
-Constant text_U60 = alphabetised_text_9;
+Constant text_U59 = alphabetised_text_7;
+Constant text_U60 = alphabetised_text_8;
 Constant text_U61 = alphabetised_text_30;
-Constant text_U62 = alphabetised_text_7;
-Constant text_U63 = alphabetised_text_10;
+Constant text_U62 = alphabetised_text_6;
+Constant text_U63 = alphabetised_text_9;
 Constant column_identity_U2 = table_column_id_U2;
 Constant column_identity_U3 = table_column_id_U3;
 Constant column_identity_U4 = table_column_id_U4;
@@ -3922,12 +3921,11 @@ Constant column_identity_U5 = table_column_id_U5;
 Constant column_identity_U6 = table_column_id_U6;
 Constant column_identity_U7 = table_column_id_U7;
 Constant text_U64 = alphabetised_text_21;
-Constant text_U65 = alphabetised_text_5;
+Constant text_U65 = alphabetised_text_19;
 Constant text_U66 = alphabetised_text_0;
-Constant text_U67 = alphabetised_text_5;
-Constant text_U68 = alphabetised_text_1;
-Constant text_U69 = alphabetised_text_2;
-Constant text_U70 = alphabetised_text_6;
+Constant text_U67 = alphabetised_text_1;
+Constant text_U68 = alphabetised_text_2;
+Constant text_U69 = alphabetised_text_5;
 Constant GPR_REPARSE = REPARSE_CODE;
 Constant TABLE_NOVALUE = IMPROBABLE_VALUE;
 Constant RC_INFINITY = MAX_POSITIVE_NUMBER;
@@ -4037,9 +4035,9 @@ Constant Computed_Constant_Value_23_U1 = (BLK_DATA_OFFSET + Computed_Constant_Va
 Constant VALENCY_MASK = Computed_Constant_Value_60_U1;
 Constant Computed_Constant_Value_39_U1 = (Computed_Constant_Value_38_U1 * TEXT_TY_NoBuffers);
 Constant BLK_DATA_MULTI_OFFSET = Computed_Constant_Value_23_U1;
-Constant Story = bc_U176;
-Constant Headline = bc_U177;
-Constant Story_Author = bc_U178;
+Constant Story = bc_U174;
+Constant Headline = bc_U175;
+Constant Story_Author = bc_U176;
 Constant Computed_Constant_Value_24_U1 = (MEMORY_HEAP_SIZE + BLK_DATA_MULTI_OFFSET);
 Constant abilities_U3 = (RELS_TEST + RELS_LOOKUP_ANY + RELS_LOOKUP_ALL_X + RELS_LOOKUP_ALL_X + RELS_LIST + RELS_ASSERT_TRUE + RELS_ASSERT_FALSE + RELS_LOOKUP_ANY);
 Constant abilities_U6 = (RELS_TEST + RELS_LOOKUP_ANY + RELS_LOOKUP_ALL_X + RELS_LOOKUP_ALL_X + RELS_LIST + RELS_ASSERT_TRUE + RELS_ASSERT_FALSE + RELS_LOOKUP_ANY);
@@ -5216,14 +5214,14 @@ Array bc_U167 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U168 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U169 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U170 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array ts_array_U396 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1964; ];
 Array bc_U171 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U65; ];
 Array bc_U172 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U66; ];
 Array bc_U173 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U174 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U175 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U67; ];
-Array bc_U176 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U68; ];
-Array bc_U177 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U69; ];
-Array bc_U178 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U70; ];
+Array ts_array_U397 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1970; ];
+Array bc_U174 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U67; ];
+Array bc_U175 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U68; ];
+Array bc_U176 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U69; ];
 Array UUID_ARRAY -> [ 45; 'U'; 'U'; 'I'; 'D'; ':'; '/'; '/'; '1'; '1'; '4'; '6'; 'D'; 'F'; 'C'; 'C'; '-'; '7'; 'C'; 'D'; 'C'; '-'; '4'; '9'; 'B'; 'E'; '-'; '8'; '8'; '4'; '9'; '-'; '2'; '4'; 'C'; 'C'; '8'; '0'; '5'; 'E'; 'A'; '8'; '1'; '0'; '/'; '/'; ];
 Array InitialSituation --> [ selfobj; 0; I_your_bedroom_U1; 540; 0; ];
 Array Map_Storage --> [ 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; ];
@@ -9881,19 +9879,19 @@ Global max_z_object;
             print "When play begins";
             rtrue;
         }
-        if ((R == call_U1964)) {
+        if ((R == call_U1965)) {
             print "After reading a command when collecting names";
             rtrue;
         }
-        if ((R == call_U1965)) {
+        if ((R == call_U1966)) {
             print "Instead of looking when collecting names";
             rtrue;
         }
-        if ((R == call_U1966)) {
+        if ((R == call_U1967)) {
             print "Rule for printing the banner text when collecting names";
             rtrue;
         }
-        if ((R == call_U1967)) {
+        if ((R == call_U1968)) {
             print "Rule for constructing the status line when collecting names";
             rtrue;
         }
@@ -27634,12 +27632,12 @@ Global max_z_object;
 ];
 [ call_U397 forbid_breaks rv;
     if ((action == ##Look)) {
-        (rv = (call_U1965)());
+        (rv = (call_U1966)());
         if (rv) {
             if ((rv == 2)) {
                 return reason_the_action_failed;
             }
-            return call_U1965;
+            return call_U1966;
         }
         ((latest_rule_result-->(0)) = 0);
     } else {
@@ -27748,6 +27746,19 @@ Global max_z_object;
 [ call_U446 forbid_breaks rv p;
     (p = parameter_value);
     (parameter_value = p);
+    (rv = (call_U1968)());
+    if (rv) {
+        if ((rv == 2)) {
+            return reason_the_action_failed;
+        }
+        return call_U1968;
+    }
+    ((latest_rule_result-->(0)) = 0);
+    rfalse;
+];
+[ call_U449 forbid_breaks rv p;
+    (p = parameter_value);
+    (parameter_value = p);
     (rv = (call_U1967)());
     if (rv) {
         if ((rv == 2)) {
@@ -27758,28 +27769,15 @@ Global max_z_object;
     ((latest_rule_result-->(0)) = 0);
     rfalse;
 ];
-[ call_U449 forbid_breaks rv p;
-    (p = parameter_value);
-    (parameter_value = p);
-    (rv = (call_U1966)());
-    if (rv) {
-        if ((rv == 2)) {
-            return reason_the_action_failed;
-        }
-        return call_U1966;
-    }
-    ((latest_rule_result-->(0)) = 0);
-    rfalse;
-];
 [ call_U453 forbid_breaks rv p;
     (p = parameter_value);
     (parameter_value = p);
-    (rv = (call_U1964)());
+    (rv = (call_U1965)());
     if (rv) {
         if ((rv == 2)) {
             return reason_the_action_failed;
         }
-        return call_U1964;
+        return call_U1965;
     }
     ((latest_rule_result-->(0)) = 0);
     rfalse;
@@ -57556,7 +57554,7 @@ Global max_z_object;
 [ call_U1937;
     #ifdef DEBUG;
         if (suppress_text_substitution) {
-            print "~[player's forename]'s Bedroom~";
+            print "~[player's name]'s Bedroom~";
             rtrue;
         }
     #endif;
@@ -57570,7 +57568,7 @@ Global max_z_object;
 [ call_U1938;
     #ifdef DEBUG;
         if (suppress_text_substitution) {
-            print "~Dear [player's full name], [paragraph break]You have won the Norwegian Daily Lottery! ...~";
+            print "~Dear [player's name], [paragraph break]You have won the Norwegian Daily Lottery! ...~";
             rtrue;
         }
     #endif;
@@ -57578,7 +57576,7 @@ Global max_z_object;
     ParaContent();
     print "Dear ";
     ParaContent();
-    TEXT_TY_Say((Global_Vars-->44));
+    TEXT_TY_Say((Global_Vars-->43));
     ParaContent();
     print ", ";
     ParaContent();
@@ -57732,7 +57730,16 @@ Global max_z_object;
     }
     rfalse;
 ];
-[ call_U1963;
+[ call_U1963 RV;
+    @push I7SFRAME;
+    StackFrameCreate(2);
+    BlkValueCreateOnStack(0, TEXT_TY);
+    (RV = kernel1_U4());
+    BlkValueFreeOnStack(0);
+    @pull I7SFRAME;
+    return RV;
+];
+[ kernel1_U4;
     if (debug_rules) {
         DB_Rule(call_U1963, 800, 0);
     }
@@ -57745,113 +57752,168 @@ Global max_z_object;
     DivideParagraphPoint();
     print "^";
     ParaContent();
-    print "Explanation of git config...";
+    print "Explanation of git config... Please only use ONE word for your name (No spaces in between!)";
     print "^";
-    BlkValueCopy((Global_Vars-->17), bc_U171);
+    BlkValueCopy((Global_Vars-->17), TEXT_TY_ExpandIfPerishable(I7SFRAME, ts_array_U396));
     rfalse;
 ];
-[ call_U1964 RV;
+[ call_U1964;
+    #ifdef DEBUG;
+        if (suppress_text_substitution) {
+            print "~Now use the format 'git config --global NAME' to tell me your name. >[paragraph break]> ~";
+            rtrue;
+        }
+    #endif;
+    (say__p = 1);
+    ParaContent();
+    print "Now use the format ~git config --global NAME~ to tell me your name. >";
+    ParaContent();
+    DivideParagraphPoint();
+    print "^";
+    ParaContent();
+    print "> ";
+    rtrue;
+];
+[ call_U1965 RV;
     @push I7SFRAME;
-    StackFrameCreate(4);
+    StackFrameCreate(8);
     BlkValueCreateOnStack(0, TEXT_TY);
     BlkValueCreateOnStack(2, TEXT_TY);
-    (RV = kernel1_U4());
+    BlkValueCreateOnStack(4, TEXT_TY);
+    BlkValueCreateOnStack(6, TEXT_TY);
+    (RV = kernel1_U5());
     BlkValueFreeOnStack(0);
     BlkValueFreeOnStack(2);
+    BlkValueFreeOnStack(4);
+    BlkValueFreeOnStack(6);
     @pull I7SFRAME;
     return RV;
 ];
-[ kernel1_U4;
-    if (call_U1968()) {
+[ kernel1_U5;
+    if (call_U1969()) {
         if (debug_rules) {
-            DB_Rule(call_U1964, 802, 0);
+            DB_Rule(call_U1965, 802, 0);
         }
-        if ((matched_text = SnippetIncludes(Consult_Grammar9, players_command))) {
-            BlkValueCast((Global_Vars-->44), SNIPPET_TY, players_command);
-            BlkValueCopy((Global_Vars-->43), TEXT_TY_GetBlob(I7SFRAME, SNIPPET_TY_to_TEXT_TY((I7SFRAME + (WORDSIZE*2)), players_command), 1, WORD_BLOB));
-            BlkValueCopy((Global_Vars-->17), bc_U172);
-            (say__p = 1);
-            ParaContent();
-            print "Hi, ";
-            ParaContent();
-            TEXT_TY_Say((Global_Vars-->43));
-            ParaContent();
-            print "!";
-            ParaContent();
-            DivideParagraphPoint();
-            print "^";
-            (say__p = 1);
-            ParaContent();
-            Banner();
-            MoveObject(player, real_location, 0, 0);
-            RulebookFails();
-            rtrue;
+        if (((BlkValueCompare)(TEXT_TY_GetBlob(I7SFRAME, SNIPPET_TY_to_TEXT_TY((I7SFRAME + (WORDSIZE*2)), players_command), 1, WORD_BLOB),bc_U171) == 0)) {
+            if ((matched_text = SnippetIncludes(Consult_Grammar9, players_command))) {
+                BlkValueCopy((Global_Vars-->43), TEXT_TY_GetBlob((I7SFRAME + (WORDSIZE*4)), SNIPPET_TY_to_TEXT_TY((I7SFRAME + (WORDSIZE*6)), players_command), 4, WORD_BLOB));
+                BlkValueCopy((Global_Vars-->17), bc_U172);
+                (say__p = 1);
+                ParaContent();
+                print "Hi, ";
+                ParaContent();
+                TEXT_TY_Say((Global_Vars-->43));
+                ParaContent();
+                print ", welcome! Let's begin. ";
+                ParaContent();
+                DivideParagraphPoint();
+                print "^";
+                (say__p = 1);
+                ParaContent();
+                Banner();
+                MoveObject(player, real_location, 0, 0);
+                RulebookFails();
+                rtrue;
+            }
         }
         (say__p = 1);
         ParaContent();
         DivideParagraphPoint();
         print "^";
         ParaContent();
-        print "Please use the required format.";
-        print "^";
+        print "That's not the format I want. Now TRY AGAIN!! ";
+        ParaContent();
+        (unicode_temp = 3232);
+        @streamunichar unicode_temp;
+        ParaContent();
+        print "_";
+        ParaContent();
+        (unicode_temp = 3232);
+        @streamunichar unicode_temp;
         RulebookFails();
         rtrue;
     } else {
         if ((debug_rules > 1)) {
-            DB_Rule(call_U1964, 802, 4);
-        }
-    }
-    rfalse;
-];
-[ call_U1965;
-    if ((((action == ##Look)) && ((((actor == player)) && (((((self = actor),1)) && (call_U1968()))))))) {
-        (self = noun);
-        if (debug_rules) {
-            DB_Rule(call_U1965, 803, 0);
-        }
-        RulebookFails(0, 0);
-        rtrue;
-    } else {
-        if ((debug_rules > 1)) {
-            DB_Rule(call_U1965, 803, 2);
+            DB_Rule(call_U1965, 802, 4);
         }
     }
     rfalse;
 ];
 [ call_U1966;
-    if (call_U1968()) {
+    if ((((action == ##Look)) && ((((actor == player)) && (((((self = actor),1)) && (call_U1969()))))))) {
+        (self = noun);
         if (debug_rules) {
-            DB_Rule(call_U1966, 804, 0);
+            DB_Rule(call_U1966, 803, 0);
         }
-        RulebookSucceeds(0, 0);
+        RulebookFails(0, 0);
         rtrue;
     } else {
         if ((debug_rules > 1)) {
-            DB_Rule(call_U1966, 804, 4);
+            DB_Rule(call_U1966, 803, 2);
         }
     }
     rfalse;
 ];
 [ call_U1967;
-    if (call_U1968()) {
+    if (call_U1969()) {
         if (debug_rules) {
-            DB_Rule(call_U1967, 805, 0);
+            DB_Rule(call_U1967, 804, 0);
         }
         RulebookSucceeds(0, 0);
         rtrue;
     } else {
         if ((debug_rules > 1)) {
-            DB_Rule(call_U1967, 805, 4);
+            DB_Rule(call_U1967, 804, 4);
         }
     }
     rfalse;
 ];
 [ call_U1968;
-    if (((BlkValueCompare)((Global_Vars-->17),bc_U175) == 0)) {
+    if (call_U1969()) {
+        if (debug_rules) {
+            DB_Rule(call_U1968, 805, 0);
+        }
+        RulebookSucceeds(0, 0);
+        rtrue;
+    } else {
+        if ((debug_rules > 1)) {
+            DB_Rule(call_U1968, 805, 4);
+        }
+    }
+    rfalse;
+];
+[ call_U1969 RV;
+    @push I7SFRAME;
+    StackFrameCreate(2);
+    BlkValueCreateOnStack(0, TEXT_TY);
+    (RV = kernel1_U6());
+    BlkValueFreeOnStack(0);
+    @pull I7SFRAME;
+    return RV;
+];
+[ kernel1_U6;
+    if (((BlkValueCompare)((Global_Vars-->17),TEXT_TY_ExpandIfPerishable(I7SFRAME, ts_array_U397)) == 0)) {
         rtrue;
     }
     rfalse;
     rfalse;
+];
+[ call_U1970;
+    #ifdef DEBUG;
+        if (suppress_text_substitution) {
+            print "~Now use the format 'git config --global NAME' to tell me your name. >[paragraph break]> ~";
+            rtrue;
+        }
+    #endif;
+    (say__p = 1);
+    ParaContent();
+    print "Now use the format ~git config --global NAME~ to tell me your name. >";
+    ParaContent();
+    DivideParagraphPoint();
+    print "^";
+    ParaContent();
+    print "> ";
+    rtrue;
 ];
 [ parse_name1 original_wn group_wn try_from_wn n f w rv g ss spn pass pass1_n pass2_n;
     #ifdef DEBUG;
