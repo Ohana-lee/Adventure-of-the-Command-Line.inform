@@ -9,8 +9,9 @@ Definition: a direction (called thataway) is viable if the room thataway from th
 [ls, listing out all possible rooms to access from current room]
 After reading a command:
 	if player's command matches "ls":
-		say "ls command received.";
-		say "You can go [list of viable directions] from here.".
+		say "ls command received."; [somehow working, but the rooms is somehow in a circle...]
+		say "You can go [list of viable directions] from here.";
+		say "Ignore the next sentence that I can't get rid of yet.".
 
 [cd & git branch, moving through rooms/directories]
 Understand "cd [something]" as entering.
@@ -47,11 +48,12 @@ Rule for printing the banner text when collecting names: do nothing.
 
 Rule for constructing the status line when collecting names: do nothing.
 
+[Only use doors to tell where each room is in relative to other rooms]
 Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s Bedroom". The description is "You are now in your bedroom. *inserts description about the bedroom*".
 
-Your Office is a room. The printed name of Your Office is "[player's name]'s Office". Your Office is west of your Bedroom. The description is "You are now in your office. *inserts description about your office*".
+The bedroom door is south of your Bedroom and north of your Office. It is a door and openable. The description is "You are now in your office. *inserts description about your office*". The printed name of Your Office is "[player's name]'s Office". 
 
-The bedroom door is east of your Bedroom and west of your Office. It is a door and openable.
+
 
 
 [testing??]

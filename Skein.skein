@@ -573,7 +573,7 @@
   </item>
   <item nodeId="node-322">
     <command xml:space="preserve">ls</command>
-    <result xml:space="preserve">ls command received.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">ls command received.&#x000A;You can go south from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
@@ -582,7 +582,151 @@
   </item>
   <item nodeId="node-323">
     <command xml:space="preserve">ls</command>
-    <result xml:space="preserve">ls command received.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <result xml:space="preserve">ls command received.&#x000A;You can go south from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-324"/>
+    </children>
+  </item>
+  <item nodeId="node-324">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;You can go south from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-325"/>
+    </children>
+  </item>
+  <item nodeId="node-325">
+    <command xml:space="preserve">go east</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-326"/>
+    </children>
+  </item>
+  <item nodeId="node-326">
+    <command xml:space="preserve">go west</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-327"/>
+    </children>
+  </item>
+  <item nodeId="node-327">
+    <command xml:space="preserve">go west</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-328"/>
+    </children>
+  </item>
+  <item nodeId="node-328">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;You can go south from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-329"/>
+    </children>
+  </item>
+  <item nodeId="node-329">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;(first opening the bedroom door)&#x000A;&#x000A;Hana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-330"/>
+    </children>
+  </item>
+  <item nodeId="node-330">
+    <command xml:space="preserve">office</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-331"/>
+    </children>
+  </item>
+  <item nodeId="node-331">
+    <command xml:space="preserve">cd bedroom</command>
+    <result xml:space="preserve">Hana's Bedroom&#x000A;You are now in your bedroom. *inserts description about the bedroom*&#x000A;&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-332"/>
+    </children>
+  </item>
+  <item nodeId="node-332">
+    <command xml:space="preserve">cd office</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-333"/>
+    </children>
+  </item>
+  <item nodeId="node-333">
+    <command xml:space="preserve">go east</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-334"/>
+    </children>
+  </item>
+  <item nodeId="node-334">
+    <command xml:space="preserve">cd east</command>
+    <result xml:space="preserve">You must name something more substantial.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-335"/>
+    </children>
+  </item>
+  <item nodeId="node-335">
+    <command xml:space="preserve">git branch east</command>
+    <result xml:space="preserve">You must name something more substantial.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-336"/>
+    </children>
+  </item>
+  <item nodeId="node-336">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;You can go south from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-337"/>
+    </children>
+  </item>
+  <item nodeId="node-337">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;You can go south from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-338"/>
+    </children>
+  </item>
+  <item nodeId="node-338">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the bedroom door)&#x000A;&#x000A;Hana's Office&#x000A;You can see a bedroom door here.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-339"/>
+    </children>
+  </item>
+  <item nodeId="node-339">
+    <command xml:space="preserve">ls</command>
+    <result xml:space="preserve">ls command received.&#x000A;You can go north from here.&#x000A;Ignore the next sentence that I can't get rid of yet.&#x000A;That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>

@@ -3929,8 +3929,8 @@ Constant column_identity_U5 = table_column_id_U5;
 Constant column_identity_U6 = table_column_id_U6;
 Constant column_identity_U7 = table_column_id_U7;
 Constant text_U64 = alphabetised_text_10;
-Constant text_U65 = alphabetised_text_11;
-Constant text_U66 = alphabetised_text_15;
+Constant text_U65 = alphabetised_text_15;
+Constant text_U66 = alphabetised_text_11;
 Constant text_U67 = alphabetised_text_19;
 Constant text_U68 = alphabetised_text_22;
 Constant text_U69 = alphabetised_text_0;
@@ -5216,17 +5216,17 @@ Array bc_U162 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U64; ];
 Array bc_U163 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U164 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U165 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array ts_array_U395 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1963; ];
-Array bc_U166 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U65; ];
-Array bc_U167 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U168 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U169 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array inline_U15 --> [ I_your_bedroom_U1; I_your_office_U1; ];
 Array inline_U16 --> [ 0; 0; 0; 0; 0; ];
-Array bc_U170 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U66; ];
+Array bc_U166 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U65; ];
+Array bc_U167 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U66; ];
+Array bc_U168 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U169 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U67; ];
+Array bc_U170 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U171 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array ts_array_U395 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1963; ];
 Array bc_U172 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U173 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U67; ];
+Array bc_U173 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U174 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U175 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array ts_array_U396 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1966; ];
@@ -5241,7 +5241,7 @@ Array bc_U180 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U71; ];
 Array bc_U181 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U72; ];
 Array UUID_ARRAY -> [ 45; 'U'; 'U'; 'I'; 'D'; ':'; '/'; '/'; '1'; '1'; '4'; '6'; 'D'; 'F'; 'C'; 'C'; '-'; '7'; 'C'; 'D'; 'C'; '-'; '4'; '9'; 'B'; 'E'; '-'; '8'; '8'; '4'; '9'; '-'; '2'; '4'; 'C'; 'C'; '8'; '0'; '5'; 'E'; 'A'; '8'; '1'; '0'; '/'; '/'; ];
 Array InitialSituation --> [ selfobj; 0; I_your_bedroom_U1; 540; 0; ];
-Array Map_Storage --> [ 0; 0; 0; 0; 0; 0; I_bedroom_door_U1; I_your_office_U1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; I_your_bedroom_U1; I_bedroom_door_U1; 0; 0; 0; 0; ];
+Array Map_Storage --> [ 0; 0; 0; I_bedroom_door_U1; 0; 0; 0; 0; 0; 0; 0; 0; I_bedroom_door_U1; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; ];
 Array name_array1 --> [ 'north'; 'directions//p'; 'n//'; ];
 Array name_array2 --> [ 'northeast'; 'directions//p'; 'ne'; ];
 Array name_array3 --> [ 'northwest'; 'directions//p'; 'nw'; ];
@@ -5255,8 +5255,8 @@ Array name_array10 --> [ 'down'; 'directions//p'; 'd//'; ];
 Array name_array11 --> [ 'inside'; 'directions//p'; 'in'; ];
 Array name_array12 --> [ 'outside'; 'directions//p'; 'out'; ];
 Array name_array13 --> [ 'my'; 'bedroom'; 'rooms//p'; ];
-Array name_array14 --> [ 'my'; 'office'; 'rooms//p'; ];
-Array name_array15 --> [ 'bedroom'; 'door'; 'doors//p'; ];
+Array name_array14 --> [ 'bedroom'; 'door'; 'doors//p'; ];
+Array name_array15 --> [ 'my'; 'office'; 'rooms//p'; ];
 Array LocalParking --> [ 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; ];
 Array PowersOfTwo_TB --> [ 2048; 1024; 512; 256; 128; 64; 32; 16; 8; 4; 2; 1; ];
 Array IncreasingPowersOfTwo_TB --> [ 1; 2; 4; 8; 16; 32; 64; 128; 256; 512; 1024; 2048; 4096; 8192; 16384; 32768; ];
@@ -5738,21 +5738,8 @@ K1_room I_your_bedroom_U1    with short_name ts_array_U394
     with article bc_U164
     with list_together bc_U165
 ;
-K1_room I_your_office_U1    with short_name ts_array_U395
-    with description bc_U166
-    has proper
-    with vector 0
-    with room_index -1
-    has mark_as_room
-    with KD_Count 1
-    with IK1_Count 1
-    with K1_room_Next 0
-    with name 'my' 'office' 'rooms//p'
-    with plural bc_U167
-    with article bc_U168
-    with list_together bc_U169
-;
-K4_door I_bedroom_door_U1    with short_name bc_U170
+K4_door I_bedroom_door_U1    with short_name bc_U166
+    with description bc_U167
     has openable
     with vector 0
     has door
@@ -5767,8 +5754,21 @@ K4_door I_bedroom_door_U1    with short_name bc_U170
     with K4_door_Next 0
     with action_bitmap 0 0 0 0 0
     with name 'bedroom' 'door' 'doors//p'
-    with description bc_U171
-    with initial bc_U172
+    with initial bc_U168
+    with plural bc_U169
+    with article bc_U170
+    with list_together bc_U171
+;
+K1_room I_your_office_U1    with short_name ts_array_U395
+    has proper
+    with vector 0
+    with room_index -1
+    has mark_as_room
+    with KD_Count 1
+    with IK1_Count 1
+    with K1_room_Next 0
+    with name 'my' 'office' 'rooms//p'
+    with description bc_U172
     with plural bc_U173
     with article bc_U174
     with list_together bc_U175
@@ -57799,6 +57799,26 @@ Global max_z_object;
     print "'s Bedroom";
     rtrue;
 ];
+[ TSD_door_dir_value1 loc;
+    (loc = location);
+    if ((loc == thedark)) {
+        (loc = real_location);
+    }
+    if ((loc == I_your_bedroom_U1)) {
+        return I_south_U1;
+    }
+    return I_north_U1;
+];
+[ TSD_door_to_value1 loc;
+    (loc = location);
+    if ((loc == thedark)) {
+        (loc = real_location);
+    }
+    if ((loc == I_your_bedroom_U1)) {
+        return I_your_office_U1;
+    }
+    return I_your_bedroom_U1;
+];
 [ call_U1963;
     #ifdef DEBUG;
         if (suppress_text_substitution) {
@@ -57812,26 +57832,6 @@ Global max_z_object;
     ParaContent();
     print "'s Office";
     rtrue;
-];
-[ TSD_door_dir_value1 loc;
-    (loc = location);
-    if ((loc == thedark)) {
-        (loc = real_location);
-    }
-    if ((loc == I_your_bedroom_U1)) {
-        return I_east_U1;
-    }
-    return I_west_U1;
-];
-[ TSD_door_to_value1 loc;
-    (loc = location);
-    if ((loc == thedark)) {
-        (loc = real_location);
-    }
-    if ((loc == I_your_bedroom_U1)) {
-        return I_your_office_U1;
-    }
-    return I_your_bedroom_U1;
 ];
 [ call_U1964 tmp_0;
     if (debug_rules) {
@@ -57856,6 +57856,10 @@ Global max_z_object;
         WriteListOfMarkedObjects((ENGLISH_BIT + NOARTICLE_BIT));
         ParaContent();
         print " from here.";
+        print "^";
+        (say__p = 1);
+        ParaContent();
+        print "Ignore the next sentence that I can't get rid of yet.";
         print "^";
     }
     rfalse;
