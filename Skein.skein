@@ -1,9 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Skein rootNode="node-0">
+<Skein rootNode="node-245">
   <generator>Windows Inform 10.1.2</generator>
-  <item nodeId="node-0">
-    <command xml:space="preserve">Adventure of the Command Line</command>
-    <result xml:space="preserve"></result>
+  <item nodeId="node-245">
+    <command xml:space="preserve">Adventure-of-the-Command-Line</command>
+    <result xml:space="preserve">Some pretext about the story...&#x000A;&#x000A;&#x000A;Explanation of git config...&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;'s Bedroom&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-262"/>
+      <child nodeId="node-255"/>
+      <child nodeId="node-250"/>
+      <child nodeId="node-265"/>
+      <child nodeId="node-260"/>
+      <child nodeId="node-258"/>
+      <child nodeId="node-246"/>
+      <child nodeId="node-269"/>
+      <child nodeId="node-264"/>
+      <child nodeId="node-254"/>
+    </children>
+  </item>
+  <item nodeId="node-262">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;Now use the format "git config --global NAME" to input your name.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-263"/>
+    </children>
+  </item>
+  <item nodeId="node-263">
+    <command xml:space="preserve">name</command>
+    <result xml:space="preserve">Please use the required format.&#x000A;&#x000A;Now use the format "git config --global NAME" to input your name.</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-255">
+    <command xml:space="preserve">1 2 3 4 5 6</command>
+    <result xml:space="preserve">Who are you, a member of the British royal family? No one has that many names. Let's try this again.&#x000A;&#x000A;What is your name? &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-256"/>
+    </children>
+  </item>
+  <item nodeId="node-256">
+    <command xml:space="preserve">1 2 3 4 5</command>
+    <result xml:space="preserve">Hi, 1!&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;1's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-257"/>
+    </children>
+  </item>
+  <item nodeId="node-257">
+    <command xml:space="preserve">examine letter</command>
+    <result xml:space="preserve">Dear 1 2 3 4 5, &#x000A;&#x000A;You have won the Norwegian Daily Lottery! ...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-250">
+    <command xml:space="preserve">Marius Von Hagus</command>
+    <result xml:space="preserve">Hi, Marius!&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;Marius's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-251"/>
+    </children>
+  </item>
+  <item nodeId="node-251">
+    <command xml:space="preserve">examine me</command>
+    <result xml:space="preserve">As good-looking as ever.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-252"/>
+    </children>
+  </item>
+  <item nodeId="node-252">
+    <command xml:space="preserve">inventory</command>
+    <result xml:space="preserve">You are carrying:&#x000A;  a letter&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-253"/>
+    </children>
+  </item>
+  <item nodeId="node-253">
+    <command xml:space="preserve">examine letter</command>
+    <result xml:space="preserve">Dear Marius Von Hagus, &#x000A;&#x000A;You have won the Norwegian Daily Lottery! ...&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-265">
+    <command xml:space="preserve">blah</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-266"/>
+    </children>
+  </item>
+  <item nodeId="node-266">
+    <command xml:space="preserve">blah git config --global blah</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-267"/>
+    </children>
+  </item>
+  <item nodeId="node-267">
+    <command xml:space="preserve">git config --global blah</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-268"/>
+    </children>
+  </item>
+  <item nodeId="node-268">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">'s Bedroom&#x000A;&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-260">
+    <command xml:space="preserve">blah blah blah</command>
+    <result xml:space="preserve">Please use the required format.&#x000A;&#x000A;What is your name? &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-261"/>
+    </children>
+  </item>
+  <item nodeId="node-261">
+    <command xml:space="preserve">git config --global blah blah blah</command>
+    <result xml:space="preserve">Hi, git!&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;git's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-258">
+    <command xml:space="preserve">git config --global Ohana</command>
+    <result xml:space="preserve">Who are you, a member of the British royal family? No one has that many names. Let's try this again.&#x000A;&#x000A;What is your name? &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-259"/>
+    </children>
+  </item>
+  <item nodeId="node-259">
+    <command xml:space="preserve">blah</command>
+    <result xml:space="preserve">Hi, blah!&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;blah's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-246">
+    <command xml:space="preserve">hana</command>
+    <result xml:space="preserve">Hi, hana!&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;hana's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-247"/>
+    </children>
+  </item>
+  <item nodeId="node-247">
+    <command xml:space="preserve">d</command>
+    <result xml:space="preserve">You can't go that way.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-248"/>
+    </children>
+  </item>
+  <item nodeId="node-248">
+    <command xml:space="preserve">Hi</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-249"/>
+    </children>
+  </item>
+  <item nodeId="node-249">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">hana's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-269">
+    <command xml:space="preserve">huh</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-270"/>
+    </children>
+  </item>
+  <item nodeId="node-270">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-271"/>
+    </children>
+  </item>
+  <item nodeId="node-271">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-272"/>
+    </children>
+  </item>
+  <item nodeId="node-272">
+    <command xml:space="preserve"></command>
+    <result xml:space="preserve">I beg your pardon?&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-264">
+    <command xml:space="preserve">ohana</command>
+    <result xml:space="preserve">That's not a verb I recognise.&#x000A;&#x000A;&#x000A;&#x000A;Now use the format "git config --global NAME" to input your name.&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
+  <item nodeId="node-254">
+    <command xml:space="preserve">&#x4E2D;&#x6587;&#x53EF;&#x4EE5;&#x55CE;</command>
+    <result xml:space="preserve">Hi, !&#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;'s Bedroom&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
