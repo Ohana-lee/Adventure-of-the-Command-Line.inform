@@ -4,6 +4,9 @@
 The player's name is a text that varies.
 
 [GIT CMD SETUP]
+[cd, moving through rooms/directories]
+Understand "cd [something]" as entering.
+
 [git config, get player's name]
 When play begins:
 	say "Some pretext about the story...";
@@ -36,8 +39,11 @@ Rule for constructing the status line when collecting names: do nothing.
 
 Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s Bedroom".
 
-The player carries a letter. The description of the letter is "Dear [player's name], [paragraph break]You have won the Norwegian Daily Lottery! ...".
+Your Office is a room. The printed name of Your Office is "[player's name]'s Office". Your Office is west of your Bedroom.
 
+The bedroom door is east of your Bedroom and west of your Office. It is a door and openable.
+
+The player carries a letter. The description of the letter is "Dear [player's name], [paragraph break]You have won the Norwegian Daily Lottery! ...".
 
 
 [testing??]

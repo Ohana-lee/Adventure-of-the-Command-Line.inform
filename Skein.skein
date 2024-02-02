@@ -195,11 +195,12 @@
   </item>
   <item nodeId="node-258">
     <command xml:space="preserve">git config --global Ohana</command>
-    <result xml:space="preserve">Who are you, a member of the British royal family? No one has that many names. Let's try this again.&#x000A;&#x000A;What is your name? &gt;</result>
+    <result xml:space="preserve">Hi, Ohana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;Ohana's Bedroom&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
     <children>
       <child nodeId="node-259"/>
+      <child nodeId="node-289"/>
     </children>
   </item>
   <item nodeId="node-259">
@@ -208,9 +209,69 @@
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
+  <item nodeId="node-289">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the letter)&#x000A;That's not something you can enter.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-290"/>
+    </children>
+  </item>
+  <item nodeId="node-290">
+    <command xml:space="preserve">cd bedroom</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-291"/>
+    </children>
+  </item>
+  <item nodeId="node-291">
+    <command xml:space="preserve">cd Office</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+  </item>
   <item nodeId="node-279">
     <command xml:space="preserve">git config --global ohana</command>
-    <result xml:space="preserve">Please use the required format.&#x000A;&#x000A;Now use the format "git config --global NAME" to tell me your name. &gt;</result>
+    <result xml:space="preserve">Hi, ohana, welcome! Let's begin. &#x000A;&#x000A;Adventure of the Command Line&#x000A;An Interactive Fiction by Ohana&#x000A;Release 1 / Serial number 240202 / Inform 7 v10.1.2 / D&#x000A;&#x000A;ohana's Bedroom&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-292"/>
+    </children>
+  </item>
+  <item nodeId="node-292">
+    <command xml:space="preserve">cd</command>
+    <result xml:space="preserve">(the letter)&#x000A;That's not something you can enter.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-293"/>
+    </children>
+  </item>
+  <item nodeId="node-293">
+    <command xml:space="preserve">cd bedroom</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-294"/>
+    </children>
+  </item>
+  <item nodeId="node-294">
+    <command xml:space="preserve">cd Office</command>
+    <result xml:space="preserve">You can't see any such thing.&#x000A;&#x000A;&gt;</result>
+    <commentary xml:space="preserve"></commentary>
+    <changed>NO</changed>
+    <children>
+      <child nodeId="node-295"/>
+    </children>
+  </item>
+  <item nodeId="node-295">
+    <command xml:space="preserve">look</command>
+    <result xml:space="preserve">ohana's Bedroom&#x000A;&#x000A;&gt;</result>
     <commentary xml:space="preserve"></commentary>
     <changed>NO</changed>
   </item>
