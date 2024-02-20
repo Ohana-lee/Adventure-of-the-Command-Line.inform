@@ -5,13 +5,15 @@ Include Git Commands by Ohana.
 [GLOBAL VARIABLES AREA]
 The player's name is a text that varies.
 
-Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
+The item's name is a text that varies.
+
+Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
 
 [Before game starts...]
 When play begins:
 	say "Some pretext about the story...";
 	say "[paragraph break]Explanation of git config... Please only use ONE word for your name (No spaces in between!)";
-	now the command prompt is "Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ".
+	now the command prompt is "Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ".Include Git Commands by Ohana.
 
 [rooms set up]
 
