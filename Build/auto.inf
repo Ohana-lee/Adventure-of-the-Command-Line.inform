@@ -2541,6 +2541,7 @@ Constant column_blanks_U6 = 5;
 Constant table_id_U2 = 2;
 Constant anchor_U350 = 1105;
 Constant anchor_U351 = 1105;
+Constant extension_id_U4 = 4;
 Constant anchor_U352 = 1105;
 Constant anchor_U353 = 1105;
 Constant anchor_U354 = 1105;
@@ -2913,6 +2914,7 @@ Constant id_U175 = 561;
 Constant id_U176 = 561;
 Constant id_U177 = 561;
 Constant id_U178 = 561;
+Constant id_U179 = 561;
 Constant MEMORY_HEAP_SIZE = 32768;
 Constant BASICINFORMKIT = 1;
 Constant HDR_MAGICNUMBER = 0;
@@ -3746,7 +3748,7 @@ Constant Computed_Constant_Value_0_U4 = 1;
 Constant EMPTY_TEXT_PACKED = "";
 Constant I7_VERSION_NUMBER = "10.1.2";
 Constant I7_FULL_VERSION_NUMBER = "10.1.2";
-Serial "240202";
+Serial "240206";
 Constant alphabetised_text_0 = ">";
 Constant alphabetised_text_1 = "Adventure of the Command Line";
 Constant alphabetised_text_2 = "An Interactive Fiction";
@@ -3928,12 +3930,12 @@ Constant column_identity_U4 = table_column_id_U4;
 Constant column_identity_U5 = table_column_id_U5;
 Constant column_identity_U6 = table_column_id_U6;
 Constant column_identity_U7 = table_column_id_U7;
-Constant text_U64 = alphabetised_text_10;
-Constant text_U65 = alphabetised_text_15;
-Constant text_U66 = alphabetised_text_11;
-Constant text_U67 = alphabetised_text_19;
-Constant text_U68 = alphabetised_text_22;
-Constant text_U69 = alphabetised_text_0;
+Constant text_U64 = alphabetised_text_22;
+Constant text_U65 = alphabetised_text_0;
+Constant text_U66 = alphabetised_text_10;
+Constant text_U67 = alphabetised_text_15;
+Constant text_U68 = alphabetised_text_11;
+Constant text_U69 = alphabetised_text_19;
 Constant text_U70 = alphabetised_text_1;
 Constant text_U71 = alphabetised_text_2;
 Constant text_U72 = alphabetised_text_5;
@@ -5211,31 +5213,31 @@ Array table_data_U1 table [ column_data_U1; column_data_U2; column_data_U3; colu
 Array column_data_U6 table [ column_bits_U6; NULL; TABLE_NOVALUE; TABLE_NOVALUE; TABLE_NOVALUE; ];
 Array column_data_U7 table [ column_bits_U7; column_blanks_U6; TABLE_NOVALUE; TABLE_NOVALUE; TABLE_NOVALUE; ];
 Array table_data_U2 table [ column_data_U6; column_data_U7; ];
-Array ts_array_U394 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1962; ];
 Array bc_U162 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U64; ];
-Array bc_U163 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U164 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U165 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array inline_U15 --> [ I_your_bedroom_U1; I_your_office_U1; ];
-Array inline_U16 --> [ 0; 0; 0; 0; 0; ];
-Array bc_U166 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U65; ];
-Array bc_U167 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U66; ];
-Array bc_U168 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U169 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U67; ];
-Array bc_U170 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U171 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array ts_array_U395 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1963; ];
-Array bc_U172 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U173 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U174 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array bc_U175 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array ts_array_U396 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1966; ];
-Array bc_U176 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U68; ];
-Array bc_U177 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U69; ];
-Array bc_U178 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
-Array ts_array_U397 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1972; ];
+Array bc_U163 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U65; ];
+Array ts_array_U394 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1940; ];
 Array DK3_phrase_real_number____re --> [ PHRASE_TY; 2; REAL_NUMBER_TY; ];
 Array DK4_phrase_real_number____nu --> [ PHRASE_TY; 2; NUMBER_TY; ];
+Array ts_array_U395 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1966; ];
+Array bc_U164 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U66; ];
+Array bc_U165 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U166 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U167 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array inline_U15 --> [ I_your_bedroom_U1; I_your_office_U1; ];
+Array inline_U16 --> [ 0; 0; 0; 0; 0; ];
+Array bc_U168 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U67; ];
+Array bc_U169 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U68; ];
+Array bc_U170 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U171 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U69; ];
+Array bc_U172 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U173 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array ts_array_U396 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1967; ];
+Array bc_U174 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U175 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U176 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array bc_U177 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
+Array ts_array_U397 --> [ CONSTANT_PACKED_TEXT_STORAGE; call_U1969; ];
+Array bc_U178 --> [ CONSTANT_PACKED_TEXT_STORAGE; EMPTY_TEXT_PACKED; ];
 Array bc_U179 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U70; ];
 Array bc_U180 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U71; ];
 Array bc_U181 --> [ CONSTANT_PACKED_TEXT_STORAGE; text_U72; ];
@@ -5724,8 +5726,8 @@ K8_person selfobj    with short_name bc_U54
     with article bc_U60
     with list_together bc_U61
 ;
-K1_room I_your_bedroom_U1    with short_name ts_array_U394
-    with description bc_U162
+K1_room I_your_bedroom_U1    with short_name ts_array_U395
+    with description bc_U164
     has proper
     with vector 0
     with room_index -1
@@ -5734,12 +5736,12 @@ K1_room I_your_bedroom_U1    with short_name ts_array_U394
     with IK1_Count 0
     with K1_room_Next I_your_office_U1
     with name 'my' 'bedroom' 'rooms//p'
-    with plural bc_U163
-    with article bc_U164
-    with list_together bc_U165
+    with plural bc_U165
+    with article bc_U166
+    with list_together bc_U167
 ;
-K4_door I_bedroom_door_U1    with short_name bc_U166
-    with description bc_U167
+K4_door I_bedroom_door_U1    with short_name bc_U168
+    with description bc_U169
     has openable
     with vector 0
     has door
@@ -5754,12 +5756,12 @@ K4_door I_bedroom_door_U1    with short_name bc_U166
     with K4_door_Next 0
     with action_bitmap 0 0 0 0 0
     with name 'bedroom' 'door' 'doors//p'
-    with initial bc_U168
-    with plural bc_U169
-    with article bc_U170
-    with list_together bc_U171
+    with initial bc_U170
+    with plural bc_U171
+    with article bc_U172
+    with list_together bc_U173
 ;
-K1_room I_your_office_U1    with short_name ts_array_U395
+K1_room I_your_office_U1    with short_name ts_array_U396
     has proper
     with vector 0
     with room_index -1
@@ -5768,10 +5770,10 @@ K1_room I_your_office_U1    with short_name ts_array_U395
     with IK1_Count 1
     with K1_room_Next 0
     with name 'my' 'office' 'rooms//p'
-    with description bc_U172
-    with plural bc_U173
-    with article bc_U174
-    with list_together bc_U175
+    with description bc_U174
+    with plural bc_U175
+    with article bc_U176
+    with list_together bc_U177
 ;
 #ifndef cap_short_name; Constant cap_short_name = 0; #endif;
 #ifndef before; Constant before = 0; #endif;
@@ -7912,11 +7914,13 @@ Global max_z_object;
     rfalse;
 ];
 [ ShowExtensionVersions;
+    print "Git Commands by Ohana^";
 ];
 [ ShowFullExtensionVersions;
     print "Basic Inform version 1 by Graham Nelson^";
     print "English Language version 1 by Graham Nelson^";
     print "Standard Rules version 6 by Graham Nelson^";
+    print "Git Commands by Ohana^";
 ];
 [ ShowOneExtension id;
     if ((id == 1)) {
@@ -7927,6 +7931,9 @@ Global max_z_object;
     }
     if ((id == 3)) {
         print "Standard Rules version 6 by Graham Nelson";
+    }
+    if ((id == 4)) {
+        print "Git Commands by Ohana";
     }
 ];
 [ ShowMeInstanceDetails which na t_0;
@@ -9913,27 +9920,27 @@ Global max_z_object;
             print "switch score notification off rule";
             rtrue;
         }
-        if ((R == call_U1964)) {
+        if ((R == call_U1937)) {
             print "After reading a command";
             rtrue;
         }
-        if ((R == call_U1965)) {
-            print "When play begins";
-            rtrue;
-        }
-        if ((R == call_U1967)) {
+        if ((R == call_U1938)) {
             print "After reading a command when collecting names";
             rtrue;
         }
         if ((R == call_U1968)) {
-            print "Instead of looking when collecting names";
-            rtrue;
-        }
-        if ((R == call_U1969)) {
-            print "Rule for printing the banner text when collecting names";
+            print "When play begins";
             rtrue;
         }
         if ((R == call_U1970)) {
+            print "Instead of looking when collecting names";
+            rtrue;
+        }
+        if ((R == call_U1971)) {
+            print "Rule for printing the banner text when collecting names";
+            rtrue;
+        }
+        if ((R == call_U1972)) {
             print "Rule for constructing the status line when collecting names";
             rtrue;
         }
@@ -27145,12 +27152,12 @@ Global max_z_object;
     rfalse;
 ];
 [ call_U379 forbid_breaks rv;
-    (rv = (call_U1965)());
+    (rv = (call_U1968)());
     if (rv) {
         if ((rv == 2)) {
             return reason_the_action_failed;
         }
-        return call_U1965;
+        return call_U1968;
     }
     ((latest_rule_result-->(0)) = 0);
     rfalse;
@@ -27674,12 +27681,12 @@ Global max_z_object;
 ];
 [ call_U397 forbid_breaks rv;
     if ((action == ##Look)) {
-        (rv = (call_U1968)());
+        (rv = (call_U1970)());
         if (rv) {
             if ((rv == 2)) {
                 return reason_the_action_failed;
             }
-            return call_U1968;
+            return call_U1970;
         }
         ((latest_rule_result-->(0)) = 0);
     } else {
@@ -27788,12 +27795,12 @@ Global max_z_object;
 [ call_U446 forbid_breaks rv p;
     (p = parameter_value);
     (parameter_value = p);
-    (rv = (call_U1970)());
+    (rv = (call_U1972)());
     if (rv) {
         if ((rv == 2)) {
             return reason_the_action_failed;
         }
-        return call_U1970;
+        return call_U1972;
     }
     ((latest_rule_result-->(0)) = 0);
     rfalse;
@@ -27801,12 +27808,12 @@ Global max_z_object;
 [ call_U449 forbid_breaks rv p;
     (p = parameter_value);
     (parameter_value = p);
-    (rv = (call_U1969)());
+    (rv = (call_U1971)());
     if (rv) {
         if ((rv == 2)) {
             return reason_the_action_failed;
         }
-        return call_U1969;
+        return call_U1971;
     }
     ((latest_rule_result-->(0)) = 0);
     rfalse;
@@ -27815,12 +27822,12 @@ Global max_z_object;
     (original_deadflag = deadflag);
     (p = parameter_value);
     (parameter_value = p);
-    (rv = (call_U1967)());
+    (rv = (call_U1938)());
     if (rv) {
         if ((rv == 2)) {
             return reason_the_action_failed;
         }
-        return call_U1967;
+        return call_U1938;
     }
     ((latest_rule_result-->(0)) = 0);
     if ((original_deadflag ~= deadflag)) {
@@ -27830,12 +27837,12 @@ Global max_z_object;
         RulebookParBreak(forbid_breaks);
     }
     (parameter_value = p);
-    (rv = (call_U1964)());
+    (rv = (call_U1937)());
     if (rv) {
         if ((rv == 2)) {
             return reason_the_action_failed;
         }
-        return call_U1964;
+        return call_U1937;
     }
     ((latest_rule_result-->(0)) = 0);
     rfalse;
@@ -57609,233 +57616,9 @@ Global max_z_object;
     (x = noun);
     return (((noun ofclass K2_thing)) && (call_U355(noun)));
 ];
-[ call_U1937 t_0 RV;
-    @push I7SFRAME;
-    StackFrameCreate(0);
-    @push formal_par0;
-    @push formal_par1;
-    (RV = kernel1_U4(t_0));
-    @pull formal_par1;
-    @pull formal_par0;
-    @pull I7SFRAME;
-    return RV;
-];
-[ kernel1_U4 t_0;
-    if ((t_0 ofclass K3_direction)) {
-        return ((
-            ! This evaluates last
-            formal_rv+
-            0*(
-                ! This evaluates second
-                ((
-                    (((((((formal_par1 ofclass K1_room)) && ((formal_par1 ofclass K1_room)))) && ((((formal_rv = MapConnection(formal_par1, formal_par0)))|(1))))) || (ArgumentTypeFailed(6)))
-                ))
-            +
-                ! This evaluate first
-                (((formal_par1 = real_location) + (formal_par0 = t_0))))
-        )
-         ofclass K1_room);
-    }
-    rfalse;
-];
-[ call_U1938 t_0;
-    if (t_0) {
-        return (t_0 has absent);
-    }
-    rfalse;
-];
-[ call_U1939 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_absent, 1);
-    }
-    rfalse;
-];
-[ call_U1940 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_absent, 0);
-    }
-    rfalse;
-];
-[ call_U1941 t_0;
-    if (t_0) {
-        return (t_0 has door);
-    }
-    rfalse;
-];
-[ call_U1942 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_door, 1);
-    }
-    rfalse;
-];
-[ call_U1943 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_door, 0);
-    }
-    rfalse;
-];
-[ call_U1944 t_0;
-    if (t_0) {
-        return (t_0 has mark_as_room);
-    }
-    rfalse;
-];
-[ call_U1945 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_room, 1);
-    }
-    rfalse;
-];
-[ call_U1946 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_room, 0);
-    }
-    rfalse;
-];
-[ call_U1947 t_0;
-    if (t_0) {
-        return (t_0 has mark_as_thing);
-    }
-    rfalse;
-];
-[ call_U1948 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_thing, 1);
-    }
-    rfalse;
-];
-[ call_U1949 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_thing, 0);
-    }
-    rfalse;
-];
-[ call_U1950 t_0;
-    if (t_0) {
-        return (t_0 has container);
-    }
-    rfalse;
-];
-[ call_U1951 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_container, 1);
-    }
-    rfalse;
-];
-[ call_U1952 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_container, 0);
-    }
-    rfalse;
-];
-[ call_U1953 t_0;
-    if (t_0) {
-        return (t_0 has supporter);
-    }
-    rfalse;
-];
-[ call_U1954 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_supporter, 1);
-    }
-    rfalse;
-];
-[ call_U1955 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_supporter, 0);
-    }
-    rfalse;
-];
-[ call_U1956 t_0;
-    if (t_0) {
-        return (t_0 has switchable);
-    }
-    rfalse;
-];
-[ call_U1957 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_switchable, 1);
-    }
-    rfalse;
-];
-[ call_U1958 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_switchable, 0);
-    }
-    rfalse;
-];
-[ call_U1959 t_0;
-    if (t_0) {
-        return (t_0 has animate);
-    }
-    rfalse;
-];
-[ call_U1960 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_animate, 1);
-    }
-    rfalse;
-];
-[ call_U1961 t_0;
-    if (t_0) {
-        return WriteGProperty(OBJECT_TY, t_0, A_animate, 0);
-    }
-    rfalse;
-];
-[ ADJDEFN37 t_0;
-    rfalse;
-];
-[ call_U1962;
-    #ifdef DEBUG;
-        if (suppress_text_substitution) {
-            print "~[player's name]'s Bedroom~";
-            rtrue;
-        }
-    #endif;
-    (say__p = 1);
-    ParaContent();
-    TEXT_TY_Say((Global_Vars-->43));
-    ParaContent();
-    print "'s Bedroom";
-    rtrue;
-];
-[ TSD_door_dir_value1 loc;
-    (loc = location);
-    if ((loc == thedark)) {
-        (loc = real_location);
-    }
-    if ((loc == I_your_bedroom_U1)) {
-        return I_south_U1;
-    }
-    return I_north_U1;
-];
-[ TSD_door_to_value1 loc;
-    (loc = location);
-    if ((loc == thedark)) {
-        (loc = real_location);
-    }
-    if ((loc == I_your_bedroom_U1)) {
-        return I_your_office_U1;
-    }
-    return I_your_bedroom_U1;
-];
-[ call_U1963;
-    #ifdef DEBUG;
-        if (suppress_text_substitution) {
-            print "~[player's name]'s Office~";
-            rtrue;
-        }
-    #endif;
-    (say__p = 1);
-    ParaContent();
-    TEXT_TY_Say((Global_Vars-->43));
-    ParaContent();
-    print "'s Office";
-    rtrue;
-];
-[ call_U1964 tmp_0;
+[ call_U1937 tmp_0;
     if (debug_rules) {
-        DB_Rule(call_U1964, 801, 0);
+        DB_Rule(call_U1937, 800, 0);
     }
     if (SnippetMatches(players_command, Consult_Grammar9)) {
         (say__p = 1);
@@ -57847,7 +57630,7 @@ Global max_z_object;
         print "You can go ";
         ParaContent();
         objectloop (tmp_0 ofclass Object && (tmp_0 ofclass Object)) {
-            if ((((tmp_0 ofclass K3_direction)) && (call_U1937(tmp_0)))) {
+            if ((((tmp_0 ofclass K3_direction)) && (call_U1941(tmp_0)))) {
                 give tmp_0 workflag2;
             } else {
                 give tmp_0 ~workflag2;
@@ -57859,63 +57642,19 @@ Global max_z_object;
         print "^";
         (say__p = 1);
         ParaContent();
-        print "Ignore the next sentence that I can't get rid of yet.";
+        print "Ignore the next sentence that I can't get rid of yet. -by Dev.";
         print "^";
     }
     rfalse;
 ];
-[ call_U1965 RV;
-    @push I7SFRAME;
-    StackFrameCreate(2);
-    BlkValueCreateOnStack(0, TEXT_TY);
-    (RV = kernel1_U5());
-    BlkValueFreeOnStack(0);
-    @pull I7SFRAME;
-    return RV;
-];
-[ kernel1_U5;
-    if (debug_rules) {
-        DB_Rule(call_U1965, 802, 0);
-    }
-    (say__p = 1);
-    ParaContent();
-    print "Some pretext about the story...";
-    print "^";
-    (say__p = 1);
-    ParaContent();
-    DivideParagraphPoint();
-    print "^";
-    ParaContent();
-    print "Explanation of git config... Please only use ONE word for your name (No spaces in between!)";
-    print "^";
-    BlkValueCopy((Global_Vars-->17), TEXT_TY_ExpandIfPerishable(I7SFRAME, ts_array_U396));
-    rfalse;
-];
-[ call_U1966;
-    #ifdef DEBUG;
-        if (suppress_text_substitution) {
-            print "~Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ~";
-            rtrue;
-        }
-    #endif;
-    (say__p = 1);
-    ParaContent();
-    print "Now use the format ~git config --global NAME~ to tell me your name. ";
-    ParaContent();
-    DivideParagraphPoint();
-    print "^";
-    ParaContent();
-    print "> ";
-    rtrue;
-];
-[ call_U1967 RV;
+[ call_U1938 RV;
     @push I7SFRAME;
     StackFrameCreate(8);
     BlkValueCreateOnStack(0, TEXT_TY);
     BlkValueCreateOnStack(2, TEXT_TY);
     BlkValueCreateOnStack(4, TEXT_TY);
     BlkValueCreateOnStack(6, TEXT_TY);
-    (RV = kernel1_U6());
+    (RV = kernel1_U4());
     BlkValueFreeOnStack(0);
     BlkValueFreeOnStack(2);
     BlkValueFreeOnStack(4);
@@ -57923,15 +57662,15 @@ Global max_z_object;
     @pull I7SFRAME;
     return RV;
 ];
-[ kernel1_U6;
-    if (call_U1971()) {
+[ kernel1_U4;
+    if (call_U1939()) {
         if (debug_rules) {
-            DB_Rule(call_U1967, 804, 0);
+            DB_Rule(call_U1938, 802, 0);
         }
-        if (((BlkValueCompare)(TEXT_TY_GetBlob(I7SFRAME, SNIPPET_TY_to_TEXT_TY((I7SFRAME + (WORDSIZE*2)), players_command), 1, WORD_BLOB),bc_U176) == 0)) {
+        if (((BlkValueCompare)(TEXT_TY_GetBlob(I7SFRAME, SNIPPET_TY_to_TEXT_TY((I7SFRAME + (WORDSIZE*2)), players_command), 1, WORD_BLOB),bc_U162) == 0)) {
             if ((matched_text = SnippetIncludes(Consult_Grammar10, players_command))) {
                 BlkValueCopy((Global_Vars-->43), TEXT_TY_GetBlob((I7SFRAME + (WORDSIZE*4)), SNIPPET_TY_to_TEXT_TY((I7SFRAME + (WORDSIZE*6)), players_command), 4, WORD_BLOB));
-                BlkValueCopy((Global_Vars-->17), bc_U177);
+                BlkValueCopy((Global_Vars-->17), bc_U163);
                 (say__p = 1);
                 ParaContent();
                 print "Hi, ";
@@ -57979,71 +57718,28 @@ Global max_z_object;
         rtrue;
     } else {
         if ((debug_rules > 1)) {
-            DB_Rule(call_U1967, 804, 4);
+            DB_Rule(call_U1938, 802, 4);
         }
     }
     rfalse;
 ];
-[ call_U1968;
-    if ((((action == ##Look)) && ((((actor == player)) && (((((self = actor),1)) && (call_U1971()))))))) {
-        (self = noun);
-        if (debug_rules) {
-            DB_Rule(call_U1968, 805, 0);
-        }
-        RulebookFails(0, 0);
-        rtrue;
-    } else {
-        if ((debug_rules > 1)) {
-            DB_Rule(call_U1968, 805, 2);
-        }
-    }
-    rfalse;
-];
-[ call_U1969;
-    if (call_U1971()) {
-        if (debug_rules) {
-            DB_Rule(call_U1969, 806, 0);
-        }
-        RulebookSucceeds(0, 0);
-        rtrue;
-    } else {
-        if ((debug_rules > 1)) {
-            DB_Rule(call_U1969, 806, 4);
-        }
-    }
-    rfalse;
-];
-[ call_U1970;
-    if (call_U1971()) {
-        if (debug_rules) {
-            DB_Rule(call_U1970, 807, 0);
-        }
-        RulebookSucceeds(0, 0);
-        rtrue;
-    } else {
-        if ((debug_rules > 1)) {
-            DB_Rule(call_U1970, 807, 4);
-        }
-    }
-    rfalse;
-];
-[ call_U1971 RV;
+[ call_U1939 RV;
     @push I7SFRAME;
     StackFrameCreate(2);
     BlkValueCreateOnStack(0, TEXT_TY);
-    (RV = kernel1_U7());
+    (RV = kernel1_U5());
     BlkValueFreeOnStack(0);
     @pull I7SFRAME;
     return RV;
 ];
-[ kernel1_U7;
-    if (((BlkValueCompare)((Global_Vars-->17),TEXT_TY_ExpandIfPerishable(I7SFRAME, ts_array_U397)) == 0)) {
+[ kernel1_U5;
+    if (((BlkValueCompare)((Global_Vars-->17),TEXT_TY_ExpandIfPerishable(I7SFRAME, ts_array_U394)) == 0)) {
         rtrue;
     }
     rfalse;
     rfalse;
 ];
-[ call_U1972;
+[ call_U1940;
     #ifdef DEBUG;
         if (suppress_text_substitution) {
             print "~Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ~";
@@ -58059,6 +57755,317 @@ Global max_z_object;
     ParaContent();
     print "> ";
     rtrue;
+];
+[ call_U1941 t_0 RV;
+    @push I7SFRAME;
+    StackFrameCreate(0);
+    @push formal_par0;
+    @push formal_par1;
+    (RV = kernel1_U6(t_0));
+    @pull formal_par1;
+    @pull formal_par0;
+    @pull I7SFRAME;
+    return RV;
+];
+[ kernel1_U6 t_0;
+    if ((t_0 ofclass K3_direction)) {
+        return ((
+            ! This evaluates last
+            formal_rv+
+            0*(
+                ! This evaluates second
+                ((
+                    (((((((formal_par1 ofclass K1_room)) && ((formal_par1 ofclass K1_room)))) && ((((formal_rv = MapConnection(formal_par1, formal_par0)))|(1))))) || (ArgumentTypeFailed(8)))
+                ))
+            +
+                ! This evaluate first
+                (((formal_par1 = real_location) + (formal_par0 = t_0))))
+        )
+         ofclass K1_room);
+    }
+    rfalse;
+];
+[ call_U1942 t_0;
+    if (t_0) {
+        return (t_0 has absent);
+    }
+    rfalse;
+];
+[ call_U1943 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_absent, 1);
+    }
+    rfalse;
+];
+[ call_U1944 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_absent, 0);
+    }
+    rfalse;
+];
+[ call_U1945 t_0;
+    if (t_0) {
+        return (t_0 has door);
+    }
+    rfalse;
+];
+[ call_U1946 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_door, 1);
+    }
+    rfalse;
+];
+[ call_U1947 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_door, 0);
+    }
+    rfalse;
+];
+[ call_U1948 t_0;
+    if (t_0) {
+        return (t_0 has mark_as_room);
+    }
+    rfalse;
+];
+[ call_U1949 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_room, 1);
+    }
+    rfalse;
+];
+[ call_U1950 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_room, 0);
+    }
+    rfalse;
+];
+[ call_U1951 t_0;
+    if (t_0) {
+        return (t_0 has mark_as_thing);
+    }
+    rfalse;
+];
+[ call_U1952 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_thing, 1);
+    }
+    rfalse;
+];
+[ call_U1953 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_mark_as_thing, 0);
+    }
+    rfalse;
+];
+[ call_U1954 t_0;
+    if (t_0) {
+        return (t_0 has container);
+    }
+    rfalse;
+];
+[ call_U1955 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_container, 1);
+    }
+    rfalse;
+];
+[ call_U1956 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_container, 0);
+    }
+    rfalse;
+];
+[ call_U1957 t_0;
+    if (t_0) {
+        return (t_0 has supporter);
+    }
+    rfalse;
+];
+[ call_U1958 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_supporter, 1);
+    }
+    rfalse;
+];
+[ call_U1959 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_supporter, 0);
+    }
+    rfalse;
+];
+[ call_U1960 t_0;
+    if (t_0) {
+        return (t_0 has switchable);
+    }
+    rfalse;
+];
+[ call_U1961 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_switchable, 1);
+    }
+    rfalse;
+];
+[ call_U1962 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_switchable, 0);
+    }
+    rfalse;
+];
+[ call_U1963 t_0;
+    if (t_0) {
+        return (t_0 has animate);
+    }
+    rfalse;
+];
+[ call_U1964 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_animate, 1);
+    }
+    rfalse;
+];
+[ call_U1965 t_0;
+    if (t_0) {
+        return WriteGProperty(OBJECT_TY, t_0, A_animate, 0);
+    }
+    rfalse;
+];
+[ ADJDEFN37 t_0;
+    rfalse;
+];
+[ call_U1966;
+    #ifdef DEBUG;
+        if (suppress_text_substitution) {
+            print "~[player's name]'s Bedroom~";
+            rtrue;
+        }
+    #endif;
+    (say__p = 1);
+    ParaContent();
+    TEXT_TY_Say((Global_Vars-->43));
+    ParaContent();
+    print "'s Bedroom";
+    rtrue;
+];
+[ TSD_door_dir_value1 loc;
+    (loc = location);
+    if ((loc == thedark)) {
+        (loc = real_location);
+    }
+    if ((loc == I_your_bedroom_U1)) {
+        return I_south_U1;
+    }
+    return I_north_U1;
+];
+[ TSD_door_to_value1 loc;
+    (loc = location);
+    if ((loc == thedark)) {
+        (loc = real_location);
+    }
+    if ((loc == I_your_bedroom_U1)) {
+        return I_your_office_U1;
+    }
+    return I_your_bedroom_U1;
+];
+[ call_U1967;
+    #ifdef DEBUG;
+        if (suppress_text_substitution) {
+            print "~[player's name]'s Office~";
+            rtrue;
+        }
+    #endif;
+    (say__p = 1);
+    ParaContent();
+    TEXT_TY_Say((Global_Vars-->43));
+    ParaContent();
+    print "'s Office";
+    rtrue;
+];
+[ call_U1968 RV;
+    @push I7SFRAME;
+    StackFrameCreate(2);
+    BlkValueCreateOnStack(0, TEXT_TY);
+    (RV = kernel1_U7());
+    BlkValueFreeOnStack(0);
+    @pull I7SFRAME;
+    return RV;
+];
+[ kernel1_U7;
+    if (debug_rules) {
+        DB_Rule(call_U1968, 804, 0);
+    }
+    (say__p = 1);
+    ParaContent();
+    print "Some pretext about the story...";
+    print "^";
+    (say__p = 1);
+    ParaContent();
+    DivideParagraphPoint();
+    print "^";
+    ParaContent();
+    print "Explanation of git config... Please only use ONE word for your name (No spaces in between!)";
+    print "^";
+    BlkValueCopy((Global_Vars-->17), TEXT_TY_ExpandIfPerishable(I7SFRAME, ts_array_U397));
+    rfalse;
+];
+[ call_U1969;
+    #ifdef DEBUG;
+        if (suppress_text_substitution) {
+            print "~Now use the format 'git config --global NAME' to tell me your name. [paragraph break]> ~";
+            rtrue;
+        }
+    #endif;
+    (say__p = 1);
+    ParaContent();
+    print "Now use the format ~git config --global NAME~ to tell me your name. ";
+    ParaContent();
+    DivideParagraphPoint();
+    print "^";
+    ParaContent();
+    print "> ";
+    rtrue;
+];
+[ call_U1970;
+    if ((((action == ##Look)) && ((((actor == player)) && (((((self = actor),1)) && (call_U1939()))))))) {
+        (self = noun);
+        if (debug_rules) {
+            DB_Rule(call_U1970, 805, 0);
+        }
+        RulebookFails(0, 0);
+        rtrue;
+    } else {
+        if ((debug_rules > 1)) {
+            DB_Rule(call_U1970, 805, 2);
+        }
+    }
+    rfalse;
+];
+[ call_U1971;
+    if (call_U1939()) {
+        if (debug_rules) {
+            DB_Rule(call_U1971, 806, 0);
+        }
+        RulebookSucceeds(0, 0);
+        rtrue;
+    } else {
+        if ((debug_rules > 1)) {
+            DB_Rule(call_U1971, 806, 4);
+        }
+    }
+    rfalse;
+];
+[ call_U1972;
+    if (call_U1939()) {
+        if (debug_rules) {
+            DB_Rule(call_U1972, 807, 0);
+        }
+        RulebookSucceeds(0, 0);
+        rtrue;
+    } else {
+        if ((debug_rules > 1)) {
+            DB_Rule(call_U1972, 807, 4);
+        }
+    }
+    rfalse;
 ];
 [ parse_name1 original_wn group_wn try_from_wn n f w rv g ss spn pass pass1_n pass2_n;
     #ifdef DEBUG;
