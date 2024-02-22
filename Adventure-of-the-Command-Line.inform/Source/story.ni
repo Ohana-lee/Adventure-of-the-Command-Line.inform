@@ -4,11 +4,45 @@ Include Git Commands by Ohana.
 
 Volume 1 - Global Variables
 
+Book 1 - Variables
+
 The player's name is a text that varies.
 
 The item's name is a text that varies.
 
+Named room is a text that varies.
+
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
+
+Book 2 - Tables
+
+Table of Accessable Rooms
+name	items
+the classroom
+room 101	Table of room 101
+room 102	Table of room 102
+
+Table of Result Rooms
+name
+room 103
+
+Table of Fruits
+name
+orange
+
+Table of room 101
+item
+apple
+
+Table of room 102
+item
+banana
+
+Table of room 103
+item
+--
+
+Book 3 - Understanding sth
 
 Understand "sit on [something]" as entering.
 Understand "gets up" as exiting.
@@ -47,7 +81,7 @@ The bedroom door is south of your Bedroom and north of the corridor. It is a doo
 The classroom door is north of the classroom and south of the corridor. It is a door and openable. The description is "This is the classroom you take Magic lessons in. *inserts description about the classroom* Sit down to start tutorial.". The printed name of the classroom is "Magic Classroom".  There is a chair and a desk in the classroom. The chair is a container and enterable. There is a wand on the desk. 
 
 Instead of entering chair:
-	say "Do you want to start tutorial? (yes/no)";
+	say "Do you want to start tutorial? (yes/no)[line break]";
 	if the player consents:
 [		player gets up;]
 		now the player is in room 101;
@@ -58,12 +92,16 @@ Instead of entering chair:
 
 Book 3 - Practice Rooms
 
-The room 101 is a room. The printed name of room 101 is "Rm 101". The description of room 101 is "This is one of the rooms where you will practice magic spells learnt.". There is a debugger in room 101. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". There is an apple and an orange in the room.
+[add sign in room to show what commands can be used]
 
-The room 102 is a room. The printed name of room 102 is "Rm 102".	The description of room 102 is "This is one of the rooms where you will practice magic spells learnt.". There is debugger no2 in room 102. The debugger no2 is a container. The description of the debugger no2 is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". There is a banana in the room. 
+The room 101 is a room. The printed name of room 101 is "Rm 101". The description of room 101 is "This is one of the rooms where you will practice magic spells learnt.". There is a debugger in room 101. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". There is an apple in room 101.
+
+The room 102 is a room. The printed name of room 102 is "Rm 102".	The description of room 102 is "This is one of the rooms where you will practice magic spells learnt.". There is debugger no2 in room 102. The debugger no2 is a container. The description of the debugger no2 is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". There is a banana in room 102. 
+
+The room 103 is a room. 
 
 Instead of entering debugger:
-	say "Return to classroom? (yes/no)";
+	say "Return to classroom? (yes/no)[line break]";
 	if the player consents:
 		now the player is in the classroom;
 	otherwise:
@@ -71,12 +109,16 @@ Instead of entering debugger:
 		reject the player's command.
 		
 Instead of entering debugger no2:
-	say "Return to classroom? (yes/no)";
+	say "Return to classroom? (yes/no)[line break]";
 	if the player consents:
 		now the player is in the classroom;
 	otherwise:
 		do nothing;
 		reject the player's command.
+		
+Book 4 - Storage Rooms
+
+The storage room is a room. There is an orange in the storage room.
 
 [The bedroom door is south of your Bedroom and north of your Office. It is a door and openable. The description is "You are now in your office. *inserts description about your office*". The printed name of Your Office is "[player's name]'s Office". ]
 
