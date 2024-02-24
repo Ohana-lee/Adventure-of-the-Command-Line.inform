@@ -11,7 +11,22 @@ The player's name is a text that varies.
 
 The item's name is a text that varies.
 
-Named room is a text that varies.
+The commit-status is a truth state that varies. The commit-status is false.
+
+the_last_command is a text that varies. [The last command made by the player is "".]
+
+Every turn:
+	if the commit-status is false:
+		if the player's command matches the regular expression "git commit*":
+			now the_last_command is "git commit";
+		otherwise:
+			now the_last_command is "[the player's command]";
+	otherwise:
+		if the player's command is "git push":
+			do nothing;
+		otherwise:
+			now the_last_command is "[the player's command]";
+			now the commit-status is false.
 
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
 
@@ -24,20 +39,34 @@ room-101
 room-102
 
 Table of Mergable Rooms
-name (room)	tlocation (text)
-room-101	"room 101"
-room-102	"room 102"
+name (room)
+room-101
+room-102
 
 Table of Result Rooms
 name (room)
 room-103
 
 Table of Fruits
-Fname (thing)	name (room)	tlocation (text)
-orange	storage room	"storage"
-strawberry	storage room	"storage"
-apple	room-101	"room 101"
-banana	room-102	"room 102"
+Fname (thing)	name (room)	target(room)
+orange	storage room	room-101
+strawberry	storage room	room-102
+grape	storage room	storage room
+peach	storage room	storage room
+
+Table of Tracked Fruits
+Fname(thing)	name(room)
+apple	room-101
+banana	room-102
+--	--
+--	--
+
+Table of Tutorial Results
+Fname(thing)	name(room)
+apple	room-103
+banana	room-103
+orange	room-103
+strawberry	room-103
 
 Book 3 - Understanding sth
 
@@ -113,7 +142,7 @@ Instead of entering debugger no2:
 		
 Book 4 - Storage Rooms
 
-The storage room is a room. There is an orange and a strawberry in the storage room.
+The storage room is a room. There is an orange, a grape, a peach and a strawberry in the storage room.
 
 [The bedroom door is south of your Bedroom and north of your Office. It is a door and openable. The description is "You are now in your office. *inserts description about your office*". The printed name of Your Office is "[player's name]'s Office". ]
 
