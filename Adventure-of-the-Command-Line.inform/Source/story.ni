@@ -188,11 +188,12 @@ Instead of talking to Dr Github:
 		say "Dr. Github: Congratulations everyone, you have now mastered your very first spell! (*Clap* *clap* *clap*) [line break]";
 		wait for any key;
 		say "Dr. Github: As a side note, you can do [Bold type]git branch[Roman type] to check which branches you can teleport to.";
+		wait for any key;
 		say "Dr. Github: Now here goes the 2nd spell, [Bold type]git fetch[Roman type] ! [line break]";
 		wait for any key;
 		say "Dr. Github: What git fetch does is [Italic type]to update the branch[Roman type]. Others may have made some changes to branch but you can't see it yet. [line break]";
 		wait for any key;
-		say "Dr. Github: So you need to use this spell to make the changes visible to you. Now say after me, [Bold type]git fetch[Roman type]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Talk to Dr. Github again after updating the branch)";
+		say "Dr. Github: So you need to use this spell to make the changes visible to you. Now say after me, [Bold type]git fetch[Roman type]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
 		now the tutorial-part is 3;
 		reject the player's command;
 		[]
@@ -223,9 +224,9 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "Dr. Github: If you ever casted [Bold type]git add[Roman type] on something you don't want, do [Bold type]git reset[Roman type] followed by the object's name. [line break]";
 		wait for any key;
-		say "Dr. GitHub: OK, here is another practice for you. [line break]";
+		say "Dr. GitHub: This might come in handy for the next practice. But for now, let's keep the orange on the tracking list.[line break]";
 		wait for any key;
-		say "Dr. GitHub: [Italic type]Go to 201-branch and track the strawberry[Roman type]. [line break]";
+		say "Dr. GitHub: So now, [Italic type]go to 201-branch and track the strawberry[Roman type]. [line break]";
 		wait for any key;
 		say "Dr. GitHub: Talk to me when you are done. [line break]";
 		now the tutorial-part is 6;
@@ -251,9 +252,11 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "Dr. GitHub: Whenever you are done working on a branch, remember to do [Bold type]git commit[Roman type] to save the changes. [line break]";
 		wait for any key;
-		say "(Mysterious voice: In reality, do [Italic type]git commit -m 'message here' [Roman type]to leave a message with your commit [Italic type]('-m' means to include a main message in the commit)[Roman type], or you will confuse yourself in the future. ";
+		say "(Mysterious voice: In reality, do [Italic type]git commit -m 'message here' [Roman type] instead to leave a message with your commit [Italic type]('-m' means to include a main message in the commit)[Roman type])";
 		wait for any key;
-		say "But to keep things simple, you just need to do [Bold type]git commit[Roman type] in this game... game... game...)[line break]";
+		say "(Mysterious voice: Or you will confuse yourself in the future... future... future... )";
+		wait for any key;
+		say "(Mysterious voice: But to keep things simple, you just need to do [Bold type]git commit[Roman type] in this game... game... game...)[line break]";
 		wait for any key;
 		say "Dr. GitHub: Σ(;ﾟдﾟ) What is that voice? Is there something wrong with me? [line break]";
 		wait for any key;
@@ -302,16 +305,32 @@ The storage room is a room. There is an orange, a grape, a peach and a strawberr
 
 Chapter 1 - Do not eat or pick up fruits
 
-[The apple, orange, strawberry, banana, grape and peach is edible.]
+The apple, orange, strawberry, banana, grape and peach is edible.
 
-[Instead of taking a noun:
-	if the noun is a Fname entry in the Table of Fruits:
-		say "Dr. Github: Please do not touch the teaching materials. [line break]";
-	otherwise
-		take the noun.
+Instead of taking a noun:
+	if the noun is a thing:
+		if there is a Fname of the noun in the Table of Tracked Fruits:
+			say "Dr. Github: Please do not touch the teaching materials. [line break]";
+			reject the player's command;
+		otherwise:
+			now the player carries the noun;
+			say "You took the [noun].";
+	otherwise:
+		say "This is not something you can pick up.".
+			
+Instead of eating a noun:
+	if the noun is a edible thing:
+		if there is a Fname of the noun in the Table of Tracked Fruits:
+			say "Dr. Github: Please do not eat the teaching materials. Go grab some food after this lesson if you are that hungry. [line break]";
+			reject the player's command;
+		otherwise:
+			now the noun is nowhere;
+			say "You ate the [noun].";
+	otherwise:
+		say "This is not edible. Are you OK?[line break]";
 	
 Instead of taking the peach:
-	say "Dr. Github: Please do not touch the teaching materials. [line break]".]
+	say "Dr. Github: Please do not touch the teaching materials. [line break]".
 
 [Instead of picking up ]
 
