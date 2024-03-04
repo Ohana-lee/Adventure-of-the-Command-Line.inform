@@ -333,6 +333,7 @@ Instead of talking to Dr Github:
 		say "Dr. GitHub: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
 		wait for any key;
 		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
+		say "[Bold type] (Mysterious Voice: The rest is in development... ment... ment...) [Roman type]";
 	otherwise:
 		say "Dr. GitHub: Please follow/complete the instructions I mentioned. [line break]";
 		reject the player's command.
