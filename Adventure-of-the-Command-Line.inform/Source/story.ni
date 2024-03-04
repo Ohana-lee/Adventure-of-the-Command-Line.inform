@@ -15,6 +15,8 @@ The item's name is a text that varies.
 
 The tutorial-part is a number that varies. The tutorial-part is initially 0.
 
+The assignment-part is a number that varies. The assignment-part is initially 0.
+
 The commit-status is a truth state that varies. The commit-status is false.
 
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
@@ -24,6 +26,9 @@ Book 2 - Tables
 Table of Accessable Rooms
 name
 the classroom
+--
+--
+--
 --
 --
 
@@ -38,8 +43,8 @@ banana	201-branch	201-branch
 apple	101-branch	101-branch
 orange	storage room	101-branch
 strawberry	storage room	201-branch
-grape	storage room	storage room
-peach	storage room	storage room
+grape	storage room	AR-101
+peach	storage room	AR-102
 
 Table of Tracked Fruits
 Fname(thing)	name(room)
@@ -53,6 +58,22 @@ apple	101-branch
 orange	101-branch
 strawberry	101-branch
 
+
+Table of Tracked Items
+Fname(thing)	name(room)
+--	--
+--	--
+--	--
+--	--
+
+Table of Assignment Results
+Fname(thing)	name(room)
+grape	AR-Main
+peach	AR-Main
+folder	AR-Main
+stool	AR-Main
+mug	AR-Main
+
 Book 3 - Understanding sth
 
 Understand "sit on [something]" as entering.
@@ -62,6 +83,7 @@ Understand "talk to [someone]" or “converse with [someone]” as talking to.
 Understand "sit down" as entering.
 Understand "sit" as entering.
 Understand "take seat" as entering.
+Understand "ls" as looking.
  
 Volume 2 - Before game starts
 
@@ -77,9 +99,14 @@ When play begins:
 		say "Yes, just like this.[paragraph break]";
 		say "To move between rooms, do [Bold type]cd target room name [Roman type].";
 		wait for any key;
+		say "To look around the room, do [Bold type]look[Roman type].";
+		wait for any key;
 		say "To examine objects in the same room as you, do [Bold type]examine object name [Roman type] [line break]";
 		wait for any key;
 		say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
+		wait for any key;
+		say "To pick up an item, do [Bold type]pick up item name[Roman type].";
+		wait for any key;
 		say "Now, do you know who you are? (yes/no)[line break]";
 		say " > ";
 	otherwise:
@@ -108,7 +135,7 @@ Rule for constructing the status line when collecting names: do nothing.
 
 After reading a command:
 	if player's command includes "fuck you":
-		say "Why fuck me?  *cries*（ ＴДＴ） [line break]";
+		say "Why fuck me? Don't fuck me! *cries*（ ＴДＴ） [line break]";
 		reject the player's command.
 
 Volume 3 - Rooms set up
@@ -135,9 +162,11 @@ The description of the cat plushie is "A squishy and chonky cat.".
 
 The chair, the bed, the door and the bedside shelf and the clock is scenery.	
 
+Book 2 - Corridor
+
 The bedroom door is south of your Bedroom and north of the corridor. It is a door and openable. The description of the corridor is "This is a corridor that connects your bedroom and the classroom." The printed name of the corridor is "The Corridor".
 
-Book 2 - Classroom
+Book 3 - Classroom
 
 The classroom door is north of the classroom and south of the corridor. It is a door and openable. 
 The description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner. Take a seat to start the tutorial. ". The printed name of the classroom is "Magic Classroom".  
@@ -165,6 +194,7 @@ Instead of entering chair:
 			wait for any key;
 			say "Dr. Github vanishes into thin air as he casts the spell. ๛ก(ｰ̀ωｰ́ก) Maybe you should give it a try too? [line break]";
 			now the printed name of Dr Github is "Dr. Github";
+			now the description of the Dr Github is "This is the professor who will teach you the set of magic spells named Git Commands.";
 			now Dr Github is in 101-branch;
 			choose a blank row in the Table of Accessable Rooms;
 			now name entry is 101-branch;
@@ -174,14 +204,18 @@ Instead of entering chair:
 		say "Come back when you're ready!";
 		reject the player's command.
 
-Book 3 - Practice Rooms
+Book 4 - Practice Rooms
 
 Chapter 1 - 101-branch
 
 [add sign in room to show what commands can be used]
 [stop people from picking teaching materials up]
 
+Section 1 - Room description
+
 The 101-branch is a room. The description of 101-branch is "This is one of the branches where you will practice magic spells learnt. Talk to Dr Github to continue the tutorial. [line break]Tip: Talk to Dr. Github (ie type 'talk' in the command line) whenever you have completed the instructions he gave you.". There is an apple in 101-branch.
+
+Section 2 - Talking to Dr GitHub
 
 Instead of talking to Dr Github:
 	if tutorial-part is 2:
@@ -268,40 +302,71 @@ Instead of talking to Dr Github:
 		now the tutorial-part is 8;
 		reject the player's command;
 	if tutorial-part is 8 and commit-status is true:
-		say "Dr. GitHub: Congratulations! You have now mastered the basic of Git commands!";
+		now the commit-status is false;
+		say "Dr. GitHub: Congratulations! You have now mastered the basic of Git commands![paragraph break]";
+		wait for any key;
+		say "Dr. GitHub: *Looks at watch* OK, listen. Here is today's assignment. [line break]";
+		wait for any key;
+		say "Dr. GitHub: For this assignment, I will assign you into a pair.[line break]";
+		wait for any key;
+		say "Dr. GitHub: Each pair will have three branches to work on. [line break]";
+		wait for any key;
+		say "Dr. GitHub: One master branch and two other branches. [line break]";
+		wait for any key;
+		say "Dr. GitHub: You should only submit the master branch and the master branch must have everything I required. [line break]";
+		wait for any key;
+		say "Dr. GitHub: Here is the detail instructions of this assignment. [line break]";
+		wait for any key;
+		say "A paper with the instructions written on it appeared in front of you. Do [Bold type]examine assignment instruction[Roman type] to read the paper. [line break]";
+		[give player the items they need and dismiss]
+		now the player carries the assignment instruction;
+		choose a blank row in the Table of Accessable Rooms;
+		now name entry is AR-Main;
+		choose a blank row in the Table of Accessable Rooms;
+		now name entry is AR-101;
+		choose a blank row in the Table of Accessable Rooms;
+		now name entry is AR-102;
+		now Maya is in 101-branch;
+		wait for any key;
+		say "You can now access branch AR-Main, AR-101 and AR-102.[line break]";
+		wait for any key;
+		say "Dr. GitHub: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
+		wait for any key;
+		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
 	otherwise:
 		say "Dr. GitHub: Please follow/complete the instructions I mentioned. [line break]";
 		reject the player's command.
+		
+Section 3 - Talking to Maya
+
+Instead of talking to Maya:
+	if assignment-part is 0:
+		say "Maya: Hello [player's name]! Nice to meet you! Do you have any plans for this assignment?[line break]";
+		wait for any key;
+		say "[player's name]: Hello! Maybe we could split up the workload? [line break]";
+		wait for any key;
+		say "[player's name]: I can work on AR-102 and you can work on AR-101. [line break]";
+		wait for any key;
+		say "Maya: Shall we set an internal deadline? Like three days later? [line break]";
+		wait for any key;
+		say "Maya: Then we can merge our branches to AR-Main.[line break]";
+		wait for any key;
+		say "[player's name]: Sure!";
+		wait for any key;
+		say "After setting up a plan for the assignment, You decided to grab lunch and waved goodbye to Maya.[line break]";
+		say "(Tip: Go to the Canteen.)".
 
 [There is a debugger in 101-branch. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". ]
 
 Chapter 2 - 201-branch
 
 The 201-branch is a room. The description of 201-branch is "This is one of the branches where you will practice magic spells learnt.". There is a banana in 201-branch. 
-
-[There is debugger no2 in 201-branch. The debugger no2 is a container. The description of the debugger no2 is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.".]
-
-[The room-103 is a room. The printed name of room-103 is "Rm 103".]
-
-[Instead of entering debugger:
-	say "Return to classroom? (yes/no)[line break]";
-	if the player consents:
-		now the player is in the classroom;
-	otherwise:
-		do nothing;
-		reject the player's command.
 		
-Instead of entering debugger no2:
-	say "Return to classroom? (yes/no)[line break]";
-	if the player consents:
-		now the player is in the classroom;
-	otherwise:
-		do nothing;
-		reject the player's command.]
-		
-Book 4 - Storage Rooms
+Book 5 - Storage Rooms
 
-The storage room is a room. There is an orange, a grape, a peach and a strawberry in the storage room. The printed name of the storage room is "--".
+The storage room is a room. There is an orange, a grape, a peach, a stool, a folder, a mug and a strawberry in the storage room. The printed name of the storage room is "--".
+
+Maya is a person. Maya is in the storage room. The description of Maya is "A sweet girl who is your classmate and partner of the assignment.".
 
 Chapter 1 - Do not eat or pick up fruits
 
@@ -320,21 +385,33 @@ Instead of taking a noun:
 			
 Instead of eating a noun:
 	if the noun is a edible thing:
-		if there is a Fname of the noun in the Table of Tracked Fruits:
-			say "Dr. Github: Please do not eat the teaching materials. Go grab some food after this lesson if you are that hungry. [line break]";
+		if there is a Fname of the noun in the Table of Fruits:
+			say "Dr. Github: You are not allowed to eat during lesson. Go grab some food later if you are that hungry. [line break]";
 			reject the player's command;
 		otherwise:
 			now the noun is nowhere;
 			say "You ate the [noun].";
 	otherwise:
 		say "This is not edible. Are you OK?[line break]";
-	
-Instead of taking the peach:
-	say "Dr. Github: Please do not touch the teaching materials. [line break]".
+		
+Chapter 2 - Assignment papers
+
+There is a assignment instruction in the storage room. The description is "[Bold type]Formative Assignment Instructions[Roman type][line break]Name: Maya, [player's name] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, AR-101, AR-102. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug[line break]4. You can only use [Bold type]git branch branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- Do [Bold type]Drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.".
+
+Book 6 - Assignment Rooms
+
+The AR-Main is a room. 
+
+The AR-101 is a room. There is a table and a drawer in the AR-101.
+
+The AR-102 is a room. There is a plant and a ball in the AR-102.
 
 [Instead of picking up ]
 
 [The bedroom door is south of your Bedroom and north of your Office. It is a door and openable. The description is "You are now in your office. *inserts description about your office*". The printed name of Your Office is "[player's name]'s Office". ]
 
+Book 7 - Canteen
+
+The canteen door is east of the corridor and west of the Canteen. It is a door and openable. The description of the Canteen is "The canteen is filled with the aroma of delicious food. You get hungry just by staying here.".
 
 [testing??]
