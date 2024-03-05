@@ -5,6 +5,9 @@ Include Menus by Emily Short.
 Include Basic Screen Effects by Emily Short.
 Release along with an interpreter.
 
+[add git pull? What is narratively and educationaly sensible
+make a note: ran a test on exped user]
+
 Volume 1 - Global Variables
 
 Book 1 - Variables
@@ -36,8 +39,11 @@ Table of Mergable Rooms
 name (room)
 101-branch
 201-branch
+AR-Main
+AR-101
+AR-102
 
-Table of Fruits
+Table of Fruits [aka Table of all items that can be tracked]
 Fname (thing)	name (room)	target(room)
 banana	201-branch	201-branch
 apple	101-branch	101-branch
@@ -45,6 +51,12 @@ orange	storage room	101-branch
 strawberry	storage room	201-branch
 grape	storage room	AR-101
 peach	storage room	AR-102
+watermelon	storage room	AR-101
+pear	storage room	AR-102
+table	AR-101	AR-101
+drawer	AR-101	AR-101
+plant	AR-102	AR-102
+ball	AR-102	AR-102
 
 Table of Tracked Fruits
 Fname(thing)	name(room)
@@ -61,8 +73,8 @@ strawberry	101-branch
 
 Table of Tracked Items
 Fname(thing)	name(room)
---	--
---	--
+stool	AR-Main
+mug	AR-Main
 --	--
 --	--
 
@@ -73,6 +85,8 @@ peach	AR-Main
 folder	AR-Main
 stool	AR-Main
 mug	AR-Main
+watermelon	AR-Main
+Pear	AR-Main
 
 Book 3 - Understanding sth
 
@@ -84,6 +98,10 @@ Understand "sit down" as entering.
 Understand "sit" as entering.
 Understand "take seat" as entering.
 Understand "ls" as looking.
+
+Reading is an action applying to one visible thing.
+Understand "open [something]" as reading.
+Understand "read [something]" or "read" as reading.
  
 Volume 2 - Before game starts
 
@@ -97,15 +115,18 @@ When play begins:
 		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
 		wait for any key;
 		say "Yes, just like this.[paragraph break]";
+		wait for any key;
 		say "To move between rooms, do [Bold type]cd target room name [Roman type].";
 		wait for any key;
-		say "To look around the room, do [Bold type]look[Roman type].";
+		say "To look around the room, do [Bold type]ls[Roman type].";
 		wait for any key;
 		say "To examine objects in the same room as you, do [Bold type]examine object name [Roman type] [line break]";
 		wait for any key;
 		say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
 		wait for any key;
 		say "To pick up an item, do [Bold type]pick up item name[Roman type].";
+		wait for any key;
+		say "To undo a command, do [Bold type]undo[Roman type].";
 		wait for any key;
 		say "Now, do you know who you are? (yes/no)[line break]";
 		say " > ";
@@ -147,20 +168,35 @@ Book 1 - Bedroom
 [Only use doors to tell where each room is in relative to other rooms, or else inform gets confused]
 Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s Bedroom". The description is "This is your bedroom. As cozy as ever.  (❁´ω`❁)*✲ﾟ*". 
 
-There is a bed, a desk and a bedside shelf in the bedroom. There is a clock on the bedside shelf. The bed is a container and enterable. The player is in the bed. There is a cat plushie in the bed. 
+There is a bed, a desk and a bedside shelf in the bedroom. There is a clock on the bedside shelf. The bed is a container and enterable. The player is in the bed. There is a cat plushie in the bed. There is a Git commands reference book on the desk.
 
-Instead of entering bed:
+Instead of entering bed when the tutorial-part is less than 8:
 	say "It's not the time to get in bed now...  (눈‸눈)";
 	reject the player's command.
 	
-Instead of sleeping:
+Instead of sleeping when the tutorial-part is less than 8:
 	say "You just woke up, why would you sleep again? ꐦ≖ ≖";
 	reject the player's command.
 	
 The description of the clock is "The clock shows that it's 8:00am now. Class starts at 8:30.".
 The description of the cat plushie is "A squishy and chonky cat.".
+The description of the Git commands reference book is "You bought this reference book to aid your studies in Git commands".
 
 The chair, the bed, the door and the bedside shelf and the clock is scenery.	
+
+Instead of reading the Git commands reference book:
+	if the assignment-part is 3:
+		say "You sat down and start reading the reference book.[line break]";
+		wait for any keys;
+		say "[Bold type] Chapter 0 - About Git Commands [Roman type][paragraph break]";
+		wait for any keys;
+		say "Git Commands is a set of powerful spells that alters time and space. [line break]";
+		wait for an keys;
+		say "You can ";
+	otherwise:
+		say "You don't want to read this now.[line break]".
+		
+
 
 Book 2 - Corridor
 
@@ -185,12 +221,13 @@ Instead of entering chair:
 			say "You got up from your seat.[line break]";
 			reject the player's command;
 		otherwise:
+			now the description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner.";
 			say "Professor: Welcome everyone, to the unit of Git Commands. First of all, I am your professor. You can call me Dr. Github. Now I will teach you one of the basic spells in Git. [line break]";
 			wait for any key;
-			say "Dr. Github: The first spell is called [Bold type]git branch[Roman type]. It is used for teleporting yourself to other branches. [line break]";
+			say "Dr. Github: The first spell is called [Bold type]git checkout[Roman type]. It is used for teleporting yourself to other branches. [line break]";
 			wait for any key;
 			[say "Dr. Github: But mind you, not all rooms (aka branches in reality) can be teleported to. (But in reality, you can use this to go to any branch you have access to)"]
-			say "Dr. Github: now do [Bold type]git branch 101-branch[Roman type] to go to 101-branch, I'll meet everyone there. [line break]";
+			say "Dr. Github: now do [Bold type]git checkout 101-branch[Roman type] to go to 101-branch, I'll meet everyone there. [line break]";
 			wait for any key;
 			say "Dr. Github vanishes into thin air as he casts the spell. ๛ก(ｰ̀ωｰ́ก) Maybe you should give it a try too? [line break]";
 			now the printed name of Dr Github is "Dr. Github";
@@ -288,7 +325,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "(Mysterious voice: In reality, do [Italic type]git commit -m 'message here' [Roman type] instead to leave a message with your commit [Italic type]('-m' means to include a main message in the commit)[Roman type])";
 		wait for any key;
-		say "(Mysterious voice: Or you will confuse yourself in the future... future... future... )";
+		say "(Mysterious voice: Or you will confuse yourself in the future... future... future... )[line break]";
 		wait for any key;
 		say "(Mysterious voice: But to keep things simple, you just need to do [Bold type]git commit[Roman type] in this game... game... game...)[line break]";
 		wait for any key;
@@ -304,6 +341,7 @@ Instead of talking to Dr Github:
 	if tutorial-part is 8 and commit-status is true:
 		now the commit-status is false;
 		say "Dr. GitHub: Congratulations! You have now mastered the basic of Git commands![paragraph break]";
+		now the description of 101-branch is "This is one of the branches where you will practice magic spells learnt.";
 		wait for any key;
 		say "Dr. GitHub: *Looks at watch* OK, listen. Here is today's assignment. [line break]";
 		wait for any key;
@@ -333,6 +371,7 @@ Instead of talking to Dr Github:
 		say "Dr. GitHub: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
 		wait for any key;
 		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
+		now the assignment-part is 1;
 	otherwise:
 		say "Dr. GitHub: Please follow/complete the instructions I mentioned. [line break]";
 		reject the player's command.
@@ -340,21 +379,23 @@ Instead of talking to Dr Github:
 Section 3 - Talking to Maya
 
 Instead of talking to Maya:
-	if assignment-part is 0:
+	if assignment-part is 1:
 		say "Maya: Hello [player's name]! Nice to meet you! Do you have any plans for this assignment?[line break]";
 		wait for any key;
 		say "[player's name]: Hello! Maybe we could split up the workload? [line break]";
 		wait for any key;
 		say "[player's name]: I can work on AR-102 and you can work on AR-101. [line break]";
 		wait for any key;
-		say "Maya: Shall we set an internal deadline? Like three days later? [line break]";
+		say "Maya: Shall we set an internal deadline? Like two days later? [line break]";
 		wait for any key;
 		say "Maya: Then we can merge our branches to AR-Main.[line break]";
 		wait for any key;
 		say "[player's name]: Sure!";
 		wait for any key;
-		say "After setting up a plan for the assignment, You decided to grab lunch and waved goodbye to Maya.[line break]";
-		say "(Tip: Go to the Canteen.)".
+		say "After setting up a plan for the assignment, You decided to go grab some food and waved goodbye to Maya.[line break]";
+		wait for any key;
+		say "(Tip: Go to the Canteen, which is next to the Corridor.)";
+		now the assignment-part is 2.
 
 [There is a debugger in 101-branch. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". ]
 
@@ -364,7 +405,7 @@ The 201-branch is a room. The description of 201-branch is "This is one of the b
 		
 Book 5 - Storage Rooms
 
-The storage room is a room. There is an orange, a grape, a peach, a stool, a folder, a mug and a strawberry in the storage room. The printed name of the storage room is "--".
+The storage room is a room. There is an orange, a grape, a peach, a watermelon, a pear and a strawberry in the storage room. The printed name of the storage room is "--".
 
 Maya is a person. Maya is in the storage room. The description of Maya is "A sweet girl who is your classmate and partner of the assignment.".
 
@@ -396,15 +437,29 @@ Instead of eating a noun:
 		
 Chapter 2 - Assignment papers
 
-There is a assignment instruction in the storage room. The description is "[Bold type]Formative Assignment Instructions[Roman type][line break]Name: Maya, [player's name] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, AR-101, AR-102. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug[line break]4. You can only use [Bold type]git branch branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- Do [Bold type]Drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.".
+There is a assignment instruction in the storage room. The description is "[Bold type]Formative Assignment Instructions[Roman type][line break]Name: Maya, [player's name] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, AR-101, AR-102. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.".
 
 Book 6 - Assignment Rooms
 
-The AR-Main is a room. 
+Chapter 1 - Rooms set up
 
-The AR-101 is a room. There is a table and a drawer in the AR-101.
+The AR-Main is a room. There is a stool, a folder and a mug in the AR-Main. The description of AR-Main is "This is the main branch of your assignment.".
 
-The AR-102 is a room. There is a plant and a ball in the AR-102.
+The AR-101 is a room. There is a table and a drawer in the AR-101. 
+
+Every turn:
+	if the assignment-part is 1:
+		now the description of AR-101 is "This is one of the three branches of your assignment. Maya will be working on this branch.";
+	otherwise:
+		now the description of AR-102 is "This is one of the three branches of your assignment.".
+
+The AR-102 is a room. There is a plant and a ball in the AR-102. 
+
+Every turn:
+	if the assignment-part is 1:
+		now the description of AR-102 is "This is one of the three branches of your assignment. You will be working on this branch. It's a little late, so you decided to only update the branch and leave the rest for tomorrow";
+	otherwise:
+		now the description of AR-102 is "This is one of the three branches of your assignment.".
 
 [Instead of picking up ]
 
@@ -412,6 +467,20 @@ The AR-102 is a room. There is a plant and a ball in the AR-102.
 
 Book 7 - Canteen
 
-The canteen door is east of the corridor and west of the Canteen. It is a door and openable. The description of the Canteen is "The canteen is filled with the aroma of delicious food. You get hungry just by staying here.".
+The canteen door is east of the corridor and west of the Canteen. It is a door and openable. The description of the Canteen is "The canteen is filled with the aroma of delicious food. You get hungry just by staying here. Try looking around to find something to eat.". The meal deal is a container. The meal deal is edible. The meal deal is in the Canteen. There is a egg mayo sandwich, a bag of chips and a cup of coffee in the meal deal.
+
+Instead of eating the meal deal:
+	now Maya is in the AR-101;
+	say "You happily chomp on the sandwich until nothing is left.[line break]";
+	wait for any key;
+	say "Then you munched your chips while you took a sip of your coffee.[line break]";
+	wait for any key;
+	say "After a few minutes, the entire meal deal is in your stomach.[line break]";
+	now the meal deal is nowhere;
+	wait for any key;
+	say "You are now satisfied and have decided to visit the assignment rooms.[line break]";
+	wait for any key;
+	say "(Tip: remember to update Maya on your progress.)[line break]".
+
 
 [testing??]
