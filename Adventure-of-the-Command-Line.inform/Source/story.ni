@@ -189,37 +189,37 @@ Chapter 1 - Reference book
 Instead of reading the Git commands reference book:
 	if the assignment-part is 3:
 		say "You sat down and start reading the reference book.[line break]";
-		wait for any keys;
+		wait for any key;
 		say "[Bold type] Chapter 1 - About Git Commands [Roman type][paragraph break]";
-		wait for any keys;
+		wait for any key;
 		say "Git Commands is a set of powerful spells that alters time and space. [line break]";
-		wait for any keys;
+		wait for any key;
 		say "You can use it to revert changes made to files and objects or even merge certain spaces into one. [line break]";
-		wait for any keys;
+		wait for any key;
 		say "It facilitates collaboration in team projects. [paragraph break]";
-		wait for any keys;
+		wait for any key;
 		say "[Bold type]1.1 Repositories[Roman type]";
-		wait for any keys;
+		wait for any key;
 		say "A repository, (aka repo), is a place where you can store your code, your files and each file’s revision history[line break]";
-		wait for any keys;
+		wait for any key;
 		say "A remote repository is a repository stored in a remote place called GitHub.[line break]";
-		wait for any keys;
+		wait for any key;
 		say "A local repository is a repository stored in your local space.[line break]";
-		wait for any keys;
+		wait for any key;
 		say "A repository can have multiple collaborators and it can be either public or private.[paragraph break]";
-		wait for any keys;
+		wait for any key;
 		say "[Bold type]1.2 Branches[Roman type][line break]";
-		wait for any keys;
+		wait for any key;
 		say "A branch is a parallel version of your code that is contained within the repository.[line break]";
-		wait for any keys;
+		wait for any key;
 		say "Changes made on a branch do not affect other branches until you cast git merge on them.[line break]";
-		wait for any keys;
+		wait for any key;
 		say "Merge conflicts occur when you merge branches that have competing commits.[line break]";
-		wait for any keys;
+		wait for any key;
 		say "In such cases, you will have to resolve all conflicts before you can merge them. [line break]";
-		wait for any keys;
+		wait for any key;
 		say "(Good news, you will not run into any merge conflicts in this game.)[paragraph break]";
-		wait for any keys;
+		wait for any key;
 		say "[Bold type]1.3 Exercise[Roman type][line break]";
 	otherwise:
 		say "You don't want to read this now.[line break]".
