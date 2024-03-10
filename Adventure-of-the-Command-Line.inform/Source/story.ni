@@ -184,6 +184,8 @@ The description of the Git commands reference book is "You bought this reference
 
 The chair, the bed, the door and the bedside shelf and the clock is scenery.	
 
+Chapter 1 - Reference book
+
 Instead of reading the Git commands reference book:
 	if the assignment-part is 3:
 		say "You sat down and start reading the reference book.[line break]";
