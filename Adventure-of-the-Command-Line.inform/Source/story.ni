@@ -75,23 +75,28 @@ Table of Tracked Items
 Fname(thing)	name(room)
 stool	AR-Main
 mug	AR-Main
+folder	AR-Main
+--	--
+--	--
 --	--
 --	--
 
 Table of Assignment Results
 Fname(thing)	name(room)
-grape	AR-Main
-peach	AR-Main
-folder	AR-Main
 stool	AR-Main
 mug	AR-Main
+folder	AR-Main
+grape	AR-Main
 watermelon	AR-Main
-Pear	AR-Main
+peach	AR-Main
+pear	AR-Main
 
 Book 3 - Understanding sth
 
 Understand "sit on [something]" as entering.
 Understand "gets up" as exiting.
+Understand "get up" as exiting.
+Understand "leave" as exiting.
 Talking to is an action applying to one visible thing. 
 Understand "talk to [someone]" or “converse with [someone]” as talking to.
 Understand "sit down" as entering.
@@ -99,9 +104,9 @@ Understand "sit" as entering.
 Understand "take seat" as entering.
 Understand "ls" as looking.
 
-Reading is an action applying to one visible thing.
-Understand "open [something]" as reading.
-Understand "read [something]" or "read" as reading.
+[Reading is an action applying to one visible thing.]
+Understand "open [something]" as examining.
+Understand "read [something]" or "read" as examining.
  
 Volume 2 - Before game starts
 
@@ -170,25 +175,74 @@ Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s B
 
 There is a bed, a desk and a bedside shelf in the bedroom. There is a clock on the bedside shelf. The bed is a container and enterable. The player is in the bed. There is a cat plushie in the bed. There is a Git commands reference book on the desk.
 
-Instead of entering bed when the tutorial-part is less than 8:
+Instead of entering bed when the tutorial-part is less than 7:
 	say "It's not the time to get in bed now...  (눈‸눈)";
 	reject the player's command.
 	
-Instead of sleeping when the tutorial-part is less than 8:
+Instead of sleeping when the tutorial-part is less than 7:
 	say "You just woke up, why would you sleep again? ꐦ≖ ≖";
 	reject the player's command.
+
+Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
+	say "You jumped into bed and fell asleep.[paragraph break]";
+	wait for any key;
+	say "*snoring sounds*[paragraph break]";
+	if the assignment-part is 4:
+		choose a blank row in the Table of Tracked Items;
+		now Fname entry is grape;
+		now the name entry is AR-101;
+		choose a blank row in the Table of Tracked Items;
+		now the Fname entry is watermelon;
+		now the name entry is AR-101;
+	wait for any key;
+	say "It's a brand new day and it's time to work on your assignment.[line break]";
+	wait for any key;
+	if the assignment-part is 7:
+		now Maya is in AR-Main;
+		say "Today is the day where you will be merging your branches. Be ready for that!";
+		wait for any key;
+	say "You got out of bed[line break]";
+	increment the assignment-part; [changes on assignment-part here]
+	wait for any key;
+	say "Do you know what you need to do today? (yes/no)[line break]> ";
+	if the player consents:
+		say "Great! Good luck on your work.";
+	otherwise:
+		if assignment-part is 5:
+			say "You need to track the required items in branch AR-102.[line break]";
+			wait for any key;
+			say "Understand ? (yes/no)[line break]> ";
+			if player consents:
+				say "Great! Good luck on your work. [line break]";
+			otherwise:
+				say "Re-read the last sentence until you understand. Good luck![line break]";
+		otherwise if assignment-part is 8:
+			say "You need to talk to Maya to do the final checking and merge your branches.[line break]";
+			wait for any key;
+			say "Maya is waiting for you in AR-Main.[line break]";
+			say "Understand ? (yes/no)[line break]> ";
+			if the player consents:
+				say "Great! [line break]";
+			otherwise:
+				say "Re-read the last sentence until you understand. Good luck![line break]";
+				[reject the player's command;]
+	say "assigment part: [assignment-part]";
+	if the player is in the bed:
+		now the player is in the bedroom.
 	
 The description of the clock is "The clock shows that it's 8:00am now. Class starts at 8:30.".
 The description of the cat plushie is "A squishy and chonky cat.".
-The description of the Git commands reference book is "You bought this reference book to aid your studies in Git commands".
+[The description of the Git commands reference book is "You bought this reference book to aid your studies in Git commands".]
 
 The chair, the bed, the door and the bedside shelf and the clock is scenery.	
 
 Chapter 1 - Reference book
 
-Instead of reading the Git commands reference book:
+Instead of examining the Git commands reference book:
+	say "tutorial part: [tutorial-part][line break]";
+	say "assignment part: [assignment-part][line break]";
+	say "You sat down and start reading the reference book.[line break]";
 	if the assignment-part is 3:
-		say "You sat down and start reading the reference book.[line break]";
 		wait for any key;
 		say "[Bold type] Chapter 1 - About Git Commands [Roman type][paragraph break]";
 		wait for any key;
@@ -198,7 +252,7 @@ Instead of reading the Git commands reference book:
 		wait for any key;
 		say "It facilitates collaboration in team projects. [paragraph break]";
 		wait for any key;
-		say "[Bold type]1.1 Repositories[Roman type]";
+		say "[Bold type]1.1 Repositories[Roman type][line break]";
 		wait for any key;
 		say "A repository, (aka repo), is a place where you can store your code, your files and each file’s revision history[line break]";
 		wait for any key;
@@ -220,11 +274,120 @@ Instead of reading the Git commands reference book:
 		wait for any key;
 		say "(Good news, you will not run into any merge conflicts in this game.)[paragraph break]";
 		wait for any key;
-		say "[Bold type]1.3 Exercise[Roman type][line break]";
+		say "[Bold type]1.3 Exercise[Roman type][paragraph break]";
+		wait for any key;
+		say "Q1 What cannot be found in a repository?[line break]";
+		now the command prompt is "A. Tracked folders[line break]B. Tracked files[line break]C. Local files outside the repository[line break]D. Different versions of a tracked file[paragraph break]> ";
+	if the assignment-part is 6:
+		say "[Bold type]Chapter 2 – About Tracking and Committing[Roman type][paragraph break]";
+		wait for any key;
+		say "[Bold type]2.1 Commits[Roman type][paragraph break]";
+		wait for any key;
+		say "A commit is like a save file that contains meaningful changes you’ve made.[line break]";
+		wait for any key;
+		say "Each commit has a unique ID that identifies: the specific changes, when the changes were made and who made the changes.[line break]";
+		wait for any key;
+		say "Although you can revert commits that have been pushed,[line break]";
+		wait for any key;
+		say "it is considered bad practice as it makes things hard for your collaborators.[paragraph break]";
+		wait for any key;
+		say "[Bold type]2.2 Tracking files[Roman type][paragraph break]";
+		wait for any key;
+		say "Each file in your working directory can be in one of the two states: tracked or untracked.[line break]";
+		wait for any key;
+		say "Tracked files are files that you have cast ‘git add’ on.[line break]";
+		wait for any key;
+		say "Untracked files are everything else.[line break]";
+		wait for any key;
+		say "You can cast ‘git add’ on untracked files to turn them into tracked files.[line break]";
+		wait for any key;
+		say "The counter-spell of ‘git add’ is ‘git reset’.[paragraph break]";
+		wait for any key;
+		say "[Bold type]2.3 Exercise[Roman type][paragraph break]";
+		wait for any key;
+		say "Q1 What can you identify from a commit ID (excluding the commit message)?[paragraph break]";
+		now the command prompt is "A. the person who made the changes[line break]B. reason why the changes are made[line break]C. number of times the committer cast a spell[line break]D. today’s date[paragraph break]> ";
 	otherwise:
-		say "You don't want to read this now.[line break]".
+		say "You bought this reference book to aid your studies in Git command.[line break]You don't want to read this now.[line break]".
 		
+Chapter 2 - Practice Exercise
 
+To decide whether asking Q1:
+	if the command prompt is "A. Tracked folders[line break]B. Tracked files[line break]C. Local files outside the repository[line break]D. Different versions of a tracked file[paragraph break]> ", yes;
+	no.
+
+After reading a command when asking Q1:
+	[say "What's your answer?";]
+	if the player's command includes "C":
+		say "that's correct.";
+		wait for any key;
+		say "Q2 What is a merge conflict?[line break]";
+		now the command prompt is "A. Competing commits between branches[line break]B. Disagreement between repositories[line break]C. Hostility between collaborators[line break]D. Dispute between files[paragraph break]> ";
+		reject the player's command;
+	otherwise:
+		say "that's not correct.".
+		
+To decide whether asking Q2:
+	if the command prompt is "A. Competing commits between branches[line break]B. Disagreement between repositories[line break]C. Hostility between collaborators[line break]D. Dispute between files[paragraph break]> ", yes;
+	no.
+
+After reading a command when asking Q2:
+	if the player's command includes "A":
+		say "that's correct.";
+		wait for any key;
+		say "Q3 What spells cannot be cast on branches?[line break]";
+		now the command prompt is "A. git fetch[line break]B. git config[line break]C. git push[line break]D. git commit[paragraph break]> ";
+		reject the player's command;
+	say "that's not correct.";
+	reject the player's command.
+		
+To decide whether asking Q3:
+	if the command prompt is "A. git fetch[line break]B. git config[line break]C. git push[line break]D. git commit[paragraph break]> ", yes;
+	no.
+	
+After reading a command when asking Q3:
+	if the player's command includes "B":
+		now the command prompt is ">"; [<-- this line is very very very important]
+		say "That's correct. *Explanation on the answer*[line break]";
+		now the assignment-part is 4;
+		reject the player's command;
+	say "that's not correct.";
+	reject the player's command.
+	
+To decide whether asking Q4:
+	if the command prompt is "A. the person who made the changes[line break]B. reason why the changes are made[line break]C. number of times the committer cast a spell[line break]D. today’s date[paragraph break]> ", yes;
+	no.
+	
+After reading a command when asking Q4:
+	if the player's command includes "A":
+		say "that's correct";
+		wait for any key;
+		say "[line break]Q2 What spell can you cast to turn tracked files into untracked files?[paragraph break]";
+		now the command prompt is "A. git undo[line break]B. git add[line break]C. git reset[line break]D. git untrack[paragraph break]> ";
+		reject the player's command;
+	say "that's not correct.";
+	reject the player's command.	
+	
+To decide whether asking Q5:
+	if the command prompt is "A. git undo[line break]B. git add[line break]C. git reset[line break]D. git untrack[paragraph break]> ", yes;
+	no.
+
+After reading a command when asking Q5:
+	if the player's command includes "C":
+		now the command prompt is "> ";
+		say "that's correct. exercise done.[line break]";
+		wait for any key;
+		say "You feel sleepy and decided to call it a day.";
+		wait for any key;
+		say "(Tip: Go to sleep to start a new day.)";
+		[now the tutorial-part is 8;]
+		say "tutorial part: [tutorial-part][line break]";
+		say "assignment part: [assignment-part][line break]";
+		now the assignment-part is 7;
+		[now the tutorial-part is 8;]
+		reject the player's command;
+	say "that's not correct.";
+	reject the player's command.
 
 Book 2 - Corridor
 
@@ -351,7 +514,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "Dr. GitHub: Whenever you are done working on a branch, remember to do [Bold type]git commit[Roman type] to save the changes. [line break]";
 		wait for any key;
-		say "(Mysterious voice: In reality, do [Italic type]git commit -m 'message here' [Roman type] instead to leave a message with your commit [Italic type]('-m' means to include a main message in the commit)[Roman type])";
+		say "(Mysterious voice: In reality, do [Italic type]git commit -m 'message here' [Roman type] instead to leave a message with your commit [Italic type]('-m' means to include a main message in the commit)[Roman type])[line break]";
 		wait for any key;
 		say "(Mysterious voice: Or you will confuse yourself in the future... future... future... )[line break]";
 		wait for any key;
@@ -423,7 +586,69 @@ Instead of talking to Maya:
 		say "After setting up a plan for the assignment, You decided to go grab some food and waved goodbye to Maya.[line break]";
 		wait for any key;
 		say "(Tip: Go to the Canteen, which is next to the Corridor.)";
-		now the assignment-part is 2.
+		now the assignment-part is 2;
+	if assignment-part is 2:
+		say "Maya: Hi [player's name], I've updated the branch. What about you?[line break]";
+		reject the player's command;
+	if assignment-part is 4:
+		say "Maya: Hi, [player's name], how's your progress?[line break]";
+		reject the player's command;
+	if assignment-part is 8:
+		say "Maya: Good morning [player's name], did you tracked all your required items?[line break]";
+		if the player consents:
+			say "Maya: Great! Let's start the merging.[line break]";
+			wait for any key;
+			say "Maya: Do you remember how to do the merging?[line break]";
+			if the player consents:
+				say "Maya: Nice! You can merge your branch now.[line break]";
+				wait for any key;
+				say "Maya: Tell me when you're done. [line break]";
+			otherwise:
+				say "Maya: The spell is [Bold type]git merge branch_name[Roman type][line break]";
+				wait for any key;
+				say "Maya: Try it yourself![line break]";
+				wait for any key;
+				say "Maya: And don't forget to tell me when you're done![line break]";
+				now the assignment-part is 9;
+		otherwise:
+			say "Maya: Oh... Then you should do it now.[line break]";
+			wait for any key;
+			say "Maya: Come back when you're ready! [line break]";
+	[numbers might need some changes]
+	if the assignment-part is 10:
+		say "Maya: You've merged your branch?[line break]";
+		wait for any key;
+		say "Maya: Oh great! :D I'll merge my branch now.[line break]";
+		wait for any key;
+		say "Maya waves her wand in the air and shouts 'git merge AR-101'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
+		[now the grape is in AR-Main;
+		now the watermelon is in AR-Main;]
+		repeat with N running from 1 to the number of rows in the Table of Tracked Items:
+			choose row N in the Table of Tracked Items;
+			if the name in row N of the Table of Tracked Items is AR-101:
+				now Fname in row N of the Table of Tracked Items is in the location of Maya;
+				now the name entry is the location of Maya;
+			otherwise if the name entry is the location of Maya:
+				next;
+		wait for any key;
+		showme the contents of the Table of Tracked Items;
+		now the command prompt is "Maya: Can you cast the git commit and git push spell? (yes/no)[line break]> ";
+	otherwise:
+		say "Maya: Hi [player's name]!".
+		
+To decide whether Maya is begging:
+	if the command prompt is "Maya: Can you cast the git commit and git push spell? (yes/no)[line break]> ", yes;
+	no.
+
+After reading a command when Maya is begging:
+	if the player's command includes "yes":
+		say "Maya: Thank you![line break]";
+		now the command prompt is "> ";
+		reject the player's command;
+	say "Maya: Please...";
+	reject the player's command.
+
+The AR-101 is a room. There is a table and a drawer in the AR-101. 
 
 [There is a debugger in 101-branch. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". ]
 
@@ -473,19 +698,98 @@ Chapter 1 - Rooms set up
 
 The AR-Main is a room. There is a stool, a folder and a mug in the AR-Main. The description of AR-Main is "This is the main branch of your assignment.".
 
-The AR-101 is a room. There is a table and a drawer in the AR-101. 
+[Instead of talking to Dr Github:
+	if tutorial-part is 2:]
+
+[for some reason Maya isn't responding]
+[Instead of talking to Maya:
+	[if assignment-part is 1:]
+	[say "assignment part: [assignment-part]";]
+	if assignment-part is 2:
+		say "Maya: Hi [player's name], I've updated the branch. What about you?[line break]";
+	if assignment-part is 4:
+		say "Maya: Hi, [player's name], how's your progress?[line break]";
+	if assignment-part is 8:
+		say "Maya: Good morning [player's name], did you tracked all your required items?[line break]";
+		if the player consents:
+			say "Maya: Great! Let's start the merging.[line break]";
+			wait for any key;
+			say "Maya: Do you remember how to do the merging?[line break]";
+			if the player consents:
+				say "Maya: Nice! You can merge your branch now.[line break]";
+				wait for any key;
+				say "Maya: Tell me when you're done. [line break]";
+			otherwise:
+				say "Maya: The spell is [Bold type]git merge branch_name[Roman type][line break]";
+				wait for any key;
+				say "Maya: Try it yourself![line break]";
+				wait for any key;
+				say "Maya: And don't forget to tell me when you're done![line break]";
+				now the assignment-part is 9;
+		otherwise:
+			say "Maya: Oh... Then you should do it now.[line break]";
+			wait for any key;
+			say "Maya: Come back when you're ready! [line break]";
+	[numbers might need some changes]
+	if the assignment-part is 10:
+		say "Maya: You've merged your branch?[line break]";
+		wait for any key;
+		say "Maya: Oh great! :D I'll merge my branch now.[line break]";
+		wait for any key;
+		say "Maya waves her wand in the air and shouts 'git merge AR-102'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
+		wait for any key;
+		showme the contents of the Table of Tracked Items;
+		now the command prompt is "Maya: Can you cast the git commit and git push spell?[line break]> ";
+	otherwise:
+		say "Maya: Hi [player's name]!".]
 
 Every turn:
 	if the assignment-part is 1:
 		now the description of AR-101 is "This is one of the three branches of your assignment. Maya will be working on this branch.";
 	otherwise:
-		now the description of AR-102 is "This is one of the three branches of your assignment.".
+		now the description of AR-101 is "This is one of the three branches of your assignment.".
+		
+[Instead of talking to Maya:
+	say "assignment part: [assignment-part]";
+	if the assignment-part is 2:
+		say "Maya: Hi [player's name], I've updated the branch. What about you?[line break]";
+	if the assignment-part is 4:
+		say "Maya: Hi, [player's name], how's your progress?[line break]";
+	if the assignment-part is 8:
+		say "Maya: Good morning [player's name], did you tracked all your required items?[line break]";
+		if the player consents:
+			say "Maya: Great! Let's start the merging.[line break]";
+			wait for any key;
+			say "Maya: Do you remember how to do the merging?[line break]";
+			if the player consents:
+				say "Maya: Nice! You can merge your branch now.[line break]";
+				wait for any key;
+				say "Maya: Tell me when you're done. [line break]";
+			otherwise:
+				say "Maya: The spell is [Bold type]git merge branch_name[Roman type][line break]";
+				wait for any key;
+				say "Maya: Try it yourself![line break]";
+				wait for any key;
+				say "Maya: And don't forget to tell me when you're done![line break]";
+		otherwise:
+			say "Maya: Oh... Then you should do it now.[line break]";
+			wait for any key;
+			say "Maya: Come back when you're ready! [line break]";
+	otherwise:
+		say "Maya: Hi [player's name]!".]
 
 The AR-102 is a room. There is a plant and a ball in the AR-102. 
 
 Every turn:
 	if the assignment-part is 1:
-		now the description of AR-102 is "This is one of the three branches of your assignment. You will be working on this branch. It's a little late, so you decided to only update the branch and leave the rest for tomorrow";
+		now the description of AR-102 is "This is one of the three branches of your assignment. You will be working on this branch. It's a little late, so you decided to only update the branch and leave the rest for tomorrow.[line break]";
+	otherwise if the assignment-part is 5:
+		if there is a Fname of pear in the Table of Tracked Items:
+			if there is a Fname of peach in the Table of Tracked Items:
+				now the assignment-part is 6;
+				say "You've done your part of work for the assignment.[line break]";
+				wait for any key;
+				say "You decided to go back and read the reference book.[line break]";
 	otherwise:
 		now the description of AR-102 is "This is one of the three branches of your assignment.".
 
@@ -500,8 +804,10 @@ The canteen door is east of the corridor and west of the Canteen. It is a door a
 Instead of eating the meal deal:
 	now Maya is in the AR-101;
 	say "You happily chomp on the sandwich until nothing is left.[line break]";
+	now the grape is in AR-101;
 	wait for any key;
 	say "Then you munched your chips while you took a sip of your coffee.[line break]";
+	now the watermelon is in AR-101;
 	wait for any key;
 	say "After a few minutes, the entire meal deal is in your stomach.[line break]";
 	now the meal deal is nowhere;
