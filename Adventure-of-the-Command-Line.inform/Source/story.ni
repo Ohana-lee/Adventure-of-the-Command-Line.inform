@@ -111,11 +111,13 @@ Understand "read [something]" or "read" as examining.
 Volume 2 - Before game starts
 
 When play begins:
-	say "Hello there! Welcome to the world of magic (that is made up of code)! [line break]";
+	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
+	say "Before you start, can you help me fill in this questionnaire first?[line break]";
+	say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";
 	say "Do you need a tutorial on basic controls of this game? (yes/no) [line break]";
 	say " > ";
 	if the player consents:
-		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the bottom of your screen, that means you can type your input there.";
+		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
 		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
 		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
 		wait for any key;
@@ -140,6 +142,7 @@ When play begins:
 		say " > ";
 	if the player consents:
 		say "[line break]No you don't. Don't lie to me.";
+		wait for any key;
 	otherwise:
 		say "[line break]No worries. I'll tell you who you are.";
 		wait for any key;
@@ -698,85 +701,11 @@ Chapter 1 - Rooms set up
 
 The AR-Main is a room. There is a stool, a folder and a mug in the AR-Main. The description of AR-Main is "This is the main branch of your assignment.".
 
-[Instead of talking to Dr Github:
-	if tutorial-part is 2:]
-
-[for some reason Maya isn't responding]
-[Instead of talking to Maya:
-	[if assignment-part is 1:]
-	[say "assignment part: [assignment-part]";]
-	if assignment-part is 2:
-		say "Maya: Hi [player's name], I've updated the branch. What about you?[line break]";
-	if assignment-part is 4:
-		say "Maya: Hi, [player's name], how's your progress?[line break]";
-	if assignment-part is 8:
-		say "Maya: Good morning [player's name], did you tracked all your required items?[line break]";
-		if the player consents:
-			say "Maya: Great! Let's start the merging.[line break]";
-			wait for any key;
-			say "Maya: Do you remember how to do the merging?[line break]";
-			if the player consents:
-				say "Maya: Nice! You can merge your branch now.[line break]";
-				wait for any key;
-				say "Maya: Tell me when you're done. [line break]";
-			otherwise:
-				say "Maya: The spell is [Bold type]git merge branch_name[Roman type][line break]";
-				wait for any key;
-				say "Maya: Try it yourself![line break]";
-				wait for any key;
-				say "Maya: And don't forget to tell me when you're done![line break]";
-				now the assignment-part is 9;
-		otherwise:
-			say "Maya: Oh... Then you should do it now.[line break]";
-			wait for any key;
-			say "Maya: Come back when you're ready! [line break]";
-	[numbers might need some changes]
-	if the assignment-part is 10:
-		say "Maya: You've merged your branch?[line break]";
-		wait for any key;
-		say "Maya: Oh great! :D I'll merge my branch now.[line break]";
-		wait for any key;
-		say "Maya waves her wand in the air and shouts 'git merge AR-102'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
-		wait for any key;
-		showme the contents of the Table of Tracked Items;
-		now the command prompt is "Maya: Can you cast the git commit and git push spell?[line break]> ";
-	otherwise:
-		say "Maya: Hi [player's name]!".]
-
 Every turn:
 	if the assignment-part is 1:
 		now the description of AR-101 is "This is one of the three branches of your assignment. Maya will be working on this branch.";
 	otherwise:
 		now the description of AR-101 is "This is one of the three branches of your assignment.".
-		
-[Instead of talking to Maya:
-	say "assignment part: [assignment-part]";
-	if the assignment-part is 2:
-		say "Maya: Hi [player's name], I've updated the branch. What about you?[line break]";
-	if the assignment-part is 4:
-		say "Maya: Hi, [player's name], how's your progress?[line break]";
-	if the assignment-part is 8:
-		say "Maya: Good morning [player's name], did you tracked all your required items?[line break]";
-		if the player consents:
-			say "Maya: Great! Let's start the merging.[line break]";
-			wait for any key;
-			say "Maya: Do you remember how to do the merging?[line break]";
-			if the player consents:
-				say "Maya: Nice! You can merge your branch now.[line break]";
-				wait for any key;
-				say "Maya: Tell me when you're done. [line break]";
-			otherwise:
-				say "Maya: The spell is [Bold type]git merge branch_name[Roman type][line break]";
-				wait for any key;
-				say "Maya: Try it yourself![line break]";
-				wait for any key;
-				say "Maya: And don't forget to tell me when you're done![line break]";
-		otherwise:
-			say "Maya: Oh... Then you should do it now.[line break]";
-			wait for any key;
-			say "Maya: Come back when you're ready! [line break]";
-	otherwise:
-		say "Maya: Hi [player's name]!".]
 
 The AR-102 is a room. There is a plant and a ball in the AR-102. 
 
