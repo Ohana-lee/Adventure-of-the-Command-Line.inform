@@ -22,6 +22,8 @@ The assignment-part is a number that varies. The assignment-part is initially 0.
 
 The commit-status is a truth state that varies. The commit-status is false.
 
+The tutorial-done is a truth state that varies. The tutorial-done is false.
+
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
 
 Book 2 - Tables
@@ -148,11 +150,13 @@ When play begins:
 		wait for any key;
 	say "You are a student from a Magic Academy named Enchanted Code Academy. The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
 	wait for any key;
+	say "Now let's get you into Git commands. [line break]";
+	wait for any key;
 	say "[paragraph break]Git Config is the very first command you will come across when you first use Git commands.";
 	wait for any key;
 	say "This command takes your username as input and configures user info across all local repositories. ";
 	wait for any key;
-	say "However, when inputting your username, please only use ONE word for it (No spaces in between!)";
+	say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)";
 	wait for any key;
 	now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> ".
 
@@ -398,6 +402,8 @@ The bedroom door is south of your Bedroom and north of the corridor. It is a doo
 
 Book 3 - Classroom
 
+Understand "Magic Classroom" as the classroom.
+
 The classroom door is north of the classroom and south of the corridor. It is a door and openable. 
 The description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner. Take a seat to start the tutorial. ". The printed name of the classroom is "Magic Classroom".  
 
@@ -416,12 +422,12 @@ Instead of entering chair:
 			reject the player's command;
 		otherwise:
 			now the description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner.";
-			say "Professor: Welcome everyone, to the unit of Git Commands. First of all, I am your professor. You can call me Dr. Github. Now I will teach you one of the basic spells in Git. [line break]";
+			say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. First of all, I am your professor. You can call me Dr. Github. Now I will teach you one of the basic spells in Git. [line break]";
 			wait for any key;
-			say "Dr. Github: The first spell is called [Bold type]git checkout[Roman type]. It is used for teleporting yourself to other branches. [line break]";
+			say "[Bold type]Dr. Github[Roman type]: The first spell is called [green letters]git checkout[default letters]. It is used for teleporting yourself to other branches. [line break]";
 			wait for any key;
 			[say "Dr. Github: But mind you, not all rooms (aka branches in reality) can be teleported to. (But in reality, you can use this to go to any branch you have access to)"]
-			say "Dr. Github: now do [Bold type]git checkout 101-branch[Roman type] to go to 101-branch, I'll meet everyone there. [line break]";
+			say "[Bold type]Dr. Github[Roman type]: now do [green letters]git checkout 101-branch[default letters] to go to 101-branch, I'll meet everyone there. [line break]";
 			wait for any key;
 			say "Dr. Github vanishes into thin air as he casts the spell. ๛ก(ｰ̀ωｰ́ก) Maybe you should give it a try too? [line break]";
 			now the printed name of Dr Github is "Dr. Github";
@@ -450,106 +456,107 @@ Section 2 - Talking to Dr GitHub
 
 Instead of talking to Dr Github:
 	if tutorial-part is 2:
-		say "Dr. Github: Congratulations everyone, you have now mastered your very first spell! (*Clap* *clap* *clap*) [line break]";
+		say "[Bold type]Dr. Github[Roman type]: Congratulations everyone, you have now mastered your very first spell! *clap* *clap* *clap* [line break]";
 		wait for any key;
-		say "Dr. Github: As a side note, you can do [Bold type]git branch[Roman type] to check which branches you can teleport to.";
+		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [green letters]git branch[default letters] to check which branches you can teleport to.";
 		wait for any key;
-		say "Dr. Github: Now here goes the 2nd spell, [Bold type]git fetch[Roman type] ! [line break]";
+		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [green letters]git fetch[default letters] ! [line break]";
 		wait for any key;
-		say "Dr. Github: What git fetch does is [Italic type]to update the branch[Roman type]. Others may have made some changes to branch but you can't see it yet. [line break]";
+		say "[Bold type]Dr. Github[Roman type]: What git fetch does is [Italic type]to update the branch[Roman type]. Others may have made some changes to branch but you can't see it yet. [line break]";
 		wait for any key;
-		say "Dr. Github: So you need to use this spell to make the changes visible to you. Now say after me, [Bold type]git fetch[Roman type]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
+		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [green letters]git fetch[default letters]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
 		now the tutorial-part is 3;
 		reject the player's command;
 		[]
 	if tutorial-part is 3 and the location of the orange is 101-branch:
-		say "Dr. GitHub: Great, now you've learnt 2 new spells. Let's put them into practice. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Great, now you've learnt 2 new spells. Let's put them into practice. [line break]";
 		wait for any key;
-		say "Dr. GitHub: Go to 201-branch, update that branch, and return to this branch. Report to me once you have everything done. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [Italic type]Go to 201-branch, update that branch, and return to this branch. Report to me once you have everything done. [Roman type][line break]";
 		now the tutorial-part is 4;
 		choose a blank row in the Table of Accessable Rooms;
 		now name entry is 201-branch;
 		reject the player's command;
 		[]
 	if tutorial-part is 4 and the location of the strawberry is 201-branch:
-		say "Dr. GitHub: Good Job everyone. Let's move on. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Good Job everyone. Let's move on. [line break]";
 		wait for any key;
-		say "Dr. GitHub: The next spell is [Bold type]git add[Roman type]. This spell [Italic type]tracks items in the room [Roman type]so you can revert to their old state if needed. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: The next spell is [green letters]git add[default letters]. This spell [Italic type]tracks items in the room [Roman type]so you can revert to their old state if needed. [line break]";
 		wait for any key;
-		say "(Mysterious Voice: Reverting a commit is not implemented in this game... game... game...) [line break]";
+		say "[Italic type](Mysterious Voice: Reverting a commit is not implemented in this game... game... game...) [Roman type][line break]";
 		wait for any key;
-		say "Dr. GitHub: Hmm? ｢(ﾟﾍﾟ) Am I hearing things? Anyway, let's try [Italic type]tracking the orange.[Roman type] [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Hmm? ｢(ﾟﾍﾟ) Am I hearing things? Anyway, let's try [Italic type]tracking the orange.[Roman type] [line break]";
 		wait for any key;
-		say "Dr. GitHub: After me, [Bold type]git add orange[Roman type]! (∩^o^)⊃━☆ﾟ.*･｡ (Talk to Dr. GitHub after you have done the command)";
+		say "[Bold type]Dr. GitHub[Roman type]: After me, [green letters]git add orange[default letters]! (∩^o^)⊃━☆ﾟ.*･｡ (Talk to Dr. GitHub after you have done the command)[paragraph break]";
 		now the tutorial-part is 5;
 		reject the player's command;
 		[]
 	if tutorial-part is 5 and there is a Fname of orange in the Table of Tracked Fruits:
-		say "Dr. GitHub: Very well, now before going to the next part, I have a little tip for you. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Very well, now before going to the next part, I have a little tip for you. [line break]";
 		wait for any key;
-		say "Dr. Github: If you ever casted [Bold type]git add[Roman type] on something you don't want, do [Bold type]git reset[Roman type] followed by the object's name. [line break]";
+		say "[Bold type]Dr. Github[Roman type]: If you ever casted [green letters]git add[default letters] on something you don't want, do [green letters]git reset[default letters] followed by the object's name as the counter spell. [line break]";
 		wait for any key;
-		say "Dr. GitHub: This might come in handy for the next practice. But for now, let's keep the orange on the tracking list.[line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: This might come in handy for the next practice. But for now, let's keep the orange on the tracking list.[line break]";
 		wait for any key;
-		say "Dr. GitHub: So now, [Italic type]go to 201-branch and track the strawberry[Roman type]. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: So now, [Italic type]go to 201-branch and track the strawberry[Roman type]. [line break]";
 		wait for any key;
-		say "Dr. GitHub: Talk to me when you are done. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Talk to me when you are done. [line break]";
 		now the tutorial-part is 6;
 		reject the player's command;
 		[]
 	if tutorial-part is 6 and there is a Fname of strawberry in the Table of Tracked Fruits:
-		say "Dr. GitHub: You guys sure learn fast. Now pay attention, cause I'm going to teach you one of the most complicated spells in Git commands. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: You guys sure learn fast. Now pay attention, cause I'm going to teach you one of the most complicated spells in Git commands. [line break]";
 		wait for any key;
-		say "Dr. GitHub: In the world of magic, anything is possible - you can even merge rooms! [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: In the world of magic, anything is possible - you can even merge rooms! [line break]";
 		wait for any key;
-		say "Dr. GitHub: [Bold type]git merge[Roman type] is a spell that [Italic type]merges a branch of your choice to the master branch[Roman type] (which is 101-branch in this case). [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [green letters]git merge[default letters] is a spell that [Italic type]merges a branch of your choice to the master branch[Roman type] (which is 101-branch in this case). [line break]";
 		wait for any key;
-		say "Dr. GitHub: Let's try merging now. Say [Bold type]git merge 201-branch[Roman type] (∩^o^)⊃━☆ﾟ.*･｡[line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Let's try merging now. Say [green letters]git merge 201-branch[default letters] (∩^o^)⊃━☆ﾟ.*･｡[line break]";
 		now the tutorial-part is 7;
 		reject the player's command;
 		[]
 	if tutorial-part is 7 and there is a strawberry in 101-branch:
-		say "Dr. GitHub: After all of the hard work just now, you do not want to lose them, right? [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: After all of the hard work just now, you do not want to lose them, right? [line break]";
 		wait for any key;
-		say "Dr. GitHub: So, here are the last 2 spells I have to teach you today. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: So, here are the last 2 spells I have to teach you today. [line break]";
 		wait for any key;
-		say "Dr. GitHub: [Bold type]git commit[Roman type] and [Bold type]git push[Roman type]. These commands always come in pairs. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [green letters]git commit[default letters] and [green letters]git push[default letters]. These commands always come in pairs. [line break]";
 		wait for any key;
-		say "Dr. GitHub: Whenever you are done working on a branch, remember to do [Bold type]git commit[Roman type] to save the changes. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Whenever you are done working on a branch, remember to do [green letters]git commit[default letters] to save the changes. [line break]";
 		wait for any key;
-		say "(Mysterious voice: In reality, do [Italic type]git commit -m 'message here' [Roman type] instead to leave a message with your commit [Italic type]('-m' means to include a main message in the commit)[Roman type])[line break]";
+		say "[Italic type](Mysterious voice: In reality, do [green letters]git commit -m 'message here' [default letters] instead to leave a message with your commit ('-m' means to include a main message in the commit))[Roman type][line break]";
 		wait for any key;
-		say "(Mysterious voice: Or you will confuse yourself in the future... future... future... )[line break]";
+		say "[Italic type](Mysterious voice: Or you will confuse yourself in the future... future... future... )[Roman type][line break]";
 		wait for any key;
-		say "(Mysterious voice: But to keep things simple, you just need to do [Bold type]git commit[Roman type] in this game... game... game...)[line break]";
+		say "[Italic type](Mysterious voice: But to keep things simple, you just need to do [green letters]git commit[default letters] in this game... game... game...)[Roman type][line break]";
 		wait for any key;
-		say "Dr. GitHub: Σ(;ﾟдﾟ) What is that voice? Is there something wrong with me? [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Σ(;ﾟдﾟ) What is that voice? Is there something wrong with me? [line break]";
 		wait for any key;
-		say "Dr. GitHub: *Coughs* Anyway, after [Bold type]git commit[Roman type], always do [Bold type]git push[Roman type]. So other people can see the changes you made when they do [Bold type]git fetch[Roman type]. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: *Coughs* Anyway, after [green letters]git commit[default letters], always do [green letters]git push[default letters]. So other people can see the changes you made when they do [green letters]git fetch[default letters]. [line break]";
 		wait for any key;
-		say "Dr. GitHub: In exams, you must do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] so that I can see what you did. If I can't see your changes because of this, you will be getting an instant 0. <(｀^´)> [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: In exams and assignments, you MUST do [green letters]git commit[default letters] and [green letters]git push[default letters] so that I can see what you did. If I can't see your changes because of this, you will be getting an instant 0. <(｀^´)> [line break]";
 		wait for any key;
-		say "Dr. GitHub: Now commit and push your changes. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Now commit and push your changes. [line break]";
 		now the tutorial-part is 8;
 		reject the player's command;
-	if tutorial-part is 8 and commit-status is true:
+	if tutorial-part is 8 and tutorial-done is true:
+		[]
 		now the commit-status is false;
-		say "Dr. GitHub: Congratulations! You have now mastered the basic of Git commands![paragraph break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Congratulations! You have now mastered the basic of Git commands![paragraph break]";
 		now the description of 101-branch is "This is one of the branches where you will practice magic spells learnt.";
 		wait for any key;
-		say "Dr. GitHub: *Looks at watch* OK, listen. Here is today's assignment. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: *Looks at watch* OK, listen. Here is today's assignment. [line break]";
 		wait for any key;
-		say "Dr. GitHub: For this assignment, I will assign you into a pair.[line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: For this assignment, I will assign you into a pair.[line break]";
 		wait for any key;
-		say "Dr. GitHub: Each pair will have three branches to work on. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Each pair will have three branches to work on. [line break]";
 		wait for any key;
-		say "Dr. GitHub: One master branch and two other branches. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: One master branch and two other branches. [line break]";
 		wait for any key;
-		say "Dr. GitHub: You should only submit the master branch and the master branch must have everything I required. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: You should only submit the master branch and the master branch must have everything I required. [line break]";
 		wait for any key;
-		say "Dr. GitHub: Here is the detail instructions of this assignment. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Here is the detail instructions of this assignment. [line break]";
 		wait for any key;
-		say "A paper with the instructions written on it appeared in front of you. Do [Bold type]examine assignment instruction[Roman type] to read the paper. [line break]";
+		say "A paper with the instructions written on it appeared in front of you. Do [green letters]examine assignment instruction[default letters] to read the paper. [line break]";
 		[give player the items they need and dismiss]
 		now the player carries the assignment instruction;
 		choose a blank row in the Table of Accessable Rooms;
@@ -562,7 +569,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "You can now access branch AR-Main, AR-101 and AR-102.[line break]";
 		wait for any key;
-		say "Dr. GitHub: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
 		wait for any key;
 		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
 		now the assignment-part is 1;
@@ -574,54 +581,65 @@ Section 3 - Talking to Maya
 
 Instead of talking to Maya:
 	if assignment-part is 1:
-		say "Maya: Hello [player's name]! Nice to meet you! Do you have any plans for this assignment?[line break]";
+		say "[Bold type]Maya[Roman type]: Hello [player's name]! Nice to meet you! Do you have any plans for this assignment?[line break]";
 		wait for any key;
-		say "[player's name]: Hello! Maybe we could split up the workload? [line break]";
+		say "[Bold type][player's name][Roman type]: Hello! Maybe we could split up the workload? [line break]";
 		wait for any key;
-		say "[player's name]: I can work on AR-102 and you can work on AR-101. [line break]";
+		say "[Bold type][player's name][Roman type]: I can work on AR-102 and you can work on AR-101. [line break]";
 		wait for any key;
-		say "Maya: Shall we set an internal deadline? Like two days later? [line break]";
+		say "[Bold type]Maya[Roman type]: Shall we set an internal deadline? Like two days later? [line break]";
 		wait for any key;
-		say "Maya: Then we can merge our branches to AR-Main.[line break]";
+		say "[Bold type]Maya[Roman type]: Then we can merge our branches to AR-Main.[line break]";
 		wait for any key;
-		say "[player's name]: Sure!";
+		say "[Bold type][player's name][Roman type]: Sure!";
 		wait for any key;
-		say "After setting up a plan for the assignment, You decided to go grab some food and waved goodbye to Maya.[line break]";
+		say "[Bold type][player's name][Roman type]: *Stomach growling sound* [line break]";
 		wait for any key;
-		say "(Tip: Go to the Canteen, which is next to the Corridor.)";
+		say "[Bold type][player's name][Roman type]: Sorry... I think I need to grab some food first...[line break]";
+		wait for any key;
+		say "[Bold type]Maya[Roman type]: It's alright! I'll be in AR-101 if you need me.[line break]";
+		wait for any key;
+		say "[Bold type]Maya[Roman type]: See you later![line break]";
+		say "After setting up a plan for the assignment, You decided to go to the canteen and grab some food. [line break]";
+		say "You waved goodbye to Maya.[line break]";
+		wait for any key;
+		say "(Tip: You can access the Canteen through the corridor.)";
+		now the description of the corridor is "You can access your bedroom, the classroom and the canteen through this corridor.";
 		now the assignment-part is 2;
+		reject the player's command;
+	[]
 	if assignment-part is 2:
-		say "Maya: Hi [player's name], I've updated the branch. What about you?[line break]";
+		say "[Bold type]Maya[Roman type]: Hi [player's name], I've updated the branch. What about you?[line break]";
 		reject the player's command;
 	if assignment-part is 4:
-		say "Maya: Hi, [player's name], how's your progress?[line break]";
+		say "[Bold type]Maya[Roman type]: Hi, [player's name], how's your progress?[line break]";
 		reject the player's command;
 	if assignment-part is 8:
-		say "Maya: Good morning [player's name], did you tracked all your required items?[line break]";
+		say "[Bold type]Maya[Roman type]: Good morning [player's name], did you tracked all your required items?[line break]";
 		if the player consents:
-			say "Maya: Great! Let's start the merging.[line break]";
+			say "[Bold type]Maya[Roman type]: Great! Let's start the merging.[line break]";
 			wait for any key;
-			say "Maya: Do you remember how to do the merging?[line break]";
+			say "[Bold type]Maya[Roman type]: Do you remember how to do the merging?[line break]";
 			if the player consents:
-				say "Maya: Nice! You can merge your branch now.[line break]";
+				say "[Bold type]Maya[Roman type]: Nice! You can merge your branch now.[line break]";
 				wait for any key;
-				say "Maya: Tell me when you're done. [line break]";
+				say "[Bold type]Maya[Roman type]: Tell me when you're done. [line break]";
 			otherwise:
-				say "Maya: The spell is [Bold type]git merge branch_name[Roman type][line break]";
+				say "[Bold type]Maya[Roman type]: The spell is [Bold type]git merge branch_name[Roman type][line break]";
 				wait for any key;
-				say "Maya: Try it yourself![line break]";
+				say "[Bold type]Maya[Roman type]: Try it yourself![line break]";
 				wait for any key;
-				say "Maya: And don't forget to tell me when you're done![line break]";
+				say "[Bold type]Maya[Roman type]: And don't forget to tell me when you're done![line break]";
 				now the assignment-part is 9;
 		otherwise:
-			say "Maya: Oh... Then you should do it now.[line break]";
+			say "[Bold type]Maya[Roman type]: Oh... Then you should do it now.[line break]";
 			wait for any key;
-			say "Maya: Come back when you're ready! [line break]";
+			say "[Bold type]Maya[Roman type]: Come back when you're ready! [line break]";
 	[numbers might need some changes]
 	if the assignment-part is 10:
-		say "Maya: You've merged your branch?[line break]";
+		say "[Bold type]Maya[Roman type]: You've merged your branch?[line break]";
 		wait for any key;
-		say "Maya: Oh great! :D I'll merge my branch now.[line break]";
+		say "[Bold type]Maya[Roman type]: Oh great! :D I'll merge my branch now.[line break]";
 		wait for any key;
 		say "Maya waves her wand in the air and shouts 'git merge AR-101'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
 		[now the grape is in AR-Main;
@@ -635,20 +653,20 @@ Instead of talking to Maya:
 				next;
 		wait for any key;
 		showme the contents of the Table of Tracked Items;
-		now the command prompt is "Maya: Can you cast the git commit and git push spell? (yes/no)[line break]> ";
+		now the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (yes/no)[line break]> ";
 	otherwise:
-		say "Maya: Hi [player's name]!".
+		say "[Bold type]Maya[Roman type]: Hi [player's name]!".
 		
 To decide whether Maya is begging:
-	if the command prompt is "Maya: Can you cast the git commit and git push spell? (yes/no)[line break]> ", yes;
+	if the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (yes/no)[line break]> ", yes;
 	no.
 
 After reading a command when Maya is begging:
 	if the player's command includes "yes":
-		say "Maya: Thank you![line break]";
+		say "[Bold type]Maya[Roman type]: Thank you![line break]";
 		now the command prompt is "> ";
 		reject the player's command;
-	say "Maya: Please...";
+	say "[Bold type]Maya[Roman type]: Please...";
 	reject the player's command.
 
 The AR-101 is a room. There is a table and a drawer in the AR-101. 
@@ -693,7 +711,7 @@ Instead of eating a noun:
 		
 Chapter 2 - Assignment papers
 
-There is a assignment instruction in the storage room. The description is "[Bold type]Formative Assignment Instructions[Roman type][line break]Name: Maya, [player's name] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, AR-101, AR-102. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.".
+There is a assignment instruction in the storage room. The description is "[line break]+-------------------------------------------------------------------------------------------+[paragraph break][Bold type]Formative Assignment Instructions[Roman type][line break]Name: [Italic type]Maya, [player's name][Roman type] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, AR-101, AR-102. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.[paragraph break]+-------------------------------------------------------------------------------------------+[line break]".
 
 Book 6 - Assignment Rooms
 
@@ -741,9 +759,9 @@ Instead of eating the meal deal:
 	say "After a few minutes, the entire meal deal is in your stomach.[line break]";
 	now the meal deal is nowhere;
 	wait for any key;
-	say "You are now satisfied and have decided to visit the assignment rooms.[line break]";
-	wait for any key;
-	say "(Tip: remember to update Maya on your progress.)[line break]".
+	say "You are now satisfied and have decided to visit the assignment rooms.[line break]".
+	[wait for any key;
+	say "(Tip: remember to update Maya on your progress.)[line break]".]
 
 
 [testing??]
