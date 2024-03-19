@@ -46,6 +46,8 @@ The make-maya is a truth state that varies. The make-maya is false.
 
 The group-carrier is a truth state that varies. The group-carrier is false.
 
+The fuck-around is a truth state that varies. The fuck-around is false.
+
 Book 2 - Tables
 
 Table of Accessable Rooms
@@ -257,6 +259,7 @@ Rule for constructing the status line when collecting names: do nothing.
 After reading a command:
 	if player's command includes "fuck you":
 		say "Why fuck me? Don't fuck me! *cries*（ ＴДＴ） [line break]";
+		now fuck-around is true;
 		reject the player's command.
 		
 After reading a command:
@@ -941,9 +944,12 @@ After reading a command when finishing game:
 			say "[Bold type]Dementia: Doing the command 'whoami'[Roman type][line break]";
 			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
 			wait for any key;
+		if fuck-around is true:
+			say "[Bold type]Fucking around: typing 'fuck you' as input[Roman type][line break]";
+			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
 		if the hoarder is true:
 			say "[Bold type]The hoarder: Picking up everying you can pick up[Roman type][line break]";
-			say "[Italic type]Aren't you tired carrying all those stuff around? [Roman type][paragraph break]";
+			say "[Italic type]Fuck around and you will find out. [Roman type][paragraph break]";
 		if starving is true:
 			say "[Bold type]Starving: Trying to eat something inedible[Roman type][line break]";
 			say "[Italic type]Starving yourself to a point like this isn't good for your health... [Roman type][paragraph break]";
@@ -958,7 +964,7 @@ After reading a command when finishing game:
 			wait for any key;
 		if group-carrier is true:
 			say "[Bold type]Group Carrier: Trying to do more work than your partner[Roman type][line break]";
-			say "[Bold type]Maya[Roman type][Italic type]: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
+			say "[Italic type]Maya: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
 			wait for any key;
 		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again!";
 		reject the player's command;
@@ -1179,7 +1185,7 @@ After reading a command:
 				say "You have to talk to Dr. GitHub to continue the story.[line break]";
 			[]
 			wait for any key;
-			say "Do you want to show the list of commands you can use? (yes/no)[line break]";
+			say "Do you want to show the list of commands you can use? (yes/no)[line break]> ";
 			if the player consents:
 				say "Here is the list of commands you can use[paragraph break]";
 				showme the contents of the Table of Commands Learnt;
