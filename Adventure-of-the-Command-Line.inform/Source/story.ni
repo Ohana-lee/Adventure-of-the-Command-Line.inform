@@ -902,7 +902,7 @@ After reading a command when Maya is begging:
 					say "*link here*";
 					wait for any key;
 					say "[Bold type]Mysterious Voice[Roman type]: Before I let you go... ";
-					now the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ";
+					now the command prompt is "What is the magic password for the questionnaire I just gave you? ⌓ ‿ ⌓[paragraph break]> ";
 					[reject the player's command;]
 				otherwise:
 					say "[Bold type][player's name][Roman type]: Something is not right... [line break]";
@@ -929,7 +929,7 @@ After reading a command when finishing game:
 				if the player is holding the cat plushie:
 					if the player is holding the Git Commands Reference Book:
 						now the hoarder is true;
-						say "achievement get";
+						[say "achievement get";]
 		[]
 		say "[Bold type]Mysterious Voice[Roman type]: Correct!! You are free to walk around the school or just leave the game. [line break]";
 		wait for any key;
@@ -937,36 +937,39 @@ After reading a command when finishing game:
 		wait for any key;
 		[list out achievements]
 		if learning-ahead is true:
-			say "[Bold type]Learning Ahead: Doing git commands before you even learnt it[Roman type][line break]";
+			say "[Bold type][magenta letters]Learning Ahead: Doing git commands before you even learnt it[default letters][Roman type][line break]";
 			say "[Italic type]You must be a hard-working student.[Roman type][paragraph break]";
 			wait for any key;
 		if dementia is true:
-			say "[Bold type]Dementia: Doing the command 'whoami'[Roman type][line break]";
+			say "[Bold type][magenta letters]Dementia: Doing the command 'whoami'[default letters][Roman type][line break]";
 			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
 			wait for any key;
 		if fuck-around is true:
-			say "[Bold type]Fucking around: typing 'fuck you' as input[Roman type][line break]";
-			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
+			say "[Bold type][magenta letters]Fucking around: typing 'fuck you' as input[default letters][Roman type][line break]";
+			say "[Italic type]Fuck around and you will find out [Roman type][paragraph break]";
+			wait for any key;
 		if the hoarder is true:
-			say "[Bold type]The hoarder: Picking up everying you can pick up[Roman type][line break]";
-			say "[Italic type]Fuck around and you will find out. [Roman type][paragraph break]";
+			say "[Bold type][magenta letters]The hoarder: Picking up everying you can pick up[default letters][Roman type][line break]";
+			say "[Italic type]Aren't you tired carrying all those stuff around?[Roman type][paragraph break]";
+			wait for any key;
 		if starving is true:
-			say "[Bold type]Starving: Trying to eat something inedible[Roman type][line break]";
+			say "[Bold type][magenta letters]Starving: Trying to eat something inedible[default letters][Roman type][line break]";
 			say "[Italic type]Starving yourself to a point like this isn't good for your health... [Roman type][paragraph break]";
 			wait for any key;
 		if help-is-4-the-weak is true:
-			say "[Bold type]Help is for the weak: Never used the 'help' command[Roman type][line break]";
+			say "[Bold type][magenta letters]Help is for the weak: Never used the 'help' command[default letters][Roman type][line break]";
 			say "[Italic type]Real witches and wizards do not need help. [Roman type][paragraph break]";
 			wait for any key;
 		if make-maya is true:
-			say "[Bold type]Make your partner work: Make Maya do git commit and git push[Roman type][line break]";
+			say "[Bold type][magenta letters]Make your partner work: Make Maya do git commit and git push[default letters][Roman type][line break]";
 			say "[Italic type]You're not a freerider... Are you? [Roman type][paragraph break]";
 			wait for any key;
 		if group-carrier is true:
-			say "[Bold type]Group Carrier: Trying to do more work than your partner[Roman type][line break]";
+			say "[Bold type][magenta letters]Group Carrier: Trying to do more work than your partner[default letters][Roman type][line break]";
 			say "[Italic type]Maya: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
 			wait for any key;
 		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again!";
+		say "(You're free to move around now)";
 		reject the player's command;
 	say "[Bold type]Mysterious Voice[Roman type]: Nope. Try again. [line break]";
 	wait for any key;
@@ -1085,13 +1088,13 @@ Instead of eating the meal deal:
 	[wait for any key;
 	say "(Tip: remember to update Maya on your progress.)[line break]".]
 	
-Book 8 - Debug rooms
+[Book 8 - Debug rooms
 
 The DB1 door is south of the classroom and north of the DB1. It is a door. The DB1 door is scenery.
 
 The DB2 door is north of your bedroom and south of the DB2. It is a door and openable. [The DB2 door is scenery.]
 
-The DB3 door is east of the canteen and west of the DB3. It is a door and locked. The DB3 door is scenery.
+The DB3 door is east of the canteen and west of the DB3. It is a door and locked. The DB3 door is scenery.]
 	
 Volume 4 - Help function
 
