@@ -20,6 +20,8 @@ The tutorial-part is a number that varies. The tutorial-part is initially 0.
 
 The assignment-part is a number that varies. The assignment-part is initially 0.
 
+The maya-beg-count is a number that varies. The maya-beg-count is initially 0.
+
 The commit-status is a truth state that varies. The commit-status is false.
 
 The tutorial-done is a truth state that varies. The tutorial-done is false.
@@ -31,6 +33,7 @@ Book 2 - Tables
 Table of Accessable Rooms
 name
 the classroom
+the bedroom
 --
 --
 --
@@ -42,8 +45,8 @@ name (room)
 101-branch
 201-branch
 AR-Main
-AR-101
-AR-102
+101-AR
+201-AR
 
 Table of Fruits [aka Table of all items that can be tracked]
 Fname (thing)	name (room)	target(room)
@@ -51,14 +54,14 @@ banana	201-branch	201-branch
 apple	101-branch	101-branch
 orange	storage room	101-branch
 strawberry	storage room	201-branch
-grape	storage room	AR-101
-peach	storage room	AR-102
-watermelon	storage room	AR-101
-pear	storage room	AR-102
-table	AR-101	AR-101
-drawer	AR-101	AR-101
-plant	AR-102	AR-102
-ball	AR-102	AR-102
+grape	storage room	101-AR
+peach	storage room	201-AR
+watermelon	storage room	101-AR
+pear	storage room	201-AR
+table	101-AR	101-AR
+drawer	101-AR	101-AR
+plant	201-AR	201-AR
+ball	201-AR	201-AR
 
 Table of Tracked Fruits
 Fname(thing)	name(room)
@@ -93,6 +96,38 @@ watermelon	AR-Main
 peach	AR-Main
 pear	AR-Main
 
+Table of Commands Learnt
+Cmd (text)	usage (text)
+"[Bold type][blue letters]cd target room name[default letters][Roman type]"	"move to rooms that are connected to the room you are currently in"
+"[Bold type][blue letters]ls[default letters][Roman type]"	"looks around the room"
+"[Bold type][blue letters]cat item name[default letters][Roman type]"	"examines the item"
+"[Bold type][blue letters]talk to person name[default letters][Roman type]"	"talkes to the named person"
+"[Bold type][blue letters]take item name[default letters][Roman type]"	"picks up the item"
+"[Bold type][blue letters]undo[default letters][Roman type]"	"undo the last command you typed"
+"[Bold type][blue letters]sit down[default letters][Roman type]"	"sit on a chair"
+"[Bold type][blue letters]read item name[default letters][Roman type]"	"read a book"
+"[Bold type][blue letters]eat item name[default letters][Roman type]"	"eat a visible edible thing"
+"[Bold type][blue letters]drop item name[default letters][Roman type]"	"drops the item you are holding in the room you are currently in"
+"[Bold type][blue letters]i[default letters][Roman type]"	"list out what you are currently holding"
+--	--
+--	--
+--	--
+--	--
+--	--
+--	--
+--	--
+--	--
+--	--
+[git checkout branch-name	teleports you to the named branch
+git branch	list out all the branches you can teleport to
+git fetch	updates the branch you are currently at	
+git add item name	tracks the named item
+git merge branch-name	merges the named branch to the main/master branch
+git commit	creates a commit based on the current state of the branch you are currently in
+git push	submits the current state of the branch for checking]
+
+
+
 Book 3 - Understanding sth
 
 Understand "sit on [something]" as entering.
@@ -101,10 +136,24 @@ Understand "get up" as exiting.
 Understand "leave" as exiting.
 Talking to is an action applying to one visible thing. 
 Understand "talk to [someone]" or “converse with [someone]” as talking to.
+Understand "talk [someone]" as talking to.
 Understand "sit down" as entering.
 Understand "sit" as entering.
 Understand "take seat" as entering.
 Understand "ls" as looking.
+Understand "cat [something]" as examining.
+Moving is an action applying to two things.
+Understand "mv [something] [any room]" as moving.
+
+Instead of moving:
+	if the noun is a thing:
+		if the second noun is a room:
+			now the noun is in the second noun;
+			say "[the noun] has been moved to [the second noun][line break]";
+		otherwise:
+			say "[the second noun] is not a location you can move to.[line break]";
+	otherwise:
+		say "[the noun] is not something you can move.[line break]";
 
 [Reading is an action applying to one visible thing.]
 Understand "open [something]" as examining.
@@ -125,19 +174,21 @@ When play begins:
 		wait for any key;
 		say "Yes, just like this.[paragraph break]";
 		wait for any key;
-		say "To move between rooms, do [Bold type]cd target room name [Roman type].";
+		say "To move between connected rooms, do [Bold type]cd target room name[Roman type].";
 		wait for any key;
 		say "To look around the room, do [Bold type]ls[Roman type].";
 		wait for any key;
-		say "To examine objects in the same room as you, do [Bold type]examine object name [Roman type] [line break]";
+		say "To examine objects in the same room as you, do [Bold type]cat object name [Roman type] [line break]";
 		wait for any key;
 		say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
 		wait for any key;
-		say "To pick up an item, do [Bold type]pick up item name[Roman type].";
+		say "To pick up an item, do [Bold type]pick up item name[Roman type] or [Bold type] take item name[Roman type].";
 		wait for any key;
-		say "To undo a command, do [Bold type]undo[Roman type].";
+		say "To undo a command, do [Bold type]undo[Roman type].[line break]";
 		wait for any key;
-		say "Now, do you know who you are? (yes/no)[line break]";
+		say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
+		wait for any key;
+		say "[line break]Now, do you know who you are? (yes/no)[line break]";
 		say " > ";
 	otherwise:
 		say "Great! Then do you know who you are? (yes/no)[line break]";
@@ -170,6 +221,11 @@ After reading a command:
 	if player's command includes "fuck you":
 		say "Why fuck me? Don't fuck me! *cries*（ ＴДＴ） [line break]";
 		reject the player's command.
+		
+After reading a command:
+	if the player's command matches "whoami":
+		say "[player's name][paragraph break]";
+		reject the player's command.
 
 Volume 3 - Rooms set up
 
@@ -197,10 +253,10 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 	if the assignment-part is 4:
 		choose a blank row in the Table of Tracked Items;
 		now Fname entry is grape;
-		now the name entry is AR-101;
+		now the name entry is 101-AR;
 		choose a blank row in the Table of Tracked Items;
 		now the Fname entry is watermelon;
-		now the name entry is AR-101;
+		now the name entry is 101-AR;
 	wait for any key;
 	say "It's a brand new day and it's time to work on your assignment.[line break]";
 	wait for any key;
@@ -208,30 +264,31 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 		now Maya is in AR-Main;
 		say "Today is the day where you will be merging your branches. Be ready for that!";
 		wait for any key;
+		say "Maya will be waiting for you in AR-Main.[line break]";
+		wait for any key;
 	say "You got out of bed[line break]";
 	increment the assignment-part; [changes on assignment-part here]
 	wait for any key;
 	say "Do you know what you need to do today? (yes/no)[line break]> ";
 	if the player consents:
-		say "Great! Good luck on your work.";
+		say "Great! Good luck on your work.[paragraph break]";
 	otherwise:
 		if assignment-part is 5:
-			say "You need to track the required items in branch AR-102.[line break]";
+			say "You need to track the required items in branch 201-AR.[line break]";
 			wait for any key;
 			say "Understand ? (yes/no)[line break]> ";
 			if player consents:
 				say "Great! Good luck on your work. [line break]";
 			otherwise:
-				say "Re-read the last sentence until you understand. Good luck![line break]";
+				say "Re-read the last sentence until you understand. Good luck![paragraph break]";
 		otherwise if assignment-part is 8:
 			say "You need to talk to Maya to do the final checking and merge your branches.[line break]";
 			wait for any key;
-			say "Maya is waiting for you in AR-Main.[line break]";
 			say "Understand ? (yes/no)[line break]> ";
 			if the player consents:
-				say "Great! [line break]";
+				say "Great! [paragraph break]";
 			otherwise:
-				say "Re-read the last sentence until you understand. Good luck![line break]";
+				say "Re-read the last sentence until you understand. Good luck![paragraph break]";
 				[reject the player's command;]
 	say "assigment part: [assignment-part]";
 	if the player is in the bed:
@@ -248,7 +305,7 @@ Chapter 1 - Reference book
 Instead of examining the Git commands reference book:
 	say "tutorial part: [tutorial-part][line break]";
 	say "assignment part: [assignment-part][line break]";
-	say "You sat down and start reading the reference book.[line break]";
+	say "You sat down and start reading the reference book.[paragraph break]";
 	if the assignment-part is 3:
 		wait for any key;
 		say "[Bold type] Chapter 1 - About Git Commands [Roman type][paragraph break]";
@@ -267,7 +324,9 @@ Instead of examining the Git commands reference book:
 		wait for any key;
 		say "A local repository is a repository stored in your local space.[line break]";
 		wait for any key;
-		say "A repository can have multiple collaborators and it can be either public or private.[paragraph break]";
+		say "A repository can have multiple collaborators and it can be either public or private.[line break]";
+		wait for any key;
+		say "To create a new repository, do [green letters]git init[default letters].[paragraph break]";
 		wait for any key;
 		say "[Bold type]1.2 Branches[Roman type][line break]";
 		wait for any key;
@@ -275,16 +334,17 @@ Instead of examining the Git commands reference book:
 		wait for any key;
 		say "Changes made on a branch do not affect other branches until you cast git merge on them.[line break]";
 		wait for any key;
-		say "Merge conflicts occur when you merge branches that have competing commits.[line break]";
+		say "Merge conflicts occur when you merge branches that have competing commits (ie commits from different branches with changes on the same file).[line break]";
 		wait for any key;
 		say "In such cases, you will have to resolve all conflicts before you can merge them. [line break]";
 		wait for any key;
 		say "(Good news, you will not run into any merge conflicts in this game.)[paragraph break]";
 		wait for any key;
-		say "[Bold type]1.3 Exercise[Roman type][paragraph break]";
+		say "[Bold type]1.3 Exercise[Roman type][line break]";
 		wait for any key;
-		say "Q1 What cannot be found in a repository?[line break]";
-		now the command prompt is "A. Tracked folders[line break]B. Tracked files[line break]C. Local files outside the repository[line break]D. Different versions of a tracked file[paragraph break]> ";
+		say "Please only type the corresponding letter when answering the question. (e.g. type 'A' in the command line when you think the 1st answer is correct. [paragraph break]";
+		say "Q1 Which command can be used to create a new repository?[line break]";
+		now the command prompt is "A. git fetch[line break]B. git add[line break]C. git init[line break]D. git checkout[paragraph break]> ";
 	if the assignment-part is 6:
 		say "[Bold type]Chapter 2 – About Tracking and Committing[Roman type][paragraph break]";
 		wait for any key;
@@ -296,7 +356,9 @@ Instead of examining the Git commands reference book:
 		wait for any key;
 		say "Although you can revert commits that have been pushed,[line break]";
 		wait for any key;
-		say "it is considered bad practice as it makes things hard for your collaborators.[paragraph break]";
+		say "it is considered bad practice as it makes things hard for your collaborators.[line break]";
+		wait for any key;
+		say "There is no limit on the number of commits you can have in a repository.[paragraph break]";
 		wait for any key;
 		say "[Bold type]2.2 Tracking files[Roman type][paragraph break]";
 		wait for any key;
@@ -315,37 +377,38 @@ Instead of examining the Git commands reference book:
 		say "Q1 What can you identify from a commit ID (excluding the commit message)?[paragraph break]";
 		now the command prompt is "A. the person who made the changes[line break]B. reason why the changes are made[line break]C. number of times the committer cast a spell[line break]D. today’s date[paragraph break]> ";
 	otherwise:
-		say "You bought this reference book to aid your studies in Git command.[line break]You don't want to read this now.[line break]".
+		if the command prompt is ">":
+			say "You bought this reference book to aid your studies in Git command.[line break]You don't want to read this now.[line break]".
 		
 Chapter 2 - Practice Exercise
 
 To decide whether asking Q1:
-	if the command prompt is "A. Tracked folders[line break]B. Tracked files[line break]C. Local files outside the repository[line break]D. Different versions of a tracked file[paragraph break]> ", yes;
+	if the command prompt is "A. git fetch[line break]B. git add[line break]C. git init[line break]D. git checkout[paragraph break]> ", yes;
 	no.
 
 After reading a command when asking Q1:
 	[say "What's your answer?";]
 	if the player's command includes "C":
-		say "that's correct.";
+		say "Correct. [line break][green letters]git init[default letters] creates and initializes a repository. [line break][green letters]git fetch[default letters] updates the branch you are on according to the same branch on the remote repositiory.[line break][green letters]git add[default letters] adds files to the staging area and git starts tracking their history.[line break][green letters]git checkout[default letters] takes you to a branch of your choice or to create new branches.[paragraph break]";
 		wait for any key;
-		say "Q2 What is a merge conflict?[line break]";
-		now the command prompt is "A. Competing commits between branches[line break]B. Disagreement between repositories[line break]C. Hostility between collaborators[line break]D. Dispute between files[paragraph break]> ";
+		say "Q2 In the situations listed below, which one could lead to a merge conflict when merging the branches?[line break]";
+		now the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ";
 		reject the player's command;
 	otherwise:
-		say "that's not correct.".
+		say "That's not correct. Try again.".
 		
 To decide whether asking Q2:
-	if the command prompt is "A. Competing commits between branches[line break]B. Disagreement between repositories[line break]C. Hostility between collaborators[line break]D. Dispute between files[paragraph break]> ", yes;
+	if the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ", yes;
 	no.
 
 After reading a command when asking Q2:
 	if the player's command includes "A":
-		say "that's correct.";
+		say "Correct. Merge conflicts occurs within 2 commits that modifies the same file from different branches. Deleting a file does not introduce a merge conflict. Being hostile to your collaborators may introduce conflicts in reality, but never in the world of Git.[paragraph break]";
 		wait for any key;
 		say "Q3 What spells cannot be cast on branches?[line break]";
 		now the command prompt is "A. git fetch[line break]B. git config[line break]C. git push[line break]D. git commit[paragraph break]> ";
 		reject the player's command;
-	say "that's not correct.";
+	say "That's not correct.";
 	reject the player's command.
 		
 To decide whether asking Q3:
@@ -355,10 +418,16 @@ To decide whether asking Q3:
 After reading a command when asking Q3:
 	if the player's command includes "B":
 		now the command prompt is ">"; [<-- this line is very very very important]
-		say "That's correct. *Explanation on the answer*[line break]";
+		say "Correct. [green letters]git config[default letters] configures your username and password across all repositories and not branches. [line break]";
+		wait for any key;
+		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
+		wait for any key;
+		say "[Bold type][player's name][Roman type]: Maybe I should go to sleep.[line break]";
+		wait for any key;
+		say "(Tip: To sleep, simply enter the bed and do 'sleep')[line break]";
 		now the assignment-part is 4;
 		reject the player's command;
-	say "that's not correct.";
+	say "That's not correct.";
 	reject the player's command.
 	
 To decide whether asking Q4:
@@ -367,7 +436,7 @@ To decide whether asking Q4:
 	
 After reading a command when asking Q4:
 	if the player's command includes "A":
-		say "that's correct";
+		say "Correct. A commit ID contains the specific changes of that commit, when the changes of that commit were made and who made the changes in that commit. For other information, you can include it in the commit message.[paragraph break]";
 		wait for any key;
 		say "[line break]Q2 What spell can you cast to turn tracked files into untracked files?[paragraph break]";
 		now the command prompt is "A. git undo[line break]B. git add[line break]C. git reset[line break]D. git untrack[paragraph break]> ";
@@ -381,19 +450,35 @@ To decide whether asking Q5:
 
 After reading a command when asking Q5:
 	if the player's command includes "C":
-		now the command prompt is "> ";
-		say "that's correct. exercise done.[line break]";
+		say "Correct. [green letters]git reset[default letters] untracks the given file. [green letters]git untrack[default letters] and [green letters]git undo[default letters] does not exists.[paragraph break]";
 		wait for any key;
-		say "You feel sleepy and decided to call it a day.";
+		say "Q3 What is the maximum commits you can have in a single repository?[paragraph break]";
+		now the command prompt is "A. 10 commits per branch in the repository [line break]B. 100 commits for free users[line break]C. 1000 commits for professional users [line break]D. unlimited commits for every repository[paragraph break]> ";
+		reject the player's command;
+	say "That's not correct.";
+	reject the player's command.
+		
+To decide whether asking Q6:
+	if the command prompt is "A. 10 commits per branch in the repository [line break]B. 100 commits for free users[line break]C. 1000 commits for professional users [line break]D. unlimited commits for every repository[paragraph break]> ", yes;
+	no.
+	
+After reading a command when asking Q6:
+	if the player's command includes "D":
+		say "Correct. There is no limit on the number of commits you can make for every repository.[paragraph break]";
 		wait for any key;
-		say "(Tip: Go to sleep to start a new day.)";
+		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
+		wait for any key;
+		say "[Bold type][player's name][Roman type]: Maybe I should call it a day.[line break]";
+		wait for any key;
+		say "(Tip: To sleep, simply enter the bed and do 'sleep')[line break]";
+		now the command prompt is ">";
 		[now the tutorial-part is 8;]
 		say "tutorial part: [tutorial-part][line break]";
 		say "assignment part: [assignment-part][line break]";
 		now the assignment-part is 7;
 		[now the tutorial-part is 8;]
 		reject the player's command;
-	say "that's not correct.";
+	say "That's not correct.";
 	reject the player's command.
 
 Book 2 - Corridor
@@ -403,9 +488,10 @@ The bedroom door is south of your Bedroom and north of the corridor. It is a doo
 Book 3 - Classroom
 
 Understand "Magic Classroom" as the classroom.
+Understand "seat" as the chair.
 
 The classroom door is north of the classroom and south of the corridor. It is a door and openable. 
-The description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner. Take a seat to start the tutorial. ". The printed name of the classroom is "Magic Classroom".  
+The description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner. Take a seat to start the lecture ". The printed name of the classroom is "Magic Classroom".  
 
 There is a chair and your desk and teacher's desk in the classroom. The chair is a container and enterable. There is a wand on the teacher's desk. The wand is portable. The description of the wand is "This is your brand new wand provided by the school.". The desk is scenery. 
 The description of the chair is "This is your assigned seat. Take a seat.". The description of your desk is "This is your desk. ". 
@@ -436,6 +522,9 @@ Instead of entering chair:
 			choose a blank row in the Table of Accessable Rooms;
 			now name entry is 101-branch;
 			now the tutorial-part is 2;
+			choose a blank row in the Table of Commands Learnt;
+			now the cmd entry is "[Bold type][green letters]git checkout branch-name[default letters][Roman type]";
+			now the usage entry is "teleports you to the named branch";
 			[say "tutorial-part: [tutorial-part] done [line break]";]
 	otherwise:
 		say "Come back when you're ready!";
@@ -466,6 +555,12 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [green letters]git fetch[default letters]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
 		now the tutorial-part is 3;
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git fetch[default letters][Roman type]";
+		now the usage entry is "updates the branch you are currently at";
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git branch[default letters][Roman type]";
+		now the usage entry is "list out all the branches you can teleport to";
 		reject the player's command;
 		[]
 	if tutorial-part is 3 and the location of the orange is 101-branch:
@@ -488,6 +583,9 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: After me, [green letters]git add orange[default letters]! (∩^o^)⊃━☆ﾟ.*･｡ (Talk to Dr. GitHub after you have done the command)[paragraph break]";
 		now the tutorial-part is 5;
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git add item name[default letters][Roman type]";
+		now the usage entry is "tracks the named item";
 		reject the player's command;
 		[]
 	if tutorial-part is 5 and there is a Fname of orange in the Table of Tracked Fruits:
@@ -501,6 +599,9 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Talk to me when you are done. [line break]";
 		now the tutorial-part is 6;
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git reset item name[default letters][Roman type]";
+		now the usage entry is "untrack the named item";
 		reject the player's command;
 		[]
 	if tutorial-part is 6 and there is a Fname of strawberry in the Table of Tracked Fruits:
@@ -512,6 +613,9 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Let's try merging now. Say [green letters]git merge 201-branch[default letters] (∩^o^)⊃━☆ﾟ.*･｡[line break]";
 		now the tutorial-part is 7;
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git merge branch-name[default letters][Roman type]";
+		now the usage entry is "merges the named branch to the main/master branch";
 		reject the player's command;
 		[]
 	if tutorial-part is 7 and there is a strawberry in 101-branch:
@@ -537,6 +641,12 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Now commit and push your changes. [line break]";
 		now the tutorial-part is 8;
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git commit[default letters][Roman type]";
+		now the usage entry is "creates a commit based on the current state of the branch you are currently in";
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git push[default letters][Roman type]";
+		now the usage entry is "submits the current state of the branch for checking";
 		reject the player's command;
 	if tutorial-part is 8 and tutorial-done is true:
 		[]
@@ -556,18 +666,21 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Here is the detail instructions of this assignment. [line break]";
 		wait for any key;
-		say "A paper with the instructions written on it appeared in front of you. Do [green letters]examine assignment instruction[default letters] to read the paper. [line break]";
+		say "A paper with the instructions written on it appeared in front of you. Do [green letters]cat assignment instruction[default letters] to read the paper. [line break]";
 		[give player the items they need and dismiss]
 		now the player carries the assignment instruction;
 		choose a blank row in the Table of Accessable Rooms;
 		now name entry is AR-Main;
 		choose a blank row in the Table of Accessable Rooms;
-		now name entry is AR-101;
+		now name entry is 101-AR;
 		choose a blank row in the Table of Accessable Rooms;
-		now name entry is AR-102;
+		now name entry is 201-AR;
 		now Maya is in 101-branch;
+		choose a blank row in the Table of Commands Learnt;
+		now the cmd entry is "[Bold type][green letters]git status[default letters][Roman type]";
+		now the usage entry is "list out the list of items you have casted git add on";
 		wait for any key;
-		say "You can now access branch AR-Main, AR-101 and AR-102.[line break]";
+		say "You can now access branch AR-Main, 101-AR and 201-AR.[line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
 		wait for any key;
@@ -585,7 +698,7 @@ Instead of talking to Maya:
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: Hello! Maybe we could split up the workload? [line break]";
 		wait for any key;
-		say "[Bold type][player's name][Roman type]: I can work on AR-102 and you can work on AR-101. [line break]";
+		say "[Bold type][player's name][Roman type]: I can work on 201-AR and you can work on 101-AR. [line break]";
 		wait for any key;
 		say "[Bold type]Maya[Roman type]: Shall we set an internal deadline? Like two days later? [line break]";
 		wait for any key;
@@ -597,7 +710,7 @@ Instead of talking to Maya:
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: Sorry... I think I need to grab some food first...[line break]";
 		wait for any key;
-		say "[Bold type]Maya[Roman type]: It's alright! I'll be in AR-101 if you need me.[line break]";
+		say "[Bold type]Maya[Roman type]: It's alright! I'll be in 101-AR if you need me.[line break]";
 		wait for any key;
 		say "[Bold type]Maya[Roman type]: See you later![line break]";
 		say "After setting up a plan for the assignment, You decided to go to the canteen and grab some food. [line break]";
@@ -615,22 +728,26 @@ Instead of talking to Maya:
 		say "[Bold type]Maya[Roman type]: Hi, [player's name], how's your progress?[line break]";
 		reject the player's command;
 	if assignment-part is 8:
-		say "[Bold type]Maya[Roman type]: Good morning [player's name], did you tracked all your required items?[line break]";
+		say "[Bold type]Maya[Roman type]: Good morning [player's name], did you tracked all your required items? (yes/no)[paragraph break] >";
 		if the player consents:
 			say "[Bold type]Maya[Roman type]: Great! Let's start the merging.[line break]";
 			wait for any key;
-			say "[Bold type]Maya[Roman type]: Do you remember how to do the merging?[line break]";
+			say "[Bold type]Maya[Roman type]: Do you remember how to do the merging? (yes/no)[paragraph break] >";
 			if the player consents:
 				say "[Bold type]Maya[Roman type]: Nice! You can merge your branch now.[line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: Tell me when you're done. [line break]";
+				now the assignment-part is 9;
+				reject the player's command;
 			otherwise:
-				say "[Bold type]Maya[Roman type]: The spell is [Bold type]git merge branch_name[Roman type][line break]";
+				say "[Bold type]Maya[Roman type]: The spell is [green letters]git merge branch_name[default letters][line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: Try it yourself![line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: And don't forget to tell me when you're done![line break]";
 				now the assignment-part is 9;
+				say "assignment part: [assignment-part][line break]";
+				reject the player's command;
 		otherwise:
 			say "[Bold type]Maya[Roman type]: Oh... Then you should do it now.[line break]";
 			wait for any key;
@@ -641,12 +758,12 @@ Instead of talking to Maya:
 		wait for any key;
 		say "[Bold type]Maya[Roman type]: Oh great! :D I'll merge my branch now.[line break]";
 		wait for any key;
-		say "Maya waves her wand in the air and shouts 'git merge AR-101'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
+		say "Maya waves her wand in the air and shouts 'git merge 101-AR'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
 		[now the grape is in AR-Main;
 		now the watermelon is in AR-Main;]
 		repeat with N running from 1 to the number of rows in the Table of Tracked Items:
 			choose row N in the Table of Tracked Items;
-			if the name in row N of the Table of Tracked Items is AR-101:
+			if the name in row N of the Table of Tracked Items is 101-AR:
 				now Fname in row N of the Table of Tracked Items is in the location of Maya;
 				now the name entry is the location of Maya;
 			otherwise if the name entry is the location of Maya:
@@ -667,9 +784,45 @@ After reading a command when Maya is begging:
 		now the command prompt is "> ";
 		reject the player's command;
 	say "[Bold type]Maya[Roman type]: Please...";
+	increment the maya-beg-count;
+	if the maya-beg-count is 5:
+		now the command prompt is "> ";
+		say "[Bold type]Maya[Roman type]: Okay... I'll do it myself. [line break]";
+		wait for any key;
+		if the assignment-part is greater than 0:
+			if the number of blank rows in the Table of Tracked Items is greater than 0:
+				say "[player's name]: Hold up! I think I missed a step...[line break]";
+				wait for any key;
+				say "[player's name]: Let me fix it first.[line break]";
+				reject the player's command;
+			otherwise: 
+				say "Maya waves her wand in the air and shouts 'git commit'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
+				wait for any key;
+				say "Maya waves her wand in the air and shouts 'git push'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
+				repeat with N running from 1 to the number of rows in the Table of Assignment Results:
+					choose row N in the Table of Assignment Results;
+					repeat with M running from 1 to the number of rows in the Table of Tracked Items:
+						choose row M in the Table of Assignment Results;
+						if the Fname in row N of the Table of Assignment Results is the Fname in row M of the Table of Tracked Items:
+							if the name in row N of the Table of Assignment Results is the name in row M of the Table of Tracked Items:
+								increment the count;
+							otherwise:
+								next;
+						otherwise:
+							next;
+				if the count is 7:
+					say "[Bold type][player's name] and Maya[Roman type]: Yay! We've got our assignment done![line break]";
+					reject the player's command;
+				otherwise:
+					say "[Bold type][player's name][Roman type]: Something is not right... [line break]";
+					say "[count]/7 is in your tracked list is correct.[line break]";
+					showme the contents of the Table of Tracked Items;
+					showme the contents of the Table of Assignment Results;
+					now the count is 0;
+					reject the player's command;
 	reject the player's command.
 
-The AR-101 is a room. There is a table and a drawer in the AR-101. 
+The 101-AR is a room. There is a table and a drawer in the 101-AR. 
 
 [There is a debugger in 101-branch. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". ]
 
@@ -689,14 +842,18 @@ The apple, orange, strawberry, banana, grape and peach is edible.
 
 Instead of taking a noun:
 	if the noun is a thing:
-		if there is a Fname of the noun in the Table of Tracked Fruits:
+		if there is a Fname of the noun in the Table of Fruits:
 			say "Dr. Github: Please do not touch the teaching materials. [line break]";
+			reject the player's command;
+		otherwise if the noun is a person:
+			say "[Bold type][noun][Roman type]: Please don't pick me up.[line break]";
 			reject the player's command;
 		otherwise:
 			now the player carries the noun;
 			say "You took the [noun].";
 	otherwise:
-		say "This is not something you can pick up.".
+		say "This is not something you can pick up.";
+		reject the player's command.
 			
 Instead of eating a noun:
 	if the noun is a edible thing:
@@ -711,7 +868,7 @@ Instead of eating a noun:
 		
 Chapter 2 - Assignment papers
 
-There is a assignment instruction in the storage room. The description is "[line break]+-------------------------------------------------------------------------------------------+[paragraph break][Bold type]Formative Assignment Instructions[Roman type][line break]Name: [Italic type]Maya, [player's name][Roman type] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, AR-101, AR-102. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.[paragraph break]+-------------------------------------------------------------------------------------------+[line break]".
+There is a assignment instruction in the storage room. The description is "[line break]+-------------------------------------------------------------------------------------------+[paragraph break][Bold type]Formative Assignment Instructions[Roman type][line break]Name: [Italic type]Maya, [player's name][Roman type] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, 101-AR, 201-AR. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.[paragraph break]+-------------------------------------------------------------------------------------------+[line break]".
 
 Book 6 - Assignment Rooms
 
@@ -719,26 +876,32 @@ Chapter 1 - Rooms set up
 
 The AR-Main is a room. There is a stool, a folder and a mug in the AR-Main. The description of AR-Main is "This is the main branch of your assignment.".
 
+The 101-AR is a room. There is a table and a drawer in 101-AR.
+
 Every turn:
 	if the assignment-part is 1:
-		now the description of AR-101 is "This is one of the three branches of your assignment. Maya will be working on this branch.";
+		now the description of 101-AR is "This is one of the three branches of your assignment. Maya will be working on this branch.";
 	otherwise:
-		now the description of AR-101 is "This is one of the three branches of your assignment.".
+		now the description of 101-AR is "This is one of the three branches of your assignment.".
 
-The AR-102 is a room. There is a plant and a ball in the AR-102. 
+The 201-AR is a room. There is a plant and a ball in the 201-AR. The printed name of 201-AR is "201-AR". 
+
+[Understand "201-AR" as 102AR.]
 
 Every turn:
 	if the assignment-part is 1:
-		now the description of AR-102 is "This is one of the three branches of your assignment. You will be working on this branch. It's a little late, so you decided to only update the branch and leave the rest for tomorrow.[line break]";
+		now the description of 201-AR is "This is one of the three branches of your assignment. You will be working on this branch. It's a little late, so you decided to only update the branch and leave the rest for tomorrow.[line break]";
 	otherwise if the assignment-part is 5:
 		if there is a Fname of pear in the Table of Tracked Items:
 			if there is a Fname of peach in the Table of Tracked Items:
 				now the assignment-part is 6;
 				say "You've done your part of work for the assignment.[line break]";
 				wait for any key;
+				say "It's still early.[line break]";
+				wait for any key;
 				say "You decided to go back and read the reference book.[line break]";
 	otherwise:
-		now the description of AR-102 is "This is one of the three branches of your assignment.".
+		now the description of 201-AR is "This is one of the three branches of your assignment.".
 
 [Instead of picking up ]
 
@@ -749,19 +912,134 @@ Book 7 - Canteen
 The canteen door is east of the corridor and west of the Canteen. It is a door and openable. The description of the Canteen is "The canteen is filled with the aroma of delicious food. You get hungry just by staying here. Try looking around to find something to eat.". The meal deal is a container. The meal deal is edible. The meal deal is in the Canteen. There is a egg mayo sandwich, a bag of chips and a cup of coffee in the meal deal.
 
 Instead of eating the meal deal:
-	now Maya is in the AR-101;
+	now Maya is in the 101-AR;
 	say "You happily chomp on the sandwich until nothing is left.[line break]";
-	now the grape is in AR-101;
+	now the grape is in 101-AR;
 	wait for any key;
 	say "Then you munched your chips while you took a sip of your coffee.[line break]";
-	now the watermelon is in AR-101;
+	now the watermelon is in 101-AR;
 	wait for any key;
 	say "After a few minutes, the entire meal deal is in your stomach.[line break]";
 	now the meal deal is nowhere;
 	wait for any key;
-	say "You are now satisfied and have decided to visit the assignment rooms.[line break]".
+	say "You are now satisfied and have decided to visit the assignment rooms.[line break]";
+	repeat with N running from 1 to the number of rows in the Table of Fruits:
+		choose row N in the Table of Fruits;
+		if the Fname in row N of the Table of Fruits is the grape:
+			now the name in row N of the Table of Fruits is 101-AR;
+		otherwise if the Fname in row N of the Table of Fruits is the watermelon:
+			now the name in row N of the Table of Fruits is 101-AR.
 	[wait for any key;
 	say "(Tip: remember to update Maya on your progress.)[line break]".]
+	
+Book 8 - Debug rooms
 
+The DB1 door is south of the classroom and north of the DB1. It is a door. The DB1 door is scenery.
 
+The DB2 door is north of your bedroom and south of the DB2. It is a door and openable. [The DB2 door is scenery.]
+
+The DB3 door is east of the canteen and west of the DB3. It is a door and locked. The DB3 door is scenery.
+	
+Volume 4 - Help function
+
+After reading a command:
+	if the player's command matches "help":
+		if the assignment-part is greater than 0:
+			if the assignment-part is 1:
+				say "You need to talk to your partner.[line break]";
+				wait for any key;
+				say "Your partner's name is written on the assignment instruction[line break]";
+			if the assignment-part is 2:
+				if the location of Maya is 101-AR:
+					say "Teleport to 201-AR and update the branch.[line break]";
+				otherwise if the location of the player is not the canteen:
+					say "Go to the canteen and have lunch. To go to the canteen, first teleport to the classroom then go through the corridor.[line break]";
+					wait for any key;
+				otherwise if the location of the player is the canteen:
+					say "Go eat the meal deal. You can't eat each component of the meal deal seperately. [line break]";
+			if the assignment-part is 3:
+				if the location of the player is the bedroom:
+					say "Read the reference book.[line break]";
+				otherwise:
+					say "Go back to your bedroom and read the reference book.[line break]";
+			if the assignment-part is 4:
+				say "Go to bed and sleep. Good night.[line break]";
+			if the assignment-part is 5:
+				say "Teleport to 201-AR and track the required items.[line break]";
+			if the assignment-part is 6:
+				if the player is holding the Git commands reference book:
+					say "Read the reference book again.[line break]";
+				otherwise:
+					say "Go to [the location of the Git commands reference book] and read the reference book.[line break]";
+			if the assignment-part is 7:
+				say "Go to bed. Good night.[line break]";
+			if the assignment-part is 8:
+				if the location of the player is AR-Main:
+					say "Talk to Maya.[line break]";
+				otherwise:
+					say "Teleport to AR-Main and talk to Maya.[line break]";
+			if the assignment-part is 9:
+				say "Merge 201-AR into AR-Main.[line break]";
+			if the assignment-part is 10:
+				say "Talk to Maya.[line break]";
+			if the assignment-part is 11:
+				say "Congrats.[line break]";
+			[]
+			say "Do you want to show the list of commands you can use? (yes/no)[line break]";
+			if the player consents:
+				say "Here is the list of commands you can use[paragraph break]";
+				showme the contents of the Table of Commands Learnt;
+				reject the player's command;
+			otherwise:
+				say "Okay.[line break]";
+				reject the player's command;
+		otherwise if the tutorial-part is greater than 0:
+			if the tutorial-part is 1:
+				say "You need to head to the classroom.[line break]";
+				wait for any key;
+				say "Your bedroom is at one end of the corridor while the classroom is at the other end of the corridor.[line break]";
+				wait for any key;
+				say "Then get your wand and sit down to start the lecture.[line break]";
+			otherwise if the tutorial-part is 2:
+				say "You need to use the git command spell Dr. GitHub just taught you to go to 101-branch and talk to him when you arrive.[line break]";
+			otherwise if the tutorial-part is 3:
+				if the player is holding an orange:
+					say "Please put back the orange by doing [blue letters]drop orange[default letters] and talk to Dr. GitHub[line break]";
+					wait for any key;
+				say "You need to update the branch and then talk to Dr. GitHub.[line break]";
+			otherwise if the tutorial-part is 4:
+				if the player is holding a strawberry:
+					say "Please put back the strawberry by doing [blue letters]drop strawberry[default letters] and talk to Dr. GitHub[line break]";
+				otherwise:
+					say "You need to talk to Dr. GitHub in 101-branch after updating 201-branch.[line break]";
+			otherwise if the tutorial-part is 5:
+				say "You have to track the orange then talk to Dr. GitHub.[line break]";
+			otherwise if the tutorial-part is 6:
+				say "You have to track the strawbery then go back to 101-branch and talk to Dr. GitHub.[line break]";
+			otherwise if the tutorial-part is 7:
+				say "You have to merge 201-branch into 101-branch then talk to Dr. GitHub.[line break]";
+			otherwise if tutorial-done is false and the tutorial-part is 8:
+				say "ONLY the apple, the orange and the strawberry should be tracked.[line break]";
+				say "Here is the list of fruits you have casted git add on:[paragraph break]";
+				showme the contents of the Table of Tracked Fruits;
+				if the number of blank rows in the Table of Tracked Fruits is greater than 0:
+					say "You have casted git reset on something you shouldn't.[line break]";
+					wait for any key;
+				otherwise:
+					say "You have to commit and push your changes then talk to Dr.GitHub.[line break]";
+			otherwise if tutorial-done is true:
+				say "You have to talk to Dr. GitHub to continue the story.[line break]";
+			[]
+			wait for any key;
+			say "Do you want to show the list of commands you can use? (yes/no)[line break]";
+			if the player consents:
+				say "Here is the list of commands you can use[paragraph break]";
+				showme the contents of the Table of Commands Learnt;
+				reject the player's command;
+			otherwise:
+				say "Okay.[line break]";
+				reject the player's command;
+		otherwise:
+			say "There's nothing I can help you with. (How did you even get here?)[line break]";
+			reject the player's command.
 [testing??]
