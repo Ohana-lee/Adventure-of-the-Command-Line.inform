@@ -30,6 +30,22 @@ The b4game-start is a truth state that varies. The b4game-start is true.
 
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
 
+Chapter 1 - Achievements
+
+The learning-ahead is a truth state that varies. The learning-ahead is false.
+
+The dementia is a truth state that varies. The dementia is false.
+
+The hoarder is a truth state that varies. The hoarder is false.
+
+The starving is a truth state that varies. The starving is false.
+
+The help-is-4-the-weak is a truth state that varies. The help-is-4-the-weak is true.
+
+The make-maya is a truth state that varies. The make-maya is false.
+
+The group-carrier is a truth state that varies. The group-carrier is false.
+
 Book 2 - Tables
 
 Table of Accessable Rooms
@@ -228,6 +244,7 @@ After reading a command when getting password:
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)";
 		wait for any key;
 		now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> ";
+		reject the player's command;
 	say "Incorrect password.[line break]Access Denied.[line break]";
 	reject the player's command.
 
@@ -245,11 +262,25 @@ After reading a command:
 After reading a command:
 	if the player's command matches "whoami":
 		say "[player's name][paragraph break]";
+		now dementia is true;
+		say "achievement get";
 		reject the player's command.
 
 Volume 3 - Rooms set up
 
 A tChair is a kind of container. A desk is a thing that is scenery. 
+
+[After reading a command:
+	if the player's command matches "git checkout classroom":
+		if the tutorial-part is 1:
+			now the learning-ahead is true;
+			say "achievement get";
+	otherwise if the player's command matches "git checkout Magic Classroom":
+		if the tutorial-part is 1:
+			now the learning-ahead is true;
+	otherwise if the player's command matches "git branch":
+		if the tutorial-part is 1:
+			now the learning-ahead is true.]
 
 Book 1 - Bedroom
 
@@ -801,6 +832,8 @@ To decide whether Maya is begging:
 After reading a command when Maya is begging:
 	if the player's command includes "yes":
 		say "[Bold type]Maya[Roman type]: Thank you![line break]";
+		now the group-carrier is true;
+		say "achievement get";
 		now the command prompt is "> ";
 		reject the player's command;
 	say "[Bold type]Maya[Roman type]: Please...";
@@ -808,6 +841,8 @@ After reading a command when Maya is begging:
 	if the maya-beg-count is 5:
 		now the command prompt is "> ";
 		say "[Bold type]Maya[Roman type]: Okay... I'll do it myself. [line break]";
+		now make-maya is true;
+		say "achievement get";
 		wait for any key;
 		if the assignment-part is greater than 0:
 			if the number of blank rows in the Table of Tracked Items is greater than 0:
@@ -837,8 +872,11 @@ After reading a command when Maya is begging:
 					wait for any key;
 					say "[Bold type]Maya[Roman type]: Let's meet until then![line break]";
 					wait for any key;
-					say "[Italic type]Fast forward to the day of the lecture...[Roman type]";
+					say "[Italic type]Fast forward to the day of the lecture...[Roman type][paragraph break]";
 					wait for any key;
+					now the player is in the classroom;
+					now Maya is in the classroom;
+					now Dr GitHub is in the classroom;
 					say "[Bold type]Dr. GitHub[Roman type]: Well done everyone. You've all done pretty well in the assignment.[line break]";
 					wait for any key;
 					say "[Bold type]Dr. GitHub[Roman type]: Here are your assignment results.[line break]";
@@ -853,7 +891,7 @@ After reading a command when Maya is begging:
 					wait for any key;
 					say "[Bold type]Dr. GitHub[Roman type]: But worry not! Just keep up your good work and you will master Git Commands in no time![line break]";
 					wait for any key;
-					say "[Bold type]~The End~[Roman type]";
+					say "[Bold type]~The End~[Roman type][paragraph break]";
 					wait for any key;
 					say "[Bold type]Mysterious Voice[Roman type]: Thank you for playing my game! It means a lot to me.[line break]";
 					wait for any key;
@@ -861,8 +899,8 @@ After reading a command when Maya is begging:
 					say "*link here*";
 					wait for any key;
 					say "[Bold type]Mysterious Voice[Roman type]: Before I let you go... ";
-					now the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> "
-					reject the player's command;
+					now the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ";
+					[reject the player's command;]
 				otherwise:
 					say "[Bold type][player's name][Roman type]: Something is not right... [line break]";
 					say "[count]/7 is in your tracked list is correct.[line break]";
@@ -872,20 +910,63 @@ After reading a command when Maya is begging:
 					reject the player's command;
 	reject the player's command.
 	
+The 101-AR is a room. There is a table and a drawer in the 101-AR. 
+
+Section 4 - After Game ends
+
 To decide whether finishing game:
 	if the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ", yes;
 	no.
 
-After reading a command when collecting names:
+After reading a command when finishing game:
 	if the player's command matches "pwd":
+		now the command prompt is "> ";
+		if the player is holding a wand:
+			if the player is holding your desk:
+				if the player is holding the cat plushie:
+					if the player is holding the Git Commands Reference Book:
+						now the hoarder is true;
+						say "achievement get";
+		[]
 		say "[Bold type]Mysterious Voice[Roman type]: Correct!! You are free to walk around the school or just leave the game. [line break]";
 		wait for any key;
-		say "[Bold type]Mysterious Voice[Roman type]:Oh right! And here's the achievements you earned during the game. [line break]";
-		[list out achievements]
+		say "[Bold type]Mysterious Voice[Roman type]:Oh right! And here's the achievements you earned during the game: [paragraph break]";
 		wait for any key;
-		say "[Bold type]Mysterious Voice[Roman type]: Till we meet again!";
+		[list out achievements]
+		if learning-ahead is true:
+			say "[Bold type]Learning Ahead: Doing git commands before you even learnt it[Roman type][line break]";
+			say "[Italic type]You must be a hard-working student.[Roman type][paragraph break]";
+			wait for any key;
+		if dementia is true:
+			say "[Bold type]Dementia: Doing the command 'whoami'[Roman type][line break]";
+			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
+			wait for any key;
+		if the hoarder is true:
+			say "[Bold type]The hoarder: Picking up everying you can pick up[Roman type][line break]";
+			say "[Italic type]Aren't you tired carrying all those stuff around? [Roman type][paragraph break]";
+		if starving is true:
+			say "[Bold type]Starving: Trying to eat something inedible[Roman type][line break]";
+			say "[Italic type]Starving yourself to a point like this isn't good for your health... [Roman type][paragraph break]";
+			wait for any key;
+		if help-is-4-the-weak is true:
+			say "[Bold type]Help is for the weak: Never used the 'help' command[Roman type][line break]";
+			say "[Italic type]Real witches and wizards do not need help. [Roman type][paragraph break]";
+			wait for any key;
+		if make-maya is true:
+			say "[Bold type]Make your partner work: Make Maya do git commit and git push[Roman type][line break]";
+			say "[Italic type]You're not a freerider... Are you? [Roman type][paragraph break]";
+			wait for any key;
+		if group-carrier is true:
+			say "[Bold type]Group Carrier: Trying to do more work than your partner[Roman type][line break]";
+			say "[Bold type]Maya[Roman type][Italic type]: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
+			wait for any key;
+		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again!";
+		reject the player's command;
+	say "[Bold type]Mysterious Voice[Roman type]: Nope. Try again. [line break]";
+	wait for any key;
+	say "[Bold type]Mysterious Voice[Roman type]: I won't let you see your list of achievements if you don't get it correct. :P [line break]";
+	reject the player's command.
 
-The 101-AR is a room. There is a table and a drawer in the 101-AR. 
 
 [There is a debugger in 101-branch. The debugger is a container. The description of the debugger is "In case of emergency (e.g. you get stuck in this room and can't leave), please enter the debugger to return to the classroom.". ]
 
@@ -928,6 +1009,9 @@ Instead of eating a noun:
 			say "You ate the [noun].";
 	otherwise:
 		say "This is not edible. Are you OK?[line break]";
+		now the starving is true;
+		say "achievement get";
+		reject the player's command.
 		
 Chapter 2 - Assignment papers
 
@@ -1007,6 +1091,7 @@ Volume 4 - Help function
 
 After reading a command:
 	if the player's command matches "help":
+		now help-is-4-the-weak is false;
 		if the assignment-part is greater than 0:
 			if the assignment-part is 1:
 				say "You need to talk to your partner.[line break]";
