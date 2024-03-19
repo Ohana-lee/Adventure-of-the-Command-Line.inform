@@ -26,6 +26,8 @@ The commit-status is a truth state that varies. The commit-status is false.
 
 The tutorial-done is a truth state that varies. The tutorial-done is false.
 
+The b4game-start is a truth state that varies. The b4game-start is true.
+
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
 
 Book 2 - Tables
@@ -163,53 +165,71 @@ Volume 2 - Before game starts
 
 When play begins:
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
-	say "Before you start, can you help me fill in this questionnaire first?[line break]";
+	say "Before you start, can you help me fill in this questionnaire first? (Just copy the link to a browser)[line break]";
 	say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";
-	say "Do you need a tutorial on basic controls of this game? (yes/no) [line break]";
-	say " > ";
-	if the player consents:
-		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
-		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
-		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
-		wait for any key;
-		say "Yes, just like this.[paragraph break]";
-		wait for any key;
-		say "To move between connected rooms, do [Bold type]cd target room name[Roman type].";
-		wait for any key;
-		say "To look around the room, do [Bold type]ls[Roman type].";
-		wait for any key;
-		say "To examine objects in the same room as you, do [Bold type]cat object name [Roman type] [line break]";
-		wait for any key;
-		say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
-		wait for any key;
-		say "To pick up an item, do [Bold type]pick up item name[Roman type] or [Bold type] take item name[Roman type].";
-		wait for any key;
-		say "To undo a command, do [Bold type]undo[Roman type].[line break]";
-		wait for any key;
-		say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
-		wait for any key;
-		say "[line break]Now, do you know who you are? (yes/no)[line break]";
+	now the command prompt is "Please enter the magic password to continue: [line break]> ".
+	
+Instead of looking when getting password: do nothing.
+
+Rule for printing the banner text when getting password: do nothing.
+
+Rule for constructing the status line when getting password: do nothing.
+	
+To decide whether getting password:
+	if the command prompt is "Please enter the magic password to continue: [line break]> ", yes;
+		no.
+
+After reading a command when getting password:
+	if the player's command matches "cTgxTspU":
+		now the command prompt is "> ";
+		say "Access Granted.[paragraph break]";
+		say "Do you need an explanation on basic controls of this game? (yes/no) [line break]";
 		say " > ";
-	otherwise:
-		say "Great! Then do you know who you are? (yes/no)[line break]";
-		say " > ";
-	if the player consents:
-		say "[line break]No you don't. Don't lie to me.";
+		if the player consents:
+			say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
+			say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
+			say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
+			wait for any key;
+			say "Yes, just like this.[paragraph break]";
+			wait for any key;
+			say "To move between connected rooms, do [Bold type]cd target room name[Roman type].";
+			wait for any key;
+			say "To look around the room, do [Bold type]ls[Roman type].";
+			wait for any key;
+			say "To examine objects in the same room as you, do [Bold type]cat object name [Roman type] [line break]";
+			wait for any key;
+			say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
+			wait for any key;
+			say "To pick up an item, do [Bold type]pick up item name[Roman type] or [Bold type] take item name[Roman type].";
+			wait for any key;
+			say "To undo a command, do [Bold type]undo[Roman type].[line break]";
+			wait for any key;
+			say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
+			wait for any key;
+			say "[line break]Now, do you know who you are? (yes/no)[line break]";
+			say " > ";
+		otherwise:
+			say "Great! Then do you know who you are? (yes/no)[line break]";
+			say " > ";
+		if the player consents:
+			say "[line break]No you don't. Don't lie to me.";
+			wait for any key;
+		otherwise:
+			say "[line break]No worries. I'll tell you who you are.";
+			wait for any key;
+		say "You are a student from a Magic Academy named Enchanted Code Academy. The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
 		wait for any key;
-	otherwise:
-		say "[line break]No worries. I'll tell you who you are.";
+		say "Now let's get you into Git commands. [line break]";
 		wait for any key;
-	say "You are a student from a Magic Academy named Enchanted Code Academy. The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
-	wait for any key;
-	say "Now let's get you into Git commands. [line break]";
-	wait for any key;
-	say "[paragraph break]Git Config is the very first command you will come across when you first use Git commands.";
-	wait for any key;
-	say "This command takes your username as input and configures user info across all local repositories. ";
-	wait for any key;
-	say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)";
-	wait for any key;
-	now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> ".
+		say "[paragraph break]Git Config is the very first command you will come across when you first use Git commands.";
+		wait for any key;
+		say "This command takes your username as input and configures user info across all local repositories. ";
+		wait for any key;
+		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)";
+		wait for any key;
+		now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> ";
+	say "Incorrect password.[line break]Access Denied.[line break]";
+	reject the player's command.
 
 Instead of looking when collecting names: do nothing.
 
@@ -811,7 +831,37 @@ After reading a command when Maya is begging:
 						otherwise:
 							next;
 				if the count is 7:
-					say "[Bold type][player's name] and Maya[Roman type]: Yay! We've got our assignment done![line break]";
+					say "[Bold type]Maya[Roman type]: Yay! We've got our assignment done![line break]";
+					wait for any key;
+					say "[Bold type]Maya[Roman type]: I think the results will be released during the next lecture. [line break]";
+					wait for any key;
+					say "[Bold type]Maya[Roman type]: Let's meet until then![line break]";
+					wait for any key;
+					say "[Italic type]Fast forward to the day of the lecture...[Roman type]";
+					wait for any key;
+					say "[Bold type]Dr. GitHub[Roman type]: Well done everyone. You've all done pretty well in the assignment.[line break]";
+					wait for any key;
+					say "[Bold type]Dr. GitHub[Roman type]: Here are your assignment results.[line break]";
+					wait for any key;
+					say "A paper with your assingnment results appear in front of you. [line break]";
+					wait for any key;
+					say "You and Maya scored full marks for this assignment.[line break]";
+					wait for any key;
+					say "[Bold type]Dr. GitHub[Roman type]: Now you have mastered the basics of Git Commands. [line break]";
+					wait for any key;
+					say "[Bold type]Dr. GitHub[Roman type]: There's still a long way till you can call yourself a master of Git Commands. [line break]";
+					wait for any key;
+					say "[Bold type]Dr. GitHub[Roman type]: But worry not! Just keep up your good work and you will master Git Commands in no time![line break]";
+					wait for any key;
+					say "[Bold type]~The End~[Roman type]";
+					wait for any key;
+					say "[Bold type]Mysterious Voice[Roman type]: Thank you for playing my game! It means a lot to me.[line break]";
+					wait for any key;
+					say "[Bold type]Mysterious Voice[Roman type]: Before you go, can you fill in this questionnaire for me? Just copy the link below and paste it into a browser.[line break]";
+					say "*link here*";
+					wait for any key;
+					say "[Bold type]Mysterious Voice[Roman type]: Before I let you go... ";
+					now the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> "
 					reject the player's command;
 				otherwise:
 					say "[Bold type][player's name][Roman type]: Something is not right... [line break]";
@@ -821,6 +871,19 @@ After reading a command when Maya is begging:
 					now the count is 0;
 					reject the player's command;
 	reject the player's command.
+	
+To decide whether finishing game:
+	if the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ", yes;
+	no.
+
+After reading a command when collecting names:
+	if the player's command matches "pwd":
+		say "[Bold type]Mysterious Voice[Roman type]: Correct!! You are free to walk around the school or just leave the game. [line break]";
+		wait for any key;
+		say "[Bold type]Mysterious Voice[Roman type]:Oh right! And here's the achievements you earned during the game. [line break]";
+		[list out achievements]
+		wait for any key;
+		say "[Bold type]Mysterious Voice[Roman type]: Till we meet again!";
 
 The 101-AR is a room. There is a table and a drawer in the 101-AR. 
 
