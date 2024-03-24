@@ -2,11 +2,12 @@
 
 Include Git Commands by Ohana.
 Include Menus by Emily Short.
-Include Basic Screen Effects by Emily Short.
+[Include Basic Screen Effects by Emily Short.]
 Include Glulx Text Effects by Emily Short.
 [Release along with an interpreter.]
 [Release along with a website and the "Parchment" interpreter.]
 Include Vorple by Juhana Leinonen.
+Include Vorple Screen Effects by Juhana Leinonen.
 Release along with the "Vorple" interpreter.
 
 [add git pull? What is narratively and educationaly sensible
@@ -196,6 +197,7 @@ Understand "read [something]" or "read" as examining.
 Volume 2 - Before game starts
 
 When play begins:
+	say "A [green letters style]frog[end style] jumps into the [white letters style][blue background style]pond[end style][end style].";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? (Just copy the link to a browser)[line break]";
 	say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";
@@ -237,6 +239,10 @@ After reading a command when getting password:
 			say "To undo a command, do [Bold type]undo[Roman type].[line break]";
 			wait for any key;
 			say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
+			wait for any key;
+			say "It's ok if you can't remember all the commands above.[line break]";
+			wait for any key;
+			say "You can do [Bold type]help[Roman type] to show the list of commands you can use.[line break]";
 			wait for any key;
 			say "[line break]Now, do you know who you are? (yes/no)[line break]";
 			say " > ";
@@ -1208,7 +1214,7 @@ After reading a command:
 				[showme the contents of the Table of Commands Learnt;]
 				repeat through the Table of Commands Learnt:
 					say "[Cmd entry]: [usage entry][line break]";
-					say "[paragraph break]";
+					say "[line break]";
 				reject the player's command;
 			otherwise:
 				say "Okay.[line break]";
