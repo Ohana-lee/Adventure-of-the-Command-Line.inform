@@ -7,8 +7,9 @@ Standard CSS file for use with Standard.html and Standard-Source.html.
 
 body
 {
-	font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+	font-family: "American Typewriter", serif;
 	font-size: 100%;
+	color: white;
 	-webkit-text-size-adjust: none;
 }
 
