@@ -5,7 +5,9 @@ Include Menus by Emily Short.
 Include Basic Screen Effects by Emily Short.
 Include Glulx Text Effects by Emily Short.
 [Release along with an interpreter.]
-Release along with a website and the "Parchment" interpreter.
+[Release along with a website and the "Parchment" interpreter.]
+Include Vorple by Juhana Leinonen.
+Release along with the "Vorple" interpreter.
 
 [add git pull? What is narratively and educationaly sensible
 make a note: ran a test on exped user]
