@@ -10,6 +10,7 @@ body {
 body, input, label, #loader {
     color: #fff;
     background-color: #fff;
+    font-family: "Roboto", sans-serif;
 }
 
 input[type=text] {
