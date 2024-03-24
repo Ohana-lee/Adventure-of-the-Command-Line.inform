@@ -7,6 +7,7 @@ Include Glulx Text Effects by Emily Short.
 [Release along with an interpreter.]
 [Release along with a website and the "Parchment" interpreter.]
 Include Vorple by Juhana Leinonen.
+Release along with style sheet "bg.css".
 Include Vorple Screen Effects by Juhana Leinonen.
 Release along with the "Vorple" interpreter.
 
@@ -133,17 +134,17 @@ pear	AR-Main
 
 Table of Commands Learnt
 Cmd (text)	usage (text)
-"[Bold type][special-style-1]cd target room name[roman type][Roman type]"	"move to rooms that are connected to the room you are currently in"
-"[Bold type][special-style-1]ls[roman type][Roman type]"	"looks around the room"
-"[Bold type][special-style-1]cat item name[roman type][Roman type]"	"examines the item"
-"[Bold type][special-style-1]talk to person name[roman type][Roman type]"	"talkes to the named person"
-"[Bold type][special-style-1]take item name[roman type][Roman type]"	"picks up the item"
-"[Bold type][special-style-1]undo[roman type][Roman type]"	"undo the last command you typed"
-"[Bold type][special-style-1]sit down[roman type][Roman type]"	"sit on a chair"
-"[Bold type][special-style-1]read item name[roman type][Roman type]"	"read a book"
-"[Bold type][special-style-1]eat item name[roman type][Roman type]"	"eat a visible edible thing"
-"[Bold type][special-style-1]drop item name[roman type][Roman type]"	"drops the item you are holding in the room you are currently in"
-"[Bold type][special-style-1]i[roman type][Roman type]"	"list out what you are currently holding"
+"[Bold type][blue letters style]cd target room name[end style][Roman type]"	"move to rooms that are connected to the room you are currently in"
+"[Bold type][blue letters style]ls[end style][Roman type]"	"looks around the room"
+"[Bold type][blue letters style]cat item name[end style][Roman type]"	"examines the item"
+"[Bold type][blue letters style]talk to person name[end style][Roman type]"	"talkes to the named person"
+"[Bold type][blue letters style]take item name[end style][Roman type]"	"picks up the item"
+"[Bold type][blue letters style]undo[end style][Roman type]"	"undo the last command you typed"
+"[Bold type][blue letters style]sit down[end style][Roman type]"	"sit on a chair"
+"[Bold type][blue letters style]read item name[end style][Roman type]"	"read a book"
+"[Bold type][blue letters style]eat item name[end style][Roman type]"	"eat a visible edible thing"
+"[Bold type][blue letters style]drop item name[end style][Roman type]"	"drops the item you are holding in the room you are currently in"
+"[Bold type][blue letters style]i[end style][Roman type]"	"list out what you are currently holding"
 --	--
 --	--
 --	--
@@ -197,7 +198,9 @@ Understand "read [something]" or "read" as examining.
 Volume 2 - Before game starts
 
 When play begins:
-	say "A [green letters style]frog[end style] jumps into the [white letters style][blue background style]pond[end style][end style].";
+[	turn the foreground black;]
+	[apply black background style to the entire page;]
+	say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? (Just copy the link to a browser)[line break]";
 	say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";
@@ -400,7 +403,7 @@ Instead of examining the Git commands reference book:
 		wait for any key;
 		say "A repository can have multiple collaborators and it can be either public or private.[line break]";
 		wait for any key;
-		say "To create a new repository, do [special-style-2]git init[roman type].[paragraph break]";
+		say "To create a new repository, do [green letters style]git init[end style].[paragraph break]";
 		wait for any key;
 		say "[Bold type]1.2 Branches[Roman type][line break]";
 		wait for any key;
@@ -463,7 +466,7 @@ To decide whether asking Q1:
 After reading a command when asking Q1:
 	[say "What's your answer?";]
 	if the player's command includes "C":
-		say "Correct. [line break][special-style-2]git init[roman type] creates and initializes a repository. [line break][special-style-2]git fetch[roman type] updates the branch you are on according to the same branch on the remote repositiory.[line break][special-style-2]git add[roman type] adds files to the staging area and git starts tracking their history.[line break][special-style-2]git checkout[roman type] takes you to a branch of your choice or to create new branches.[paragraph break]";
+		say "Correct. [line break][green letters style]git init[end style] creates and initializes a repository. [line break][green letters style]git fetch[end style] updates the branch you are on according to the same branch on the remote repositiory.[line break][green letters style]git add[end style] adds files to the staging area and git starts tracking their history.[line break][green letters style]git checkout[end style] takes you to a branch of your choice or to create new branches.[paragraph break]";
 		wait for any key;
 		say "Q2 In the situations listed below, which one could lead to a merge conflict when merging the branches?[line break]";
 		now the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ";
@@ -492,7 +495,7 @@ To decide whether asking Q3:
 After reading a command when asking Q3:
 	if the player's command includes "B":
 		now the command prompt is ">"; [<-- this line is very very very important]
-		say "Correct. [special-style-2]git config[roman type] configures your username and password across all repositories and not branches. [line break]";
+		say "Correct. [green letters style]git config[end style] configures your username and password across all repositories and not branches. [line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
 		wait for any key;
@@ -524,7 +527,7 @@ To decide whether asking Q5:
 
 After reading a command when asking Q5:
 	if the player's command includes "C":
-		say "Correct. [special-style-2]git reset[roman type] untracks the given file. [special-style-2]git untrack[roman type] and [special-style-2]git undo[roman type] does not exists.[paragraph break]";
+		say "Correct. [green letters style]git reset[end style] untracks the given file. [green letters style]git untrack[end style] and [green letters style]git undo[end style] does not exists.[paragraph break]";
 		wait for any key;
 		say "Q3 What is the maximum commits you can have in a single repository?[paragraph break]";
 		now the command prompt is "A. 10 commits per branch in the repository [line break]B. 100 commits for free users[line break]C. 1000 commits for professional users [line break]D. unlimited commits for every repository[paragraph break]> ";
@@ -584,10 +587,10 @@ Instead of entering chair:
 			now the description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner.";
 			say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. First of all, I am your professor. You can call me Dr. Github. Now I will teach you one of the basic spells in Git. [line break]";
 			wait for any key;
-			say "[Bold type]Dr. Github[Roman type]: The first spell is called [special-style-2]git checkout[roman type]. It is used for teleporting yourself to other branches. [line break]";
+			say "[Bold type]Dr. Github[Roman type]: The first spell is called [green letters style]git checkout[end style]. It is used for teleporting yourself to other branches. [line break]";
 			wait for any key;
 			[say "Dr. Github: But mind you, not all rooms (aka branches in reality) can be teleported to. (But in reality, you can use this to go to any branch you have access to)"]
-			say "[Bold type]Dr. Github[Roman type]: now do [special-style-2]git checkout 101-branch[roman type] to go to 101-branch, I'll meet everyone there. [line break]";
+			say "[Bold type]Dr. Github[Roman type]: now do [green letters style]git checkout 101-branch[end style] to go to 101-branch, I'll meet everyone there. [line break]";
 			wait for any key;
 			say "Dr. Github vanishes into thin air as he casts the spell. ๛ก(ｰ̀ωｰ́ก) Maybe you should give it a try too? [line break]";
 			now the printed name of Dr Github is "Dr. Github";
@@ -597,7 +600,7 @@ Instead of entering chair:
 			now name entry is 101-branch;
 			now the tutorial-part is 2;
 			choose a blank row in the Table of Commands Learnt;
-			now the cmd entry is "[Bold type][special-style-2]git checkout branch-name[roman type][Roman type]";
+			now the cmd entry is "[Bold type][green letters style]git checkout branch-name[end style][Roman type]";
 			now the usage entry is "teleports you to the named branch";
 			[say "tutorial-part: [tutorial-part] done [line break]";]
 	otherwise:
@@ -621,19 +624,19 @@ Instead of talking to Dr Github:
 	if tutorial-part is 2:
 		say "[Bold type]Dr. Github[Roman type]: Congratulations everyone, you have now mastered your very first spell! *clap* *clap* *clap* [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [special-style-2]git branch[roman type] to check which branches you can teleport to.";
+		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [green letters style]git branch[end style] to check which branches you can teleport to.";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [special-style-2]git fetch[roman type] ! [line break]";
+		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [green letters style]git fetch[end style] ! [line break]";
 		wait for any key;
 		say "[Bold type]Dr. Github[Roman type]: What git fetch does is [Italic type]to update the branch[Roman type]. Others may have made some changes to branch but you can't see it yet. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [special-style-2]git fetch[roman type]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
+		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [green letters style]git fetch[end style]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
 		now the tutorial-part is 3;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git fetch[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git fetch[end style][Roman type]";
 		now the usage entry is "updates the branch you are currently at";
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git branch[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git branch[end style][Roman type]";
 		now the usage entry is "list out all the branches you can teleport to";
 		reject the player's command;
 		[]
@@ -649,23 +652,23 @@ Instead of talking to Dr Github:
 	if tutorial-part is 4 and the location of the strawberry is 201-branch:
 		say "[Bold type]Dr. GitHub[Roman type]: Good Job everyone. Let's move on. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: The next spell is [special-style-2]git add[roman type]. This spell [Italic type]tracks items in the room [Roman type]so you can revert to their old state if needed. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: The next spell is [green letters style]git add[end style]. This spell [Italic type]tracks items in the room [Roman type]so you can revert to their old state if needed. [line break]";
 		wait for any key;
 		say "[Italic type](Mysterious Voice: Reverting a commit is not implemented in this game... game... game...) [Roman type][line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Hmm? ｢(ﾟﾍﾟ) Am I hearing things? Anyway, let's try [Italic type]tracking the orange.[Roman type] [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: After me, [special-style-2]git add orange[roman type]! (∩^o^)⊃━☆ﾟ.*･｡ (Talk to Dr. GitHub after you have done the command)[paragraph break]";
+		say "[Bold type]Dr. GitHub[Roman type]: After me, [green letters style]git add orange[end style]! (∩^o^)⊃━☆ﾟ.*･｡ (Talk to Dr. GitHub after you have done the command)[paragraph break]";
 		now the tutorial-part is 5;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git add item name[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git add item name[end style][Roman type]";
 		now the usage entry is "tracks the named item";
 		reject the player's command;
 		[]
 	if tutorial-part is 5 and there is a Fname of orange in the Table of Tracked Fruits:
 		say "[Bold type]Dr. GitHub[Roman type]: Very well, now before going to the next part, I have a little tip for you. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: If you ever casted [special-style-2]git add[roman type] on something you don't want, do [special-style-2]git reset[roman type] followed by the object's name as the counter spell. [line break]";
+		say "[Bold type]Dr. Github[Roman type]: If you ever casted [green letters style]git add[end style] on something you don't want, do [green letters style]git reset[end style] followed by the object's name as the counter spell. [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: This might come in handy for the next practice. But for now, let's keep the orange on the tracking list.[line break]";
 		wait for any key;
@@ -674,7 +677,7 @@ Instead of talking to Dr Github:
 		say "[Bold type]Dr. GitHub[Roman type]: Talk to me when you are done. [line break]";
 		now the tutorial-part is 6;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git reset item name[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git reset item name[end style][Roman type]";
 		now the usage entry is "untrack the named item";
 		reject the player's command;
 		[]
@@ -683,12 +686,12 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: In the world of magic, anything is possible - you can even merge rooms! [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: [special-style-2]git merge[roman type] is a spell that [Italic type]merges a branch of your choice to the master branch[Roman type] (which is 101-branch in this case). [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [green letters style]git merge[end style] is a spell that [Italic type]merges a branch of your choice to the master branch[Roman type] (which is 101-branch in this case). [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: Let's try merging now. Say [special-style-2]git merge 201-branch[roman type] (∩^o^)⊃━☆ﾟ.*･｡[line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Let's try merging now. Say [green letters style]git merge 201-branch[end style] (∩^o^)⊃━☆ﾟ.*･｡[line break]";
 		now the tutorial-part is 7;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git merge branch-name[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git merge branch-name[end style][Roman type]";
 		now the usage entry is "merges the named branch to the main/master branch";
 		reject the player's command;
 		[]
@@ -697,29 +700,29 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: So, here are the last 2 spells I have to teach you today. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: [special-style-2]git commit[roman type] and [special-style-2]git push[roman type]. These commands always come in pairs. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [green letters style]git commit[end style] and [green letters style]git push[end style]. These commands always come in pairs. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: Whenever you are done working on a branch, remember to do [special-style-2]git commit[roman type] to save the changes. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Whenever you are done working on a branch, remember to do [green letters style]git commit[end style] to save the changes. [line break]";
 		wait for any key;
-		say "[Italic type](Mysterious voice: In reality, do [special-style-2]git commit -m 'message here' [roman type] instead to leave a message with your commit ('-m' means to include a main message in the commit))[Roman type][line break]";
+		say "[Italic type](Mysterious voice: In reality, do [green letters style]git commit -m 'message here' [end style] instead to leave a message with your commit ('-m' means to include a main message in the commit))[Roman type][line break]";
 		wait for any key;
 		say "[Italic type](Mysterious voice: Or you will confuse yourself in the future... future... future... )[Roman type][line break]";
 		wait for any key;
-		say "[Italic type](Mysterious voice: But to keep things simple, you just need to do [special-style-2]git commit[roman type] in this game... game... game...)[Roman type][line break]";
+		say "[Italic type](Mysterious voice: But to keep things simple, you just need to do [green letters style]git commit[end style] in this game... game... game...)[Roman type][line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Σ(;ﾟдﾟ) What is that voice? Is there something wrong with me? [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: *Coughs* Anyway, after [special-style-2]git commit[roman type], always do [special-style-2]git push[roman type]. So other people can see the changes you made when they do [special-style-2]git fetch[roman type]. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: *Coughs* Anyway, after [green letters style]git commit[end style], always do [green letters style]git push[end style]. So other people can see the changes you made when they do [green letters style]git fetch[end style]. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: In exams and assignments, you MUST do [special-style-2]git commit[roman type] and [special-style-2]git push[roman type] so that I can see what you did. If I can't see your changes because of this, you will be getting an instant 0. <(｀^´)> [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: In exams and assignments, you MUST do [green letters style]git commit[end style] and [green letters style]git push[end style] so that I can see what you did. If I can't see your changes because of this, you will be getting an instant 0. <(｀^´)> [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Now commit and push your changes. [line break]";
 		now the tutorial-part is 8;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git commit[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git commit[end style][Roman type]";
 		now the usage entry is "creates a commit based on the current state of the branch you are currently in";
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git push[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git push[end style][Roman type]";
 		now the usage entry is "submits the current state of the branch for checking";
 		reject the player's command;
 	if tutorial-part is 8 and tutorial-done is true:
@@ -740,7 +743,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Here is the detail instructions of this assignment. [line break]";
 		wait for any key;
-		say "A paper with the instructions written on it appeared in front of you. Do [special-style-2]cat assignment instruction[roman type] to read the paper. [line break]";
+		say "A paper with the instructions written on it appeared in front of you. Do [green letters style]cat assignment instruction[end style] to read the paper. [line break]";
 		[give player the items they need and dismiss]
 		now the player carries the assignment instruction;
 		choose a blank row in the Table of Accessable Rooms;
@@ -751,7 +754,7 @@ Instead of talking to Dr Github:
 		now name entry is 201-AR;
 		now Maya is in 101-branch;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][special-style-2]git status[roman type][Roman type]";
+		now the cmd entry is "[Bold type][green letters style]git status[end style][Roman type]";
 		now the usage entry is "list out the list of items you have casted git add on";
 		wait for any key;
 		say "You can now access branch AR-Main, 101-AR and 201-AR.[line break]";
@@ -814,7 +817,7 @@ Instead of talking to Maya:
 				now the assignment-part is 9;
 				reject the player's command;
 			otherwise:
-				say "[Bold type]Maya[Roman type]: The spell is [special-style-2]git merge branch_name[roman type][line break]";
+				say "[Bold type]Maya[Roman type]: The spell is [green letters style]git merge branch_name[end style][line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: Try it yourself![line break]";
 				wait for any key;
@@ -957,35 +960,35 @@ After reading a command when finishing game:
 		wait for any key;
 		[list out achievements]
 		if learning-ahead is true:
-			say "[Bold type][note style]Learning Ahead: Doing git commands before you even learnt it[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Learning Ahead: Doing git commands before you even learnt it[end style][Roman type][line break]";
 			say "[Italic type]You must be a hard-working student.[Roman type][paragraph break]";
 			wait for any key;
 		if dementia is true:
-			say "[Bold type][note style]Dementia: Doing the command 'whoami'[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Dementia: Doing the command 'whoami'[end style][Roman type][line break]";
 			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
 			wait for any key;
 		if fuck-around is true:
-			say "[Bold type][note style]Fucking around: typing 'fuck you' as input[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Fucking around: typing 'fuck you' as input[end style][Roman type][line break]";
 			say "[Italic type]Fuck around and you will find out [Roman type][paragraph break]";
 			wait for any key;
 		if the hoarder is true:
-			say "[Bold type][note style]The hoarder: Picking up everying you can pick up[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]The hoarder: Picking up everying you can pick up[end style][Roman type][line break]";
 			say "[Italic type]Aren't you tired carrying all those stuff around?[Roman type][paragraph break]";
 			wait for any key;
 		if starving is true:
-			say "[Bold type][note style]Starving: Trying to eat something inedible[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Starving: Trying to eat something inedible[end style][Roman type][line break]";
 			say "[Italic type]Starving yourself to a point like this isn't good for your health... [Roman type][paragraph break]";
 			wait for any key;
 		if help-is-4-the-weak is true:
-			say "[Bold type][note style]Help is for the weak: Never used the 'help' command[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Help is for the weak: Never used the 'help' command[end style][Roman type][line break]";
 			say "[Italic type]Real witches and wizards do not need help. [Roman type][paragraph break]";
 			wait for any key;
 		if make-maya is true:
-			say "[Bold type][note style]Make your partner work: Make Maya do git commit and git push[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Make your partner work: Make Maya do git commit and git push[end style][Roman type][line break]";
 			say "[Italic type]You're not a freerider... Are you? [Roman type][paragraph break]";
 			wait for any key;
 		if group-carrier is true:
-			say "[Bold type][note style]Group Carrier: Trying to do more work than your partner[roman type][Roman type][line break]";
+			say "[Bold type][magenta letters style]Group Carrier: Trying to do more work than your partner[end style][Roman type][line break]";
 			say "[Italic type]Maya: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
 			wait for any key;
 		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again!";
@@ -1181,12 +1184,12 @@ After reading a command:
 				say "You need to use the git command spell Dr. GitHub just taught you to go to 101-branch and talk to him when you arrive.[line break]";
 			otherwise if the tutorial-part is 3:
 				if the player is holding an orange:
-					say "Please put back the orange by doing [special-style-1]drop orange[roman type] and talk to Dr. GitHub[line break]";
+					say "Please put back the orange by doing [blue letters style]drop orange[end style] and talk to Dr. GitHub[line break]";
 					wait for any key;
 				say "You need to update the branch and then talk to Dr. GitHub.[line break]";
 			otherwise if the tutorial-part is 4:
 				if the player is holding a strawberry:
-					say "Please put back the strawberry by doing [special-style-1]drop strawberry[roman type] and talk to Dr. GitHub[line break]";
+					say "Please put back the strawberry by doing [blue letters style]drop strawberry[end style] and talk to Dr. GitHub[line break]";
 				otherwise:
 					say "You need to talk to Dr. GitHub in 101-branch after updating 201-branch.[line break]";
 			otherwise if the tutorial-part is 5:

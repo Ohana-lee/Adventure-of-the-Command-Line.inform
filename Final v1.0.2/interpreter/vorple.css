@@ -1,5 +1,5 @@
 html, body {
-    font-family: "Roboto", sans-serif;
+    font-family: "American Typewriter", serif;
 }
 
 input, label {
@@ -20,7 +20,7 @@ blockquote {
 }
 
 #vorple {
-    background-color: #fff;
+    background-color: #000;
     min-height: 100%;
 }
 
@@ -97,7 +97,7 @@ body.play > div.interpretercredit {
 }
 
 .monospace-font {
-    font-family: "Roboto Mono", monospace;
+    font-family: "American Typewriter", serif;
 }
 
 #output span.nowrap-font,
