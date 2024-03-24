@@ -9,6 +9,7 @@ Include Glulx Text Effects by Emily Short.
 Include Vorple by Juhana Leinonen.
 Release along with style sheet "bg.css".
 Include Vorple Screen Effects by Juhana Leinonen.
+Include Vorple Hyperlinks by Juhana Leinonen.
 Release along with the "Vorple" interpreter.
 
 [add git pull? What is narratively and educationaly sensible
@@ -202,8 +203,9 @@ When play begins:
 	[apply black background style to the entire page;]
 	say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
-	say "Before you start, can you help me fill in this questionnaire first? (Just copy the link to a browser)[line break]";
-	say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";
+	say "Before you start, can you help me fill in this questionnaire first? [line break]";
+	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Questionnaire webpage";
+	[say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";]
 	now the command prompt is "Please enter the magic password to continue: [line break]> ".
 	
 Instead of looking when getting password: do nothing.

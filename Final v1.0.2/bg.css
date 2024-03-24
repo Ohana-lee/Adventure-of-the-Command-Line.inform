@@ -1,10 +1,7 @@
-#vorple {
-    background-color: #000;
-    min-height: 100%;
+.default {
+    color: white;
 }
 
-#output {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: "American Typewriter", serif;
-}
+/*body {
+  background-color: lightblue;
+}*/
