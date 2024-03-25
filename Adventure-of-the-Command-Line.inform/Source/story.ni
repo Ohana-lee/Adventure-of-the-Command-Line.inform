@@ -242,7 +242,7 @@ After reading a command when getting password:
 			now the command prompt is "> ";
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
-		say "Do you need an explanation on basic controls of this game?[line break]";
+		say "Do you need an explanation on the basic controls of this game?[line break]";
 		now the command prompt is "(yes or no?)> ";
 		reject the player's command;
 		[say " > ";]
@@ -280,17 +280,26 @@ After reading a command when learning controls:
 		wait for any key;
 		say "You can do [Bold type]help[Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
 		wait for any key;
-		say "[line break]Now, do you know who you are? (yes/no)[line break]";
+		say "[line break]Now, do you know who you are?[line break]";
+		now the command prompt is "(yes/no)> ";
+		reject the player's command;
 		[say " > ";]
-	otherwise:
+	otherwise if the player's command matches "no":
 		say "Great! Then do you know who you are? (yes/no)[line break]";
+		now the command prompt is "(yes/no)> ";
+		reject the player's command;
+	say "Please answer yes or no.[line break]";
+	reject the player's command.
 		[say " > ";]
-		if the player consents:
-			say "[line break]No you don't. Don't lie to me.";
-			wait for any key;
-		otherwise:
-			say "[line break]No worries. I'll tell you who you are.";
-			wait for any key;
+		
+To decide if knowing oneself:
+	if the command prompt is "(yes/no)> ", yes;
+		no.
+
+After reading a command when knowing oneself:
+	if the player's command matches "yes":
+		say "[line break]No you don't. Don't lie to me.";
+		wait for any key;
 		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
 		wait for any key;
 		say "Now let's get you into Git commands. [line break]";
@@ -303,10 +312,32 @@ After reading a command when learning controls:
 		wait for any key;
 		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
-		say "[line break]".
-	[reject the player's command.]
+		say "[line break]";
+	otherwise if the player's command matches "no":
+		say "[line break]No worries. I'll tell you who you are.";
+		wait for any key;
+		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
+		wait for any key;
+		say "Now let's get you into Git commands. [line break]";
+		wait for any key;
+		say "[paragraph break]Git Config is the very first command you will come across when you first use Git commands.[line break]";
+		wait for any key;
+		say "This command takes your username as input and configures user info across all local repositories. [line break]";
+		wait for any key;
+		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
+		wait for any key;
+		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
+		now the command prompt is "> [line break]";
+		[say "[line break]";]
+		reject the player's command;
+	[say "1Please answer yes or no.[line break]";
+	reject the player's command.]
 
 Instead of looking when collecting names: do nothing.
+
+Instead of looking when knowing oneself: do nothing.
+
+Instead of looking when learning controls: do nothing.
 
 Rule for printing the banner text when collecting names: do nothing.
 
