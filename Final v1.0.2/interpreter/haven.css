@@ -8,8 +8,8 @@ body {
 }
 
 body, input, label, #loader {
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    background-color: #fff;
 }
 
 input[type=text] {
