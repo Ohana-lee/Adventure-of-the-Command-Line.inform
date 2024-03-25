@@ -285,7 +285,7 @@ After reading a command when learning controls:
 		reject the player's command;
 		[say " > ";]
 	otherwise if the player's command matches "no":
-		say "Great! Then do you know who you are? (yes/no)[line break]";
+		say "Great! Then do you know who you are? [line break]";
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;
 	say "Please answer yes or no.[line break]";
@@ -444,10 +444,10 @@ The chair, the bed, the door and the bedside shelf and the clock is scenery.
 Chapter 1 - Reference book
 
 Instead of examining the Git commands reference book:
-	say "tutorial part: [tutorial-part][line break]";
-	say "assignment part: [assignment-part][line break]";
-	say "You sat down and start reading the reference book.[paragraph break]";
+	[say "tutorial part: [tutorial-part][line break]";
+	say "assignment part: [assignment-part][line break]";]
 	if the assignment-part is 3:
+		say "You sat down and start reading the reference book.[paragraph break]";
 		wait for any key;
 		say "[Bold type] Chapter 1 - About Git Commands [Roman type][paragraph break]";
 		wait for any key;
@@ -491,9 +491,11 @@ Instead of examining the Git commands reference book:
 		say "A. git fetch[line break]";
 		say "B. git add[line break]";
 		say "C. git init[line break]";
-		say "D. git checkout[line break][line break]> ";
-		now the command prompt is "Q1>";
+		say "D. git checkout[line break][line break]";
+		now the command prompt is "Q1> ";
 	if the assignment-part is 6:
+		say "You sat down and start reading the reference book.[paragraph break]";
+		wait for any key;
 		say "[Bold type]Chapter 2 – About Tracking and Committing[Roman type][paragraph break]";
 		wait for any key;
 		say "[Bold type]2.1 Commits[Roman type][paragraph break]";
@@ -535,13 +537,13 @@ Instead of examining the Git commands reference book:
 Chapter 2 - Practice Exercise
 
 To decide whether asking Q1:
-	if the command prompt is "D. git checkout[line break][line break]> ", yes;
+	if the command prompt is "Q1> ", yes;
 	no.
 
 After reading a command when asking Q1:
 	[say "What's your answer?";]
 	if the player's command includes "C":
-		say "Correct. [line break][light green letters style]git init[end style] creates and initializes a repository. [line break][light green letters style]git fetch[end style] updates the branch you are on according to the same branch on the remote repositiory.[line break][light green letters style]git add[end style] adds files to the staging area and git starts tracking their history.[line break][light green letters style]git checkout[end style] takes you to a branch of your choice or to create new branches.[paragraph break]";
+		say "[line break]Correct. [line break][light green letters style]git init[end style] creates and initializes a repository. [line break][light green letters style]git fetch[end style] updates the branch you are on according to the same branch on the remote repositiory.[line break][light green letters style]git add[end style] adds files to the staging area and git starts tracking their history.[line break][light green letters style]git checkout[end style] takes you to a branch of your choice or to create new branches.[paragraph break]";
 		if first-try is true:
 			now q-count is 1;
 		otherwise:
@@ -565,7 +567,7 @@ To decide whether asking Q2:
 
 After reading a command when asking Q2:
 	if the player's command includes "A":
-		say "Correct. Merge conflicts occurs within 2 commits that modifies the same file from different branches. [line break]Deleting a file does not introduce a merge conflict.[line break] Being hostile to your collaborators may introduce conflicts in reality, but never in the world of Git.[paragraph break]";
+		say "[line break]Correct. Merge conflicts occurs within 2 commits that modifies the same file from different branches. [line break]Deleting a file does not introduce a merge conflict.[line break] Being hostile to your collaborators may introduce conflicts in reality, but never in the world of Git.[paragraph break]";
 		if first-try is true:
 			increment the q-count;
 		otherwise:
@@ -593,7 +595,7 @@ After reading a command when asking Q3:
 			increment the q-count;
 		otherwise:
 			now first-try is true;
-		say "Correct. [light green letters style]git config[end style] configures your username and password across all repositories and not branches. [line break]";
+		say "[line break]Correct. [light green letters style]git config[end style] configures your username and password across all repositories and not branches. [line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* ٩(´Д` ;)۶:.*[line break]";
 		wait for any key;
@@ -616,7 +618,7 @@ After reading a command when asking Q4:
 			increment the q-count;
 		otherwise:
 			now first-try is true;
-		say "Correct. A commit ID contains the specific changes of that commit, when the changes of that commit were made and who made the changes in that commit. [line break] For other information, you can include it in the commit message.[paragraph break]";
+		say "[line break]Correct. A commit ID contains the specific changes of that commit, when the changes of that commit were made and who made the changes in that commit. [line break] For other information, you can include it in the commit message.[paragraph break]";
 		wait for any key;
 		say "[line break]Q2 What spell can you cast to turn tracked files into untracked files?[paragraph break]";
 		say "A. git undo[line break]";
@@ -639,7 +641,7 @@ After reading a command when asking Q5:
 			increment the q-count;
 		otherwise:
 			now first-try is true;
-		say "Correct. [light green letters style]git reset[end style] untracks the given file.[line break] [light green letters style]git untrack[end style] and [light green letters style]git undo[end style] does not exists.[paragraph break]";
+		say "[line break]Correct. [light green letters style]git reset[end style] untracks the given file.[line break] [light green letters style]git untrack[end style] and [light green letters style]git undo[end style] does not exists.[paragraph break]";
 		wait for any key;
 		say "Q3 What is the maximum commits you can have in a single repository?[paragraph break]";
 		say "A. 10 commits per branch in the repository [line break]";
@@ -662,7 +664,7 @@ After reading a command when asking Q6:
 			increment the q-count;
 		otherwise:
 			now first-try is true;
-		say "Correct. There is no limit on the number of commits you can make for every repository.[paragraph break]";
+		say "[line break]Correct. There is no limit on the number of commits you can make for every repository.[paragraph break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* ٩(´Д` ;)۶:.*[line break]";
 		wait for any key;
