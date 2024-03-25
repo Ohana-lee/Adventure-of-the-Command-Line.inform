@@ -242,38 +242,48 @@ After reading a command when getting password:
 			now the command prompt is "> ";
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
-		say "Do you need an explanation on basic controls of this game? (yes/no) [line break]";
+		say "Do you need an explanation on basic controls of this game?[line break]";
+		now the command prompt is "(yes or no?)";
 		[say " > ";]
-		if the player consents:
-			say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
-			say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
-			say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
-			wait for any key;
-			say "Yes, just like this.[paragraph break]";
-			wait for any key;
-			say "To move between connected rooms, do [Bold type]cd target room name[Roman type].";
-			wait for any key;
-			say "To look around the room, do [Bold type]ls[Roman type].";
-			wait for any key;
-			say "To examine objects in the same room as you, do [Bold type]cat object name [Roman type] [line break]";
-			wait for any key;
-			say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
-			wait for any key;
-			say "To pick up an item, do [Bold type]pick up item name[Roman type] or [Bold type] take item name[Roman type].";
-			wait for any key;
-			say "To undo a command, do [Bold type]undo[Roman type].[line break]";
-			wait for any key;
-			say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
-			wait for any key;
-			say "If you ever feel lost on what to do or can't find a command. [line break]";
-			wait for any key;
-			say "You can do [Bold type]help[Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
-			wait for any key;
-			say "[line break]Now, do you know who you are? (yes/no)[line break]";
-			[say " > ";]
-		otherwise:
-			say "Great! Then do you know who you are? (yes/no)[line break]";
-			[say " > ";]
+	say "Incorrect password.[line break]Access Denied.[line break]";
+	reject the player's command.
+		
+To decide whether learn controls:
+	if the command prompt is "(yes or no?)", yes;
+		no.
+		
+After reading a command when learn controls:
+	now the command prompt is "> ";
+	if the player's command matches "yes":
+		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
+		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
+		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
+		wait for any key;
+		say "Yes, just like this.[paragraph break]";
+		wait for any key;
+		say "To move between connected rooms, do [Bold type]cd target room name[Roman type].";
+		wait for any key;
+		say "To look around the room, do [Bold type]ls[Roman type].";
+		wait for any key;
+		say "To examine objects in the same room as you, do [Bold type]cat object name [Roman type] [line break]";
+		wait for any key;
+		say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
+		wait for any key;
+		say "To pick up an item, do [Bold type]pick up item name[Roman type] or [Bold type] take item name[Roman type].";
+		wait for any key;
+		say "To undo a command, do [Bold type]undo[Roman type].[line break]";
+		wait for any key;
+		say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
+		wait for any key;
+		say "If you ever feel lost on what to do or can't find a command. [line break]";
+		wait for any key;
+		say "You can do [Bold type]help[Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
+		wait for any key;
+		say "[line break]Now, do you know who you are? (yes/no)[line break]";
+		[say " > ";]
+	otherwise:
+		say "Great! Then do you know who you are? (yes/no)[line break]";
+		[say " > ";]
 		if the player consents:
 			say "[line break]No you don't. Don't lie to me.";
 			wait for any key;
@@ -292,10 +302,8 @@ After reading a command when getting password:
 		wait for any key;
 		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
-		say "[line break]";
-		reject the player's command;
-	say "Incorrect password.[line break]Access Denied.[line break]";
-	reject the player's command.
+		say "[line break]".
+	[reject the player's command.]
 
 Instead of looking when collecting names: do nothing.
 
@@ -451,8 +459,8 @@ Instead of examining the Git commands reference book:
 		say "A. git fetch[line break]";
 		say "B. git add[line break]";
 		say "C. git init[line break]";
-		[say "";]
-		now the command prompt is "D. git checkout[line break][line break]> ";
+		say "D. git checkout[line break][line break]> ";
+		now the command prompt is "Q1>";
 	if the assignment-part is 6:
 		say "[Bold type]Chapter 2 – About Tracking and Committing[Roman type][paragraph break]";
 		wait for any key;
@@ -486,7 +494,8 @@ Instead of examining the Git commands reference book:
 		say "A. the person who made the changes[line break]";
 		say "B. reason why the changes are made[line break]";
 		say "C. number of times the committer cast a spell[line break]";
-		now the command prompt is "D. today’s date[paragraph break]> ";
+		say "D. today’s date[paragraph break]";
+		now the command prompt is "Q4> ";
 	otherwise:
 		if the command prompt is ">":
 			say "You bought this reference book to aid your studies in Git command.[line break]You don't want to read this now.[line break]".
@@ -510,7 +519,8 @@ After reading a command when asking Q1:
 		say "A. Modifying the same file on different branches[line break]";
 		say "B. Deleting a file from all branches[line break]";
 		say "C. Having a hostile relationship between collaborators";
-		now the command prompt is "D. Dispute between files[paragraph break]> ";
+		say "D. Dispute between files[paragraph break]";
+		now the command prompt is "Q2> ";
 		say "[line break]";
 		reject the player's command;
 	otherwise:
@@ -518,7 +528,7 @@ After reading a command when asking Q1:
 		now first-try is false.
 		
 To decide whether asking Q2:
-	if the command prompt is "D. Dispute between files[paragraph break]> ", yes;
+	if the command prompt is "Q2> ", yes;
 	no.
 
 After reading a command when asking Q2:
@@ -533,14 +543,15 @@ After reading a command when asking Q2:
 		say "A. git fetch[line break]";
 		say "B. git config[line break]";
 		say "C. git push[line break]";
-		now the command prompt is "D. git commit[line break][line break]> ";
+		say "D. git commit[line break][line break]";
+		now the command prompt is "Q3> ";
 		reject the player's command;
 	say "That's not correct.";
 	now first-try is false;
 	reject the player's command.
 		
 To decide whether asking Q3:
-	if the command prompt is "D. git commit[line break][line break]> ", yes;
+	if the command prompt is "Q3> ", yes;
 	no.
 	
 After reading a command when asking Q3:
@@ -564,7 +575,7 @@ After reading a command when asking Q3:
 	reject the player's command.
 	
 To decide whether asking Q4:
-	if the command prompt is "D. today’s date[paragraph break]> ", yes;
+	if the command prompt is "Q4> ", yes;
 	no.
 	
 After reading a command when asking Q4:
@@ -579,14 +590,15 @@ After reading a command when asking Q4:
 		say "A. git undo[line break]";
 		say "B. git add[line break]";
 		say "C. git reset[line break]";
-		now the command prompt is "D. git untrack[line break][line break]> ";
+		say "D. git untrack[line break][line break]";
+		now the command prompt is "Q5> ";
 		reject the player's command;
 	say "that's not correct.";
 	now first-try is false;
 	reject the player's command.	
 	
 To decide whether asking Q5:
-	if the command prompt is "D. git untrack[line break][line break]> ", yes;
+	if the command prompt is "Q5> ", yes;
 	no.
 
 After reading a command when asking Q5:
@@ -601,14 +613,15 @@ After reading a command when asking Q5:
 		say "A. 10 commits per branch in the repository [line break]";
 		say "B. 100 commits for free users[line break]";
 		say "C. 1000 commits for professional users [line break]";
-		now the command prompt is "D. unlimited commits for every repository[line break][line break]> ";
+		say "D. unlimited commits for every repository[line break][line break]";
+		now the command prompt is "Q6> ";
 		reject the player's command;
 	say "That's not correct.";
 	now first-try is false;
 	reject the player's command.
 		
 To decide whether asking Q6:
-	if the command prompt is "D. unlimited commits for every repository[line break][line break]> ", yes;
+	if the command prompt is "Q6> ", yes;
 	no.
 	
 After reading a command when asking Q6:
@@ -665,7 +678,7 @@ Every turn:
 				now the description of the classroom is "This is the classroom you take Magic lessons in. [line break]For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). [line break]You see your assigned seat in the corner, next to the window.[line break]";
 				say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. [line break]";
 				wait for any key;
-				say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. ";
+				say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. [line break]";
 				wait for any key;
 				say "[Bold type]Dr. GitHub[Roman type]: Now I will teach you one of the basic spells in Git. [line break]";
 				wait for any key;
@@ -970,7 +983,7 @@ Instead of talking to Maya:
 				next;
 		wait for any key;
 		showme the contents of the Table of Tracked Items;
-		now the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (ʃƪ・∀・) (yes/no)[line break]";
+		now the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (ʃƪ・∀・) (yes/no)[line break]> ";
 	otherwise:
 		say "[Bold type]Maya[Roman type]: Hi [player's name]!".
 		
