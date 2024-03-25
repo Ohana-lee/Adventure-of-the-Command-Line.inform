@@ -243,18 +243,19 @@ After reading a command when getting password:
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
 		say "Do you need an explanation on basic controls of this game?[line break]";
-		now the command prompt is "(yes or no?)";
+		now the command prompt is "(yes or no?)> ";
+		reject the player's command;
 		[say " > ";]
 	say "Incorrect password.[line break]Access Denied.[line break]";
 	reject the player's command.
 		
-To decide whether learn controls:
-	if the command prompt is "(yes or no?)", yes;
+To decide whether learning controls:
+	if the command prompt is "(yes or no?)> ", yes;
 		no.
 		
-After reading a command when learn controls:
-	now the command prompt is "> ";
+After reading a command when learning controls:
 	if the player's command matches "yes":
+		now the command prompt is "> ";
 		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
 		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
 		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
