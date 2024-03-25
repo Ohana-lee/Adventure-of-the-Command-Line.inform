@@ -553,7 +553,7 @@ After reading a command when asking Q1:
 		say "Q2 In the situations listed below, which one could lead to a merge conflict when merging the branches?[paragraph break]";
 		say "A. Modifying the same file on different branches[line break]";
 		say "B. Deleting a file from all branches[line break]";
-		say "C. Having a hostile relationship between collaborators";
+		say "C. Having a hostile relationship between collaborators[line break]";
 		say "D. Dispute between files[paragraph break]";
 		now the command prompt is "Q2> ";
 		say "[line break]";
@@ -813,6 +813,7 @@ Instead of talking to Dr Github:
 		now the tutorial-part is 4;
 		choose a blank row in the Table of Accessable Rooms;
 		now name entry is 201-branch;
+		now the description of 101-branch is "This is one of the branches where you will practice magic spells learnt. Don't forget to talk to Dr. GitHub after you have finished the task he assigned you. [line break]Tip: Talk to Dr. Github (ie type 'talk' in the command line) to talk to him.";
 		reject the player's command;
 		[]
 	if tutorial-part is 4 and the location of the strawberry is 201-branch:
@@ -931,6 +932,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
 		wait for any key;
+		now Dr GitHub is in the classroom;
 		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
 		now the assignment-part is 1;
 	otherwise:
@@ -1033,11 +1035,11 @@ After reading a command when Maya is begging:
 		[say "achievement get";]
 		now the command prompt is "> ";
 		reject the player's command;
-	say "[Bold type]Maya[Roman type]: Please... (ʃƪ・∀・)";
+	say "[Bold type]Maya[Roman type]: Please... (ʃƪ・∀・)[line break]";
 	increment the maya-beg-count;
 	if the maya-beg-count is 3:
 		now the command prompt is "> ";
-		say "[Bold type]Maya[Roman type]: Okay... I'll do it myself. (｡-_-｡)[line break]";
+		say "[line break][Bold type]Maya[Roman type]: Okay... I'll do it myself. (｡-_-｡)[line break]";
 		now make-maya is true;
 		[say "achievement get";]
 		wait for any key;
@@ -1063,6 +1065,7 @@ After reading a command when Maya is begging:
 						otherwise:
 							next;
 				if the count is 7:
+					now the description of the classroom is "There is a Git Commands lecture going on in the classroom. [line break]You are sitting in your sit, listening to Dr. GitHub's announcement.";
 					say "[Bold type]Maya[Roman type]: Yay! ⁽⁽٩(๑˃̶͈̀ ᗨ ˂̶͈́)۶⁾⁾ We've got our assignment done![line break]";
 					wait for any key;
 					say "[Bold type]Maya[Roman type]: I think the results will be released during the next lecture. [line break]";
@@ -1098,8 +1101,9 @@ After reading a command when Maya is begging:
 					place a link to web site "https://forms.office.com/e/ANyKGihcVu" reading "Click here to access the questionnaire webpage";
 					[say "https://forms.office.com/e/ANyKGihcVu";]
 					wait for any key;
-					say "[Bold type]Mysterious Voice[Roman type]: Before I let you go... ^_^";
-					now the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ";
+					say "[line break][Bold type]Mysterious Voice[Roman type]: Before I let you go... ^_^";
+					now the command prompt is "What is the magic password for the questionnaire I just gave you? 
+^_^[paragraph break]> ";
 					[reject the player's command;]
 				otherwise:
 					say "[Bold type][player's name][Roman type]: Something is not right... (・_・ヾ[line break]";
@@ -1121,7 +1125,8 @@ The 101-AR is a room. There is a table and a drawer in the 101-AR.
 Section 4 - After Game ends
 
 To decide whether finishing game:
-	if the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ", yes;
+	if the command prompt is "What is the magic password for the questionnaire I just gave you? 
+^_^[paragraph break]> ", yes;
 	no.
 
 After reading a command when finishing game:
@@ -1227,7 +1232,7 @@ Instead of eating a noun:
 		
 Chapter 2 - Assignment papers
 
-There is a assignment instruction in the storage room. The description is "[line break]+-------------------------------------------------------------------------------------------+[paragraph break][Bold type]Formative Assignment Instructions[Roman type][line break]Name: [Italic type]Maya, [player's name][Roman type] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, 101-AR, 201-AR. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.[paragraph break]+-------------------------------------------------------------------------------------------+[line break]".
+There is a assignment instruction in the storage room. The description is "[line break]+-------------------------------------------------------------------------------------------+[paragraph break][Bold type]Formative Assignment Instructions[Roman type][line break]Name: [Italic type]Maya, [player's name][Roman type] [paragraph break]1. You have three different branches to work on:[line break]	AR-Main, 101-AR, 201-AR. [line break]2. AR-Main is the master branch, all branches should be merged to it in the end.[line break]3. The following items should be tracked: [line break]	grape, peach, folder, stool, mug, watermelon, pear[line break]4. You can only use [Bold type]git checkout branch-name[Roman type] to access the branches for this assignment. [line break][Bold type]Tips: [Roman type][line break]- If needed, do [Bold type]drop item name[Roman type] to drop off an item in the branch you are currently at. [line break]- Do [Bold type]git branch[Roman type] to list out the branches you can teleport to. [line break]- Do [Bold type]git status[Roman type] to check your tracking list. [line break]- You can do [Bold type]undo[Roman type] to undo the last command you just did [line break]- Don't forget to do [Bold type]git commit[Roman type] and [Bold type]git push[Roman type] to submit.[paragraph break]+-------------------------------------------------------------------------------------------+[line break]".
 
 Book 6 - Assignment Rooms
 
