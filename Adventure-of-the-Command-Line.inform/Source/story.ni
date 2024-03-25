@@ -224,6 +224,10 @@ Rule for constructing the status line when getting password: do nothing.
 The display banner rule is not listed in the startup rulebook.
 
 The display Vorple credits rule is not listed in any rulebook.
+
+To decide whether debugging:
+	if the command prompt is "Debug[line break]> ", yes;
+		no.
 	
 To decide whether getting password:
 	if the command prompt is "Please enter the magic password to continue: [line break]> ", yes;
@@ -231,9 +235,10 @@ To decide whether getting password:
 
 After reading a command when getting password:
 	if the player's command matches "cTgxTspU":
-		if the command prompt is "Please enter the magic password to continue: [line break]> ":
+		now the command prompt is "Debug[line break]> ";
+		if the command prompt is "Debug[line break]> ":
 			now the command prompt is "> ";
-			now the command prompt is "Hana > ";
+			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
 		say "Do you need an explanation on basic controls of this game? (yes/no) [line break]";
 		say " > ";
@@ -258,9 +263,9 @@ After reading a command when getting password:
 			wait for any key;
 			say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
 			wait for any key;
-			say "It's ok if you can't remember all the commands above.[line break]";
+			say "If you ever feel lost on what to do or can't find a command. [line break]";
 			wait for any key;
-			say "You can do [Bold type]help[Roman type] to show the list of commands you can use.[line break]";
+			say "You can do [Bold type]help[Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
 			wait for any key;
 			say "[line break]Now, do you know who you are? (yes/no)[line break]";
 			say " > ";
@@ -284,6 +289,7 @@ After reading a command when getting password:
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
 		now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> [line break]";
+		say "[line break]";
 		reject the player's command;
 	say "Incorrect password.[line break]Access Denied.[line break]";
 	reject the player's command.
@@ -341,7 +347,7 @@ Instead of sleeping when the tutorial-part is less than 7:
 Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 	say "You jumped into bed and fell asleep.[paragraph break]";
 	wait for any key;
-	say "*snoring sounds*[paragraph break]";
+	say "*snoring sounds* (´〜｀*) zzz[paragraph break]";
 	if the assignment-part is 4:
 		choose a blank row in the Table of Tracked Items;
 		now Fname entry is grape;
@@ -368,7 +374,7 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 		if assignment-part is 5:
 			say "You need to track the required items in branch 201-AR.[line break]";
 			wait for any key;
-			say "Understand ? (yes/no)[line break]> ";
+			say "Understand ? (yes/no)[line break]";
 			if player consents:
 				say "Great! Good luck on your work. [line break]";
 			otherwise:
@@ -376,18 +382,18 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 		otherwise if assignment-part is 8:
 			say "You need to talk to Maya to do the final checking and merge your branches.[line break]";
 			wait for any key;
-			say "Understand ? (yes/no)[line break]> ";
+			say "Understand ? (yes/no)[line break]";
 			if the player consents:
 				say "Great! [paragraph break]";
 			otherwise:
 				say "Re-read the last sentence until you understand. Good luck![paragraph break]";
 				[reject the player's command;]
-	say "assigment part: [assignment-part]";
+	[say "assigment part: [assignment-part]";]
 	if the player is in the bed:
 		now the player is in the bedroom.
 	
 The description of the clock is "The clock shows that it's 8:00am now. Class starts at 8:30.".
-The description of the cat plushie is "A squishy and chonky cat.".
+The description of the cat plushie is "A squishy and chonky cat. ฅ^•ﻌ•^ฅ".
 [The description of the Git commands reference book is "You bought this reference book to aid your studies in Git commands".]
 
 The chair, the bed, the door and the bedside shelf and the clock is scenery.	
@@ -442,6 +448,7 @@ Instead of examining the Git commands reference book:
 		say "A. git fetch[line break]";
 		say "B. git add[line break]";
 		say "C. git init[line break]";
+		[say "";]
 		now the command prompt is "D. git checkout[line break][line break]> ";
 	if the assignment-part is 6:
 		say "[Bold type]Chapter 2 – About Tracking and Committing[Roman type][paragraph break]";
@@ -496,15 +503,19 @@ After reading a command when asking Q1:
 		otherwise:
 			now first-try is true;
 		wait for any key;
-		say "Q2 In the situations listed below, which one could lead to a merge conflict when merging the branches?[line break]";
-		now the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ";
+		say "Q2 In the situations listed below, which one could lead to a merge conflict when merging the branches?[paragraph break]";
+		say "A. Modifying the same file on different branches[line break]";
+		say "B. Deleting a file from all branches[line break]";
+		say "C. Having a hostile relationship between collaborators";
+		now the command prompt is "D. Dispute between files[paragraph break]> ";
+		say "[line break]";
 		reject the player's command;
 	otherwise:
 		say "That's not correct. Try again.";
 		now first-try is false.
 		
 To decide whether asking Q2:
-	if the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ", yes;
+	if the command prompt is "D. Dispute between files[paragraph break]> ", yes;
 	no.
 
 After reading a command when asking Q2:
@@ -538,7 +549,7 @@ After reading a command when asking Q3:
 			now first-try is true;
 		say "Correct. [light green letters style]git config[end style] configures your username and password across all repositories and not branches. [line break]";
 		wait for any key;
-		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
+		say "[Bold type][player's name][Roman type]: *yawns* ٩(´Д` ;)۶:.*[line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: Maybe I should go to sleep.[line break]";
 		wait for any key;
@@ -605,15 +616,15 @@ After reading a command when asking Q6:
 			now first-try is true;
 		say "Correct. There is no limit on the number of commits you can make for every repository.[paragraph break]";
 		wait for any key;
-		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
+		say "[Bold type][player's name][Roman type]: *yawns* ٩(´Д` ;)۶:.*[line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: Maybe I should call it a day.[line break]";
 		wait for any key;
 		say "(Tip: To sleep, simply enter the bed and do 'sleep')[line break]";
 		now the command prompt is ">";
 		[now the tutorial-part is 8;]
-		say "tutorial part: [tutorial-part][line break]";
-		say "assignment part: [assignment-part][line break]";
+		[say "tutorial part: [tutorial-part][line break]";
+		say "assignment part: [assignment-part][line break]";]
 		now the assignment-part is 7;
 		[now the tutorial-part is 8;]
 		reject the player's command;
@@ -876,7 +887,7 @@ Instead of talking to Maya:
 		say "[Bold type]Maya[Roman type]: Hi, [player's name], how's your progress? (｡･ω･)ﾉﾞ[line break]";
 		reject the player's command;
 	if assignment-part is 8:
-		say "[Bold type]Maya[Roman type]: (´∀｀∩＜ ～ Good morning [player's name], did you tracked all your required items? (yes/no)[paragraph break] >";
+		say "[Bold type]Maya[Roman type]: (´∀｀∩＜ ～ Good morning [player's name], did you tracked all your required items? (yes/no)[paragraph break]";
 		if the player consents:
 			say "[Bold type]Maya[Roman type]: Great! (b ᵔ▽ᵔ)b Let's start the merging.[line break]";
 			wait for any key;
@@ -900,6 +911,7 @@ Instead of talking to Maya:
 			say "[Bold type]Maya[Roman type]: Oh... ∑d(°∀°d)  Then you should do it now.[line break]";
 			wait for any key;
 			say "[Bold type]Maya[Roman type]: Come back when you're ready! [line break]";
+			reject the player's command;
 	[numbers might need some changes]
 	if the assignment-part is 10:
 		say "[Bold type]Maya[Roman type]: You've merged your branch?[line break]";
@@ -918,7 +930,7 @@ Instead of talking to Maya:
 				next;
 		wait for any key;
 		showme the contents of the Table of Tracked Items;
-		now the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (yes/no)[line break]> ";
+		now the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (ʃƪ・∀・) (yes/no)[line break]";
 	otherwise:
 		say "[Bold type]Maya[Roman type]: Hi [player's name]!".
 		
@@ -1008,10 +1020,10 @@ After reading a command when Maya is begging:
 					showme the contents of the Table of Assignment Results;]
 					say "What you have tracked: (item | location)[line break]";
 					repeat through the Table of Tracked Items:
-						say "[Fname entry]	|[name entry][line break]";
+						say "[Fname entry]	|	[name entry][line break]";
 					say "[line break]What you should have tracked: (item | location)[line break]";
 					repeat through the Table of Assignment Results:
-						say "[Fname entry]	|[name entry][line break]";
+						say "[Fname entry]	|	[name entry][line break]";
 					now the count is 0;
 					reject the player's command;
 	reject the player's command.
