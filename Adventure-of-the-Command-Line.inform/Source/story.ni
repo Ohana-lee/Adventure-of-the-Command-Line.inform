@@ -220,8 +220,9 @@ To decide whether getting password:
 
 After reading a command when getting password:
 	if the player's command matches "cTgxTspU":
-		now the command prompt is "> ";
-		now the command prompt is "Hana > ";
+		if the command prompt is "Please enter the magic password to continue: [line break]> ":
+			now the command prompt is "> ";
+			now the command prompt is "Hana > ";
 		say "Access Granted.[paragraph break]";
 		say "Do you need an explanation on basic controls of this game? (yes/no) [line break]";
 		say " > ";
