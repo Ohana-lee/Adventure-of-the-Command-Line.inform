@@ -10,6 +10,7 @@ Include Vorple by Juhana Leinonen.
 Release along with style sheet "bg.css".
 Include Vorple Screen Effects by Juhana Leinonen.
 Include Vorple Hyperlinks by Juhana Leinonen.
+Include Vorple Status Line by Juhana Leinonen.
 Release along with the "Vorple" interpreter.
 
 [add git pull? What is narratively and educationaly sensible
@@ -29,11 +30,17 @@ The assignment-part is a number that varies. The assignment-part is initially 0.
 
 The maya-beg-count is a number that varies. The maya-beg-count is initially 0.
 
+The q-count is a number that varies. The q-count is initially 0.
+
 The commit-status is a truth state that varies. The commit-status is false.
 
 The tutorial-done is a truth state that varies. The tutorial-done is false.
 
 The b4game-start is a truth state that varies. The b4game-start is true.
+
+The git-master is a truth state that varies. The git-master is false.
+
+The first-try is a truth state that varies. The first-try is true.
 
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
 
@@ -204,7 +211,7 @@ When play begins:
 	say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? [line break]";
-	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Questionnaire webpage";
+	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Click here to access the questionnaire webpage";
 	[say "https://forms.office.com/e/1X7gkP6Ec2 [paragraph break]";]
 	now the command prompt is "Please enter the magic password to continue: [line break]> ".
 	
@@ -213,6 +220,10 @@ Instead of looking when getting password: do nothing.
 Rule for printing the banner text when getting password: do nothing.
 
 Rule for constructing the status line when getting password: do nothing.
+
+The display banner rule is not listed in the startup rulebook.
+
+The display Vorple credits rule is not listed in any rulebook.
 	
 To decide whether getting password:
 	if the command prompt is "Please enter the magic password to continue: [line break]> ", yes;
@@ -262,17 +273,17 @@ After reading a command when getting password:
 		otherwise:
 			say "[line break]No worries. I'll tell you who you are.";
 			wait for any key;
-		say "You are a student from a Magic Academy named Enchanted Code Academy. The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
+		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
 		wait for any key;
 		say "Now let's get you into Git commands. [line break]";
 		wait for any key;
-		say "[paragraph break]Git Config is the very first command you will come across when you first use Git commands.";
+		say "[paragraph break]Git Config is the very first command you will come across when you first use Git commands.[line break]";
 		wait for any key;
-		say "This command takes your username as input and configures user info across all local repositories. ";
+		say "This command takes your username as input and configures user info across all local repositories. [line break]";
 		wait for any key;
-		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)";
+		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
-		now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> ";
+		now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> [line break]";
 		reject the player's command;
 	say "Incorrect password.[line break]Access Denied.[line break]";
 	reject the player's command.
@@ -293,7 +304,7 @@ After reading a command:
 	if the player's command matches "whoami":
 		say "[player's name][paragraph break]";
 		now dementia is true;
-		say "achievement get";
+		[say "achievement get";]
 		reject the player's command.
 
 Volume 3 - Rooms set up
@@ -415,7 +426,9 @@ Instead of examining the Git commands reference book:
 		wait for any key;
 		say "Changes made on a branch do not affect other branches until you cast git merge on them.[line break]";
 		wait for any key;
-		say "Merge conflicts occur when you merge branches that have competing commits (ie commits from different branches with changes on the same file).[line break]";
+		say "Merge conflicts occur when you merge branches that have competing commits[line break] ";
+		wait for any key;
+		say "(ie commits from different branches with changes on the same file).[line break]";
 		wait for any key;
 		say "In such cases, you will have to resolve all conflicts before you can merge them. [line break]";
 		wait for any key;
@@ -423,9 +436,13 @@ Instead of examining the Git commands reference book:
 		wait for any key;
 		say "[Bold type]1.3 Exercise[Roman type][line break]";
 		wait for any key;
-		say "Please only type the corresponding letter when answering the question. (e.g. type 'A' in the command line when you think the 1st answer is correct. [paragraph break]";
+		say "Please only type the corresponding letter when answering the question. (e.g. type 'A' in the command line when you think the 1st answer is correct.) [paragraph break]";
+		wait for any key;
 		say "Q1 Which command can be used to create a new repository?[line break]";
-		now the command prompt is "A. git fetch[line break]B. git add[line break]C. git init[line break]D. git checkout[paragraph break]> ";
+		say "A. git fetch[line break]";
+		say "B. git add[line break]";
+		say "C. git init[line break]";
+		now the command prompt is "D. git checkout[line break][line break]> ";
 	if the assignment-part is 6:
 		say "[Bold type]Chapter 2 – About Tracking and Committing[Roman type][paragraph break]";
 		wait for any key;
@@ -456,7 +473,10 @@ Instead of examining the Git commands reference book:
 		say "[Bold type]2.3 Exercise[Roman type][paragraph break]";
 		wait for any key;
 		say "Q1 What can you identify from a commit ID (excluding the commit message)?[paragraph break]";
-		now the command prompt is "A. the person who made the changes[line break]B. reason why the changes are made[line break]C. number of times the committer cast a spell[line break]D. today’s date[paragraph break]> ";
+		say "A. the person who made the changes[line break]";
+		say "B. reason why the changes are made[line break]";
+		say "C. number of times the committer cast a spell[line break]";
+		now the command prompt is "D. today’s date[paragraph break]> ";
 	otherwise:
 		if the command prompt is ">":
 			say "You bought this reference book to aid your studies in Git command.[line break]You don't want to read this now.[line break]".
@@ -464,19 +484,24 @@ Instead of examining the Git commands reference book:
 Chapter 2 - Practice Exercise
 
 To decide whether asking Q1:
-	if the command prompt is "A. git fetch[line break]B. git add[line break]C. git init[line break]D. git checkout[paragraph break]> ", yes;
+	if the command prompt is "D. git checkout[line break][line break]> ", yes;
 	no.
 
 After reading a command when asking Q1:
 	[say "What's your answer?";]
 	if the player's command includes "C":
 		say "Correct. [line break][light green letters style]git init[end style] creates and initializes a repository. [line break][light green letters style]git fetch[end style] updates the branch you are on according to the same branch on the remote repositiory.[line break][light green letters style]git add[end style] adds files to the staging area and git starts tracking their history.[line break][light green letters style]git checkout[end style] takes you to a branch of your choice or to create new branches.[paragraph break]";
+		if first-try is true:
+			now q-count is 1;
+		otherwise:
+			now first-try is true;
 		wait for any key;
 		say "Q2 In the situations listed below, which one could lead to a merge conflict when merging the branches?[line break]";
 		now the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ";
 		reject the player's command;
 	otherwise:
-		say "That's not correct. Try again.".
+		say "That's not correct. Try again.";
+		now first-try is false.
 		
 To decide whether asking Q2:
 	if the command prompt is "A. Modifying the same file on different branches[line break]B. Deleting a file from all branches[line break]C. Having a hostile relationship between collaborators[line break]D. Dispute between files[paragraph break]> ", yes;
@@ -484,21 +509,33 @@ To decide whether asking Q2:
 
 After reading a command when asking Q2:
 	if the player's command includes "A":
-		say "Correct. Merge conflicts occurs within 2 commits that modifies the same file from different branches. Deleting a file does not introduce a merge conflict. Being hostile to your collaborators may introduce conflicts in reality, but never in the world of Git.[paragraph break]";
+		say "Correct. Merge conflicts occurs within 2 commits that modifies the same file from different branches. [line break]Deleting a file does not introduce a merge conflict.[line break] Being hostile to your collaborators may introduce conflicts in reality, but never in the world of Git.[paragraph break]";
+		if first-try is true:
+			increment the q-count;
+		otherwise:
+			now first-try is true;
 		wait for any key;
 		say "Q3 What spells cannot be cast on branches?[line break]";
-		now the command prompt is "A. git fetch[line break]B. git config[line break]C. git push[line break]D. git commit[paragraph break]> ";
+		say "A. git fetch[line break]";
+		say "B. git config[line break]";
+		say "C. git push[line break]";
+		now the command prompt is "D. git commit[line break][line break]> ";
 		reject the player's command;
 	say "That's not correct.";
+	now first-try is false;
 	reject the player's command.
 		
 To decide whether asking Q3:
-	if the command prompt is "A. git fetch[line break]B. git config[line break]C. git push[line break]D. git commit[paragraph break]> ", yes;
+	if the command prompt is "D. git commit[line break][line break]> ", yes;
 	no.
 	
 After reading a command when asking Q3:
 	if the player's command includes "B":
 		now the command prompt is ">"; [<-- this line is very very very important]
+		if first-try is true:
+			increment the q-count;
+		otherwise:
+			now first-try is true;
 		say "Correct. [light green letters style]git config[end style] configures your username and password across all repositories and not branches. [line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
@@ -509,42 +546,63 @@ After reading a command when asking Q3:
 		now the assignment-part is 4;
 		reject the player's command;
 	say "That's not correct.";
+	now first-try is false;
 	reject the player's command.
 	
 To decide whether asking Q4:
-	if the command prompt is "A. the person who made the changes[line break]B. reason why the changes are made[line break]C. number of times the committer cast a spell[line break]D. today’s date[paragraph break]> ", yes;
+	if the command prompt is "D. today’s date[paragraph break]> ", yes;
 	no.
 	
 After reading a command when asking Q4:
 	if the player's command includes "A":
-		say "Correct. A commit ID contains the specific changes of that commit, when the changes of that commit were made and who made the changes in that commit. For other information, you can include it in the commit message.[paragraph break]";
+		if first-try is true:
+			increment the q-count;
+		otherwise:
+			now first-try is true;
+		say "Correct. A commit ID contains the specific changes of that commit, when the changes of that commit were made and who made the changes in that commit. [line break] For other information, you can include it in the commit message.[paragraph break]";
 		wait for any key;
 		say "[line break]Q2 What spell can you cast to turn tracked files into untracked files?[paragraph break]";
-		now the command prompt is "A. git undo[line break]B. git add[line break]C. git reset[line break]D. git untrack[paragraph break]> ";
+		say "A. git undo[line break]";
+		say "B. git add[line break]";
+		say "C. git reset[line break]";
+		now the command prompt is "D. git untrack[line break][line break]> ";
 		reject the player's command;
 	say "that's not correct.";
+	now first-try is false;
 	reject the player's command.	
 	
 To decide whether asking Q5:
-	if the command prompt is "A. git undo[line break]B. git add[line break]C. git reset[line break]D. git untrack[paragraph break]> ", yes;
+	if the command prompt is "D. git untrack[line break][line break]> ", yes;
 	no.
 
 After reading a command when asking Q5:
 	if the player's command includes "C":
-		say "Correct. [light green letters style]git reset[end style] untracks the given file. [light green letters style]git untrack[end style] and [light green letters style]git undo[end style] does not exists.[paragraph break]";
+		if first-try is true:
+			increment the q-count;
+		otherwise:
+			now first-try is true;
+		say "Correct. [light green letters style]git reset[end style] untracks the given file.[line break] [light green letters style]git untrack[end style] and [light green letters style]git undo[end style] does not exists.[paragraph break]";
 		wait for any key;
 		say "Q3 What is the maximum commits you can have in a single repository?[paragraph break]";
-		now the command prompt is "A. 10 commits per branch in the repository [line break]B. 100 commits for free users[line break]C. 1000 commits for professional users [line break]D. unlimited commits for every repository[paragraph break]> ";
+		say "A. 10 commits per branch in the repository [line break]";
+		say "B. 100 commits for free users[line break]";
+		say "C. 1000 commits for professional users [line break]";
+		now the command prompt is "D. unlimited commits for every repository[line break][line break]> ";
 		reject the player's command;
 	say "That's not correct.";
+	now first-try is false;
 	reject the player's command.
 		
 To decide whether asking Q6:
-	if the command prompt is "A. 10 commits per branch in the repository [line break]B. 100 commits for free users[line break]C. 1000 commits for professional users [line break]D. unlimited commits for every repository[paragraph break]> ", yes;
+	if the command prompt is "D. unlimited commits for every repository[line break][line break]> ", yes;
 	no.
 	
 After reading a command when asking Q6:
 	if the player's command includes "D":
+		if first-try is true:
+			increment the q-count;
+		otherwise:
+			now first-try is true;
 		say "Correct. There is no limit on the number of commits you can make for every repository.[paragraph break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* [line break]";
@@ -560,6 +618,7 @@ After reading a command when asking Q6:
 		[now the tutorial-part is 8;]
 		reject the player's command;
 	say "That's not correct.";
+	now first-try is false;
 	reject the player's command.
 
 Book 2 - Corridor
@@ -572,7 +631,7 @@ Understand "Magic Classroom" as the classroom.
 Understand "seat" as the chair.
 
 The classroom door is north of the classroom and south of the corridor. It is a door and openable. 
-The description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner. Take a seat to start the lecture ". The printed name of the classroom is "Magic Classroom".  
+The description of the classroom is "This is the classroom you take Magic lessons in. [line break]For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). [line break]You see your assigned seat in the corner, next to the window. [line break]Take a seat to start the lecture ". The printed name of the classroom is "Magic Classroom".  
 
 There is a chair and your desk and teacher's desk in the classroom. The chair is a container and enterable. There is a wand on the teacher's desk. The wand is portable. The description of the wand is "This is your brand new wand provided by the school.". The desk is scenery. 
 The description of the chair is "This is your assigned seat. Take a seat.". The description of your desk is "This is your desk. ". 
@@ -588,8 +647,12 @@ Instead of entering chair:
 			say "You got up from your seat.[line break]";
 			reject the player's command;
 		otherwise:
-			now the description of the classroom is "This is the classroom you take Magic lessons in. For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). You see your assigned seat in the corner.";
-			say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. First of all, I am your professor. You can call me Dr. Github. Now I will teach you one of the basic spells in Git. [line break]";
+			now the description of the classroom is "This is the classroom you take Magic lessons in. [line break]For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). [line break]You see your assigned seat in the corner, next to the window.[line break]";
+			say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. [line break]";
+			wait for any key;
+			say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. ";
+			wait for any key;
+			say "[Bold type]Dr. GitHub[Roman type]: Now I will teach you one of the basic spells in Git. [line break]";
 			wait for any key;
 			say "[Bold type]Dr. Github[Roman type]: The first spell is called [light green letters style]git checkout[end style]. It is used for teleporting yourself to other branches. [line break]";
 			wait for any key;
@@ -686,7 +749,9 @@ Instead of talking to Dr Github:
 		reject the player's command;
 		[]
 	if tutorial-part is 6 and there is a Fname of strawberry in the Table of Tracked Fruits:
-		say "[Bold type]Dr. GitHub[Roman type]: You guys sure learn fast. Now pay attention, cause I'm going to teach you one of the most complicated spells in Git commands. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: You guys sure learn fast. [line break]";
+		wait for any key;
+		say "[Bold type]Dr. GitHub[Roman type]: Now pay attention, cause I'm going to teach you one of the most complicated spells in Git commands. [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: In the world of magic, anything is possible - you can even merge rooms! [line break]";
 		wait for any key;
@@ -718,7 +783,9 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: *Coughs* Anyway, after [light green letters style]git commit[end style], always do [light green letters style]git push[end style]. So other people can see the changes you made when they do [light green letters style]git fetch[end style]. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: In exams and assignments, you MUST do [light green letters style]git commit[end style] and [light green letters style]git push[end style] so that I can see what you did. If I can't see your changes because of this, you will be getting an instant 0. <(｀^´)> [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: In exams and assignments, you MUST do [light green letters style]git commit[end style] and [light green letters style]git push[end style] so that I can see what you did. [line break]";
+		wait for any key;
+		say "[Bold type]Dr. GitHub[Roman type]: If I can't see your changes because of this, you will be getting an instant 0. <(｀^´)> [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Now commit and push your changes. [line break]";
 		now the tutorial-part is 8;
@@ -775,9 +842,9 @@ Section 3 - Talking to Maya
 
 Instead of talking to Maya:
 	if assignment-part is 1:
-		say "[Bold type]Maya[Roman type]: Hello [player's name]! Nice to meet you! Do you have any plans for this assignment?[line break]";
+		say "[Bold type]Maya[Roman type]: Hello [player's name]! Nice to meet you! (^-^*)/ Do you have any plans for this assignment?[line break]";
 		wait for any key;
-		say "[Bold type][player's name][Roman type]: Hello! Maybe we could split up the workload? [line break]";
+		say "[Bold type][player's name][Roman type]: Hello! (^-^*)/ Maybe we could split up the workload? [line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: I can work on 201-AR and you can work on 101-AR. [line break]";
 		wait for any key;
@@ -789,7 +856,7 @@ Instead of talking to Maya:
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *Stomach growling sound* [line break]";
 		wait for any key;
-		say "[Bold type][player's name][Roman type]: Sorry... I think I need to grab some food first...[line break]";
+		say "[Bold type][player's name][Roman type]: (;ﾞ°´ω°´) Sorry... I think I need to grab some food first...[line break]";
 		wait for any key;
 		say "[Bold type]Maya[Roman type]: It's alright! I'll be in 101-AR if you need me.[line break]";
 		wait for any key;
@@ -803,41 +870,41 @@ Instead of talking to Maya:
 		reject the player's command;
 	[]
 	if assignment-part is 2:
-		say "[Bold type]Maya[Roman type]: Hi [player's name], I've updated the branch. What about you?[line break]";
+		say "[Bold type]Maya[Roman type]: Hi [player's name], I've updated the branch. What about you? (｡･ω･)ﾉﾞ[line break]";
 		reject the player's command;
 	if assignment-part is 4:
-		say "[Bold type]Maya[Roman type]: Hi, [player's name], how's your progress?[line break]";
+		say "[Bold type]Maya[Roman type]: Hi, [player's name], how's your progress? (｡･ω･)ﾉﾞ[line break]";
 		reject the player's command;
 	if assignment-part is 8:
-		say "[Bold type]Maya[Roman type]: Good morning [player's name], did you tracked all your required items? (yes/no)[paragraph break] >";
+		say "[Bold type]Maya[Roman type]: (´∀｀∩＜ ～ Good morning [player's name], did you tracked all your required items? (yes/no)[paragraph break] >";
 		if the player consents:
-			say "[Bold type]Maya[Roman type]: Great! Let's start the merging.[line break]";
+			say "[Bold type]Maya[Roman type]: Great! (b ᵔ▽ᵔ)b Let's start the merging.[line break]";
 			wait for any key;
 			say "[Bold type]Maya[Roman type]: Do you remember how to do the merging? (yes/no)[paragraph break] >";
 			if the player consents:
-				say "[Bold type]Maya[Roman type]: Nice! You can merge your branch now.[line break]";
+				say "[Bold type]Maya[Roman type]: Nice! (⌒ω⌒)b You can merge your branch now.[line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: Tell me when you're done. [line break]";
 				now the assignment-part is 9;
 				reject the player's command;
 			otherwise:
-				say "[Bold type]Maya[Roman type]: The spell is [light green letters style]git merge branch_name[end style][line break]";
+				say "[Bold type]Maya[Roman type]: ∑d(°∀°d) The spell is [light green letters style]git merge branch_name[end style][line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: Try it yourself![line break]";
 				wait for any key;
 				say "[Bold type]Maya[Roman type]: And don't forget to tell me when you're done![line break]";
 				now the assignment-part is 9;
-				say "assignment part: [assignment-part][line break]";
+				[say "assignment part: [assignment-part][line break]";]
 				reject the player's command;
 		otherwise:
-			say "[Bold type]Maya[Roman type]: Oh... Then you should do it now.[line break]";
+			say "[Bold type]Maya[Roman type]: Oh... ∑d(°∀°d)  Then you should do it now.[line break]";
 			wait for any key;
 			say "[Bold type]Maya[Roman type]: Come back when you're ready! [line break]";
 	[numbers might need some changes]
 	if the assignment-part is 10:
 		say "[Bold type]Maya[Roman type]: You've merged your branch?[line break]";
 		wait for any key;
-		say "[Bold type]Maya[Roman type]: Oh great! :D I'll merge my branch now.[line break]";
+		say "[Bold type]Maya[Roman type]: Oh great! ( ´ ▽ ` )b I'll merge my branch now.[line break]";
 		wait for any key;
 		say "Maya waves her wand in the air and shouts 'git merge 101-AR'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
 		[now the grape is in AR-Main;
@@ -856,27 +923,27 @@ Instead of talking to Maya:
 		say "[Bold type]Maya[Roman type]: Hi [player's name]!".
 		
 To decide whether Maya is begging:
-	if the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (yes/no)[line break]> ", yes;
+	if the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (ʃƪ・∀・) (yes/no)[line break]> ", yes;
 	no.
 
 After reading a command when Maya is begging:
 	if the player's command includes "yes":
 		say "[Bold type]Maya[Roman type]: Thank you![line break]";
 		now the group-carrier is true;
-		say "achievement get";
+		[say "achievement get";]
 		now the command prompt is "> ";
 		reject the player's command;
-	say "[Bold type]Maya[Roman type]: Please...";
+	say "[Bold type]Maya[Roman type]: Please... (ʃƪ・∀・)";
 	increment the maya-beg-count;
-	if the maya-beg-count is 5:
+	if the maya-beg-count is 3:
 		now the command prompt is "> ";
-		say "[Bold type]Maya[Roman type]: Okay... I'll do it myself. [line break]";
+		say "[Bold type]Maya[Roman type]: Okay... I'll do it myself. (｡-_-｡)[line break]";
 		now make-maya is true;
-		say "achievement get";
+		[say "achievement get";]
 		wait for any key;
 		if the assignment-part is greater than 0:
 			if the number of blank rows in the Table of Tracked Items is greater than 0:
-				say "[player's name]: Hold up! I think I missed a step...[line break]";
+				say "[player's name]: Hold up! (((ﾟДﾟ;))) I think I missed a step...[line break]";
 				wait for any key;
 				say "[player's name]: Let me fix it first.[line break]";
 				reject the player's command;
@@ -896,18 +963,20 @@ After reading a command when Maya is begging:
 						otherwise:
 							next;
 				if the count is 7:
-					say "[Bold type]Maya[Roman type]: Yay! We've got our assignment done![line break]";
+					say "[Bold type]Maya[Roman type]: Yay! ⁽⁽٩(๑˃̶͈̀ ᗨ ˂̶͈́)۶⁾⁾ We've got our assignment done![line break]";
 					wait for any key;
 					say "[Bold type]Maya[Roman type]: I think the results will be released during the next lecture. [line break]";
 					wait for any key;
-					say "[Bold type]Maya[Roman type]: Let's meet until then![line break]";
+					say "[Bold type]Maya[Roman type]: Let's meet until then! (*＾▽＾)／[line break]";
+					say "[line break]";
 					wait for any key;
 					say "[Italic type]Fast forward to the day of the lecture...[Roman type][paragraph break]";
+					say "[line break]";
 					wait for any key;
 					now the player is in the classroom;
 					now Maya is in the classroom;
 					now Dr GitHub is in the classroom;
-					say "[Bold type]Dr. GitHub[Roman type]: Well done everyone. You've all done pretty well in the assignment.[line break]";
+					say "[Bold type]Dr. GitHub[Roman type]: Well done everyone. (ゝ∀･)b You've all done pretty well in the assignment.[line break]";
 					wait for any key;
 					say "[Bold type]Dr. GitHub[Roman type]: Here are your assignment results.[line break]";
 					wait for any key;
@@ -919,23 +988,30 @@ After reading a command when Maya is begging:
 					wait for any key;
 					say "[Bold type]Dr. GitHub[Roman type]: There's still a long way till you can call yourself a master of Git Commands. [line break]";
 					wait for any key;
-					say "[Bold type]Dr. GitHub[Roman type]: But worry not! Just keep up your good work and you will master Git Commands in no time![line break]";
+					say "[Bold type]Dr. GitHub[Roman type]: But worry not! ٩(๑•̀ω•́๑)۶ Just keep up your good work and you will master Git Commands in no time![line break]";
 					wait for any key;
 					say "[Bold type]~The End~[Roman type][paragraph break]";
 					wait for any key;
-					say "[Bold type]Mysterious Voice[Roman type]: Thank you for playing my game! It means a lot to me.[line break]";
+					say "[Bold type]Mysterious Voice[Roman type]: Thank you for playing my game! *bows* <(_ _*)> It means a lot to me.[line break]";
 					wait for any key;
 					say "[Bold type]Mysterious Voice[Roman type]: Before you go, can you fill in this questionnaire for me? Just copy the link below and paste it into a browser.[line break]";
-					say "*link here*";
+					place a link to web site "https://forms.office.com/e/ANyKGihcVu" reading "Click here to access the questionnaire webpage";
+					[say "https://forms.office.com/e/ANyKGihcVu";]
 					wait for any key;
-					say "[Bold type]Mysterious Voice[Roman type]: Before I let you go... ";
+					say "[Bold type]Mysterious Voice[Roman type]: Before I let you go... ^_^";
 					now the command prompt is "What is the magic password for the questionnaire I just gave you?[paragraph break]> ";
 					[reject the player's command;]
 				otherwise:
-					say "[Bold type][player's name][Roman type]: Something is not right... [line break]";
+					say "[Bold type][player's name][Roman type]: Something is not right... (・_・ヾ[line break]";
 					say "[count]/7 is in your tracked list is correct.[line break]";
-					showme the contents of the Table of Tracked Items;
-					showme the contents of the Table of Assignment Results;
+					[showme the contents of the Table of Tracked Items;
+					showme the contents of the Table of Assignment Results;]
+					say "What you have tracked: (item | location)[line break]";
+					repeat through the Table of Tracked Items:
+						say "[Fname entry]	|[name entry][line break]";
+					say "[line break]What you should have tracked: (item | location)[line break]";
+					repeat through the Table of Assignment Results:
+						say "[Fname entry]	|[name entry][line break]";
 					now the count is 0;
 					reject the player's command;
 	reject the player's command.
@@ -949,7 +1025,7 @@ To decide whether finishing game:
 	no.
 
 After reading a command when finishing game:
-	if the player's command matches "pwd":
+	if the player's command matches "UuBADAsV":
 		now the command prompt is "> ";
 		if the player is holding a wand:
 			if the player is holding your desk:
@@ -960,7 +1036,7 @@ After reading a command when finishing game:
 		[]
 		say "[Bold type]Mysterious Voice[Roman type]: Correct!! You are free to walk around the school or just leave the game. [line break]";
 		wait for any key;
-		say "[Bold type]Mysterious Voice[Roman type]:Oh right! And here's the achievements you earned during the game: [paragraph break]";
+		say "[Bold type]Mysterious Voice[Roman type]:Oh right! •͈ ꇴ •͈ And here's the achievements you earned during the game: [paragraph break]";
 		wait for any key;
 		[list out achievements]
 		if learning-ahead is true:
@@ -995,7 +1071,7 @@ After reading a command when finishing game:
 			say "[Bold type][magenta letters style]Group Carrier: Trying to do more work than your partner[end style][Roman type][line break]";
 			say "[Italic type]Maya: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
 			wait for any key;
-		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again!";
+		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again! (^ｰ^)ﾉ";
 		say "(You're free to move around now)";
 		reject the player's command;
 	say "[Bold type]Mysterious Voice[Roman type]: Nope. Try again. [line break]";

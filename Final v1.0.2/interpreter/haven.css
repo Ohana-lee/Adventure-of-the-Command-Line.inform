@@ -46,7 +46,7 @@ body, input, label {
 
 #output {
     margin: 0 auto;
-    max-width: 751px;
+    max-width: 1000px;
     overflow-wrap: break-word;
     padding: 0 15px 10px 15px;
 }
