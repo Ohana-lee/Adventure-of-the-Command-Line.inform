@@ -208,7 +208,7 @@ Volume 2 - Before game starts
 When play begins:
 [	turn the foreground black;]
 	[apply black background style to the entire page;]
-	say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";
+	[say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";]
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? [line break]";
 	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Click here to access the questionnaire webpage";
