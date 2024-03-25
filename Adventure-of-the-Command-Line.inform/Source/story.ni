@@ -313,6 +313,7 @@ After reading a command when knowing oneself:
 		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
 		say "[line break]";
+		reject the player's command;
 	otherwise if the player's command matches "no":
 		say "[line break]No worries. I'll tell you who you are.";
 		wait for any key;
@@ -330,8 +331,8 @@ After reading a command when knowing oneself:
 		now the command prompt is "> [line break]";
 		[say "[line break]";]
 		reject the player's command;
-	[say "1Please answer yes or no.[line break]";
-	reject the player's command.]
+	say "1Please answer yes or no.[line break]";
+	reject the player's command.
 
 Instead of looking when collecting names: do nothing.
 
