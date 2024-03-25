@@ -184,6 +184,7 @@ Understand "talk [someone]" as talking to.
 Understand "sit down" as entering.
 Understand "sit" as entering.
 Understand "take seat" as entering.
+Understand "take a seat" as entering.
 Understand "ls" as looking.
 Understand "cat [something]" as examining.
 Moving is an action applying to two things.
@@ -237,11 +238,12 @@ After reading a command when getting password:
 	if the player's command matches "cTgxTspU":
 		now the command prompt is "Debug[line break]> ";
 		if the command prompt is "Debug[line break]> ":
+			say "debugging...[line break]";
 			now the command prompt is "> ";
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
 		say "Do you need an explanation on basic controls of this game? (yes/no) [line break]";
-		say " > ";
+		[say " > ";]
 		if the player consents:
 			say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
 			say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
@@ -268,10 +270,10 @@ After reading a command when getting password:
 			say "You can do [Bold type]help[Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
 			wait for any key;
 			say "[line break]Now, do you know who you are? (yes/no)[line break]";
-			say " > ";
+			[say " > ";]
 		otherwise:
 			say "Great! Then do you know who you are? (yes/no)[line break]";
-			say " > ";
+			[say " > ";]
 		if the player consents:
 			say "[line break]No you don't. Don't lie to me.";
 			wait for any key;
@@ -288,7 +290,8 @@ After reading a command when getting password:
 		wait for any key;
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
-		now the command prompt is "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]> [line break]";
+		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
+		now the command prompt is "> [line break]";
 		say "[line break]";
 		reject the player's command;
 	say "Incorrect password.[line break]Access Denied.[line break]";
@@ -648,6 +651,43 @@ There is a chair and your desk and teacher's desk in the classroom. The chair is
 The description of the chair is "This is your assigned seat. Take a seat.". The description of your desk is "This is your desk. ". 
 
 Dr Github is a person. Dr Github is in the classroom. The description of the Dr Github is "This is the professor who will teach you the set of magic spells named Git Commands. Since this is the first lesson in this unit, you do not know his name yet.".
+
+Every turn:
+	if the player's command matches "take a seat":
+		say "Do you want to start the tutorial? (yes/no)[line break]";
+		if the player consents:
+			say "[paragraph break]";
+			if the player does not have the wand:
+				say "You need your wand to perform magic, go pick up your wand first.[line break]";
+				say "You got up from your seat.[line break]";
+				reject the player's command;
+			otherwise:
+				now the description of the classroom is "This is the classroom you take Magic lessons in. [line break]For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). [line break]You see your assigned seat in the corner, next to the window.[line break]";
+				say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. [line break]";
+				wait for any key;
+				say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. ";
+				wait for any key;
+				say "[Bold type]Dr. GitHub[Roman type]: Now I will teach you one of the basic spells in Git. [line break]";
+				wait for any key;
+				say "[Bold type]Dr. Github[Roman type]: The first spell is called [light green letters style]git checkout[end style]. It is used for teleporting yourself to other branches. [line break]";
+				wait for any key;
+				[say "Dr. Github: But mind you, not all rooms (aka branches in reality) can be teleported to. (But in reality, you can use this to go to any branch you have access to)"]
+				say "[Bold type]Dr. Github[Roman type]: now do [light green letters style]git checkout 101-branch[end style] to go to 101-branch, I'll meet everyone there. [line break]";
+				wait for any key;
+				say "Dr. Github vanishes into thin air as he casts the spell. ๛ก(ｰ̀ωｰ́ก) Maybe you should give it a try too? [line break]";
+				now the printed name of Dr Github is "Dr. Github";
+				now the description of the Dr Github is "This is the professor who will teach you the set of magic spells named Git Commands.";
+				now Dr Github is in 101-branch;
+				choose a blank row in the Table of Accessable Rooms;
+				now name entry is 101-branch;
+				now the tutorial-part is 2;
+				choose a blank row in the Table of Commands Learnt;
+				now the cmd entry is "[Bold type][light green letters style]git checkout branch-name[end style][Roman type]";
+				now the usage entry is "teleports you to the named branch";
+				[say "tutorial-part: [tutorial-part] done [line break]";]
+		otherwise:
+			say "Come back when you're ready!";
+			reject the player's command.
 
 Instead of entering chair:
 	say "Do you want to start the tutorial? (yes/no)[line break]";
