@@ -142,16 +142,16 @@ pear	AR-Main
 
 Table of Commands Learnt
 Cmd (text)	usage (text)
-"[Bold type][light blue letters style]cd target room name[end style][Roman type]"	"move to rooms that are connected to the room you are currently in"
-"[Bold type][light blue letters style]ls[end style][Roman type]"	"looks around the room"
-"[Bold type][light blue letters style]cat item name[end style][Roman type]"	"examines the item"
-"[Bold type][light blue letters style]talk to person name[end style][Roman type]"	"talkes to the named person"
-"[Bold type][light blue letters style]take item name[end style][Roman type]"	"picks up the item"
+"[Bold type][light blue letters style]cd [underlined font style]target room name[end style][end style][Roman type]"	"move to rooms that are connected to the room you are currently in"
+"[Bold type][light blue letters style]ls[end style][Roman type]"	"list out where you are and looks around the room"
+"[Bold type][light blue letters style]cat [underlined font style]item name[end style][end style][Roman type]"	"examines the item"
+"[Bold type][light blue letters style]talk to [underlined font style]person name[end style][end style][Roman type]"	"talkes to the named person"
+"[Bold type][light blue letters style]take [underlined font style]item name[end style][end style][Roman type]"	"picks up the item"
 "[Bold type][light blue letters style]undo[end style][Roman type]"	"undo the last command you typed"
 "[Bold type][light blue letters style]sit down[end style][Roman type]"	"sit on a chair"
-"[Bold type][light blue letters style]read item name[end style][Roman type]"	"read a book"
-"[Bold type][light blue letters style]eat item name[end style][Roman type]"	"eat a visible edible thing"
-"[Bold type][light blue letters style]drop item name[end style][Roman type]"	"drops the item you are holding in the room you are currently in"
+"[Bold type][light blue letters style]read [underlined font style]item name[end style][end style][Roman type]"	"read a book"
+"[Bold type][light blue letters style]eat [underlined font style]item name[end style][end style][Roman type]"	"eat a visible edible thing"
+"[Bold type][light blue letters style]drop [underlined font style]item name[end style][end style][Roman type]"	"drops the item you are holding in the room you are currently in"
 "[Bold type][light blue letters style]i[end style][Roman type]"	"list out what you are currently holding"
 --	--
 --	--
@@ -242,7 +242,13 @@ After reading a command when getting password:
 			now the command prompt is "> ";
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
-		say "Do you need an explanation on the basic controls of this game?[line break]";
+		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
+		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
+		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
+		wait for any key;
+		say "Yes, just like this.[paragraph break]";
+		wait for any key;
+		say "So, do you need an explanation on the controls of this game?[line break]";
 		now the command prompt is "(yes or no?)> ";
 		reject the player's command;
 		[say " > ";]
@@ -256,12 +262,6 @@ To decide whether learning controls:
 After reading a command when learning controls:
 	if the player's command includes "yes" or the player's command matches "y":
 		now the command prompt is "> ";
-		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
-		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
-		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
-		wait for any key;
-		say "Yes, just like this.[paragraph break]";
-		wait for any key;
 		say "To move between [underlined font style][Italic type]connected rooms[Roman type][end style], do [Bold type][light blue letters style]cd target room name[end style][Roman type].";
 		wait for any key;
 		say "To look around the room, do [Bold type][light blue letters style]ls[end style][Roman type].";
@@ -278,13 +278,16 @@ After reading a command when learning controls:
 		wait for any key;
 		say "If you ever feel lost on what to do or can't find a command, [line break]";
 		wait for any key;
-		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
+		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
 		wait for any key;
 		say "[line break]Now, do you know who you are?[line break]";
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;
 		[say " > ";]
 	otherwise if the player's command includes "no" or the player's command matches "n":
+		say "Okay. But if you ever feel lost on what to do or can't find a command, [line break]";
+		wait for any key;
+		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
 		say "Great! Then do you know who you are? [line break]";
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;
@@ -310,7 +313,7 @@ After reading a command when knowing oneself:
 		wait for any key;
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
-		say "Now use the format 'git config --global user*name your_name_here to tell me your name.[paragraph break]";
+		say "Now use the format [light green letters style][Bold type]git config --global user*name your_name_here[Roman type][end style] to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
 		say "[line break]";
 		reject the player's command;
@@ -327,7 +330,7 @@ After reading a command when knowing oneself:
 		wait for any key;
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
-		say "Now use the format 'git config --global user*name your_name_here to tell me your name.[paragraph break]";
+		say "Now use the format [light green letters style][Bold type]git config --global user*name your_name_here[Roman type][end style] to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
 		[say "[line break]";]
 		reject the player's command;
@@ -355,6 +358,16 @@ After reading a command:
 		say "[player's name][paragraph break]";
 		now dementia is true;
 		[say "achievement get";]
+		reject the player's command.
+		
+After reading a command:
+	if the player's command matches "whereami":
+		say "[the location of the player][paragraph break]";
+		reject the player's command.
+		
+After reading a command:
+	if the player's command matches "git update":
+		say "Do you mean [light green letters style]git fetch[end style]?";
 		reject the player's command.
 
 Volume 3 - Rooms set up
@@ -715,12 +728,13 @@ Dr Github is a person. Dr Github is in the classroom. The description of the Dr 
 
 Every turn:
 	if the player's command matches "take a seat":
-		say "Do you want to start the tutorial? (yes/no)[line break]";
+		say "Do you want to start the lecture? (yes/no)[line break]";
 		if the player consents:
 			say "[paragraph break]";
 			if the player does not have the wand:
 				say "You need your wand to perform magic, go pick up your wand first.[line break]";
 				say "You got up from your seat.[line break]";
+				say "Sit down again when you have picked up your wand.[line break]";
 				reject the player's command;
 			otherwise:
 				now the description of the classroom is "This is the classroom you take Magic lessons in. [line break]For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). [line break]You see your assigned seat in the corner, next to the window.[line break]";
@@ -807,11 +821,11 @@ Instead of talking to Dr Github:
 	if tutorial-part is 2:
 		say "[Bold type]Dr. Github[Roman type]: Congratulations everyone, you have now mastered your very first spell! *clap* *clap* *clap* [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [light green letters style]git branch[end style] to check which branches you can teleport to.";
+		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [light green letters style]git branch[end style] to [underlined font style]check which branches you can teleport to.[end style]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [light green letters style]git fetch[end style] ! [line break]";
+		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [light green letters style]git fetch[end style]! [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: What git fetch does is [Italic type]to update the branch[Roman type]. Others may have made some changes to branch but you can't see it yet. [line break]";
+		say "[Bold type]Dr. Github[Roman type]: What git fetch does is [underlined font style]to update the branch[end style]. Others may have made some changes to branch but you can't see it yet. [line break]";
 		wait for any key;
 		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [light green letters style]git fetch[end style]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
 		now the tutorial-part is 3;
@@ -824,13 +838,15 @@ Instead of talking to Dr Github:
 		reject the player's command;
 		[]
 	if tutorial-part is 3 and the location of the orange is 101-branch:
+		say "[Bold type]Dr. GitHub[Roman type]: As a reminder, you should always do [light green letters style]git fetch[end style] first everytime you start working on a branch. [line break]";
+		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Great, now you've learnt 2 new spells. Let's put them into practice. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: [Italic type]Go to 201-branch, update that branch, and return to this branch. Report to me once you have everything done. [Roman type][line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [underlined font style]Teleport to 201-branch, update that branch, and return to this branch. Report to me once you have everything done. [end style][line break]";
 		now the tutorial-part is 4;
 		choose a blank row in the Table of Accessable Rooms;
 		now name entry is 201-branch;
-		now the description of 101-branch is "This is one of the branches where you will practice magic spells learnt. Don't forget to talk to Dr. GitHub after you have finished the task he assigned you. [line break]Tip: Talk to Dr. Github (ie type 'talk' in the command line) to talk to him.";
+		now the description of 101-branch is "This is one of the branches where you will practice magic spells learnt. Don't forget to talk to Dr. GitHub after you have finished the task he assigned you. [line break][underlined font style]Tip: Talk to Dr. Github (ie type 'talk' in the command line) to talk to him.[end style]";
 		reject the player's command;
 		[]
 	if tutorial-part is 4 and the location of the strawberry is 201-branch:
@@ -840,7 +856,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Italic type](Mysterious Voice: Reverting a commit is not implemented in this game... game... game...) [Roman type][line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: Hmm? ｢(ﾟﾍﾟ) Am I hearing things? Anyway, let's try [Italic type]tracking the orange.[Roman type] [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Hmm? ｢(ﾟﾍﾟ) Am I hearing things? Anyway, let's try [underlined font style]tracking the orange.[end style] [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: After me, [light green letters style]git add orange[end style]! (∩^o^)⊃━☆ﾟ.*･｡ (Talk to Dr. GitHub after you have done the command)[paragraph break]";
 		now the tutorial-part is 5;
@@ -856,12 +872,12 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: This might come in handy for the next practice. But for now, let's keep the orange on the tracking list.[line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: So now, [Italic type]go to 201-branch and track the strawberry[Roman type]. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: So now, [underlined font style]teleport to 201-branch and track the strawberry[end style]. [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Talk to me when you are done. [line break]";
 		now the tutorial-part is 6;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][light green letters style]git reset item name[end style][Roman type]";
+		now the cmd entry is "[Bold type][light green letters style]git reset [underlined font style]item name[end style][end style][Roman type]";
 		now the usage entry is "untrack the named item";
 		reject the player's command;
 		[]
@@ -872,12 +888,12 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: In the world of magic, anything is possible - you can even merge rooms! [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: [light green letters style]git merge[end style] is a spell that [Italic type]merges a branch of your choice to the master branch[Roman type] (which is 101-branch in this case). [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [light green letters style]git merge[end style] is a spell that [underlined font style]merges a branch of your choice to the master branch[end style] (which is 101-branch in this case). [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Let's try merging now. Say [light green letters style]git merge 201-branch[end style] (∩^o^)⊃━☆ﾟ.*･｡[line break]";
 		now the tutorial-part is 7;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][light green letters style]git merge branch-name[end style][Roman type]";
+		now the cmd entry is "[Bold type][light green letters style]git merge [underlined font style]branch-name[end style][end style][Roman type]";
 		now the usage entry is "merges the named branch to the main/master branch";
 		reject the player's command;
 		[]
@@ -931,7 +947,9 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Here is the detail instructions of this assignment. [line break]";
 		wait for any key;
-		say "A paper with the instructions written on it appeared in front of you. Do [light green letters style]cat assignment instruction[end style] to read the paper. [line break]";
+		[say "[Bold type]Dr. GitHub[Roman type]: Your partner's name is written on the instruction.[line break]";
+		wait for any key;]
+		say "A paper with the instructions written on it appeared in front of you. Do [light blue letters style]cat assignment instruction[end style] to read the paper. [line break]";
 		[give player the items they need and dismiss]
 		now the player carries the assignment instruction;
 		choose a blank row in the Table of Accessable Rooms;
@@ -1120,7 +1138,7 @@ After reading a command when Maya is begging:
 					wait for any key;
 					say "[Bold type]Mysterious Voice[Roman type]: Thank you for playing my game! *bows* <(_ _*)> It means a lot to me.[line break]";
 					wait for any key;
-					say "[Bold type]Mysterious Voice[Roman type]: Before you go, can you fill in this questionnaire for me? Just copy the link below and paste it into a browser.[line break]";
+					say "[Bold type]Mysterious Voice[Roman type]: Before you go, can you fill in this questionnaire for me?[line break]";
 					place a link to web site "https://forms.office.com/e/ANyKGihcVu" reading "Click here to access the questionnaire webpage";
 					[say "https://forms.office.com/e/ANyKGihcVu";]
 					wait for any key;
@@ -1302,7 +1320,7 @@ Every turn:
 
 Book 7 - Canteen
 
-The canteen door is east of the corridor and west of the Canteen. It is a door and openable. The description of the Canteen is "The canteen is filled with the aroma of delicious food. You get hungry just by staying here. Try looking around to find something to eat.". The meal deal is a container. The meal deal is edible. The meal deal is in the Canteen. There is a egg mayo sandwich, a bag of chips and a cup of coffee in the meal deal.
+The canteen door is east of the corridor and west of the Canteen. It is a door and openable. The description of the Canteen is "The canteen is filled with the aroma of delicious food. You get hungry just by staying here. Try looking around to find something to eat. [line break]To eat something, do [light blue letters style]eat [underlined font style]item name[end style][end style]". The meal deal is a container. The meal deal is edible. The meal deal is in the Canteen. There is a egg mayo sandwich, a bag of chips and a cup of coffee in the meal deal.
 
 Instead of eating the meal deal:
 	now Maya is in the 101-AR;
@@ -1344,27 +1362,35 @@ After reading a command:
 				wait for any key;
 				say "Your partner's name is written on the assignment instruction[line break]";
 			if the assignment-part is 2:
-				if the location of Maya is 101-AR:
-					say "Teleport to 201-AR and update the branch.[line break]";
-				otherwise if the location of the player is not the canteen:
-					say "Go to the canteen and have lunch. To go to the canteen, first teleport to the classroom then go through the corridor.[line break]";
+				if the location of the player is not the canteen:
+					say "Go to the canteen and have lunch. [line break]";
+					wait for any key;
+					say "To go to the canteen, first teleport to the classroom then go through the corridor.[line break]";
 					wait for any key;
 				otherwise if the location of the player is the canteen:
 					say "Go eat the meal deal. You can't eat each component of the meal deal seperately. [line break]";
+				otherwise if the location of Maya is 101-AR:
+					say "Teleport to 201-AR and update the branch.[line break]";
 			if the assignment-part is 3:
-				if the location of the player is the bedroom:
+				if the location of the player is the location of the Git commands reference book:
 					say "Read the reference book.[line break]";
+					wait for any key;
+					say "To read a book, do [light blue letters style]read book[end style][line break]";
 				otherwise:
 					say "Go back to your bedroom and read the reference book.[line break]";
 			if the assignment-part is 4:
 				say "Go to bed and sleep. Good night.[line break]";
 			if the assignment-part is 5:
 				say "Teleport to 201-AR and track the required items.[line break]";
+				wait for any key;
+				say "If you ever forget what you need to track, do [light blue letters style]cat assignment instruction[end style] to read the assignment paper[line break]";
 			if the assignment-part is 6:
 				if the player is holding the Git commands reference book:
 					say "Read the reference book again.[line break]";
 				otherwise:
 					say "Go to [the location of the Git commands reference book] and read the reference book.[line break]";
+					wait for any key;
+					say "To read a book, do [light blue letters style]read book[end style][line break]";
 			if the assignment-part is 7:
 				say "Go to bed. Good night.[line break]";
 			if the assignment-part is 8:
@@ -1374,8 +1400,15 @@ After reading a command:
 					say "Teleport to AR-Main and talk to Maya.[line break]";
 			if the assignment-part is 9:
 				say "Merge 201-AR into AR-Main.[line break]";
+				wait for any key;
+				say "To merge a branch, first teleport to the main branch.[line break]";
+				wait for any key;
+				say "Then do [light green letters style]git merge [underlined font style]target branch name[end style][end style][line break]";
 			if the assignment-part is 10:
-				say "Talk to Maya.[line break]";
+				if the location of the peach is 201-AR:
+					say "You need to cast git merge on [underlined font style]201-AR[end style] and not other branches[line break]";
+				otherwise:
+					say "Talk to Maya.[line break]";
 			if the assignment-part is 11:
 				say "Congrats.[line break]";
 			[]
@@ -1396,40 +1429,48 @@ After reading a command:
 				wait for any key;
 				say "Then get your wand and sit down to start the lecture.[line break]";
 			otherwise if the tutorial-part is 2:
-				say "You need to use the git command spell Dr. GitHub just taught you to go to 101-branch and talk to him when you arrive.[line break]";
+				say "You need to use the spell [light green letters style]git checkout [underlined font style]branch name[end style][end style] Dr. GitHub just taught you to go to 101-branch and talk to him when you arrive.[line break]";
 			otherwise if the tutorial-part is 3:
 				if the player is holding an orange:
 					say "Please put back the orange to 101-branch by doing [light blue letters style]drop orange[end style] in 101-branch and talk to Dr. GitHub[line break]";
 					wait for any key;
 				say "You need to update the branch and then talk to Dr. GitHub.[line break]";
+				wait for any key;
+				say "To update a branch, do [light green letters style]git fetch[end style][line break]";
 			otherwise if the tutorial-part is 4:
 				if the player is holding a strawberry:
 					say "Please put back the strawberry to 201-branch by doing [light blue letters style]drop strawberry[end style] in 201-branch and talk to Dr. GitHub[line break]";
 				otherwise:
 					say "You need to talk to Dr. GitHub in 101-branch after updating 201-branch.[line break]";
+					wait for any key;
+					say "To update a branch, do [light green letters style]git fetch[end style] [line break]";
 			otherwise if the tutorial-part is 5:
 				say "You have to track the orange then talk to Dr. GitHub.[line break]";
+				wait for any key;
+				say "To track an item, do [light green letters style]git add [underlined font style]item name[end style][end style][line break]";
 			otherwise if the tutorial-part is 6:
 				say "You have to track the strawbery then go back to 101-branch and talk to Dr. GitHub.[line break]";
 			otherwise if the tutorial-part is 7:
 				say "You have to merge 201-branch into 101-branch then talk to Dr. GitHub.[line break]";
+				wait for any key;
+				say "To merge a branch, do [light green letters style]git merge [underlined font style]target branch name[end style][end style][line break]";
 			otherwise if tutorial-done is false and the tutorial-part is 8:
 				say "ONLY the apple, the orange and the strawberry should be tracked.[line break]";
 				say "Here is the list of fruits you have casted git add on:[paragraph break]";
 				[showme the contents of the Table of Tracked Fruits;]
 				say "Here is your list of tracked items: (item | location)[line break]";
 				repeat through the Table of Tracked Fruits:
-					say "[Fname entry]	|[name entry][line break]";
+					say "[Fname entry]    |    [name entry][line break]";
 				if the number of blank rows in the Table of Tracked Fruits is greater than 0:
 					say "You have casted git reset on something you shouldn't.[line break]";
 					wait for any key;
 				otherwise:
-					say "You have to commit and push your changes then talk to Dr.GitHub.[line break]";
+					say "You have to [underlined font style]commit[end style] and [underlined font style]push[end style] your changes then talk to Dr.GitHub.[line break]";
 			otherwise if tutorial-done is true:
 				say "You have to talk to Dr. GitHub to continue the story.[line break]";
 			[]
 			wait for any key;
-			say "Do you want to show the list of commands you can use? (yes/no)[line break]> ";
+			say "[Bold type]Do you want to show the list of commands you can use? (yes/no)[line break][Roman type]> ";
 			if the player consents:
 				say "Here is the list of commands you can use[paragraph break]";
 				[showme the contents of the Table of Commands Learnt;]
