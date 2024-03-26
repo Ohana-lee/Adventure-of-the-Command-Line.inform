@@ -38,8 +38,6 @@ The tutorial-done is a truth state that varies. The tutorial-done is false.
 
 The b4game-start is a truth state that varies. The b4game-start is true.
 
-The git-master is a truth state that varies. The git-master is false.
-
 The first-try is a truth state that varies. The first-try is true.
 
 Definition: a direction (called thataway) is viable if the room thataway from the location is a room.	
@@ -55,6 +53,8 @@ The hoarder is a truth state that varies. The hoarder is false.
 The starving is a truth state that varies. The starving is false.
 
 The help-is-4-the-weak is a truth state that varies. The help-is-4-the-weak is true.
+
+The git-master is a truth state that varies. The git-master is false.
 
 The make-maya is a truth state that varies. The make-maya is false.
 
@@ -607,6 +607,8 @@ After reading a command when asking Q3:
 			now first-try is true;
 		say "[line break]Correct. [light green letters style]git config[end style] configures your username and password across all repositories and not branches. [line break]";
 		wait for any key;
+		say "Your score: [q-count]/3 (the score only increments when you got the correct answer on the first try of each question)[line break]";
+		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* ٩(´Д` ;)۶:.*[line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: Maybe I should go to sleep.[line break]";
@@ -675,6 +677,8 @@ After reading a command when asking Q6:
 		otherwise:
 			now first-try is true;
 		say "[line break]Correct. There is no limit on the number of commits you can make for every repository.[paragraph break]";
+		wait for any key;
+		say "Your score: [q-count]/6 (the score only increments when you got the correct answer on the first try of each question)[line break]";
 		wait for any key;
 		say "[Bold type][player's name][Roman type]: *yawns* ٩(´Д` ;)۶:.*[line break]";
 		wait for any key;
@@ -1043,7 +1047,7 @@ To decide whether Maya is begging:
 	no.
 
 After reading a command when Maya is begging:
-	if the player's command includes "yes":
+	if the player's command includes "yes" or the player's command matches "y":
 		say "[Bold type]Maya[Roman type]: Thank you![line break]";
 		now the group-carrier is true;
 		[say "achievement get";]
@@ -1051,7 +1055,7 @@ After reading a command when Maya is begging:
 		reject the player's command;
 	say "[Bold type]Maya[Roman type]: Please... (ʃƪ・∀・)[line break]";
 	increment the maya-beg-count;
-	if the maya-beg-count is 3:
+	if the maya-beg-count is 4:
 		now the command prompt is "> ";
 		say "[line break][Bold type]Maya[Roman type]: Okay... I'll do it myself. (｡-_-｡)[line break]";
 		now make-maya is true;
@@ -1152,6 +1156,8 @@ After reading a command when finishing game:
 					if the player is holding the Git Commands Reference Book:
 						now the hoarder is true;
 						[say "achievement get";]
+		if the q-count is 6:
+			now git-master is true;
 		[]
 		say "[Bold type]Mysterious Voice[Roman type]: Correct!! You are free to walk around the school or just leave the game. [line break]";
 		wait for any key;
@@ -1181,6 +1187,10 @@ After reading a command when finishing game:
 		if help-is-4-the-weak is true:
 			say "[Bold type][magenta letters style]Help is for the weak: Never used the 'help' command[end style][Roman type][line break]";
 			say "[Italic type]Real witches and wizards do not need help. [Roman type][paragraph break]";
+			wait for any key;
+		if git-master is true:
+			say "[Bold type][magenta letters style]The master of Git Commands: got the correct answer on the first try of each question of the Git Reference Book[end style][Roman type][line break]";
+			say "[Italic type]You are the true master of Git Commands[Roman type][paragraph break]";
 			wait for any key;
 		if make-maya is true:
 			say "[Bold type][magenta letters style]Make your partner work: Make Maya do git commit and git push[end style][Roman type][line break]";
