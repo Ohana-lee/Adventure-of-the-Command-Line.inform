@@ -78,8 +78,6 @@ Table of Accessable Rooms
 name
 the classroom
 the bedroom
-101-branch
-201-branch
 --
 --
 --
@@ -312,7 +310,7 @@ After reading a command when knowing oneself:
 		wait for any key;
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
-		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
+		say "Now use the format 'git config --global user*name your_name_here to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
 		say "[line break]";
 		reject the player's command;
@@ -422,7 +420,7 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 	say "You got out of bed[line break]";
 	increment the assignment-part; [changes on assignment-part here]
 	wait for any key;
-	say "Do you know what you need to do today? (yes/no)[line break]> ";
+	say "Do you know what you need to do today? (yes/no)[line break]";
 	if the player consents:
 		say "Great! Good luck on your work.[paragraph break]";
 	otherwise:
