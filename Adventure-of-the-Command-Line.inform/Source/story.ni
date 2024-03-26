@@ -749,7 +749,7 @@ Every turn:
 	if the player's command matches "take a seat":
 		say "Do you want to start the lecture? (yes/no)[line break]";
 		if the player consents:
-			say "[paragraph break]";
+			[say "[paragraph break]";]
 			if the player does not have the wand:
 				say "You need your wand to perform magic, go pick up your wand first.[line break]";
 				say "You got up from your seat.[line break]";
@@ -790,16 +790,17 @@ Every turn:
 Instead of entering chair:
 	say "Do you want to start the tutorial? (yes/no)[line break]";
 	if the player consents:
-		say "[paragraph break]";
+		[say "[paragraph break]";]
 		if the player does not have the wand:
 			say "You need your wand to perform magic, go pick up your wand first.[line break]";
 			say "You got up from your seat.[line break]";
+			say "Sit down again when you have picked up your wand.[line break]";
 			reject the player's command;
 		otherwise:
 			now the description of the classroom is "This is the classroom you take Magic lessons in. [line break]For some reason, it is more comfortable to sleep here than your room （¯﹃¯） (especially when the professor is talking). [line break]You see your assigned seat in the corner, next to the window.[line break]";
 			say "[Bold type]Professor[Roman type]: Welcome everyone, to the unit of Git Commands. [line break]";
 			wait for any key;
-			say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. ";
+			say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. [line break]";
 			wait for any key;
 			say "[Bold type]Dr. GitHub[Roman type]: Now I will teach you one of the basic spells in Git. [line break]";
 			wait for any key;
