@@ -210,6 +210,7 @@ When play begins:
 [	turn the foreground black;]
 	[apply black background style to the entire page;]
 	[say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";]
+	say "Version v1.0.2[line break]";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? [line break]";
 	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Click here to access the questionnaire webpage";
@@ -760,7 +761,7 @@ Every turn:
 				wait for any key;
 				say "[Bold type]Professor[Roman type]: First of all, I am your professor. You can call me Dr. Github. [line break]";
 				wait for any key;
-				say "[Bold type]Dr. GitHub[Roman type]: Now I will teach you one of the basic spells in Git. [line break]";
+				say "[line break][Bold type]Dr. GitHub[Roman type]: Now I will teach you one of the basic spells in Git. [line break]";
 				wait for any key;
 				say "[Bold type]Dr. Github[Roman type]: The first spell is called [light green letters style]git checkout[end style]. It is used for teleporting yourself to other branches. [line break]";
 				wait for any key;
