@@ -234,6 +234,10 @@ To decide whether debugging:
 To decide whether getting password:
 	if the command prompt is "Please enter the magic password to continue: [line break]> ", yes;
 		no.
+		
+To decide whether asking first-time:
+	if the command prompt is "(Yes/No)>", yes;
+		no.
 
 After reading a command when getting password:
 	if the player's command matches "cTgxTspU":
@@ -252,35 +256,41 @@ After reading a command when getting password:
 		wait for any key;
 		say "Yes, just like this.[paragraph break]";
 		wait for any key;
-		say "Is this your first time playing games like this? (yes/no)[line break]>";
-		if the player consents:
-			say "Don't worry.[line break]";
-			wait for any key;
-			say "Things might be confusing at first. But if you follow the instructions, you will be fine.[line break]";
-			wait for any key;
-			say "Here are the commands you can use in game:[line break]";
-			wait for any key;
-			say "To move between [underlined font style][Italic type]connected rooms[Roman type][end style], do [Bold type][light blue letters style]cd target room name[end style][Roman type].";
-			wait for any key;
-			say "To look around the room, do [Bold type][light blue letters style]ls[end style][Roman type].";
-			wait for any key;
-			say "To examine objects in the same room as you, do [Bold type][light blue letters style]cat object name [end style][Roman type] [line break]";
-			wait for any key;
-			say "To talk to other people, do [Bold type][light blue letters style]talk[end style][Roman type] or [Bold type][light blue letters style]talk to person name [end style][Roman type][line break]";
-			wait for any key;
-			say "To pick up an item, do [Bold type][light blue letters style]pick up item name[end style][Roman type] or [Bold type][light blue letters style]take item name[end style][Roman type].";
-			wait for any key;
-			say "To undo a command, do [Bold type][light blue letters style]undo[end style][Roman type].[line break]";
-			wait for any key;
-			say "To sit on a chair, do [Bold type][light blue letters style]sit[end style][Roman type] or [Bold type][light blue letters style]sit down[end style][Roman type].[line break]";
-			wait for any key;
-			say "If you ever feel lost on what to do or can't find a command, [line break]";
-			wait for any key;
-			say "You can do [Bold type][yellow letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
-			wait for any key;
-			say "[line break]Now, do you know who you are?[line break]";
-			now the command prompt is "(yes/no)> ";
-			reject the player's command;
+		say "Is this your first time playing games like this?[line break]";
+		now the command prompt is "(Yes/No)>";
+		reject the player's command;
+	say "Incorrect password.[line break]Access Denied.[line break]";
+	reject the player's command.
+
+After reading a command when asking first-time:
+	if the player's command includes "yes" or the player's command matches "y":
+		say "Don't worry.[line break]";
+		wait for any key;
+		say "Things might be confusing at first. But if you follow the instructions, you will be fine.[line break]";
+		wait for any key;
+		say "Here are the commands you can use in game:[line break]";
+		wait for any key;
+		say "To move between [underlined font style][Italic type]connected rooms[Roman type][end style], do [Bold type][light blue letters style]cd target room name[end style][Roman type].";
+		wait for any key;
+		say "To look around the room, do [Bold type][light blue letters style]ls[end style][Roman type].";
+		wait for any key;
+		say "To examine objects in the same room as you, do [Bold type][light blue letters style]cat object name [end style][Roman type] [line break]";
+		wait for any key;
+		say "To talk to other people, do [Bold type][light blue letters style]talk[end style][Roman type] or [Bold type][light blue letters style]talk to person name [end style][Roman type][line break]";
+		wait for any key;
+		say "To pick up an item, do [Bold type][light blue letters style]pick up item name[end style][Roman type] or [Bold type][light blue letters style]take item name[end style][Roman type].";
+		wait for any key;
+		say "To undo a command, do [Bold type][light blue letters style]undo[end style][Roman type].[line break]";
+		wait for any key;
+		say "To sit on a chair, do [Bold type][light blue letters style]sit[end style][Roman type] or [Bold type][light blue letters style]sit down[end style][Roman type].[line break]";
+		wait for any key;
+		say "If you ever feel lost on what to do or can't find a command, [line break]";
+		wait for any key;
+		say "You can do [Bold type][yellow letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
+		wait for any key;
+		say "[line break]Now, do you know who you are?[line break]";
+		now the command prompt is "(yes/no)> ";
+		reject the player's command;
 		[say " > ";]
 	[otherwise if the player's command includes "no" or the player's command matches "n":
 		say "Okay. But if you ever feel lost on what to do or can't find a command, [line break]";
@@ -289,15 +299,16 @@ After reading a command when getting password:
 		say "Then do you know who you are? [line break]";
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;]
-		otherwise:
-			say "Great, then this game shouldn't be too hard for you.";
-			wait for any key;
-			say "So, do you need an explanation on the controls of this game?[line break]";
-			now the command prompt is "(yes or no?)> ";
-			reject the player's command;
-		[say " > ";]
-	say "Incorrect password.[line break]Access Denied.[line break]";
+	otherwise if the player's command includes "no" or the player's command matches "n":
+		say "Great, then this game shouldn't be too hard for you.";
+		wait for any key;
+		say "So, do you need an explanation on the controls of this game?[line break]";
+		now the command prompt is "(yes or no?)> ";
+		reject the player's command;
+	say "Please answer yes or no.[line break]";
 	reject the player's command.
+		[say " > ";]
+	
 		
 To decide whether learning controls:
 	if the command prompt is "(yes or no?)> ", yes;
