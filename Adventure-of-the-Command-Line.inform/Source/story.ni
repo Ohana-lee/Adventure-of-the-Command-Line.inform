@@ -210,7 +210,7 @@ When play begins:
 [	turn the foreground black;]
 	[apply black background style to the entire page;]
 	[say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";]
-	say "Version v1.0.2[line break]";
+	say "Version v1.0.3[line break]";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? [line break]";
 	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Click here to access the questionnaire webpage";
@@ -279,7 +279,7 @@ After reading a command when learning controls:
 		wait for any key;
 		say "If you ever feel lost on what to do or can't find a command, [line break]";
 		wait for any key;
-		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
+		say "You can do [Bold type][yellow letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
 		wait for any key;
 		say "[line break]Now, do you know who you are?[line break]";
 		now the command prompt is "(yes/no)> ";
@@ -840,7 +840,7 @@ Instead of talking to Dr Github:
 	if tutorial-part is 2:
 		say "[Bold type]Dr. Github[Roman type]: Congratulations everyone, you have now mastered your very first spell! *clap* *clap* *clap* [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [light green letters style]git branch[end style] to [underlined font style]check which branches you can teleport to.[end style]";
+		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [light green letters style]git branch[end style] to [underlined font style]check which branches you can teleport to.[end style][line break]";
 		wait for any key;
 		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [light green letters style]git fetch[end style]! [line break]";
 		wait for any key;
@@ -861,7 +861,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Great, now you've learnt 2 new spells. Let's put them into practice. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: [underlined font style]Teleport to 201-branch, update that branch, and return to this branch. Report to me once you have everything done. [end style][line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: [underlined font style]1. Teleport to 201-branch, 2. update that branch, and 3. return to this branch. Report to me once you have everything done. [end style][line break]";
 		now the tutorial-part is 4;
 		choose a blank row in the Table of Accessable Rooms;
 		now name entry is 201-branch;
@@ -987,7 +987,7 @@ Instead of talking to Dr Github:
 		say "[Bold type]Dr. GitHub[Roman type]: Your partner's name will be written on the instruction paper. Now, dismiss! [line break]";
 		wait for any key;
 		now Dr GitHub is in the classroom;
-		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
+		say "[underlined font style](Tip: Maybe talk to your partner after reading the instruction paper?)[end style]";
 		now the assignment-part is 1;
 	otherwise if tutorial-done is true:
 		say "[Bold type]Dr. GitHub[Roman type]: Good luck on your assignment.[line break]";
@@ -1431,7 +1431,7 @@ After reading a command:
 			if the assignment-part is 11:
 				say "Congrats.[line break]";
 			[]
-			say "Do you want to show the list of commands you can use? (yes/no)[line break]";
+			say "[Bold type]Do you want to show the list of commands you can use? (yes/no)[Roman type][line break]";
 			if the player consents:
 				say "Here is the list of commands you can use[paragraph break]";
 				repeat through the Table of Commands Learnt:
@@ -1462,13 +1462,23 @@ After reading a command:
 				otherwise:
 					say "You need to talk to Dr. GitHub in 101-branch after updating 201-branch.[line break]";
 					wait for any key;
+					say "To teleport to 201-branch, do [light green letters style]git checkout 201-branch[end style][line break]";
+					wait for any key;
 					say "To update a branch, do [light green letters style]git fetch[end style] [line break]";
 			otherwise if the tutorial-part is 5:
 				say "You have to track the orange then talk to Dr. GitHub.[line break]";
 				wait for any key;
+				[say "To teleport to 201-branch, do [light green letters style]git checkout 201-branch[end style][line break]";
+				wait for any key;]
 				say "To track an item, do [light green letters style]git add [underlined font style]item name[end style][end style][line break]";
 			otherwise if the tutorial-part is 6:
 				say "You have to track the strawbery then go back to 101-branch and talk to Dr. GitHub.[line break]";
+				wait for any key;
+				say "To teleport to 201-branch, do [light green letters style]git checkout 201-branch[end style][line break]";
+				wait for any key;
+				say "To teleport to 101-branch, do [light green letters style]git checkout 101-branch[end style][line break]";
+				wait for any key;
+				say "To track an item, do [light green letters style]git add [underlined font style]item name[end style][end style][line break]";
 			otherwise if the tutorial-part is 7:
 				say "You have to merge 201-branch into 101-branch then talk to Dr. GitHub.[line break]";
 				wait for any key;
@@ -1480,6 +1490,7 @@ After reading a command:
 				say "Here is your list of tracked items: (item | location)[line break]";
 				repeat through the Table of Tracked Fruits:
 					say "[Fname entry]    |    [name entry][line break]";
+				say "[line break]";
 				if the number of blank rows in the Table of Tracked Fruits is greater than 0:
 					say "You have casted git reset on something you shouldn't.[line break]";
 					wait for any key;
@@ -1489,7 +1500,7 @@ After reading a command:
 				say "You have to talk to Dr. GitHub to continue the story.[line break]";
 			[]
 			wait for any key;
-			say "[Bold type]Do you want to show the list of commands you can use? (yes/no)[line break][Roman type]> ";
+			say "[Bold type]Do you want to show the list of commands you can use? (yes/no)[line break][Roman type]";
 			if the player consents:
 				say "Here is the list of commands you can use[paragraph break]";
 				[showme the contents of the Table of Commands Learnt;]
