@@ -11,7 +11,7 @@ body {
 }
 
 a, a:visited {
-    color: #369;
+    color: #FFEB3B;
 }
 
 blockquote {
@@ -20,7 +20,7 @@ blockquote {
 }
 
 #vorple {
-    background-color: #fff;
+    background-color: #000;
     min-height: 100%;
 }
 
@@ -162,7 +162,7 @@ body.play > div.interpretercredit {
 }
 
 .red-letters {
-    color: #a00;
+    color: #f00;
 }
 
 .magenta-letters {
