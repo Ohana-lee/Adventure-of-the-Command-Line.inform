@@ -445,6 +445,14 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 				say "Great! Good luck on your work. [line break]";
 			otherwise:
 				say "Re-read the last sentence until you understand. Good luck![paragraph break]";
+				wait for any key;
+				say "Just kidding...[line break]";
+				wait for any key;
+				say "Teleport to 201-AR and track the required items.[line break]";
+				wait for any key;
+				say "To teleport to 201-AR, do [light green letters style]git checkout 201-AR[end style][line break]";
+				wait for any key;
+				say "To track an item, do[light green letters style]git add [underlined font style]item name[end style][end style][line break]";
 		otherwise if assignment-part is 8:
 			say "You need to talk to Maya to do the final checking and merge your branches.[line break]";
 			wait for any key;
@@ -453,6 +461,14 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 				say "Great! [paragraph break]";
 			otherwise:
 				say "Re-read the last sentence until you understand. Good luck![paragraph break]";
+				wait for any key;
+				say "Just kidding...[line break]";
+				wait for any key;
+				say "Teleport to AR-Main and talk to Maya.[line break]";
+				wait for any key;
+				say "To teleport to AR-Main, do [light green letters style]git checkout AR-Main[end style][line break]";
+				wait for any key;
+				say "When you arrive there, just do [light blue letters style]talk[end style] to talk to Maya.[line break]";
 				[reject the player's command;]
 	[say "assigment part: [assignment-part]";]
 	if the player is in the bed:
@@ -813,7 +829,7 @@ Chapter 1 - 101-branch
 
 Section 1 - Room description
 
-The 101-branch is a room. The description of 101-branch is "This is one of the branches where you will practice magic spells learnt. Talk to Dr Github to continue the tutorial. [line break]Tip: Talk to Dr. Github (ie type 'talk' in the command line) whenever you have completed the instructions he gave you.". There is an apple in 101-branch.
+The 101-branch is a room. The description of 101-branch is "This is one of the branches where you will practice magic spells learnt. Talk to Dr Github to continue the tutorial. [line break][underlined font style]Tip: Talk to Dr. Github (ie type 'talk' in the command line) whenever you have completed the instructions he gave you.[end style]". There is an apple in 101-branch.
 
 Section 2 - Talking to Dr GitHub
 
