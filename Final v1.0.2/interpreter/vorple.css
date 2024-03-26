@@ -11,7 +11,7 @@ body {
 }
 
 a, a:visited {
-    color: #FFEB3B;
+    color: #369;
 }
 
 blockquote {
@@ -20,7 +20,7 @@ blockquote {
 }
 
 #vorple {
-    background-color: #000;
+    background-color: #fff;
     min-height: 100%;
 }
 

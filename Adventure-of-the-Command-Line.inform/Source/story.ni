@@ -210,7 +210,7 @@ When play begins:
 [	turn the foreground black;]
 	[apply black background style to the entire page;]
 	[say "A [light green letters style]frog[end style] jumps into the [light blue letters style]pond[end style][end style].";]
-	say "Version v1.0.3[line break]";
+	say "Version v1.0.4[line break]";
 	say "Hello there! Welcome to the world of magic (that is made up of code)! [paragraph break]";
 	say "Before you start, can you help me fill in this questionnaire first? [line break]";
 	place a link to web site "https://forms.office.com/e/1X7gkP6Ec2" reading "Click here to access the questionnaire webpage";
@@ -243,15 +243,58 @@ After reading a command when getting password:
 			now the command prompt is "> ";
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
-		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
+		say "First of all, here is a very important tip for you.[line break]";
+		say "[red letters style]Please read everything and do not skip lines[end style][line break]";
+		say "So that you don't miss anything important. [line break]";
+		say "[line break]Second, the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
 		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
 		say "To proceed on the dialogue, press the 'Enter' or 'Return' button to show the next dialogue. [line break]";
 		wait for any key;
 		say "Yes, just like this.[paragraph break]";
 		wait for any key;
-		say "So, do you need an explanation on the controls of this game?[line break]";
-		now the command prompt is "(yes or no?)> ";
-		reject the player's command;
+		say "Is this your first time playing games like this? (yes/no)[line break]>";
+		if the player consents:
+			say "Don't worry.[line break]";
+			wait for any key;
+			say "Things might be confusing at first. But if you follow the instructions, you will be fine.[line break]";
+			wait for any key;
+			say "Here are the commands you can use in game:[line break]";
+			wait for any key;
+			say "To move between [underlined font style][Italic type]connected rooms[Roman type][end style], do [Bold type][light blue letters style]cd target room name[end style][Roman type].";
+			wait for any key;
+			say "To look around the room, do [Bold type][light blue letters style]ls[end style][Roman type].";
+			wait for any key;
+			say "To examine objects in the same room as you, do [Bold type][light blue letters style]cat object name [end style][Roman type] [line break]";
+			wait for any key;
+			say "To talk to other people, do [Bold type][light blue letters style]talk[end style][Roman type] or [Bold type][light blue letters style]talk to person name [end style][Roman type][line break]";
+			wait for any key;
+			say "To pick up an item, do [Bold type][light blue letters style]pick up item name[end style][Roman type] or [Bold type][light blue letters style]take item name[end style][Roman type].";
+			wait for any key;
+			say "To undo a command, do [Bold type][light blue letters style]undo[end style][Roman type].[line break]";
+			wait for any key;
+			say "To sit on a chair, do [Bold type][light blue letters style]sit[end style][Roman type] or [Bold type][light blue letters style]sit down[end style][Roman type].[line break]";
+			wait for any key;
+			say "If you ever feel lost on what to do or can't find a command, [line break]";
+			wait for any key;
+			say "You can do [Bold type][yellow letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
+			wait for any key;
+			say "[line break]Now, do you know who you are?[line break]";
+			now the command prompt is "(yes/no)> ";
+			reject the player's command;
+		[say " > ";]
+	[otherwise if the player's command includes "no" or the player's command matches "n":
+		say "Okay. But if you ever feel lost on what to do or can't find a command, [line break]";
+		wait for any key;
+		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
+		say "Then do you know who you are? [line break]";
+		now the command prompt is "(yes/no)> ";
+		reject the player's command;]
+		otherwise:
+			say "Great, then this game shouldn't be too hard for you.";
+			wait for any key;
+			say "So, do you need an explanation on the controls of this game?[line break]";
+			now the command prompt is "(yes or no?)> ";
+			reject the player's command;
 		[say " > ";]
 	say "Incorrect password.[line break]Access Denied.[line break]";
 	reject the player's command.
@@ -271,7 +314,7 @@ After reading a command when learning controls:
 		wait for any key;
 		say "To talk to other people, do [Bold type][light blue letters style]talk[end style][Roman type] or [Bold type][light blue letters style]talk to person name [end style][Roman type][line break]";
 		wait for any key;
-		say "To pick up an item, do [Bold type][light blue letters style]pick up item name[end style][Roman type] or [Bold type][light blue letters style] take item name[end style][Roman type].";
+		say "To pick up an item, do [Bold type][light blue letters style]pick up item name[end style][Roman type] or [Bold type][light blue letters style]take item name[end style][Roman type].";
 		wait for any key;
 		say "To undo a command, do [Bold type][light blue letters style]undo[end style][Roman type].[line break]";
 		wait for any key;
@@ -289,7 +332,7 @@ After reading a command when learning controls:
 		say "Okay. But if you ever feel lost on what to do or can't find a command, [line break]";
 		wait for any key;
 		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do and the list of commands you can use.[line break]";
-		say "Great! Then do you know who you are? [line break]";
+		say "Then do you know who you are? [line break]";
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;
 	say "Please answer yes or no.[line break]";
