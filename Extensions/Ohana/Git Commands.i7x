@@ -110,6 +110,7 @@ After reading a command:
 		say "You wave your wand in the air and shouts 'git fetch'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
 		if the assignment-part is 2 and the location of the player is 101-AR:
 			say "[Bold type]Maya[Roman type]: I will take care of this branch. Don't worry![line break]";
+			say "Nothing is updated";
 			now the group-carrier is true;
 			reject the player's command;
 		otherwise:
@@ -131,7 +132,12 @@ After reading a command:
 				wait for any key;
 				say "Maybe you should read a few pages of it before calling it a day.[line break]";
 				wait for any key;
-				say "(Tip: The reference book is in your bedroom)[line break]";
+				if the location of the Git commands reference book is the bedroom:
+					say "(Tip: The reference book is in your bedroom)[line break]";
+				otherwise if the player is holding the Git commands reference book:
+					say "(Tip: You are currently holding the refernce book, type [Bold type]read book[Roman type] to read the book)[line break]";
+				otherwise:
+					say "(Tip: The reference book is in [the location of the Git commands reference book])[line break]";
 			reject the player's command.
 		[otherwise:
 			say "everything is up to date[line break]";
@@ -335,6 +341,7 @@ Instead of merging: [let L be the location of the player;]
 						now the name entry is room-103;]
 						next;
 				[now the player is in room-103; [done, move player and check]]
+				say "Here is your list of tracked items: (item | location)[line break]";
 				repeat through the Table of Tracked Fruits:
 					say "[Fname entry]	|[name entry][line break]";
 				[showme the contents of the Table of Tracked Fruits;]

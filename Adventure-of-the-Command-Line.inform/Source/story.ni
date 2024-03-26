@@ -262,23 +262,23 @@ After reading a command when learning controls:
 		wait for any key;
 		say "Yes, just like this.[paragraph break]";
 		wait for any key;
-		say "To move between [Italic type]connected rooms[Roman type], do [Bold type]cd target room name[Roman type].";
+		say "To move between [underlined font style][Italic type]connected rooms[Roman type][end style], do [Bold type][light blue letters style]cd target room name[end style][Roman type].";
 		wait for any key;
-		say "To look around the room, do [Bold type]ls[Roman type].";
+		say "To look around the room, do [Bold type][light blue letters style]ls[end style][Roman type].";
 		wait for any key;
-		say "To examine objects in the same room as you, do [Bold type]cat object name [Roman type] [line break]";
+		say "To examine objects in the same room as you, do [Bold type][light blue letters style]cat object name [end style][Roman type] [line break]";
 		wait for any key;
-		say "To talk to other people, do [Bold type]talk[Roman type] or [Bold type]talk to person name [Roman type][line break]";
+		say "To talk to other people, do [Bold type][light blue letters style]talk[end style][Roman type] or [Bold type][light blue letters style]talk to person name [end style][Roman type][line break]";
 		wait for any key;
-		say "To pick up an item, do [Bold type]pick up item name[Roman type] or [Bold type] take item name[Roman type].";
+		say "To pick up an item, do [Bold type][light blue letters style]pick up item name[end style][Roman type] or [Bold type][light blue letters style] take item name[end style][Roman type].";
 		wait for any key;
-		say "To undo a command, do [Bold type]undo[Roman type].[line break]";
+		say "To undo a command, do [Bold type][light blue letters style]undo[end style][Roman type].[line break]";
 		wait for any key;
-		say "To sit on a chair, do [Bold type]sit[Roman type] or [Bold type]sit down[Roman type].[line break]";
+		say "To sit on a chair, do [Bold type][light blue letters style]sit[end style][Roman type] or [Bold type][light blue letters style]sit down[end style][Roman type].[line break]";
 		wait for any key;
-		say "If you ever feel lost on what to do or can't find a command. [line break]";
+		say "If you ever feel lost on what to do or can't find a command, [line break]";
 		wait for any key;
-		say "You can do [Bold type]help[Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
+		say "You can do [Bold type][light blue letters style]help[end style][Roman type] to show what you need to do [line break] and the list of commands you can use.[line break]";
 		wait for any key;
 		say "[line break]Now, do you know who you are?[line break]";
 		now the command prompt is "(yes/no)> ";
@@ -952,8 +952,10 @@ Instead of talking to Dr Github:
 		now Dr GitHub is in the classroom;
 		say "(Tip: Maybe talk to your partner after reading the instruction paper?)";
 		now the assignment-part is 1;
+	otherwise if tutorial-done is true:
+		say "[Bold type]Dr. GitHub[Roman type]: Good luck on your assignment.[line break]";
 	otherwise:
-		say "Dr. GitHub: Please follow/complete the instructions I mentioned. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: Please follow/complete the instructions I mentioned. [line break]";
 		reject the player's command.
 		
 Section 3 - Talking to Maya
@@ -1037,7 +1039,10 @@ Instead of talking to Maya:
 			otherwise if the name entry is the location of Maya:
 				next;
 		wait for any key;
-		showme the contents of the Table of Tracked Items;
+		say "What you have tracked: (item | location)[line break]";
+		repeat through the Table of Tracked Items:
+			say "[Fname entry]    |    [name entry][line break]";
+		[showme the contents of the Table of Tracked Items;]
 		now the command prompt is "[Bold type]Maya[Roman type]: Can you cast the git commit and git push spell? (ʃƪ・∀・) (yes/no)[line break]> ";
 	otherwise:
 		say "[Bold type]Maya[Roman type]: Hi [player's name]!".
@@ -1130,10 +1135,10 @@ After reading a command when Maya is begging:
 					showme the contents of the Table of Assignment Results;]
 					say "What you have tracked: (item | location)[line break]";
 					repeat through the Table of Tracked Items:
-						say "[Fname entry]	|	[name entry][line break]";
+						say "[Fname entry]    |    [name entry][line break]";
 					say "[line break]What you should have tracked: (item | location)[line break]";
 					repeat through the Table of Assignment Results:
-						say "[Fname entry]	|	[name entry][line break]";
+						say "[Fname entry]    |    [name entry][line break]";
 					now the count is 0;
 					reject the player's command;
 	reject the player's command.
@@ -1394,12 +1399,12 @@ After reading a command:
 				say "You need to use the git command spell Dr. GitHub just taught you to go to 101-branch and talk to him when you arrive.[line break]";
 			otherwise if the tutorial-part is 3:
 				if the player is holding an orange:
-					say "Please put back the orange by doing [light blue letters style]drop orange[end style] and talk to Dr. GitHub[line break]";
+					say "Please put back the orange to 101-branch by doing [light blue letters style]drop orange[end style] in 101-branch and talk to Dr. GitHub[line break]";
 					wait for any key;
 				say "You need to update the branch and then talk to Dr. GitHub.[line break]";
 			otherwise if the tutorial-part is 4:
 				if the player is holding a strawberry:
-					say "Please put back the strawberry by doing [light blue letters style]drop strawberry[end style] and talk to Dr. GitHub[line break]";
+					say "Please put back the strawberry to 201-branch by doing [light blue letters style]drop strawberry[end style] in 201-branch and talk to Dr. GitHub[line break]";
 				otherwise:
 					say "You need to talk to Dr. GitHub in 101-branch after updating 201-branch.[line break]";
 			otherwise if the tutorial-part is 5:
@@ -1411,7 +1416,10 @@ After reading a command:
 			otherwise if tutorial-done is false and the tutorial-part is 8:
 				say "ONLY the apple, the orange and the strawberry should be tracked.[line break]";
 				say "Here is the list of fruits you have casted git add on:[paragraph break]";
-				showme the contents of the Table of Tracked Fruits;
+				[showme the contents of the Table of Tracked Fruits;]
+				say "Here is your list of tracked items: (item | location)[line break]";
+				repeat through the Table of Tracked Fruits:
+					say "[Fname entry]	|[name entry][line break]";
 				if the number of blank rows in the Table of Tracked Fruits is greater than 0:
 					say "You have casted git reset on something you shouldn't.[line break]";
 					wait for any key;
