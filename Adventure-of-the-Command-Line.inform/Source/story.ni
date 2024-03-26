@@ -391,6 +391,8 @@ Book 1 - Bedroom
 [Only use doors to tell where each room is in relative to other rooms, or else inform gets confused]
 Your Bedroom is a room. The printed name of Your Bedroom is "[player's name]'s Bedroom". The description is "This is your bedroom. As cozy as ever.  (❁´ω`❁)*✲ﾟ*". 
 
+[Understand "[the player's name]'s Bedroom" as your bedroom.]
+
 There is a bed, a desk and a bedside shelf in the bedroom. There is a clock on the bedside shelf. The bed is a container and enterable. The player is in the bed. There is a cat plushie in the bed. There is a Git commands reference book on the desk.
 
 Instead of entering bed when the tutorial-part is less than 7:
