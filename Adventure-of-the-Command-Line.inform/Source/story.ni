@@ -78,6 +78,8 @@ Table of Accessable Rooms
 name
 the classroom
 the bedroom
+101-branch
+201-branch
 --
 --
 --
@@ -238,7 +240,7 @@ After reading a command when getting password:
 	if the player's command matches "cTgxTspU":
 		now the command prompt is "Debug[line break]> ";
 		if the command prompt is "Debug[line break]> ":
-			say "debugging...[line break]";
+			[say "debugging...[line break]";]
 			now the command prompt is "> ";
 			now the command prompt is "> ";
 		say "Access Granted.[paragraph break]";
@@ -254,7 +256,7 @@ To decide whether learning controls:
 		no.
 		
 After reading a command when learning controls:
-	if the player's command matches "yes":
+	if the player's command includes "yes" or the player's command matches "y":
 		now the command prompt is "> ";
 		say "[line break]First the '>' symbol is where your command line is. [line break]If this appears on the last line, that means you can type your input there.";
 		say "If the '>' symbol did not appear, that means you are in the middle of a dialogue.";
@@ -262,7 +264,7 @@ After reading a command when learning controls:
 		wait for any key;
 		say "Yes, just like this.[paragraph break]";
 		wait for any key;
-		say "To move between connected rooms, do [Bold type]cd target room name[Roman type].";
+		say "To move between [Italic type]connected rooms[Roman type], do [Bold type]cd target room name[Roman type].";
 		wait for any key;
 		say "To look around the room, do [Bold type]ls[Roman type].";
 		wait for any key;
@@ -284,7 +286,7 @@ After reading a command when learning controls:
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;
 		[say " > ";]
-	otherwise if the player's command matches "no":
+	otherwise if the player's command includes "no" or the player's command matches "n":
 		say "Great! Then do you know who you are? [line break]";
 		now the command prompt is "(yes/no)> ";
 		reject the player's command;
@@ -297,7 +299,7 @@ To decide if knowing oneself:
 		no.
 
 After reading a command when knowing oneself:
-	if the player's command matches "yes":
+	if the player's command includes "yes" or the player's command includes "y":
 		say "[line break]No you don't. Don't lie to me.";
 		wait for any key;
 		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
@@ -314,7 +316,7 @@ After reading a command when knowing oneself:
 		now the command prompt is "> [line break]";
 		say "[line break]";
 		reject the player's command;
-	otherwise if the player's command matches "no":
+	otherwise if the player's command includes "no" or the player's command matches "n":
 		say "[line break]No worries. I'll tell you who you are.";
 		wait for any key;
 		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
@@ -327,11 +329,11 @@ After reading a command when knowing oneself:
 		wait for any key;
 		say "However, when inputting your username, please only use ONE word for it ( ie No spaces in between!)[line break]";
 		wait for any key;
-		say "Now use the format 'git config --global user_name your_name_here to tell me your name.[paragraph break]";
+		say "Now use the format 'git config --global user*name your_name_here to tell me your name.[paragraph break]";
 		now the command prompt is "> [line break]";
 		[say "[line break]";]
 		reject the player's command;
-	say "1Please answer yes or no.[line break]";
+	say "Please answer yes or no.[line break]";
 	reject the player's command.
 
 Instead of looking when collecting names: do nothing.
@@ -392,6 +394,15 @@ Instead of sleeping when the assignment-part is 4 or the assignment-part is 7:
 	say "You jumped into bed and fell asleep.[paragraph break]";
 	wait for any key;
 	say "*snoring sounds* (´〜｀*) zzz[paragraph break]";
+	if the location of the watermelon is the storage room:
+		now the watermelon is in the 101-AR;
+		now the grape is in the 101-AR;
+		repeat with N running from 1 to the number of rows in the Table of Fruits:
+			choose row N in the Table of Fruits;
+			if the Fname in row N of the Table of Fruits is the grape:
+				now the name in row N of the Table of Fruits is 101-AR;
+			otherwise if the Fname in row N of the Table of Fruits is the watermelon:
+				now the name in row N of the Table of Fruits is 101-AR;
 	if the assignment-part is 4:
 		choose a blank row in the Table of Tracked Items;
 		now Fname entry is grape;
@@ -719,6 +730,10 @@ Every turn:
 				wait for any key;
 				say "[Bold type]Dr. Github[Roman type]: The first spell is called [light green letters style]git checkout[end style]. It is used for teleporting yourself to other branches. [line break]";
 				wait for any key;
+				say "[Bold type]Dr. GitHub[Roman type]: Branches are rooms that are not connected to other rooms, [line break]";
+				wait for any key;
+				say "[Bold type]Dr. GitHub[Roman type]: Therefore, to access them you can only teleport there.[line break]";
+				wait for any key;
 				[say "Dr. Github: But mind you, not all rooms (aka branches in reality) can be teleported to. (But in reality, you can use this to go to any branch you have access to)"]
 				say "[Bold type]Dr. Github[Roman type]: now do [light green letters style]git checkout 101-branch[end style] to go to 101-branch, I'll meet everyone there. [line break]";
 				wait for any key;
@@ -967,11 +982,12 @@ Instead of talking to Maya:
 		wait for any key;
 		say "(Tip: You can access the Canteen through the corridor.)";
 		now the description of the corridor is "You can access your bedroom, the classroom and the canteen through this corridor.";
+		now Maya is in the 101-AR;
 		now the assignment-part is 2;
 		reject the player's command;
 	[]
 	if assignment-part is 2:
-		say "[Bold type]Maya[Roman type]: Hi [player's name], I've updated the branch. What about you? (｡･ω･)ﾉﾞ[line break]";
+		say "[Bold type]Maya[Roman type]: Hi [player's name], I'm trying to update the branch. What about you? (｡･ω･)ﾉﾞ[line break]";
 		reject the player's command;
 	if assignment-part is 4:
 		say "[Bold type]Maya[Roman type]: Hi, [player's name], how's your progress? (｡･ω･)ﾉﾞ[line break]";
@@ -1286,7 +1302,7 @@ Instead of eating the meal deal:
 	say "After a few minutes, the entire meal deal is in your stomach.[line break]";
 	now the meal deal is nowhere;
 	wait for any key;
-	say "You are now satisfied and have decided to visit the assignment rooms.[line break]";
+	say "You are now satisfied and have decided to visit 201-AR.[line break]";
 	repeat with N running from 1 to the number of rows in the Table of Fruits:
 		choose row N in the Table of Fruits;
 		if the Fname in row N of the Table of Fruits is the grape:
