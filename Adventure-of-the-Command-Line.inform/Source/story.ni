@@ -106,6 +106,9 @@ table	101-AR	101-AR
 drawer	101-AR	101-AR
 plant	201-AR	201-AR
 ball	201-AR	201-AR
+mug	AR-Main	AR-Main
+folder	AR-Main	AR-Main
+stool	AR-Main	AR-Main
 
 Table of Tracked Fruits
 Fname(thing)	name(room)
@@ -1120,6 +1123,18 @@ Instead of talking to Maya:
 		wait for any key;
 		say "[Bold type]Maya[Roman type]: Oh great! ( ´ ▽ ` )b I'll merge my branch now.[line break]";
 		wait for any key;
+		if the number of blank rows in the Table of Tracked Items is greater than 0:
+			say "Maya: I think we forgot to track something...[line break][line break]";
+			wait for any key;
+			say "This is what you have tracked (item | location): [line break]";
+			repeat through the Table of Tracked Items:
+				say "[Fname entry]	|[name entry][line break]";
+			say "[line break]What you and Maya should have tracked (item | location): [line break]";
+			repeat through the Table of Tutorial Results:
+				say "[Fname entry]	|[name entry][line break]";
+			wait for any key;
+			say "[line break]Talk to Maya after you have tracked all the required items.[line break]";
+			reject the player's command;
 		say "Maya waves her wand in the air and shouts 'git merge 101-AR'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
 		[now the grape is in AR-Main;
 		now the watermelon is in AR-Main;]
