@@ -1130,7 +1130,7 @@ Instead of talking to Maya:
 			repeat through the Table of Tracked Items:
 				say "[Fname entry]	|[name entry][line break]";
 			say "[line break]What you and Maya should have tracked (item | location): [line break]";
-			repeat through the Table of Tutorial Results:
+			repeat through the Table of Assignment Results:
 				say "[Fname entry]	|[name entry][line break]";
 			wait for any key;
 			say "[line break]Talk to Maya after you have tracked all the required items.[line break]";
