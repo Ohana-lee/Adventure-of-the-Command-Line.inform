@@ -845,7 +845,7 @@ Every turn:
 			reject the player's command.
 
 Instead of entering chair:
-	say "Do you want to start the tutorial? (yes/no)[line break]";
+	say "Do you want to start the lecture? (yes/no)[line break]";
 	if the player consents:
 		[say "[paragraph break]";]
 		if the player does not have the wand:
