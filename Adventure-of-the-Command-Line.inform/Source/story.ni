@@ -44,11 +44,11 @@ Definition: a direction (called thataway) is viable if the room thataway from th
 
 Chapter 1 - Achievements
 
-The learning-ahead is a truth state that varies. The learning-ahead is false.
+[The learning-ahead is a truth state that varies. The learning-ahead is false.
 
-The dementia is a truth state that varies. The dementia is false.
+The dementia is a truth state that varies. The dementia is false.]
 
-The hoarder is a truth state that varies. The hoarder is false.
+[The hoarder is a truth state that varies. The hoarder is false.
 
 The starving is a truth state that varies. The starving is false.
 
@@ -58,9 +58,20 @@ The git-master is a truth state that varies. The git-master is false.
 
 The make-maya is a truth state that varies. The make-maya is false.
 
-The group-carrier is a truth state that varies. The group-carrier is false.
+The group-carrier is a truth state that varies. The group-carrier is false.]
 
 The fuck-around is a truth state that varies. The fuck-around is false.
+
+Table of Achievements
+AchName (text)	State (truth state)	pLine1 (text)	pLine2 (text)
+"learning-ahead"	false	"[Bold type][magenta letters style]Learning Ahead: Doing git commands before you even learnt it[end style][Roman type][line break]"	"[Italic type]You must be a hard-working student.[Roman type][paragraph break]"
+"dementia"	false	"[Bold type][magenta letters style]Dementia: Doing the command 'whoami'[end style][Roman type][line break]"	"[Italic type]Who am I? Where am I? [Roman type][paragraph break]"
+"hoarder"	false	"[Bold type][magenta letters style]The hoarder: Picking up everying you can pick up[end style][Roman type][line break]"	"[Italic type]Aren't you tired carrying all those stuff around?[Roman type][paragraph break]"
+"starving"	false	"[Bold type][magenta letters style]Starving: Trying to eat something inedible[end style][Roman type][line break]"	"[Italic type]Starving yourself to a point like this isn't good for your health... [Roman type][paragraph break]"
+"help-is-4-the-weak"	true	"[Bold type][magenta letters style]Help is for the weak: Never used the 'help' command[end style][Roman type][line break]"	"[Italic type]Strong witches and wizards do not need help. [Roman type][paragraph break]"
+"git-master"	false	"[Bold type][magenta letters style]The master of Git Commands: got the correct answer on the first try of each question of the Git Reference Book[end style][Roman type][line break]"	"[Italic type]You are the true master of Git Commands[Roman type][paragraph break]"
+"make-maya"	false	"[Bold type][magenta letters style]Make your partner work: Make Maya do git commit and git push[end style][Roman type][line break]"	"[Italic type]You're not a freerider... Are you? [Roman type][paragraph break]"
+"group-carrier"	false	"[Bold type][magenta letters style]Group Carrier: Trying to do more work than your partner[end style][Roman type][line break]"	"[Italic type]Maya: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]"
 
 Blue is always "#2B3BFF".
 Green is always "#37FD12".
@@ -414,7 +425,11 @@ After reading a command:
 After reading a command:
 	if the player's command matches "whoami":
 		say "[player's name][paragraph break]";
-		now dementia is true;
+		repeat with N running from 1 to the number of rows in the Table of Achievements:
+			choose row N in the Table of Achievements;
+			if the AchName in row N of the Table of Achievements is "dementia":
+				now the state in row N of the Table of Achievements is true;
+[		now dementia is true;]
 		[say "achievement get";]
 		reject the player's command.
 		
@@ -1161,7 +1176,11 @@ To decide whether Maya is begging:
 After reading a command when Maya is begging:
 	if the player's command includes "yes" or the player's command matches "y":
 		say "[Bold type]Maya[Roman type]: Thank you![line break]";
-		now the group-carrier is true;
+		repeat with N running from 1 to the number of rows in the Table of Achievements:
+			choose row N in the Table of Achievements;
+			if the AchName in row N of the Table of Achievements is "group-carrier":
+				now the state in row N of the Table of Achievements is true;
+		[now the group-carrier is true;]
 		[say "achievement get";]
 		now the command prompt is "> ";
 		reject the player's command;
@@ -1170,7 +1189,11 @@ After reading a command when Maya is begging:
 	if the maya-beg-count is 4:
 		now the command prompt is "> ";
 		say "[line break][Bold type]Maya[Roman type]: Okay... I'll do it myself. (｡-_-｡)[line break]";
-		now make-maya is true;
+		repeat with N running from 1 to the number of rows in the Table of Achievements:
+			choose row N in the Table of Achievements;
+			if the AchName in row N of the Table of Achievements is "make-maya":
+				now the state in row N of the Table of Achievements is true;
+[		now make-maya is true;]
 		[say "achievement get";]
 		wait for any key;
 		if the assignment-part is greater than 0:
@@ -1266,29 +1289,43 @@ After reading a command when finishing game:
 			if the player is holding your desk:
 				if the player is holding the cat plushie:
 					if the player is holding the Git Commands Reference Book:
-						now the hoarder is true;
+						repeat with N running from 1 to the number of rows in the Table of Achievements:
+							choose row N in the Table of Achievements;
+							if the AchName in row N of the Table of Achievements is "hoarder":
+								now the state in row N of the Table of Achievements is true;
+[						now the hoarder is true;]
 						[say "achievement get";]
 		if the q-count is 6:
-			now git-master is true;
+			repeat with N running from 1 to the number of rows in the Table of Achievements:
+				choose row N in the Table of Achievements;
+				if the AchName in row N of the Table of Achievements is "git-master":
+					now the state in row N of the Table of Achievements is true;
+[			now git-master is true;]
 		[]
 		say "[Bold type]Mysterious Voice[Roman type]: Correct!! You are free to walk around the school or just leave the game. [line break]";
 		wait for any key;
 		say "[Bold type]Mysterious Voice[Roman type]:Oh right! •͈ ꇴ •͈ And here's the achievements you earned during the game: [paragraph break]";
 		wait for any key;
+		repeat with N running from 1 to the number of rows in the table of Achievements:
+			choose row N in the Table of Achievements;
+			if the State in row N of the Table of Achievements is true:
+				say "[pLine1 entry]";
+				say "[pLine2 entry]";
+				wait for any key;
 		[list out achievements]
-		if learning-ahead is true:
+		[if learning-ahead is true:
 			say "[Bold type][magenta letters style]Learning Ahead: Doing git commands before you even learnt it[end style][Roman type][line break]";
 			say "[Italic type]You must be a hard-working student.[Roman type][paragraph break]";
 			wait for any key;
 		if dementia is true:
 			say "[Bold type][magenta letters style]Dementia: Doing the command 'whoami'[end style][Roman type][line break]";
 			say "[Italic type]Who am I? Where am I? [Roman type][paragraph break]";
-			wait for any key;
+			wait for any key']
 		if fuck-around is true:
 			say "[Bold type][magenta letters style]Fucking around: typing 'fuck you' as input[end style][Roman type][line break]";
 			say "[Italic type]Fuck around and you will find out [Roman type][paragraph break]";
 			wait for any key;
-		if the hoarder is true:
+		[if the hoarder is true:
 			say "[Bold type][magenta letters style]The hoarder: Picking up everying you can pick up[end style][Roman type][line break]";
 			say "[Italic type]Aren't you tired carrying all those stuff around?[Roman type][paragraph break]";
 			wait for any key;
@@ -1311,7 +1348,7 @@ After reading a command when finishing game:
 		if group-carrier is true:
 			say "[Bold type][magenta letters style]Group Carrier: Trying to do more work than your partner[end style][Roman type][line break]";
 			say "[Italic type]Maya: I don't want to be a freerider... Please leave me some work to do. [Roman type][paragraph break]";
-			wait for any key;
+			wait for any key;]
 		say "[Bold type]Mysterious Voice[Roman type]: That's all the achievements you've got. Till we meet again! (^ｰ^)ﾉ";
 		say "(You're free to move around now)";
 		reject the player's command;
@@ -1362,7 +1399,11 @@ Instead of eating a noun:
 			say "You ate the [noun].";
 	otherwise:
 		say "This is not edible. Are you OK?[line break]";
-		now the starving is true;
+		repeat with N running from 1 to the number of rows in the Table of Achievements:
+			choose row N in the Table of Achievements;
+			if the AchName in row N of the Table of Achievements is "starving":
+				now the state in row N of the Table of Achievements is true;
+		[now the starving is true;]
 		say "achievement get";
 		reject the player's command.
 		
@@ -1444,7 +1485,11 @@ Volume 4 - Help function
 
 After reading a command:
 	if the player's command matches "help":
-		now help-is-4-the-weak is false;
+		repeat with N running from 1 to the number of rows in the Table of Achievements:
+			choose row N in the Table of Achievements;
+			if the AchName in row N of the Table of Achievements is "help-is-4-the-weak":
+				now the state in row N of the Table of Achievements is true;
+		[now help-is-4-the-weak is false;]
 		if the assignment-part is greater than 0:
 			if the assignment-part is 1:
 				say "You need to talk to your partner.[line break]";
