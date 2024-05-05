@@ -440,7 +440,7 @@ After reading a command:
 		
 After reading a command:
 	if the player's command matches "git update":
-		say "Do you mean [light green letters style]git fetch[end style]?";
+		say "Do you mean [light green letters style]git pull[end style]?";
 		reject the player's command.
 
 Volume 3 - Rooms set up
@@ -602,7 +602,7 @@ Instead of examining the Git commands reference book:
 		say "Please only type the corresponding letter when answering the question. (e.g. type 'A' in the command line when you think the 1st answer is correct.) [paragraph break]";
 		wait for any key;
 		say "Q1 Which command can be used to create a new repository?[line break]";
-		say "A. git fetch[line break]";
+		say "A. git pull[line break]";
 		say "B. git add[line break]";
 		say "C. git init[line break]";
 		say "D. git checkout[line break][line break]";
@@ -657,7 +657,7 @@ To decide whether asking Q1:
 After reading a command when asking Q1:
 	[say "What's your answer?";]
 	if the player's command includes "C":
-		say "[line break]Correct. [line break][light green letters style]git init[end style] creates and initializes a repository. [line break][light green letters style]git fetch[end style] updates the branch you are on according to the same branch on the remote repositiory.[line break][light green letters style]git add[end style] adds files to the staging area and git starts tracking their history.[line break][light green letters style]git checkout[end style] takes you to a branch of your choice or to create new branches.[paragraph break]";
+		say "[line break]Correct. [line break][light green letters style]git init[end style] creates and initializes a repository. [line break][light green letters style]git pull[end style] updates the branch you are on according to the same branch on the remote repositiory.[line break][light green letters style]git add[end style] adds files to the staging area and git starts tracking their history.[line break][light green letters style]git checkout[end style] takes you to a branch of your choice or to create new branches.[paragraph break]";
 		if first-try is true:
 			now q-count is 1;
 		otherwise:
@@ -688,7 +688,7 @@ After reading a command when asking Q2:
 			now first-try is true;
 		wait for any key;
 		say "Q3 What spells cannot be cast on branches?[line break]";
-		say "A. git fetch[line break]";
+		say "A. git pull[line break]";
 		say "B. git config[line break]";
 		say "C. git push[line break]";
 		say "D. git commit[line break][line break]";
@@ -915,14 +915,14 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. Github[Roman type]: As a side note, you can do [light green letters style]git branch[end style] to [underlined font style]check which branches you can teleport to.[end style][line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [light green letters style]git fetch[end style]! [line break]";
+		say "[Bold type]Dr. Github[Roman type]: Now here goes the 2nd spell, [light green letters style]git pull[end style]! [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: What git fetch does is [underlined font style]to update the branch[end style]. Others may have made some changes to branch but you can't see it yet. [line break]";
+		say "[Bold type]Dr. Github[Roman type]: What git pull does is [underlined font style]to update the branch[end style]. Others may have made some changes to branch but you can't see it yet. [line break]";
 		wait for any key;
-		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [light green letters style]git fetch[end style]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
+		say "[Bold type]Dr. Github[Roman type]: So you need to use this spell to make the changes visible to you. Now say after me, [light green letters style]git pull[end style]! (∩^o^)⊃━☆ﾟ.*･｡[line break] (Tip: Talk to Dr. Github again after updating the branch)";
 		now the tutorial-part is 3;
 		choose a blank row in the Table of Commands Learnt;
-		now the cmd entry is "[Bold type][light green letters style]git fetch[end style][Roman type]";
+		now the cmd entry is "[Bold type][light green letters style]git pull[end style][Roman type]";
 		now the usage entry is "updates the branch you are currently at";
 		choose a blank row in the Table of Commands Learnt;
 		now the cmd entry is "[Bold type][light green letters style]git branch[end style][Roman type]";
@@ -930,7 +930,7 @@ Instead of talking to Dr Github:
 		reject the player's command;
 		[]
 	if tutorial-part is 3 and the location of the orange is 101-branch:
-		say "[Bold type]Dr. GitHub[Roman type]: As a reminder, you should always do [light green letters style]git fetch[end style] first everytime you start working on a branch. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: As a reminder, you should always do [light green letters style]git pull[end style] first everytime you start working on a branch. [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Great, now you've learnt 2 new spells. Let's put them into practice. [line break]";
 		wait for any key;
@@ -1006,7 +1006,7 @@ Instead of talking to Dr Github:
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: Σ(;ﾟдﾟ) What is that voice? Is there something wrong with me? [line break]";
 		wait for any key;
-		say "[Bold type]Dr. GitHub[Roman type]: *Coughs* Anyway, after [light green letters style]git commit[end style], always do [light green letters style]git push[end style]. So other people can see the changes you made when they do [light green letters style]git fetch[end style]. [line break]";
+		say "[Bold type]Dr. GitHub[Roman type]: *Coughs* Anyway, after [light green letters style]git commit[end style], always do [light green letters style]git push[end style]. So other people can see the changes you made when they do [light green letters style]git pull[end style]. [line break]";
 		wait for any key;
 		say "[Bold type]Dr. GitHub[Roman type]: In exams and assignments, you MUST do [light green letters style]git commit[end style] and [light green letters style]git push[end style] so that I can see what you did. [line break]";
 		wait for any key;
@@ -1570,7 +1570,7 @@ After reading a command:
 					wait for any key;
 				say "You need to update the branch and then talk to Dr. GitHub.[line break]";
 				wait for any key;
-				say "To update a branch, do [light green letters style]git fetch[end style][line break]";
+				say "To update a branch, do [light green letters style]git pull[end style][line break]";
 			otherwise if the tutorial-part is 4:
 				if the player is holding a strawberry:
 					say "Please put back the strawberry to 201-branch by doing [light blue letters style]drop strawberry[end style] in 201-branch and talk to Dr. GitHub[line break]";
@@ -1579,7 +1579,7 @@ After reading a command:
 					wait for any key;
 					say "To teleport to 201-branch, do [light green letters style]git checkout 201-branch[end style][line break]";
 					wait for any key;
-					say "To update a branch, do [light green letters style]git fetch[end style] [line break]";
+					say "To update a branch, do [light green letters style]git pull[end style] [line break]";
 			otherwise if the tutorial-part is 5:
 				say "You have to track the orange then talk to Dr. GitHub.[line break]";
 				wait for any key;
