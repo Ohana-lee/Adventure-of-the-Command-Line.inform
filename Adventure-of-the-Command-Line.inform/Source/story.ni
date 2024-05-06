@@ -372,7 +372,7 @@ After reading a command when knowing oneself:
 	if the player's command includes "yes" or the player's command includes "y":
 		say "[line break]No you don't. Don't lie to me.";
 		wait for any key;
-		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
+		say "You are a student from a Magic Academy named ChronoVerse Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
 		wait for any key;
 		say "Now let's get you into Git commands. [line break]";
 		wait for any key;
@@ -389,7 +389,7 @@ After reading a command when knowing oneself:
 	otherwise if the player's command includes "no" or the player's command matches "n":
 		say "[line break]No worries. I'll tell you who you are.";
 		wait for any key;
-		say "You are a student from a Magic Academy named Enchanted Code Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
+		say "You are a student from a Magic Academy named ChronoVerse Academy.[line break]The academy is known for its Git Commands Course and you've always wanted to learn Git commands.";
 		wait for any key;
 		say "Now let's get you into Git commands. [line break]";
 		wait for any key;
