@@ -7,7 +7,7 @@ This is a text-based adventure game made with inform 7 that teaches Git Commands
 
 ## How to play the game
 
-The recommended way is to run this [game](https://ohana-lee.github.io/Adventure-of-the-Command-Line/Final%20v1.0.2/play.html) in a web browser. 
+The recommended way is to run this [game](https://ohana-lee.github.io/ChronoVerse-Academy/Final%20v1.0.2/play.html) in a web browser. 
 
 Another way is to run this game in an [inform 7 IDE](https://ganelson.github.io/inform-website/downloads/):
 
