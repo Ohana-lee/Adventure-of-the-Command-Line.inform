@@ -31,6 +31,7 @@ Instead of teleping:
 				say "you entered [the noun]. [line break]";
 			otherwise:
 				say "You cannot access [the noun] from here.[line break]";
+				say "[the noun] is not connected to the room you are currently in[line break]";
 		otherwise if the location of the player is the bedroom:
 			if the noun is mapped south of the bedroom:
 				[say "teleporting...";]
@@ -38,6 +39,7 @@ Instead of teleping:
 				say "you entered [the noun]. [line break]";
 			otherwise:
 				say "You cannot access [the noun] from here.[line break]";
+				say "[the noun] is not connected to the room you are currently in[line break]";
 		otherwise if the location of the player is the canteen:
 			if the noun is mapped west of the canteen:
 				[say "teleporting...";]
@@ -45,6 +47,7 @@ Instead of teleping:
 				say "you entered [the noun]. [line break]";
 			otherwise:
 				say "You cannot access [the noun] from here.[line break]";
+				say "[the noun] is not connected to the room you are currently in[line break]";
 		otherwise if the location of the player is the corridor:
 			if the noun is mapped north of the corridor:
 				[say "teleporting...";]
@@ -60,8 +63,10 @@ Instead of teleping:
 				say "you entered [the noun]. [line break]";
 			otherwise:
 				say "You cannot access [the noun] from here.[line break]";
+				say "[the noun] is not connected to the room you are currently in[line break]";
 		otherwise:
 			say "You cannot access [the noun] from here.[line break]";
+			say "[the noun] is not connected to the room you are currently in[line break]";
 	otherwise:
 		say "[the noun] is not something you can enter.[line break]".
 
@@ -74,7 +79,11 @@ Teleporting is an action applying to one visible thing. Understand “git checko
 
 Instead of teleporting:
 	if the tutorial-part is 1:
-		now the learning-ahead is true;
+		repeat with N running from 1 to the number of rows in the Table of Achievements:
+			choose row N in the Table of Achievements;
+			if the AchName in row N of the Table of Achievements is "learning-ahead":
+				now the state in row N of the Table of Achievements is true;
+		[now the learning-ahead is true;]
 		[say "achievement get";]
 	if the noun is a room:
 		if the noun is a name listed in the Table of Accessable Rooms:
@@ -93,25 +102,36 @@ Instead of teleporting:
 After reading a command:
 	if player's command matches "git branch":
 		if the tutorial-part is 1:
-			now the learning-ahead is true;
+			repeat with N running from 1 to the number of rows in the Table of Achievements:
+				choose row N in the Table of Achievements;
+				if the AchName in row N of the Table of Achievements is "learning-ahead":
+					now the state in row N of the Table of Achievements is true;
+			[now the learning-ahead is true;]
 			[say "achievement get";]
 		say "Here are all rooms you can teleport to: [line break]";
 		repeat through the Table of Accessable Rooms:
-			say "[name entry][line break]";
+			if the name entry is the bedroom:
+				say "Bedroom[line break]";
+			otherwise:
+				say "[name entry][line break]";
 		reject the player's command.
 
-Book 2 - git fetch 
+Book 2 - git pull 
 
 [git fetch, update room]
 After reading a command:
-	if player's command matches "git fetch":
+	if player's command matches "git pull":
 		[if orange is not in room-101: [change to check table]
 			move the orange to room-101;]
-		say "You wave your wand in the air and shouts 'git fetch'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
+		say "You wave your wand in the air and shouts 'git pull'! (∩^o^)⊃━☆ﾟ.*･ [line break]";
 		if the assignment-part is 2 and the location of the player is 101-AR:
 			say "[Bold type]Maya[Roman type]: I will take care of this branch. Don't worry![line break]";
 			say "Nothing is updated";
-			now the group-carrier is true;
+			repeat with N running from 1 to the number of rows in the Table of Achievements:
+				choose row N in the Table of Achievements;
+				if the AchName in row N of the Table of Achievements is "group-carrier":
+					now the state in row N of the Table of Achievements is true;
+			[now the group-carrier is true;]
 			reject the player's command;
 		otherwise:
 			repeat with N running from 1 to the number of rows in the Table of Fruits:
@@ -124,7 +144,7 @@ After reading a command:
 			[showme the contents of the Table of Fruits;]
 			say "[paragraph break] Everything is up to date[line break]";
 			[say "assignment part: [assignment-part][line break]";]
-			if the assignment-part is 2 and the location of the player is 201-AR:
+			if the assignment-part is less than 3 and the location of the player is 201-AR:
 				now the assignment-part is 3;
 				say "You have been performing too much magic today, so you are out of mana now.[line break]";
 				wait for any key;
@@ -173,7 +193,11 @@ Instead of gitAdding:
 						break;
 				if the target-val is 101-AR:
 					say "[Bold type]Maya[Roman type]: I will take care of this, don't worry![line break]";
-					now the group-carrier is true;
+					repeat with N running from 1 to the number of rows in the Table of Achievements:
+						choose row N in the Table of Achievements;
+						if the AchName in row N of the Table of Achievements is "group-carrier":
+							now the state in row N of the Table of Achievements is true;
+					[now the group-carrier is true;]
 					say "[the noun] have not been tracked.[line break]";
 					reject the player's command;
 				if the target-val is not the location of the player:
@@ -213,6 +237,8 @@ Instead of gitAdding:
 					repeat through the Table of Tracked Fruits:
 						say "[Fname entry]	|	[name entry][line break]";
 					[showme the contents of the Table of Tracked Fruits;]
+					if there is a Fname of strawberry in the Table of Tracked Fruits:
+						now the description of 101-branch is "Welcome back. Now you have tracked the strawberry, why don't you talk to Dr. GitHub about it? [line break][underlined font style]Tip: Type 'talk' in the command line to talk to him.[end style]";
 				otherwise:
 					say "Your spell failed because there is no item named [noun] in [the location of the player].[line break]";
 					wait for any key;
@@ -306,13 +332,29 @@ Instead of merging: [let L be the location of the player;]
 			otherwise if the assignment-part is greater than 3:
 				if the noun is 101-AR:
 					say "[Bold type]Maya[Roman type]: I will take care of this. Don't worry![line break]";
-					now the group-carrier is true;
+					repeat with N running from 1 to the number of rows in the Table of Achievements:
+						choose row N in the Table of Achievements;
+						if the AchName in row N of the Table of Achievements is "group-carrier":
+							now the state in row N of the Table of Achievements is true;
+					[now the group-carrier is true;]
 					wait for any key;
-					say "[Bold type]Maya[Roman type]: You can merge 201-branch into this branch instead.[line break]";
+					say "[Bold type]Maya[Roman type]: You can merge 201-AR into this branch instead.[line break]";
 					wait for any key;
 					say "101-AR is not merged to AR-Main.[line break]";
 					reject the player's command;
 				otherwise:
+					if the number of blank rows in the Table of Tracked Items is greater than 0:
+						say "[player's name]: I think I forgot to track something...[line break]";
+						wait for any key;
+						say "This is what you have tracked (item | location): [line break]";
+						repeat through the Table of Tracked Items:
+							say "[Fname entry]	|[name entry][line break]";
+						say "[line break]What you and Maya should have tracked (item | location): [line break]";
+						repeat through the Table of Assignment Results:
+							say "[Fname entry]	|[name entry][line break]";
+						wait for any key;
+						say "Try again when you have everything required tracked.[line break]";
+						reject the player's command;
 					repeat with N running from 1 to the number of rows in the Table of Tracked Items:
 						choose row N in the Table of Tracked Items;
 						if the name in row N of the Table of Tracked Items is the noun:
@@ -334,7 +376,7 @@ Instead of merging: [let L be the location of the player;]
 					[say "now in row [current table row] [line break]";]
 					if the name in row N of the Table of Tracked Fruits is the noun:
 						now Fname in row N of the Table of Tracked Fruits is in the location of the player;
-						say "You see [a Fname entry] coming out of nowhere.";
+						say "You see [a Fname entry] coming out.";
 						now the name entry is the location of the player;
 					otherwise if the name entry is the location of the player:
 						[now Fname in row N of the Table of Tracked Fruits is in room-103;
@@ -344,6 +386,7 @@ Instead of merging: [let L be the location of the player;]
 				say "Here is your list of tracked items: (item | location)[line break]";
 				repeat through the Table of Tracked Fruits:
 					say "[Fname entry]	|[name entry][line break]";
+				say "[line break] [noun] has been merged into [the location of the player][line break]";
 				[showme the contents of the Table of Tracked Fruits;]
 		otherwise:
 			say "You can't merge that.";
@@ -454,7 +497,10 @@ After reading a command:
 						now the tutorial-done is true;
 						now the commit-status is false;
 						wait for any key;
-						say "Go tell Dr. Github this good news![line break]";
+						say "If you want to stop here, please fill in this questionnaire before you leave.[line break]";
+						place a link to web site "https://forms.office.com/e/ANyKGihcVu" reading "Click here to access the questionnaire webpage";
+						wait for any key;
+						say "[line break][line break]Otherwise, go tell Dr. Github this good news![line break]";
 						[say "tutorial done: [tutorial-done][line break]";]
 						reject the player's command;
 					otherwise:
@@ -472,7 +518,7 @@ After reading a command:
 						reject the player's command;
 		otherwise:
 			[say "last command: [the_last_command][line break]";]
-			say "You need to do git commit first. [line break]";
+			say "There is nothing to push. You need to do git commit first. [line break]";
 			reject the player's command.
 		[checks room]
 		[if correct, continues storyline]
@@ -536,8 +582,7 @@ After reading a command:
 		
 Book 9 - git pull
 
-[git pull, update room]
-After reading a command:
+[git pull, update room][ reading a command:
 	if player's command matches "git pull":
 		[if orange is not in room-101: [change to check table]
 			move the orange to room-101;]
@@ -569,6 +614,6 @@ After reading a command:
 			reject the player's command.
 		[otherwise:
 			say "everything is up to date[line break]";
-			reject the player's command.]
+			reject the player's command.]]
 
 Git Commands ends here.
